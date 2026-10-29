@@ -3,7 +3,7 @@
 > **给一个看不到旧聊天的 Agent**：读完本文件 + `ops/MASTER_STATE.md` + `ops/MEMORY_GLOBAL.md`
 > 就能继续推进，不需要任何旧对话。
 
-- **更新时间**：2026-10-30 02:40（Asia/Shanghai）
+- **更新时间**：2026-10-30 05:30（Asia/Shanghai）
 - **生产仓库路径**：`C:\Users\11930\Desktop\第零号证物局\zero-dossier-office\`
 - **输入材料（只读）**：`..\第零证物局_V2_究极版_完整策划素材案件与DSH执行包.zip`
   → 已解压至 `..\_input\Zero_Dossier_V2\`
@@ -29,12 +29,12 @@
 | 项 | 值 |
 |---|---|
 | GitHub 仓库 | <https://github.com/tbj0623/zero-dossier-office> |
-| 远端 HEAD | `5cd25d45` |
-| 本地 HEAD | `35b92ff`（内容与远端逐 blob 一致） |
+| 远端 HEAD | `7ed97bea` |
+| 本地 HEAD | `cbe25f3`（内容与远端逐 blob 一致） |
 | 线上站点 | <https://tbj0623.github.io/zero-dossier-office/> — HTTP 200 |
 | Pages 来源 | GitHub Actions（`build_type=workflow`） |
 | CI | ✅ success（含全部门禁） |
-| itch.io | **DRAFT_READY** — `release/itch-html5-release.zip`，22 文件 / 0.59 MB，`index.html` 在根目录，已独立解压跑通 38/38 |
+| itch.io | **DRAFT_READY** — `release/itch-html5-release.zip`，27 文件 / 0.68 MB，`index.html` 在根目录，已独立解压跑通 38/38（中文）+ 12/12（英文） |
 | 社交预览 | 图片就绪，**未在仓库 Settings 设置** |
 | 真实人类试玩 | **NOT_DONE** |
 | 费用 | 零 |

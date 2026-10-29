@@ -1,6 +1,6 @@
 # MASTER_STATE · 第零证物局 V2
 
-更新时间：2026-10-30 04:50（Asia/Shanghai）
+更新时间：2026-10-30 05:30（Asia/Shanghai）
 
 ## 一句话
 
@@ -24,6 +24,7 @@
 | 项 | 值 |
 |---|---|
 | GitHub 仓库 | https://github.com/tbj0623/zero-dossier-office |
+| 远端 HEAD | `7ed97bea`（385 个受版本控制文件） |
 | 线上站点 | https://tbj0623.github.io/zero-dossier-office/ |
 | Pages 构建 | Actions（`build_type=workflow`） |
 | itch.io | **DRAFT_READY** — `release/itch-html5-release.zip`，27 文件 / 0.68 MB，未上传（需账户授权） |
