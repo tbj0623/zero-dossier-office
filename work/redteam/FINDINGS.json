@@ -1,0 +1,282 @@
+[
+  {
+    "id": "RT-001",
+    "severity": "critical",
+    "area": "security/ci",
+    "title": "CI 的『无第三方远程资源』门禁正则使用 PCRE 负向前瞻，GNU grep -E 不支持，导致该门禁永远 PASS",
+    "evidence": ".github/workflows/ci.yml:54 使用 `grep -rEn 'https?://(?!127\\.0\\.0\\.1|localhost)'`。GNU grep 3.0 的 -E (POSIX ERE) 不支持 (?!...)，实测对含 `https://cdn.evil.example/tracker.js` 的文件 `grep -En 'https?://(?!127\\.0\\.0\\.1|localhost)' t.txt` 返回 EXIT=1（零匹配），而对照组 `grep -En 'https?://' t.txt` 返回 EXIT=0 并正确匹配。完整执行 ci.yml:51-59 的逻辑对植入 `<script src=\"https://cdn.evil.example/tracker.js\">` 的假 dist/ 输出 `OK: 无第三方运行时资源`。另：白名单 `grep -vE 'github\\.com|creativecommons\\.org|w3\\.org'` 是子串匹配，`https://evil.com/?x=github.com` 会被放行。",
+    "why": "这是『声称做了防护但防护从未生效』，比没有防护更危险。README.md:9 的绿 badge 和 MASTER_STATE.md:13 的 G4 PASS 会让所有读者相信这条门禁。任何供应链投毒或误加的 CDN 引用都会静默通过 CI 并直接部署到 GitHub Pages。",
+    "fix": "改用 `grep -rPEn`（CI 的 ubuntu-latest 自带 GNU grep 支持 -P），或改为『先用无前瞻的 `grep -rhoE 'https?://[^\"'\\'' )]+'` 抓全部 URL，再用锚定 host 的白名单 `grep -vE '^(https?://127\\.0\\.0\\.1|http://localhost|https://github\\.com|https://creativecommons\\.org|http://www\\.w3\\.org)'` 过滤』。并必须在 CI 里加一条负向测试：预先植入一个坏 URL，断言门禁会 exit 1——『测试你的测试』。",
+    "status": "fixed",
+    "resolution_note": "fixed — 复查：tools/check_no_remote.py 对植入的 https://cdn.evil.example/t.js 正确 exit 1；干净构建 exit 0；正文 URL 不误报",
+    "verified_at": "2026-10-30 current HEAD build (0e131eb) on http://127.0.0.1:8899"
+  },
+  {
+    "id": "RT-002",
+    "severity": "high",
+    "area": "robustness/storage",
+    "title": "存档中出现本案例不存在的物件名时，openCase() 抛出未捕获异常，案件永久卡在『正在取阅档案…』加载态",
+    "evidence": "site/app.mjs:526-528 的存档校验只检查 `Array.isArray` / 长度相等 / `new Set(...).size === length`，不检查元素是否属于 `c.items`。坏存档进入 app.mjs:534 `verifyOrder(...)` → engine/solver.mjs:67-71 → checkRule → idx() (solver.mjs:22-26) 抛 `TypeError('未知物件：...')`。该异常未被捕获：openCase() 的 try/catch (app.mjs:504-514) 只包住 loadCase()，state.order 赋值在其之外。实测 work/redteam/stale_save.json：注入 `{\"order\":[\"红票（旧名）\",\"蓝票（旧名）\",\"黄票（旧名）\",\"绿票（旧名）\"]}` 后硬刷新 #/case/NA-001 → case_root_text = '正在取阅档案…'、slots_present=false、submit_button=false、errors=['未知物件：红票','未知物件：红票']。唯一恢复路径是去玩法说明页点『清除本机全部进度』（实测 recovers_after_clear=true），但卡死页面没有任何指引。",
+    "why": "真实玩家级数据损坏，触发条件现实：work/blind/BLIND_REPORT.md:458-469 记录 6 个案件的 items 数组已被重排过，若玩家在旧版本留下存档再访问新版即会命中。不可自愈——坏数据不被清除，每次刷新都卡同一点。",
+    "fix": "把 app.mjs:526 的校验改为 `const validSaved = Array.isArray(saved?.order) && saved.order.length === c.items.length && new Set(saved.order).size === saved.order.length && saved.order.every(x => c.items.includes(x));`，`if (saved?.order && !validSaved) progress.dropOrder(id);`，然后 `state.order = validSaved ? [...saved.order] : [...c.items];`。同时把 state.order 赋值纳入 try/catch，异常时渲染 .empty-state 的『档案损坏，请重置本案』+ 可点『重置本案』按钮。",
+    "status": "fixed",
+    "resolution_note": "fixed — 复查：注入含未知物件名的 order 后硬刷新 #/case/NA-001，slots_rendered=true、stuck_loading=false、pageerrors=[]",
+    "verified_at": "2026-10-30 current HEAD build (0e131eb) on http://127.0.0.1:8899"
+  },
+  {
+    "id": "RT-003",
+    "severity": "high",
+    "area": "security/build",
+    "title": "build.mjs 整目录 cpSync(site/, dist/) 无有效过滤，site/tools/editor.html 已入库并进入 dist/，下一次部署将公开作者工具",
+    "evidence": "tools/build.mjs:73-79 的 `cpSync(SITE, outDir, {recursive:true, filter})` 只排除 node_modules/.DS_Store/Thumbs.db。site/tools/editor.html（26233 字节）已由 commit 01be953 提交（`git ls-files site/tools` → 1 个文件）。实跑 `node tools/build.mjs` 后 `dist/tools/editor.html` 确实存在。线上当前为 404（部署停在 41fc9520，未含该 commit），故为定时炸弹而非当前泄漏。editor.html:456 显示『把它填进 expected_solution，再按作者指南导出』。",
+    "why": "下一次 push 到 main 触发 pages.yml 即公开作者工具链，并暴露 expected_solution 字段名与导出流程。更根本的是『site/ 目录 = 发布目录』的结构性耦合：任何被放进 site/ 的文件都会静默上线。",
+    "fix": "在 cpSync 的 filter 里加：`const rel = relative(SITE, src).split(sep).join('/'); if (rel.startsWith('tools/')) return false; if (rel.endsWith('.html') && rel !== 'index.html') return false;`。并把编辑器移出 site/（如 tools/editor/）。在 pages.yml 的『校验发布产物』步骤加 `test ! -e dist/tools`。",
+    "status": "fixed",
+    "resolution_note": "fixed — 复查：node tools/build.mjs 后 dist/tools 不存在；build.mjs 已加防回归断言。但修复引入新回归，见 RT-026",
+    "verified_at": "2026-10-30 current HEAD build (0e131eb) on http://127.0.0.1:8899"
+  },
+  {
+    "id": "RT-004",
+    "severity": "high",
+    "area": "marketing/accessibility",
+    "title": "『交互目标 ≥ 44px（360/390/768 断点实测）』与实测不符：390px 首页 12 个目标中 3 个 <44px，玩法说明页 8 个中 5 个 <44px",
+    "evidence": "声明见 marketing/ITCH_PAGE_DRAFT.md:136、docs/PLAYTEST_PROTOCOL.md:27、site/index.html:180。项目的 tests/browser/e2e.py:268-275 仅检查 5 类选择器 `#slots button, .actions button, .site-header button, .site-header a`，遗漏主导航/面包屑/页脚/#clear-progress。用全量选择器 `a[href], button, input, select, textarea, [tabindex], [draggable]` 实测（work/redteam/targets.json）：390px 首页 12 目标 3 不足（导航『档案柜』38×19、『玩法说明』50×19、『关于与隐私』63×19）；390px 玩法说明 8 目标 4-5 不足，含破坏性按钮『清除本机全部进度』127×38；768px 与 1440px 同样 5 个不足。",
+    "why": "这不是没测，是测了但测漏了，然后把漏测结论写进 itch.io 的 Accessibility 栏。手机上导航可点高度仅 19px，远低于 44×44。破坏性按钮尺寸不达标误触代价最高。",
+    "fix": "①立刻从 itch Accessibility 列表删除该条或改为『主要游戏内控件（格位按钮、操作按钮）≥44px；导航与页脚文本链接为常规尺寸』。②CSS 给 .site-nav a / .desk-crumbs a / .btn--sm 加 `min-height:44px; display:inline-flex; align-items:center;`。③把 e2e.py:268 选择器改为全量并断言所有可见交互元素 ≥44px。",
+    "status": "fixed",
+    "resolution_note": "fixed — 复查：390/768px × 5 路由全量选择器，0 个 <44px 目标（此前 390px 首页 12 个中 3 个不足）",
+    "verified_at": "2026-10-30 current HEAD build (0e131eb) on http://127.0.0.1:8899"
+  },
+  {
+    "id": "RT-005",
+    "severity": "medium",
+    "area": "licensing",
+    "title": "许可覆盖存在大片空白：229 个已跟踪文件既不属 MIT 也不属 CC，且 ASSETS_LICENSE §3 未写明确授权句",
+    "evidence": "LICENSE:25-28 只覆盖 engine/、site/*.mjs、site/styles/、tools/、tests/ 的代码部分；ASSETS_LICENSE.md:21-26 只覆盖 cases/**/*.json、site/cases/*.json、docs/STORY_BIBLE.md、work/lore/**。按此分类 266 个已跟踪文件中 229 个不属任何一类，含 README.md、docs/*.md、marketing/**、ops/**、site/index.html、site/assets/**、review/**、screenshots/**、work/qa/**、work/blind/**。ASSETS_LICENSE.md:32-43 虽用表格点名了图片文件，但该节正文只写『本项目的原创概念插画』（署名声明），未写授权条款。",
+    "why": "CC BY-NC-SA 的核心价值是明确允许非商业复用，而项目最可能被复用的 site/assets 图片恰好落在授权空白里。对一个自称『把程序与创作材料分开授权』的项目，这是自相矛盾。",
+    "fix": "在 ASSETS_LICENSE.md §2 与 §3 开头各加一句明确授权句『本表所列文件均以 CC BY-NC-SA 4.0 授权』。新增 §6『其它文件』明确 docs/*.md、README.md、marketing/**、ops/**、review/**、screenshots/** 的授权（建议同样 CC BY-NC-SA 4.0），并把 site/index.html 划归 MIT。",
+    "status": "open",
+    "resolution_note": "re-checked at current HEAD: still open"
+  },
+  {
+    "id": "RT-006",
+    "severity": "medium",
+    "area": "licensing",
+    "title": "ASSETS_LICENSE.md:26 引用不存在的 docs/STORY_BIBLE.md",
+    "evidence": "ASSETS_LICENSE.md:26 写『世界观与剧情文档 | docs/STORY_BIBLE.md、work/lore/**』。实查 docs/ 只有 AUTHOR_GUIDE.md、EDIT_MANIFEST.md、GAMEPLAY.md、PLAYTEST_PROTOCOL.md、PRIVACY.md、screenshots/，无 STORY_BIBLE.md（ls 与文件系统检查均确认）。",
+    "why": "许可文档引用不存在的文件会削弱整份文档可信度；若该文件曾存在后被删，则 work/lore/** 是否完整覆盖世界观内容存疑。",
+    "fix": "删除该引用；或补上文件；若世界观实际内嵌于 cases/*.json 的 setting/epilogue，则改为『世界观设定内嵌于 cases/**/*.json 的 setting/epilogue 字段』。",
+    "status": "open",
+    "resolution_note": "re-checked at current HEAD: still open"
+  },
+  {
+    "id": "RT-007",
+    "severity": "medium",
+    "area": "licensing/third-party",
+    "title": "work/qa/a11y/axe.min.js 是 MPL-2.0 第三方代码，已入库但仓库无任何许可证说明文件，且与 ASSETS_LICENSE『无第三方图标库』的表述冲突",
+    "evidence": "work/qa/a11y/axe.min.js 头部为 `/*! axe v4.10.2 Copyright (c) 2015-2024 Deque Systems, Inc. ... Mozilla Public License, v. 2.0 ...`，553290 字节压缩源码，已入库（git ls-files work/qa/a11y/axe.min.js 存在）。`find work/qa -iname '*license*' -o -iname '*notice*'` → 0 结果。ASSETS_LICENSE.md:59 写『无第三方图标库；所有图标为内联 SVG path』——对运行时成立，对仓库不成立。",
+    "why": "MPL-2.0 要求源码形式分发时告知获取方式；仓库未说明该文件的第三方来源与许可证。minified 源码是否满足 MPL 的 Source Code Form 有争议。ASSETS_LICENSE 的绝对化表述会让读者误以为整个仓库零第三方代码。",
+    "fix": "①从仓库删除 axe.min.js，改为 run_axe.py 里用 `npm i axe-core` 或 CDN 按需获取。②若保留，加 work/qa/a11y/THIRD_PARTY_NOTICES.md 写明 axe-core v4.10.2 / MPL-2.0 / 上游 URL。③把 ASSETS_LICENSE.md:59 改为『站点运行时无第三方图标库…（仓库的开发/QA 工具除外，见 THIRD_PARTY_NOTICES）』。",
+    "status": "open",
+    "resolution_note": "re-checked at current HEAD: still open"
+  },
+  {
+    "id": "RT-008",
+    "severity": "medium",
+    "area": "accessibility",
+    "title": "每个案件页都有 axe serious 级违规 aria-prohibited-attr：<div id=\"hints\"> 使用 aria-label 但无 role",
+    "evidence": "site/app.mjs:642 `el('div', { class: 'hints', id: 'hints', aria: { label: '已揭开的提示' } })`。div 是 generic role，ARIA 规范禁止其使用 aria-label，多数屏幕阅读器会忽略。项目自己的 work/qa/a11y/axe-summary.json 在 desk-collapsed/desk-expanded/desk-selected/desk-error 四页均报 `aria-prohibited-attr (serious) nodes:1`；我独立复跑 axe（work/redteam/probe2.py，axe_total=6）复现同一问题，targets 为 '#hints'。",
+    "why": "serious 级违规出现在每一个案件页。本意（让屏幕阅读器知道该区域是什么）完全落空。",
+    "fix": "改为 `el('section', { class:'hints', id:'hints', aria:{label:'已揭开的提示'} })`（section 有 region role，aria-label 合法且会被朗读），或保留 div 但加 `role='region'`。1 行改动。",
+    "status": "fixed",
+    "resolution_note": "fixed — 复查：#hints 现为 role='region'，axe aria-prohibited-attr 违规消失",
+    "verified_at": "2026-10-30 current HEAD build (0e131eb) on http://127.0.0.1:8899"
+  },
+  {
+    "id": "RT-009",
+    "severity": "medium",
+    "area": "accessibility",
+    "title": "标题层级跳级与缺失：首页 h1→h3 跳级、页脚 h4 无父级 h3、结案页无 h1",
+    "evidence": "site/index.html:57 (h1) → :78/:83/:88 (h3) 跳级；:226/:236/:244 页脚用 h4 但前文无 h3；site/app.mjs:924 verdict 用 `<h2 id=\"verdict-title\">` 但整页无 h1。项目自己的 work/qa/a11y/axe-summary.json 在 home/cabinet/manual/about 报 heading-order (moderate)，在 verdict 报 page-has-heading-one (moderate)；我的独立 axe 复跑结果一致。",
+    "why": "屏幕阅读器用户靠 heading 快速跳转（H 键），跳级会让文档大纲错乱，长页面（玩法说明有 6 个 h2）导航体验显著变差。不阻断操作，但属于 WCAG 1.3.1/2.4.6 的结构性问题。",
+    "fix": "首页三个 pitch 卡片的 h3 改为 h2；页脚 h4 改为 h2（或加可视隐藏的层级桥接）；verdict 页加可视隐藏 h1 或把『档案归位』从 h2 提到 h1。",
+    "status": "fixed",
+    "resolution_note": "fixed — 复查：首页 h3→h2、页脚 h4→h2、verdict 补 h1；axe 5/5 路由 0 violation",
+    "verified_at": "2026-10-30 current HEAD build (0e131eb) on http://127.0.0.1:8899"
+  },
+  {
+    "id": "RT-010",
+    "severity": "medium",
+    "area": "marketing/ethics",
+    "title": "README『独立解题者』措辞易被读作人类测试者，实际是 AI teammate；项目别处已诚实披露，此处未限定",
+    "evidence": "README.md:107 写『盲审：只给剥离答案的材料，由独立解题者自行推导』。work/blind/BLIND_REPORT.md:3 明确『Reviewer: independent blind reviewer (teammate `blind-reviewer`)』。项目在 docs/PLAYTEST_PROTOCOL.md:12-13 自己写明『Agent 之间互相夸奖不是市场调查…无法证明人类玩家觉得这个谜题好玩』，并在 MASTER_STATE.md:14 把 G5 标为 NOT_DONE。review/*.json 24/24 全 PASS 属实。",
+    "why": "『独立解题者』在营销语境下容易被读成『人类独立测试者』。项目已在别处做了诚实披露，唯独这句没限定——属于措辞不一致而非故意误导。",
+    "fix": "README.md:107 改为『盲审：由信息隔离的独立复核者（AI agent，非人类玩家）只读剥离答案的材料自行推导，见 work/blind/BLIND_REPORT.md』。",
+    "status": "open",
+    "resolution_note": "re-checked at current HEAD: still open"
+  },
+  {
+    "id": "RT-011",
+    "severity": "medium",
+    "area": "ethics/narrative",
+    "title": "NA-006 终章块违反项目自定的『叙事不得冒充推理结论』规则，且断言了无法从证据推出的局长动机",
+    "evidence": "site/app.mjs:995-1001 的 finale 块用 `recap-block__label` 写『终章 · 第零号』（无『结案后补充记录』标签），正文断言『局长把半圈「0」章盖在每一份分类不确定的档案上，从来不是为了隐藏真相，而是为了提醒下一位读档者…』。docs/AUTHOR_GUIDE.md:102 明确规定 epilogue『UI 上必须标为「结案后补充记录」，且不得声称是刚才排序的结论』。『从来不是为了隐藏真相』是无法从任何约束推出的事实性断言。",
+    "why": "『逻辑与叙事分家』是本作核心卖点（README.md:59、GAMEPLAY.md:85-90），而这段终章位于玩家印象最深的游戏最后一段话，直接违反自定规则。",
+    "fix": "把 finale 的 label 改为『终章 · 结案后补充记录（叙事，不构成推理结论）』；或把『从来不是为了隐藏真相』改为『档案员们相信…』，明确是角色信念而非事实。",
+    "status": "open",
+    "resolution_note": "re-checked at current HEAD: still open"
+  },
+  {
+    "id": "RT-012",
+    "severity": "medium",
+    "area": "security/supply-chain",
+    "title": "GitHub Actions 全部使用浮动 major tag（@v4/@v5），可被上游 force-push 移动",
+    "evidence": ".github/workflows/ci.yml 与 pages.yml 中 actions/checkout@v4、actions/setup-python@v5、actions/setup-node@v4、actions/upload-artifact@v4、actions/configure-pages@v5、actions/upload-pages-artifact@v3、actions/deploy-pages@v4 均为浮动 tag。正向：无 pull_request_target（危险触发器未使用）；ci.yml 仅 contents:read（最小权限）；pages.yml 的 pages:write + id-token:write 是部署必需（合理）；concurrency cancel-in-progress:false 正确。",
+    "why": "本项目直接部署到 GitHub Pages，被投毒的 action 可改写 dist/ 内容并上线。2025 年 tj-actions/changed-files 事件证明这不是理论风险。",
+    "fix": "用 commit SHA 固定（如 `actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0`），或用 Dependabot 的 github-actions ecosystem 自动升级 SHA。",
+    "status": "open",
+    "resolution_note": "re-checked at current HEAD: still open"
+  },
+  {
+    "id": "RT-013",
+    "severity": "medium",
+    "area": "marketing/evidence",
+    "title": "README 声称 docs/screenshots/ 为『已部署站点实拍』，但仓库内找不到产出该套图的脚本；它与 screenshots/ 是两套不同文件",
+    "evidence": "README.md:19 声称全部为已部署站点在真实 Chromium 中的实拍。实测尺寸：docs/screenshots/01-home.png = 1440×900（视口截图）vs screenshots/01-home-desktop.png = 1440×2162（full_page）；docs/screenshots/05-mobile-home.png = 780×1688 vs screenshots/06-mobile-390.png = 780×4578。tests/browser/e2e.py 只写 screenshots/ 不写 docs/screenshots/。仓库内无脚本产出 docs/screenshots/。",
+    "why": "两套都是真实浏览器产物（非造假），但 README 引用的那套缺可复现路径。一个声称质量门禁的项目，最核心的对外展示物料无法从仓库复现。",
+    "fix": "在 e2e.py 里加一步输出视口截图到 docs/screenshots/；或在 README 注明『docs/screenshots/ 为手工截取的视口截图，生成脚本见 X』。",
+    "status": "open",
+    "resolution_note": "re-checked at current HEAD: still open"
+  },
+  {
+    "id": "RT-014",
+    "severity": "low",
+    "area": "privacy/docs",
+    "title": "PRIVACY.md 的内容分级声明出现在隐私文档中，且措辞暗示经过评级流程",
+    "evidence": "docs/PRIVACY.md:45-47『本作是虚构的档案推理小品，不含血腥、暴力、性内容，也不涉及真实人物或真实事件。适合一般公众阅读。』内容上属实（六案全文确认无血腥/暴力/性内容、无具名真人），但『适合一般公众』是自我评级，无任何分级机构参与，站点也无 age gate。",
+    "why": "放在隐私文档里会让读者误以为这句话经过某种评级流程。",
+    "fix": "移到独立的内容说明节，改为『本作未包含血腥、性内容或真实人物；未经过任何分级机构评定』。",
+    "status": "open"
+  },
+  {
+    "id": "RT-015",
+    "severity": "low",
+    "area": "marketing",
+    "title": "itch.io『Average session: A few minutes』与单案 3–12 分钟、六案合计 29–53 分钟不自洽，且无实测支撑",
+    "evidence": "marketing/ITCH_PAGE_DRAFT.md:57 填 `A few minutes`；同文件 :96 写『单案 3–12 分钟』；docs/AUTHOR_GUIDE.md:24 明确 play_minutes『是设计估计，不是实测均值』；docs/PLAYTEST_PROTOCOL.md:6 写『尚未收集任何真实人类试玩数据 NOT_DONE』。",
+    "why": "itch 的 Average session 是给玩家的时间预期，填短了会让玩家预期错位；六案全通实际 29–53 分钟（设计值）。且该项目没有任何实测数据支撑任何时长声明。",
+    "fix": "改为『10–40 min (6 cases, designer estimate; not yet playtested)』或留空。",
+    "status": "open"
+  },
+  {
+    "id": "RT-016",
+    "severity": "low",
+    "area": "marketing",
+    "title": "README『玩家反馈章节』承诺了一个不存在的章节",
+    "evidence": "README.md:135『本仓库的玩家反馈章节只记录真实发生的试玩；没有结果时明确写「未验证」。』但 README 全部二级标题为：真实运行截图/这是什么/玩法/六案与三幕/技术/质量门禁/隐私/许可/虚构声明/已知限制——无『玩家反馈』章节。",
+    "why": "承诺了不存在的章节，让『已知限制』读起来像模板残留。虽无害但削弱文档严谨性。",
+    "fix": "删除该条，或补一个 `## 玩家反馈` 章节写『截至 2026-10-30，尚未收集任何真实人类试玩数据（见 docs/PLAYTEST_PROTOCOL.md）』——后者更好，把 G5 的 NOT_DONE 摆到 README 里是最强的诚实信号。",
+    "status": "open"
+  },
+  {
+    "id": "RT-017",
+    "severity": "low",
+    "area": "security/pii",
+    "title": "GitHub 远端 3 个 commit 的作者邮箱为 13014880645@163.com，前缀形似中国大陆手机号，仓库为 public",
+    "evidence": "GitHub API 实测 41fc9520、f2637d90、ba9cc749 三个 commit 的 `commit.author.email` 均为 `13014880645@163.com`；更早的 d77f40b、9d6ac11 为 `tbj0623@users.noreply.github.com`。本地 git config user.email 现已为 noreply 地址（已修正），但历史 commit 不可变。仓库 `private: false`（GitHub API 实测）。注：全仓库当前工作树 grep gho_/ghp_/sk-/AKIA/password/api_key/C:\\Users\\ 均为 0 命中。",
+    "why": "public 仓库的任何访问者都能看到这 3 个 commit 的作者邮箱。若确为真实手机号，属于主动公开个人信息。与 PRIVACY.md『不收集任何个人数据』不冲突（那指玩家数据），但与项目整体隐私敏感度不匹配。",
+    "fix": "①GitHub 账号设置开启 Keep my email addresses private + Block command line pushes that expose my email。②对已公开的 3 个 commit 用 git filter-repo --mailmap 或 BFG 重写历史并 force-push（会改 SHA，需同步 MASTER_STATE.md 回滚指令）。③若不能重写历史，至少未来 commit 不再使用该邮箱。",
+    "status": "open"
+  },
+  {
+    "id": "RT-018",
+    "severity": "low",
+    "area": "docs/accuracy",
+    "title": "MASTER_STATE.md 的回滚指令引用本地不存在的 commit，且未记录线上确切 BUILD SHA",
+    "evidence": "MASTER_STATE.md:21/66-67 写 `git revert ba9cc749` 与 `git reset --hard d77f40b`。本地 `git cat-file -t ba9cc749` → fatal: Not a valid object name（本地无此 SHA）；远端 API 返回 200（远端有）。d77f40b 本地存在。当前线上 app.mjs 的 `const BUILD = '41fc9520deb643883af262b36a9c6b11fe2c918c'`（curl 实测），而 MASTER_STATE.md:22 未记录线上 SHA。",
+    "why": "一个专门记录『真实发布状态』的文档，回滚指令缺少 `git fetch` 前置条件，且未记录线上确切 commit，读者无法核对线上版本。与该文档『不隐瞒』的定位不符。",
+    "fix": "回滚章节写明『需先 git fetch origin』，并记录线上 BUILD 值为 41fc9520…；每次发布后更新该字段。",
+    "status": "open"
+  },
+  {
+    "id": "RT-019",
+    "severity": "low",
+    "area": "robustness/ux",
+    "title": "案件 JSON 解析失败时把原始 JSON.parse 异常文本直接展示给玩家",
+    "evidence": "site/app.mjs:510 用 `el('p', { text: err.message || '请刷新，或回到档案柜。' })`。实测 work/redteam/storage_probe.json：case_json_malformed 时玩家看到『这份档案尚未完整送达 / Expected property name or '}' in JSON at position 1 (line 1 column 2) / 返回档案柜』。",
+    "why": "对玩家无意义的英文技术错误泄漏内部实现细节，且不提供可操作建议。",
+    "fix": "对玩家显示固定文案（如『档案文件损坏，请刷新或返回档案柜』），把 err.message 只写 console.error；保留『返回档案柜』按钮。",
+    "status": "open"
+  },
+  {
+    "id": "RT-020",
+    "severity": "low",
+    "area": "security/validation",
+    "title": "assertCaseShape() 缺少数组类型与元素类型校验（防御纵深缺口，非当前可利用漏洞）",
+    "evidence": "engine/solver.mjs:167-191 校验了必需字段、id 正则、items/slots 等长、items 去重、evidence 非空、约束 ID 去重、constraint_ids 引用存在、并集等于全集（防隐藏约束，设计良好）、每条 constraint 可跑通。未校验：items/slots/evidence/hints 是否为数组（`c.items.length` 对字符串也成立，`new Set('abc')` 得字符集）、items 元素是否为字符串、hints 长度 ≥1、constraint_ids 是否重复引用。该缺口的现实后果见 RT-002。",
+    "why": "病例数据由项目自己提供，玩家无法注入（除非中间人已破 HTTPS），故非当前可利用漏洞；但作为防御纵深，配合 RT-002 的崩溃说明校验边界确实不够。",
+    "fix": "补 `Array.isArray` 检查 + 元素类型检查 + hints 长度检查，约 15 行。",
+    "status": "open"
+  },
+  {
+    "id": "RT-021",
+    "severity": "low",
+    "area": "ethics/disclaimer",
+    "title": "OG 社交分享卡片文案脱离站点上下文传播，未含虚构声明",
+    "evidence": "site/index.html:13-14 `og:title` = 『第零证物局 · 第零号档案正在解封』，`og:description` = 『一张票据可以说真话，六张记录也可能让人误会。你能还原雾港的真相吗？』。这段会作为独立卡片出现在社交平台，不含任何虚构声明。站点内已有四处虚构声明（index.html:67、index.html:205、README.md:127-129、ITCH:107-109），机制名『证物局』也不是中文语境现存机构名（web 搜索未发现同名真实机构），故风险低。",
+    "why": "社交卡片是唯一脱离站点上下文单独传播的文案，『真相』『档案解封』的措辞在无上下文时更像真事。",
+    "fix": "og:description 末尾加『（本作为虚构互动小说）』。成本一个括号。",
+    "status": "open"
+  },
+  {
+    "id": "RT-022",
+    "severity": "low",
+    "area": "licensing/clarity",
+    "title": "ASSETS_LICENSE.md 的 MIT 表格只写 tools/*.mjs，遗漏 tools/ 下 5 个 .py 文件，与根 LICENSE 的范围不一致",
+    "evidence": "ASSETS_LICENSE.md:16 写『构建与工具 | tools/*.mjs』；tools/ 下实有 build_itch.py、export_case.py、scramble_items.py、write_review.py、build_dashboard.py 五个 .py。LICENSE:25 写的是 `tools/`（无扩展名限制），故根 LICENSE 覆盖但 ASSETS_LICENSE 表格漏了。",
+    "why": "两份文档对同一问题给出不同范围，读者会以更窄的那份为准。",
+    "fix": "ASSETS_LICENSE.md:16 改为 `tools/**`。",
+    "status": "open"
+  },
+  {
+    "id": "RT-023",
+    "severity": "low",
+    "area": "licensing/attribution",
+    "title": "ASSETS_LICENSE.md 的 CC 署名模板含未替换占位符 <owner>/<repo>",
+    "evidence": "ASSETS_LICENSE.md:69 `第零证物局 (The Zero Dossier Office) — https://github.com/<owner>/<repo>`。实际仓库为 tbj0623/zero-dossier-office。",
+    "why": "CC BY-NC-SA 要求署名，给复用者一个带占位符的模板等于让人猜。",
+    "fix": "填成实际 URL https://github.com/tbj0623/zero-dossier-office。",
+    "status": "open"
+  },
+  {
+    "id": "RT-024",
+    "severity": "low",
+    "area": "marketing/wording",
+    "title": "『原创概念插画』的措辞在生成式 AI 语境下可能被字面理解为人类原创绘制；且无生成记录留存",
+    "evidence": "ASSETS_LICENSE.md:46 写『以上图片为本项目的原创概念插画』。我实看 harbor-archive-background.webp（1672×941）与 NA-006-episode-card.webp（1200×675）：通用暗色维多利亚书房+港口夜景母题（拱窗、钟楼、电车、灯塔、黄铜灯、放大镜、火漆信封、怀表、行李箱、地图），未发现可识别复制来源；PIL 读取 getexif() 全空、info 仅 loop/background、无 C2PA、无水印。仓库无生成工具/prompt/日期记录。",
+    "why": "若由生成式模型产出，『本项目原创』在中文字面意义上可能被读作人类原创绘制。AI 生成本身不构成版权问题（风格不受版权保护，ASSETS_LICENSE.md:48 这一点写对了），但缺少生成记录会在未来权利主张时成为麻烦。",
+    "fix": "改为『本项目自主生成/委托制作，未使用任何第三方现成素材』；并在仓库留存生成工具、prompt、日期的记录。",
+    "status": "open"
+  },
+  {
+    "id": "RT-025",
+    "severity": "low",
+    "area": "testing/coverage",
+    "title": "e2e 的『无第三方网络请求』检查只在特定 context 上收集，且 44px 选择器不全，测试本身存在盲区",
+    "evidence": "tests/browser/e2e.py:117-119 的 `external` 列表只在主 context 的 page 上注册 request 监听；mobile/reduced-motion/断图等 context 的请求未纳入统计。:268-275 的 44px 检查只覆盖 5 类选择器（见 RT-004）。:302 `record('无第三方网络请求', len(external) == 0, ...)` 在 `page.goto(base)` 之后才断言，此时 external 已累积全流程请求，逻辑正确但覆盖面窄。",
+    "why": "测试的结论（0 个第三方请求）我独立验证为真，但测试方法本身不足以支撑『全站零第三方请求』这种全称声明。",
+    "fix": "用 CDP 级 `Network.requestWillBeSent` 或浏览器级 `context.on('request')` 覆盖全部 context；44px 选择器改为全量。",
+    "status": "open"
+  },
+  {
+    "id": "RT-026",
+    "severity": "medium",
+    "area": "regression/navigation",
+    "title": "修复 RT-003 引入回归：页面仍保留 3 个指向已移除页面的链接，构建后全部 404",
+    "evidence": "site/index.html:82（主导航）与 :268（页脚）含 `<a href=\"./tools/editor.html\">案件编辑器</a>`；:269 含 `<a href=\"./status.html\">发布状态</a>`。tools/build.mjs 的 filter 现在主动排除 site/tools/（且构建后断言 dist/tools 不存在），而 status.html 仅由 tools/build_dashboard.py 单独生成、build.mjs 不产出。用当前 HEAD（0e131eb）构建并本地启动后实测：GET /tools/editor.html -> 404，GET /status.html -> 404；但两个链接仍出现在 dist/index.html:82/268/269。",
+    "why": "玩家点主导航第二个链接即吃 404。这是修复发布安全问题所引入的回归：build.mjs 的防回归断言只保证『文件不进包』，没人检查『页面是否还在引用它』。也恰好印证 RT-001 建议的负向测试与链接完整性检查都应进 CI。",
+    "fix": "①从 site/index.html 删除这 3 个链接（编辑器与状态页是作者工具，本不应出现在玩家站点）。②CI 增加链接完整性检查：构建后扫描 dist/**/*.html 的全部 href/src 相对路径，断言每个都在 dist/ 中存在。③若确要让玩家看发布状态，把 build_dashboard.py 接入 build.mjs 构建流程。",
+    "status": "open",
+    "resolution_note": "newly found during re-verification at current HEAD"
+  }
+]

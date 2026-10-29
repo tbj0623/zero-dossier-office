@@ -1,0 +1,285 @@
+{
+  "suite": "fuzz",
+  "engine": "chromium",
+  "when": "2026-10-30T01:06:25+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "target": "cases/NA-001.json",
+  "rows": [
+    {
+      "input": "1. items with a duplicate entry",
+      "key": "duplicate_item",
+      "httpServed": 200,
+      "payloadBytes": 2929,
+      "intercepted": {
+        "count": 2,
+        "bytes": 2929,
+        "status": 200
+      },
+      "userSees": "这份档案尚未完整送达\n\nitems 重复\n\n返回档案柜",
+      "errorHeadline": true,
+      "emptyState": true,
+      "spinnerStuck": false,
+      "slotsRendered": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "alertDialogs": [],
+      "alertPatched": [],
+      "injectedImgs": [],
+      "literalTextNode": null,
+      "payloadVisibleAsText": false,
+      "titleHasPayload": false,
+      "renderedDetail": {},
+      "bodyTextLen": 224,
+      "title": "第零证物局｜雾港异常档案 · 原创互动推理",
+      "navigableAfter": true,
+      "navigableDetail": "6 cabinet cards after recovery",
+      "consoleErrorsAfterNav": []
+    },
+    {
+      "input": "2. constraints with unknown op \"xor\"",
+      "key": "unknown_op",
+      "httpServed": 200,
+      "payloadBytes": 2926,
+      "intercepted": {
+        "count": 2,
+        "bytes": 2926,
+        "status": 200
+      },
+      "userSees": "这份档案尚未完整送达\n\n未知约束运算符：xor\n\n返回档案柜",
+      "errorHeadline": true,
+      "emptyState": true,
+      "spinnerStuck": false,
+      "slotsRendered": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "alertDialogs": [],
+      "alertPatched": [],
+      "injectedImgs": [],
+      "literalTextNode": null,
+      "payloadVisibleAsText": false,
+      "titleHasPayload": false,
+      "renderedDetail": {},
+      "bodyTextLen": 227,
+      "title": "第零证物局｜雾港异常档案 · 原创互动推理",
+      "navigableAfter": true,
+      "navigableDetail": "6 cabinet cards after recovery",
+      "consoleErrorsAfterNav": []
+    },
+    {
+      "input": "3. truncated / invalid JSON \"{\"",
+      "key": "truncated_json",
+      "httpServed": 200,
+      "payloadBytes": 1,
+      "intercepted": {
+        "count": 2,
+        "bytes": 1,
+        "status": 200
+      },
+      "userSees": "这份档案尚未完整送达\n\nExpected property name or '}' in JSON at position 1 (line 1 column 2)\n\n返回档案柜",
+      "errorHeadline": true,
+      "emptyState": true,
+      "spinnerStuck": false,
+      "slotsRendered": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "alertDialogs": [],
+      "alertPatched": [],
+      "injectedImgs": [],
+      "literalTextNode": null,
+      "payloadVisibleAsText": false,
+      "titleHasPayload": false,
+      "renderedDetail": {},
+      "bodyTextLen": 285,
+      "title": "第零证物局｜雾港异常档案 · 原创互动推理",
+      "navigableAfter": true,
+      "navigableDetail": "6 cabinet cards after recovery",
+      "consoleErrorsAfterNav": []
+    },
+    {
+      "input": "4. items containing <img src=x onerror=alert(1)>",
+      "key": "html_item",
+      "httpServed": 200,
+      "payloadBytes": 3060,
+      "intercepted": {
+        "count": 1,
+        "bytes": 3060,
+        "status": 200
+      },
+      "userSees": "第 1 幕 · 开卷：雾港的错位记录\n末班车的四张车票 <img src=x onerror=alert(1)>\n\n同一辆车的打票机，在半小时里留下四条互相错位的存根。\n\n新手\n档案 #001\n已采集证物\n\n3 份 · 可逐张展开\n\n雾港，旧环线车站，22:00—22:30。四张不同颜色的检票存根被撕下，原始登记顺序丢失。车站管理员相信只有一条排列与全部记录相符。\n\n目标：把红票、蓝票、黄票、绿票放回从最早到最晚的四个检票时刻。\n\nE01\n粘连的票根\n物证\n\n两张存根边缘有同一道压痕。登记纸显示：红票的时间紧接着就是蓝票的时间，中间没有其他票。 <img src=x onerror=alert",
+      "errorHeadline": false,
+      "emptyState": false,
+      "spinnerStuck": false,
+      "slotsRendered": true,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "alertDialogs": [],
+      "alertPatched": [],
+      "injectedImgs": [],
+      "literalTextNode": {
+        "tag": "SPAN",
+        "cls": "slot__item"
+      },
+      "payloadVisibleAsText": true,
+      "titleHasPayload": true,
+      "renderedDetail": {
+        "hintCards": 1,
+        "slotTexts": [
+          "<img src=x onerror=alert(1)>",
+          "绿票",
+          "红票",
+          "黄票"
+        ],
+        "evidenceText": "已采集证物\n\n3 份 · 可逐张展开\n\n雾港，旧环线车站，22:00—22:30。四张不同颜色的检票存根被撕下，原始登记顺序丢失。车站管理员相信只有一条排列与全部记录相符。\n\n目标：把红票、蓝票、黄票、绿票放回从最早到最晚的四个检票时刻。\n\nE01\n粘连的票根\n物证\n\n两张存根边缘有同一道压痕。登记纸显示：红票的时间紧接着就是蓝票的时间，中间没有其他票。 <img src=x onerror=alert(1)>\n\n可核对的关系：红票 紧接在 <img src=x onerror=alert(1)> 之前，中间没有其它物件。\nE02\n灯塔站的回执\n记录\n\n灯塔站书记员的手记写着：“绿票的登记晚于黄票。”\n\n可核对的关系：黄票 在 绿票 之前（不要求相邻）。\nE03\n维修铃声\n证词\n\n检票员确认：22:00第一次铃响时，机器打印的并不是黄票。\n\n可核对的关系：黄票 不在第1格（22:00）。"
+      },
+      "bodyTextLen": 781,
+      "title": "末班车的四张车票 <img src=x onerror=alert(1)>｜第零证物局",
+      "navigableAfter": true,
+      "navigableDetail": "6 cabinet cards after recovery",
+      "consoleErrorsAfterNav": []
+    },
+    {
+      "input": "5. constraint referencing nonexistent item",
+      "key": "missing_item_ref",
+      "httpServed": 200,
+      "payloadBytes": 2941,
+      "intercepted": {
+        "count": 2,
+        "bytes": 2941,
+        "status": 200
+      },
+      "userSees": "这份档案尚未完整送达\n\n未知物件：不存在的物件\n\n返回档案柜",
+      "errorHeadline": true,
+      "emptyState": true,
+      "spinnerStuck": false,
+      "slotsRendered": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "alertDialogs": [],
+      "alertPatched": [],
+      "injectedImgs": [],
+      "literalTextNode": null,
+      "payloadVisibleAsText": false,
+      "titleHasPayload": false,
+      "renderedDetail": {},
+      "bodyTextLen": 227,
+      "title": "第零证物局｜雾港异常档案 · 原创互动推理",
+      "navigableAfter": true,
+      "navigableDetail": "6 cabinet cards after recovery",
+      "consoleErrorsAfterNav": []
+    },
+    {
+      "input": "6. extra: non-unique solution (under-constrained)",
+      "key": "not_unique",
+      "httpServed": 200,
+      "payloadBytes": 2337,
+      "intercepted": {
+        "count": 2,
+        "bytes": 2337,
+        "status": 200
+      },
+      "userSees": "这份档案尚未完整送达\n\n该案未通过唯一解校验，已暂停展示\n\n返回档案柜",
+      "errorHeadline": true,
+      "emptyState": true,
+      "spinnerStuck": false,
+      "slotsRendered": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "alertDialogs": [],
+      "alertPatched": [],
+      "injectedImgs": [],
+      "literalTextNode": null,
+      "payloadVisibleAsText": false,
+      "titleHasPayload": false,
+      "renderedDetail": {},
+      "bodyTextLen": 232,
+      "title": "第零证物局｜雾港异常档案 · 原创互动推理",
+      "navigableAfter": true,
+      "navigableDetail": "6 cabinet cards after recovery",
+      "consoleErrorsAfterNav": []
+    },
+    {
+      "input": "7. extra: required field 'constraints' deleted",
+      "key": "missing_field",
+      "httpServed": 200,
+      "payloadBytes": 2721,
+      "intercepted": {
+        "count": 2,
+        "bytes": 2721,
+        "status": 200
+      },
+      "userSees": "这份档案尚未完整送达\n\n案件缺少字段：constraints\n\n返回档案柜",
+      "errorHeadline": true,
+      "emptyState": true,
+      "spinnerStuck": false,
+      "slotsRendered": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "alertDialogs": [],
+      "alertPatched": [],
+      "injectedImgs": [],
+      "literalTextNode": null,
+      "payloadVisibleAsText": false,
+      "titleHasPayload": false,
+      "renderedDetail": {},
+      "bodyTextLen": 234,
+      "title": "第零证物局｜雾港异常档案 · 原创互动推理",
+      "navigableAfter": true,
+      "navigableDetail": "6 cabinet cards after recovery",
+      "consoleErrorsAfterNav": []
+    }
+  ],
+  "xssFindings": [],
+  "screenshots": [
+    "shots\\fuzz-duplicate_item.png",
+    "shots\\fuzz-unknown_op.png",
+    "shots\\fuzz-truncated_json.png",
+    "shots\\fuzz-html_item.png",
+    "shots\\fuzz-missing_item_ref.png",
+    "shots\\fuzz-not_unique.png",
+    "shots\\fuzz-missing_field.png"
+  ],
+  "interceptionProof": [
+    {
+      "key": "duplicate_item",
+      "count": 2,
+      "bytes": 2929,
+      "status": 200
+    },
+    {
+      "key": "unknown_op",
+      "count": 2,
+      "bytes": 2926,
+      "status": 200
+    },
+    {
+      "key": "truncated_json",
+      "count": 2,
+      "bytes": 1,
+      "status": 200
+    },
+    {
+      "key": "html_item",
+      "count": 1,
+      "bytes": 3060,
+      "status": 200
+    },
+    {
+      "key": "missing_item_ref",
+      "count": 2,
+      "bytes": 2941,
+      "status": 200
+    },
+    {
+      "key": "not_unique",
+      "count": 2,
+      "bytes": 2337,
+      "status": 200
+    },
+    {
+      "key": "missing_field",
+      "count": 2,
+      "bytes": 2721,
+      "status": 200
+    }
+  ]
+}

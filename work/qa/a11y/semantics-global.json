@@ -1,0 +1,70 @@
+{
+ "global": {
+  "lang": "zh-CN",
+  "title": "末班车的四张车票｜第零证物局",
+  "duplicateIds": [],
+  "imgsNoAlt": [],
+  "imgsEmptyAlt": 1,
+  "iframes": 0,
+  "buttonsNoName": [],
+  "linksNoName": [],
+  "landmarks": [
+   {
+    "tag": "HEADER",
+    "role": null,
+    "label": null,
+    "count": 1
+   },
+   {
+    "tag": "NAV",
+    "role": null,
+    "label": "主导航",
+    "count": 1
+   },
+   {
+    "tag": "MAIN",
+    "role": null,
+    "label": null,
+    "count": 1
+   },
+   {
+    "tag": "DIV",
+    "role": "status",
+    "label": null,
+    "count": 1
+   },
+   {
+    "tag": "FOOTER",
+    "role": null,
+    "label": null,
+    "count": 1
+   },
+   {
+    "tag": "DIV",
+    "role": "status",
+    "label": null,
+    "count": 1
+   }
+  ],
+  "tabindexPositive": [],
+  "ariaHiddenFocusable": []
+ },
+ "dialog": {
+  "open": true,
+  "modal": true,
+  "labelledby": "confirm-title",
+  "labelledbyText": "重置此案？",
+  "describedby": null,
+  "bodyId": "confirm-body",
+  "role": null,
+  "activeTag": "BUTTON",
+  "activeConfirm": "ok",
+  "descriptionExposed": false,
+  "cancelledViaBackdrop": null,
+  "backdrop_click_closes": true,
+  "after_cancel": {
+   "open": false,
+   "focus": "btn-reset"
+  }
+ }
+}

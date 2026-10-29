@@ -1,0 +1,24 @@
+[PASS] cold deep-link #/case/NA-004 opens the desk — title='灯塔没有亮起的第五盏灯' hash=#/case/NA-004 caseActive=true
+[PASS] cold deep-link renders a real case, not an error — rootLen=432
+[PASS] cold deep-link sets the document title — 灯塔没有亮起的第五盏灯｜第零证物局
+[PASS] refresh on a deep link keeps the case — #/case/NA-004
+[PASS] arrangement restored after refresh — ['航海图', '银徽章', '玻璃球', '铜钥匙'] -> ['航海图', '银徽章', '玻璃球', '铜钥匙']
+[PASS] hint progress restored after refresh — 1 -> 1
+[PASS] Back from a case returns to the cabinet — hash=#/cabinet cabinetActive=true cards=6
+[PASS] cabinet still renders all cards after Back — 6 cards
+[PASS] Forward returns to the same case — hash=#/case/NA-003 slots=True
+[FAIL] Back from a deep link returns to the previous in-site page — hash='' home=true cabinet=false
+[INFO] cold-tab Back -> 'about:blank' (history.length=2); app not at fault
+[PASS] invalid case id (#/case/NA-999) does not blank the app — hash=#/case/NA-999 home=false cabinet=false slots=False err=True rootLen=29
+[PASS] unknown route (#/nonsense) does not blank the app — hash=#/nonsense home=true cabinet=false slots=False err=False rootLen=25
+[PASS] malformed case id (#/case/NA-00) does not blank the app — hash=#/case/NA-00 home=true cabinet=false slots=False err=False rootLen=25
+[PASS] lowercase id (#/case/na-001) does not blank the app — hash=#/case/na-001 home=true cabinet=false slots=False err=False rootLen=25
+[PASS] NA-999 shows a clear in-app explanation — 这份档案尚未完整送达 |  | 该案尚未通过全部门禁 |  | 返回档案柜
+[PASS] after clearing localStorage the case still loads — order=['蓝票', '绿票', '红票', '黄票']
+[PASS] after clearing localStorage the order resets to the default — default=['蓝票', '绿票', '红票', '黄票'] now=['蓝票', '绿票', '红票', '黄票']
+[PASS] after clearing localStorage hints are gone — 0 hint cards
+[PASS] after clearing localStorage progress badge is zero — 已归档 0 / 6
+[PASS] no console errors across the deep-link run
+[PASS] no third-party requests — 0: []
+
+deeplink/msedge: 20 PASS / 1 FAIL -> C:\Users\11930\Desktop\第零号证物局\zero-dossier-office\work\qa\cross-browser\raw\deeplink-msedge.json

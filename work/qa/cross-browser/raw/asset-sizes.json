@@ -1,0 +1,106 @@
+{
+ "base": "https://tbj0623.github.io/zero-dossier-office/",
+ "files": {
+  "index.html": {
+   "bytes": 13810,
+   "content_encoding": null,
+   "content_type": "text/html; charset=utf-8"
+  },
+  "styles/tokens.css": {
+   "bytes": 2309,
+   "content_encoding": null,
+   "content_type": "text/css; charset=utf-8"
+  },
+  "styles/base.css": {
+   "bytes": 5839,
+   "content_encoding": null,
+   "content_type": "text/css; charset=utf-8"
+  },
+  "styles/app.css": {
+   "bytes": 27560,
+   "content_encoding": null,
+   "content_type": "text/css; charset=utf-8"
+  },
+  "app.mjs": {
+   "bytes": 45288,
+   "content_encoding": null,
+   "content_type": "text/javascript; charset=utf-8"
+  },
+  "engine/solver.mjs": {
+   "bytes": 7277,
+   "content_encoding": null,
+   "content_type": "text/javascript; charset=utf-8"
+  },
+  "assets/archive-emblem.svg": {
+   "bytes": 803,
+   "content_encoding": null,
+   "content_type": "image/svg+xml"
+  },
+  "assets/archive-emblem-512.png": {
+   "bytes": 28433,
+   "content_encoding": null,
+   "content_type": "image/png"
+  },
+  "assets/evidence-case-001.webp": {
+   "bytes": 17222,
+   "content_encoding": null,
+   "content_type": "image/webp"
+  },
+  "assets/evidence-case-002.webp": {
+   "bytes": 15326,
+   "content_encoding": null,
+   "content_type": "image/webp"
+  },
+  "assets/evidence-case-003.webp": {
+   "bytes": 16970,
+   "content_encoding": null,
+   "content_type": "image/webp"
+  },
+  "assets/NA-004-episode-card.webp": {
+   "bytes": 100220,
+   "content_encoding": null,
+   "content_type": "image/webp"
+  },
+  "assets/NA-005-episode-card.webp": {
+   "bytes": 98772,
+   "content_encoding": null,
+   "content_type": "image/webp"
+  },
+  "assets/NA-006-episode-card.webp": {
+   "bytes": 97396,
+   "content_encoding": null,
+   "content_type": "image/webp"
+  },
+  "cases/NA-001.json": {
+   "bytes": 3224,
+   "content_encoding": null,
+   "content_type": "application/json; charset=utf-8"
+  },
+  "cases/NA-002.json": {
+   "bytes": 2897,
+   "content_encoding": null,
+   "content_type": "application/json; charset=utf-8"
+  },
+  "cases/NA-003.json": {
+   "bytes": 3623,
+   "content_encoding": null,
+   "content_type": "application/json; charset=utf-8"
+  },
+  "cases/NA-004.json": {
+   "bytes": 3375,
+   "content_encoding": null,
+   "content_type": "application/json; charset=utf-8"
+  },
+  "cases/NA-005.json": {
+   "bytes": 3634,
+   "content_encoding": null,
+   "content_type": "application/json; charset=utf-8"
+  },
+  "cases/NA-006.json": {
+   "bytes": 3807,
+   "content_encoding": null,
+   "content_type": "application/json; charset=utf-8"
+  }
+ },
+ "total_uncompressed_bytes": 497785
+}

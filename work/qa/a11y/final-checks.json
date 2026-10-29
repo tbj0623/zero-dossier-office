@@ -1,0 +1,145 @@
+{
+ "skip_link": [
+  {
+   "top": "-144.472px",
+   "y": -144,
+   "h": 52,
+   "visibleFraction": -1.79
+  },
+  {
+   "top": "5.59413px",
+   "y": 6,
+   "h": 52,
+   "visibleFraction": 1
+  },
+  {
+   "top": "16px",
+   "y": 16,
+   "h": 52,
+   "visibleFraction": 1
+  },
+  {
+   "top": "16px",
+   "y": 16,
+   "h": 52,
+   "visibleFraction": 1
+  }
+ ],
+ "skip_link_activation": {
+  "activeTag": "MAIN",
+  "activeId": "main",
+  "hash": "#main",
+  "scrollY": 0
+ },
+ "escape": {
+  "after_pick_enter": {
+   "active": "BODY#",
+   "selected": 1,
+   "pickLabel": "取消选中「绿票」"
+  },
+  "after_escape_with_focus_in_slot": {
+   "selected": 0,
+   "status": "已取消选中",
+   "active": "BODY#",
+   "activeName": ""
+  }
+ },
+ "escape_after_focus_loss": {
+  "selected": 1,
+  "active": "BODY",
+  "status": "已选中「绿票」，请点目标格位"
+ },
+ "mobile_nav": {
+  "expanded": "true",
+  "label": "关闭导航菜单",
+  "controls": "site-nav",
+  "controlsExists": true,
+  "navOpen": "true",
+  "display": "flex",
+  "links": [
+   {
+    "text": "档案柜",
+    "w": 342,
+    "h": 44,
+    "visible": true
+   },
+   {
+    "text": "玩法说明",
+    "w": 342,
+    "h": 44,
+    "visible": true
+   },
+   {
+    "text": "关于与隐私",
+    "w": 342,
+    "h": 44,
+    "visible": true
+   }
+  ],
+  "activeIsToggle": true,
+  "activeTag": "BUTTON",
+  "after_tab": {
+   "tag": "A",
+   "text": "档案柜",
+   "inNav": true
+  },
+  "after_escape": {
+   "navOpen": "true",
+   "expanded": "true",
+   "display": "flex"
+  },
+  "after_nav": {
+   "navOpen": "false",
+   "display": "none",
+   "active": "MAIN",
+   "hash": "#/cabinet"
+  }
+ },
+ "small_targets_mobile": [
+  {
+   "name": "档案柜",
+   "area": "crumbs",
+   "w": 37.8,
+   "h": 21.4
+  },
+  {
+   "name": "档案柜",
+   "area": "footer",
+   "w": 37.8,
+   "h": 19
+  },
+  {
+   "name": "玩法说明",
+   "area": "footer",
+   "w": 50.3,
+   "h": 19
+  },
+  {
+   "name": "关于与隐私",
+   "area": "footer",
+   "w": 62.9,
+   "h": 19
+  }
+ ],
+ "footer_link_spacing": [
+  {
+   "text": "档案柜",
+   "h": 19,
+   "y": 1714.7
+  },
+  {
+   "text": "玩法说明",
+   "h": 19,
+   "y": 1740.1
+  },
+  {
+   "text": "关于与隐私",
+   "h": 19,
+   "y": 1765.5
+  }
+ ],
+ "crumb_spacing": {
+  "h": 0,
+  "y": 0
+ }
+}

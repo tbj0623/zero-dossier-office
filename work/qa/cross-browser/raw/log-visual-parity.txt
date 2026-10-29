@@ -1,0 +1,9 @@
+chromium: captured 6 scenes
+msedge: captured 6 scenes
+home-1440: size=(1440, 900) vs (1440, 900) pct_diff=0.8894 scrollW=1440/1440
+cabinet-1440: size=(1440, 2397) vs (1440, 2397) pct_diff=1.3101 scrollW=1440/1440
+case-NA001-1440: size=(1440, 1211) vs (1440, 1211) pct_diff=0.2199 scrollW=1440/1440
+case-NA004-mobile390: size=(390, 2289) vs (390, 2289) pct_diff=0.5558 scrollW=390/390
+cabinet-mobile390: size=(390, 844) vs (390, 844) pct_diff=2.6315 scrollW=390/390
+manual-1024: size=(1024, 768) vs (1024, 768) pct_diff=0.1141 scrollW=1024/1024
+-> raw/visual-parity.json

@@ -1,0 +1,274 @@
+{
+  "suite": "journey",
+  "engine": "msedge",
+  "when": "2026-10-30T01:05:49+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "results": [
+    {
+      "check": "browser launch",
+      "ok": true,
+      "detail": "msedge 156.0.4314.50"
+    },
+    {
+      "check": "home loads",
+      "ok": true,
+      "detail": "第零证物局｜雾港异常档案 · 原创互动推理"
+    },
+    {
+      "check": "home CTA #cta-first present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "cabinet shows 6 cards",
+      "ok": true,
+      "detail": "6 cards"
+    },
+    {
+      "check": "NA-001 desk opens",
+      "ok": true,
+      "detail": "末班车的四张车票"
+    },
+    {
+      "check": "NA-001 has 3 evidence cards",
+      "ok": true,
+      "detail": "3 cards"
+    },
+    {
+      "check": "all evidence expandable",
+      "ok": true,
+      "detail": "3/3 expanded"
+    },
+    {
+      "check": "default order is not the answer",
+      "ok": true,
+      "detail": "start=['蓝票', '绿票', '红票', '黄票']"
+    },
+    {
+      "check": "wrong submit: non-spoiler feedback",
+      "ok": true,
+      "detail": "档案仍有不一致：2 条关系未满足。"
+    },
+    {
+      "check": "wrong submit keeps order",
+      "ok": true,
+      "detail": "['绿票', '黄票', '蓝票', '红票']"
+    },
+    {
+      "check": "three hints appear one by one",
+      "ok": true,
+      "detail": "counts=[1, 2, 3]"
+    },
+    {
+      "check": "hints do not auto-fill the answer",
+      "ok": true,
+      "detail": "order unchanged by hints"
+    },
+    {
+      "check": "hint button exhausted state",
+      "ok": true,
+      "detail": "{\"disabled\": true, \"text\": \"提示已全部解封\"}"
+    },
+    {
+      "check": "correct solve reaches verdict",
+      "ok": true,
+      "detail": "档案归位。"
+    },
+    {
+      "check": "logic recap and story recap separated",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "logic recap cites every evidence id",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "recap blocks are not duplicated",
+      "ok": true,
+      "detail": "logic=336ch story=164ch"
+    },
+    {
+      "check": "archive progress persisted",
+      "ok": true,
+      "detail": "已归档 1 / 6"
+    },
+    {
+      "check": "reload restores arrangement",
+      "ok": true,
+      "detail": "before=['银徽章', '航海图', '玻璃球', '铜钥匙'] moved=['航海图', '银徽章', '玻璃球', '铜钥匙'] after=['航海图', '银徽章', '玻璃球', '铜钥匙']"
+    },
+    {
+      "check": "Tab order reaches the slot controls",
+      "ok": true,
+      "detail": "A#.skip-link > A#.brand > A#. > A#. > A#. > A#. > BUTTON#ev-btn-E01.ev-card__summa > BUTTON#ev-btn-E02.ev-card__summa"
+    },
+    {
+      "check": "Enter on move button reorders",
+      "ok": true,
+      "detail": "['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']"
+    },
+    {
+      "check": "ArrowUp reorders",
+      "ok": true,
+      "detail": "['绿票', '蓝票', '红票', '黄票'] -> ['蓝票', '绿票', '红票', '黄票']"
+    },
+    {
+      "check": "ArrowDown reorders",
+      "ok": true,
+      "detail": "focused_index=0 ['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']"
+    },
+    {
+      "check": "ArrowDown reverses ArrowUp",
+      "ok": true,
+      "detail": "back to ['绿票', '蓝票', '红票', '黄票']"
+    },
+    {
+      "check": "ArrowUp at top row is a no-op",
+      "ok": true,
+      "detail": "['绿票', '蓝票', '红票', '黄票']"
+    },
+    {
+      "check": "ArrowDown at last row is a no-op",
+      "ok": true,
+      "detail": "['绿票', '蓝票', '红票', '黄票']"
+    },
+    {
+      "check": "focus outline visible",
+      "ok": true,
+      "detail": "outline-style=solid"
+    },
+    {
+      "check": "focus retained after keyboard reorder",
+      "ok": true,
+      "detail": "active=down"
+    },
+    {
+      "check": "390x844 no horizontal overflow",
+      "ok": true,
+      "detail": "390x390"
+    },
+    {
+      "check": "390x844 targets >= 44px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "390x844 touch tap works",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no console errors (desktop)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no console errors (390 mobile)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no third-party requests",
+      "ok": true,
+      "detail": "0: []"
+    }
+  ],
+  "pass": 34,
+  "fail": 0,
+  "browser_version": "156.0.4314.50",
+  "tab_chain": [
+    {
+      "tag": "A",
+      "id": null,
+      "cls": "skip-link",
+      "act": null,
+      "text": "跳到主要内容"
+    },
+    {
+      "tag": "A",
+      "id": null,
+      "cls": "brand",
+      "act": null,
+      "text": "第零证物局\n        The "
+    },
+    {
+      "tag": "A",
+      "id": null,
+      "cls": "",
+      "act": null,
+      "text": "档案柜"
+    },
+    {
+      "tag": "A",
+      "id": null,
+      "cls": "",
+      "act": null,
+      "text": "玩法说明"
+    },
+    {
+      "tag": "A",
+      "id": null,
+      "cls": "",
+      "act": null,
+      "text": "关于与隐私"
+    },
+    {
+      "tag": "A",
+      "id": null,
+      "cls": "",
+      "act": null,
+      "text": "档案柜"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "ev-btn-E01",
+      "cls": "ev-card__summary",
+      "act": null,
+      "text": "E01粘连的票根物证"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "ev-btn-E02",
+      "cls": "ev-card__summary",
+      "act": null,
+      "text": "E02灯塔站的回执记录"
+    },
+    {
+      "tag": "BUTTON",
+      "id": "ev-btn-E03",
+      "cls": "ev-card__summary",
+      "act": null,
+      "text": "E03维修铃声证词"
+    },
+    {
+      "tag": "BUTTON",
+      "id": null,
+      "cls": "icon-btn",
+      "act": "down",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "id": null,
+      "cls": "icon-btn",
+      "act": "pick",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "id": null,
+      "cls": "icon-btn",
+      "act": "up",
+      "text": ""
+    }
+  ],
+  "external_requests": [],
+  "console_errors_desktop": [],
+  "pageerrors_desktop": [],
+  "console_errors_mobile": [],
+  "pageerrors_mobile": [],
+  "request_failures": [],
+  "elapsed_s": 15.36
+}

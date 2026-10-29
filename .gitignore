@@ -22,3 +22,7 @@ node_modules/
 .parity-node.mjs
 __pycache__/
 *.pyc
+
+# 构建产物（由 tools/build.mjs 从 cases/public 与 engine/ 复制生成，不入库）
+site/cases/
+site/engine/

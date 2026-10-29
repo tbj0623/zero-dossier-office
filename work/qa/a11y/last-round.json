@@ -1,0 +1,59 @@
+{
+ "arrow_keys": {
+  "start": [
+   "蓝票",
+   "绿票",
+   "红票",
+   "黄票"
+  ],
+  "focus_on": "选中「红票」以交换位置",
+  "after_arrowup": [
+   "蓝票",
+   "红票",
+   "绿票",
+   "黄票"
+  ],
+  "focus_after_arrowup": "BUTTON|将「红票」上移一格",
+  "scrollY": 0,
+  "after_arrowdown": [
+   "蓝票",
+   "绿票",
+   "红票",
+   "黄票"
+  ],
+  "boundary_arrow_scroll": {
+   "before": 311,
+   "after": 271,
+   "order": [
+    "蓝票",
+    "绿票",
+    "红票",
+    "黄票"
+   ]
+  }
+ },
+ "toast_dup": {
+  "first_select_mutations": 1,
+  "reselect_same_text_mutations": 1,
+  "toast_text_after_hide": {
+   "text": "已选中「蓝票」，再点一个格位即可交换",
+   "show": "true",
+   "opacity": "1",
+   "inA11yTree": true
+  }
+ },
+ "crumb_mobile": {
+  "text": "档案柜",
+  "w": 37.8,
+  "h": 21.4,
+  "cx": 42.9,
+  "cy": 107.7,
+  "gapToNext": 8,
+  "gapToPrevEdge": 24
+ },
+ "crumb_context": {
+  "crumbBottom": 118.4,
+  "h1Top": 167.8,
+  "gap": 49.4
+ }
+}

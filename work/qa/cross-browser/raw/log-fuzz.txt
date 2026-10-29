@@ -1,0 +1,52 @@
+
+### 1. items with a duplicate entry
+  userSees: '这份档案尚未完整送达\n\nitems 重复\n\n返回档案柜'
+  errorHeadline=True emptyState=True slots=False spinnerStuck=False
+  consoleErrors=[] pageErrors=[]
+  alerts=[] patched=[] imgs=[]
+  navigableAfter=True (6 cabinet cards after recovery)
+
+### 2. constraints with unknown op "xor"
+  userSees: '这份档案尚未完整送达\n\n未知约束运算符：xor\n\n返回档案柜'
+  errorHeadline=True emptyState=True slots=False spinnerStuck=False
+  consoleErrors=[] pageErrors=[]
+  alerts=[] patched=[] imgs=[]
+  navigableAfter=True (6 cabinet cards after recovery)
+
+### 3. truncated / invalid JSON "{"
+  userSees: "这份档案尚未完整送达\n\nExpected property name or '}' in JSON at position 1 (line 1 column 2)\n\n返回档案柜"
+  errorHeadline=True emptyState=True slots=False spinnerStuck=False
+  consoleErrors=[] pageErrors=[]
+  alerts=[] patched=[] imgs=[]
+  navigableAfter=True (6 cabinet cards after recovery)
+
+### 4. items containing <img src=x onerror=alert(1)>
+  userSees: '第 1 幕 · 开卷：雾港的错位记录\n末班车的四张车票 <img src=x onerror=alert(1)>\n\n同一辆车的打票机，在十分钟内留下四条互相错位的记录。\n\n新手\n档案 #001\n已采集证物\n\n3 份 · 可逐张展开\n\n雾港，'
+  errorHeadline=False emptyState=False slots=True spinnerStuck=False
+  consoleErrors=[] pageErrors=[]
+  alerts=[] patched=[] imgs=[]
+  navigableAfter=True (6 cabinet cards after recovery)
+
+### 5. constraint referencing nonexistent item
+  userSees: '这份档案尚未完整送达\n\n未知物件：不存在的物件\n\n返回档案柜'
+  errorHeadline=True emptyState=True slots=False spinnerStuck=False
+  consoleErrors=[] pageErrors=[]
+  alerts=[] patched=[] imgs=[]
+  navigableAfter=True (6 cabinet cards after recovery)
+
+### 6. extra: non-unique solution (under-constrained)
+  userSees: '这份档案尚未完整送达\n\n该案未通过唯一解校验，已暂停展示\n\n返回档案柜'
+  errorHeadline=True emptyState=True slots=False spinnerStuck=False
+  consoleErrors=[] pageErrors=[]
+  alerts=[] patched=[] imgs=[]
+  navigableAfter=True (6 cabinet cards after recovery)
+
+### 7. extra: required field 'constraints' deleted
+  userSees: '这份档案尚未完整送达\n\n案件缺少字段：constraints\n\n返回档案柜'
+  errorHeadline=True emptyState=True slots=False spinnerStuck=False
+  consoleErrors=[] pageErrors=[]
+  alerts=[] patched=[] imgs=[]
+  navigableAfter=True (6 cabinet cards after recovery)
+
+XSS findings: 1
+-> raw/fuzz.json

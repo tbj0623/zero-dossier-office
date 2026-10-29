@@ -1,0 +1,288 @@
+{
+ "chromium": {
+  "#site-header": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 65,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  ".brand__name": {
+   "x": 180,
+   "y": 15.81,
+   "w": 176.91,
+   "h": 18.47,
+   "font": "\"Songti SC\"",
+   "size": "16.8px",
+   "lh": "18.48px",
+   "ff": "normal"
+  },
+  "#hero-title": null,
+  ".hero__title": null,
+  "h1": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "font": "\"Songti SC\"",
+   "size": "70.4px",
+   "lh": "77.44px",
+   "ff": "normal"
+  },
+  "#cta-first": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "21.216px",
+   "ff": "normal"
+  },
+  "#cabinet": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  ".case-card": null,
+  ".case-card__title": null,
+  ".case-card__cta": null,
+  "#slots": {
+   "x": 693.94,
+   "y": 405.34,
+   "w": 599.06,
+   "h": 316.81,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  "#slots .slot": {
+   "x": 693.94,
+   "y": 405.34,
+   "w": 599.06,
+   "h": 65.2,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  "#slots .slot__item": {
+   "x": 752.94,
+   "y": 433.83,
+   "w": 351.06,
+   "h": 27.72,
+   "font": "\"Songti SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  "#btn-submit": {
+   "x": 693.94,
+   "y": 738.16,
+   "w": 182.97,
+   "h": 44,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "21.216px",
+   "ff": "normal"
+  },
+  "#btn-hint": {
+   "x": 1023.59,
+   "y": 738.16,
+   "w": 130.7,
+   "h": 44,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "21.216px",
+   "ff": "normal"
+  },
+  ".evidence-col": {
+   "x": 130,
+   "y": 261.17,
+   "w": 522.94,
+   "h": 449.69,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  ".order-col": {
+   "x": 676.94,
+   "y": 261.17,
+   "w": 633.06,
+   "h": 595.98,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  ".site-nav": {
+   "x": 1040.86,
+   "y": 10,
+   "w": 269.14,
+   "h": 44,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  "_doc": {
+   "sw": 1440,
+   "cw": 1440,
+   "sh": 1211,
+   "fonts": []
+  }
+ },
+ "msedge": {
+  "#site-header": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 65,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  ".brand__name": {
+   "x": 180,
+   "y": 15.81,
+   "w": 176.91,
+   "h": 18.47,
+   "font": "\"Songti SC\"",
+   "size": "16.8px",
+   "lh": "18.48px",
+   "ff": "normal"
+  },
+  "#hero-title": null,
+  ".hero__title": null,
+  "h1": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "font": "\"Songti SC\"",
+   "size": "70.4px",
+   "lh": "77.44px",
+   "ff": "normal"
+  },
+  "#cta-first": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "21.216px",
+   "ff": "normal"
+  },
+  "#cabinet": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  ".case-card": null,
+  ".case-card__title": null,
+  ".case-card__cta": null,
+  "#slots": {
+   "x": 693.94,
+   "y": 405.34,
+   "w": 599.06,
+   "h": 316.81,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  "#slots .slot": {
+   "x": 693.94,
+   "y": 405.34,
+   "w": 599.06,
+   "h": 65.2,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  "#slots .slot__item": {
+   "x": 752.94,
+   "y": 433.83,
+   "w": 351.06,
+   "h": 27.72,
+   "font": "\"Songti SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  "#btn-submit": {
+   "x": 693.94,
+   "y": 738.16,
+   "w": 182.97,
+   "h": 44,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "21.216px",
+   "ff": "normal"
+  },
+  "#btn-hint": {
+   "x": 1023.59,
+   "y": 738.16,
+   "w": 130.7,
+   "h": 44,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "21.216px",
+   "ff": "normal"
+  },
+  ".evidence-col": {
+   "x": 130,
+   "y": 261.17,
+   "w": 522.94,
+   "h": 449.69,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  ".order-col": {
+   "x": 676.94,
+   "y": 261.17,
+   "w": 633.06,
+   "h": 595.98,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  ".site-nav": {
+   "x": 1040.86,
+   "y": 10,
+   "w": 269.14,
+   "h": 44,
+   "font": "\"Noto Sans SC\"",
+   "size": "16.32px",
+   "lh": "27.744px",
+   "ff": "normal"
+  },
+  "_doc": {
+   "sw": 1440,
+   "cw": 1440,
+   "sh": 1211,
+   "fonts": []
+  }
+ }
+}

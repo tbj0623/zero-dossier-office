@@ -942,3 +942,207 @@ html { scroll-padding-top: 80px; }
   .verdict__actions .btn { flex-basis: 100%; }
   .recap-block { padding: var(--sp-4); }
 }
+
+
+/* ==========================================================================
+   FIX PASS 02 — 无障碍修复（axe-core 实测发现）
+   ========================================================================== */
+
+/* 页脚小标题由 h4 改为 h2，保留原视觉尺寸 */
+.site-footer__h {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 var(--sp-2);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* 首页卖点卡标题由 h3 改为 h2，保留原视觉尺寸 */
+.pitch__h {
+  font-size: var(--step-1);
+  margin: 0 0 var(--sp-2);
+  font-family: var(--font-serif);
+  line-height: 1.3;
+}
+
+/* 结案页：h1 与段落级 h2 的视觉 */
+.verdict__h1 { font-size: var(--step-3); margin: 0 0 var(--sp-3); }
+.recap-h { font-size: var(--step-1); margin: 0 0 var(--sp-3); font-family: var(--font-serif); line-height: 1.3; }
+
+/* .act__title 现在是 h2：保持原有视觉尺寸，不受全局 h2 放大影响 */
+.act__title { font-size: var(--step-1); margin: 0; font-family: var(--font-serif); line-height: 1.3; }
+
+/* ==========================================================================
+   案卷边注：主线彩蛋 + 局长短句（非承重，漏看不会卡关）
+   ========================================================================== */
+.case-afterword {
+  margin-top: var(--sp-4);
+  padding: var(--sp-4);
+  border: 1px dashed rgb(223 185 120 / 0.3);
+  border-radius: var(--radius);
+  background: rgb(223 185 120 / 0.045);
+}
+.case-afterword__motif,
+.case-afterword__note {
+  margin: 0 0 var(--sp-3);
+  font-size: var(--step--1);
+  line-height: 1.72;
+  color: var(--paper-dim);
+}
+.case-afterword__note:last-child,
+.case-afterword__motif:last-child { margin-bottom: 0; }
+.case-afterword__tag {
+  display: inline-block;
+  margin-right: var(--sp-2);
+  padding: 1px 7px;
+  border: 1px solid rgb(223 185 120 / 0.4);
+  border-radius: var(--radius-pill);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  color: var(--brass);
+  white-space: nowrap;
+}
+.case-afterword__note {
+  font-family: var(--font-serif);
+  color: var(--brass);
+  font-size: var(--step-0);
+  border-top: 1px dashed rgb(223 185 120 / 0.24);
+  padding-top: var(--sp-3);
+}
+.case-afterword__who {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--mist);
+  margin-right: var(--sp-1);
+}
+
+/* ==========================================================================
+   FIX PASS 03 — 触摸目标尺寸（红队实测发现：导航/页脚内联链接只有 ~19px 高）
+   目标：所有可点元素的命中区域 ≥ 44×44 CSS px（不只是视觉大小）
+   ========================================================================== */
+
+/* 1) 桌面与移动端导航：已有 min-height:44px，但链接被 flex 压扁时补 padding */
+.site-nav a,
+.site-nav button {
+  min-height: var(--tap);
+  min-width: var(--tap);
+  padding-block: var(--sp-3);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* 2) 页脚链接：原为纯内联文本（约 19px 高），加内边距并保持视觉紧凑 */
+.site-footer li { margin-bottom: 0; }
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  min-width: var(--tap);
+  padding-block: var(--sp-2);
+  padding-right: var(--sp-2);
+  text-decoration: none;
+}
+.site-footer a:hover { text-decoration: underline; }
+
+/* 3) 面包屑（封面 / 档案柜 / 当前案） */
+.desk-crumbs { flex-wrap: wrap; row-gap: var(--sp-1); }
+.desk-crumbs a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  min-width: var(--tap);
+  padding-block: var(--sp-2);
+}
+
+/* 4) 正文内的行内链接（玩法说明 / 关于页）：用内边距撑出高度，不改行距 */
+.doc a,
+.recap-block a {
+  display: inline-block;
+  padding-block: 6px;
+}
+
+/* 5) 小尺寸按钮（清除进度等）不得低于 44px 命中高度 */
+.btn--sm {
+  min-height: var(--tap);
+  padding-block: var(--sp-2);
+}
+
+/* 6) 证据卡标题按钮：整行可点，确保足够高 */
+.ev-card__summary { min-height: var(--tap); }
+
+/* 7) 首页次要文字链接 */
+.hero__note a,
+.case-card__hook a { display: inline-block; padding-block: 6px; }
+
+/* ==========================================================================
+   FIX PASS 04 — 按钮内的 SVG 不能吞掉点击
+   （红队/自测发现：<svg><path> 成为 e.target，按钮的 data-act 读不到）
+   ========================================================================== */
+button svg,
+button svg *,
+a svg,
+a svg *,
+.icon-btn svg,
+.icon-btn svg * {
+  pointer-events: none;
+}
+.btn svg, .btn svg * { pointer-events: none; }
+
+/* ==========================================================================
+   新玩家入职卡（传档员·祁灯）
+   ========================================================================== */
+.briefing {
+  position: relative;
+  margin-top: calc(-1 * var(--sp-5));
+  margin-bottom: var(--sp-6);
+  padding: var(--sp-5);
+  background: linear-gradient(168deg, rgb(30 62 74 / 0.96), rgb(12 32 42 / 0.98));
+  border: 1px solid rgb(223 185 120 / 0.32);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+  z-index: 3;
+}
+.briefing[hidden] { display: none; }
+.briefing__who {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: flex-start;
+  margin-bottom: var(--sp-3);
+}
+.briefing__mark { flex: 0 0 auto; opacity: 0.9; }
+.briefing__role {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.briefing__title {
+  font-size: var(--step-1);
+  margin: 0;
+  line-height: 1.4;
+  font-family: var(--font-serif);
+}
+.briefing__body {
+  color: var(--text-dim);
+  font-size: var(--step--1);
+  line-height: 1.75;
+  margin: 0 0 var(--sp-4);
+  max-width: 76ch;
+}
+.briefing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+.briefing__actions .btn { flex: 0 1 auto; }
+@media (max-width: 560px) {
+  .briefing { margin-top: var(--sp-4); }
+  .briefing__actions .btn { flex-basis: 100%; }
+}

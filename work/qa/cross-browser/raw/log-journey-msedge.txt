@@ -1,0 +1,36 @@
+[PASS] browser launch — msedge 156.0.4314.50
+[PASS] home loads — 第零证物局｜雾港异常档案 · 原创互动推理
+[PASS] home CTA #cta-first present
+[PASS] cabinet shows 6 cards — 6 cards
+[PASS] NA-001 desk opens — 末班车的四张车票
+[PASS] NA-001 has 3 evidence cards — 3 cards
+[PASS] all evidence expandable — 3/3 expanded
+[PASS] default order is not the answer — start=['蓝票', '绿票', '红票', '黄票']
+[PASS] wrong submit: non-spoiler feedback — 档案仍有不一致：2 条关系未满足。
+[PASS] wrong submit keeps order — ['绿票', '黄票', '蓝票', '红票']
+[PASS] three hints appear one by one — counts=[1, 2, 3]
+[PASS] hints do not auto-fill the answer — order unchanged by hints
+[PASS] hint button exhausted state — {"disabled": true, "text": "提示已全部解封"}
+[PASS] correct solve reaches verdict — 档案归位。
+[PASS] logic recap and story recap separated
+[PASS] logic recap cites every evidence id
+[PASS] recap blocks are not duplicated — logic=336ch story=164ch
+[PASS] archive progress persisted — 已归档 1 / 6
+[PASS] reload restores arrangement — before=['银徽章', '航海图', '玻璃球', '铜钥匙'] moved=['航海图', '银徽章', '玻璃球', '铜钥匙'] after=['航海图', '银徽章', '玻璃球', '铜钥匙']
+[PASS] Tab order reaches the slot controls — A#.skip-link > A#.brand > A#. > A#. > A#. > A#. > BUTTON#ev-btn-E01.ev-card__summa > BUTTON#ev-btn-E02.ev-card__summa
+[PASS] Enter on move button reorders — ['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']
+[PASS] ArrowUp reorders — ['绿票', '蓝票', '红票', '黄票'] -> ['蓝票', '绿票', '红票', '黄票']
+[PASS] ArrowDown reorders — focused_index=0 ['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']
+[PASS] ArrowDown reverses ArrowUp — back to ['绿票', '蓝票', '红票', '黄票']
+[PASS] ArrowUp at top row is a no-op — ['绿票', '蓝票', '红票', '黄票']
+[PASS] ArrowDown at last row is a no-op — ['绿票', '蓝票', '红票', '黄票']
+[PASS] focus outline visible — outline-style=solid
+[PASS] focus retained after keyboard reorder — active=down
+[PASS] 390x844 no horizontal overflow — 390x390
+[PASS] 390x844 targets >= 44px
+[PASS] 390x844 touch tap works
+[PASS] no console errors (desktop)
+[PASS] no console errors (390 mobile)
+[PASS] no third-party requests — 0: []
+
+journey/msedge: 34 PASS / 0 FAIL -> C:\Users\11930\Desktop\第零号证物局\zero-dossier-office\work\qa\cross-browser\raw\journey-msedge.json

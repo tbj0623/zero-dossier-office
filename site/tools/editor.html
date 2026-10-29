@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>案件编辑器 · 第零证物局</title>
+<style>
+:root{--ink:#081821;--panel:#132b36;--panel2:#1a3947;--paper:#e7d7b7;--brass:#dfb978;--mist:#9eb7b4;--ok:#87e1c1;--bad:#ffb0a2;--text:#f2ece0;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--text);font:15px/1.6 "Noto Sans SC","Microsoft YaHei",system-ui,sans-serif}
+header{position:sticky;top:0;z-index:9;background:rgba(6,20,28,.95);border-bottom:1px solid rgba(223,185,120,.2);padding:12px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+h1{font-size:17px;margin:0;font-weight:700}
+h1 small{color:var(--brass);font-weight:400;letter-spacing:.15em;font-size:10px;display:block;margin-top:2px}
+.grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:18px;padding:18px 20px;align-items:start}
+@media(max-width:1000px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid rgba(158,183,180,.2);border-radius:12px;padding:16px;margin-bottom:16px}
+.card h2{font-size:14px;margin:0 0 12px;color:var(--brass);letter-spacing:.06em;text-transform:uppercase}
+label{display:block;font-size:12px;color:var(--mist);margin:10px 0 4px;font-weight:600}
+input,textarea,select{width:100%;padding:8px 10px;background:#0d2530;border:1px solid rgba(158,183,180,.3);border-radius:7px;color:var(--text);font:inherit;font-size:13px}
+textarea{min-height:62px;resize:vertical;font-family:inherit}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--brass);outline-offset:1px;border-color:var(--brass)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+button{padding:9px 16px;border-radius:8px;border:1px solid rgba(223,185,120,.45);background:transparent;color:var(--brass);font:inherit;font-size:13px;font-weight:600;cursor:pointer;min-height:38px}
+button:hover{background:rgba(223,185,120,.12)}
+button.primary{background:linear-gradient(168deg,#e8c383,#cda45f);color:#231906;border-color:transparent}
+button.danger{color:var(--bad);border-color:rgba(255,176,162,.5)}
+button.sm{padding:4px 10px;font-size:12px;min-height:30px}
+.item-row,.ev-row,.con-row{display:grid;gap:8px;align-items:start;padding:10px;background:rgba(255,255,255,.03);border-radius:8px;margin-bottom:8px;border:1px solid rgba(158,183,180,.12)}
+.item-row{grid-template-columns:38px 1fr auto}
+.con-row{grid-template-columns:70px 1fr 1fr 1fr 70px 34px}
+.ev-row{grid-template-columns:1fr 34px}
+.tag{display:inline-block;font:11px/1 monospace;padding:3px 6px;border-radius:4px;background:rgba(223,185,120,.15);color:var(--brass)}
+.verdict{padding:12px 14px;border-radius:9px;margin-top:12px;font-size:13px;line-height:1.65;display:none}
+.verdict.show{display:block}
+.verdict.pass{background:rgba(135,225,193,.1);border:1px solid rgba(135,225,193,.45);color:#c6f7e5}
+.verdict.fail{background:rgba(255,176,162,.1);border:1px solid rgba(255,176,162,.45);color:#ffd8cf}
+.verdict ul{margin:6px 0 0;padding-left:20px}
+.sol{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.sol span{background:rgba(223,185,120,.14);border:1px solid rgba(223,185,120,.4);border-radius:20px;padding:3px 12px;font-size:13px}
+.hint-row{display:grid;grid-template-columns:52px 1fr;gap:8px;margin-bottom:8px;align-items:center}
+.hint-row span{font:11px monospace;color:var(--brass)}
+.muted{color:var(--mist);font-size:12px}
+.stat{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--mist);margin-top:10px}
+.stat b{color:var(--text);font-size:15px;display:block;font-family:monospace}
+.preview{background:#0a1e28;border:1px solid rgba(158,183,180,.2);border-radius:8px;padding:12px;font-size:13px}
+.preview .ev{background:var(--paper);color:#20180d;border-radius:6px;padding:9px 11px;margin-bottom:7px}
+.preview .ev b{display:block;font-size:13px;margin-bottom:3px}
+.preview .ev small{color:#6d5528;font-size:11px}
+.err{color:var(--bad);font-size:12px;margin-top:6px}
+.flex{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+</style>
+</head>
+<body>
+<header>
+  <h1>案件编辑器<small>ZERO DOSSIER · CASE AUTHOR</small></h1>
+  <div class="flex" style="margin-left:auto">
+    <button class="sm" id="btn-new">新建</button>
+    <button class="sm" id="btn-import">导入 JSON</button>
+    <button class="sm primary" id="btn-validate">校验</button>
+    <button class="sm" id="btn-export">导出 JSON</button>
+  </div>
+</header>
+
+<div class="grid">
+  <!-- ============ 左：表单 ============ -->
+  <div>
+    <div class="card">
+      <h2>基本信息</h2>
+      <div class="row3">
+        <div><label>案件编号</label><input id="f-id" value="NA-007" placeholder="NA-007"></div>
+        <div><label>slug</label><input id="f-slug" value="new-case"></div>
+        <div><label>难度</label><select id="f-difficulty"><option>新手</option><option selected>进阶</option><option>挑战</option></select></div>
+      </div>
+      <label>标题</label><input id="f-title" placeholder="例：停摆的第七座钟">
+      <label>副标题（一句悬念，不解释原因）</label><input id="f-subtitle">
+      <div class="row3">
+        <div><label>幕（1-3）</label><input id="f-chapter" type="number" min="1" max="3" value="1"></div>
+        <div><label>最短分钟</label><input id="f-min" type="number" value="3"></div>
+        <div><label>最长分钟</label><input id="f-max" type="number" value="6"></div>
+      </div>
+      <label>背景设定</label><textarea id="f-setting"></textarea>
+      <label>目标（明确告诉玩家要排什么）</label><textarea id="f-objective"></textarea>
+    </div>
+
+    <div class="card">
+      <h2>格位 与 物件</h2>
+      <p class="muted" style="margin:0 0 10px">两者数量必须相等，物件不可重复。索引从 0 开始（界面上是第 1 格）。</p>
+      <div id="slots-list"></div>
+      <button class="sm" id="btn-add-slot">+ 添加一格</button>
+      <div style="margin-top:14px" id="items-list"></div>
+      <button class="sm" id="btn-add-item">+ 添加物件</button>
+    </div>
+
+    <div class="card">
+      <h2>约束（形式化规则）</h2>
+      <p class="muted" style="margin:0 0 10px">
+        <code>distance</code> 的 gap 是<b>索引差</b>（gap=3 表示中间隔 2 件）；<code>between</code> 是严格区间，不要求居中。
+      </p>
+      <div id="con-list"></div>
+      <button class="sm" id="btn-add-con">+ 添加约束</button>
+    </div>
+
+    <div class="card">
+      <h2>证据（玩家能读到的正文）</h2>
+      <p class="muted" style="margin:0 0 10px">每条证据必须承载至少一条约束，且所有约束都必须被覆盖 —— 否则就是隐藏规则。</p>
+      <div id="ev-list"></div>
+      <button class="sm" id="btn-add-ev">+ 添加证据</button>
+    </div>
+
+    <div class="card">
+      <h2>三档提示</h2>
+      <div id="hint-list"></div>
+    </div>
+
+    <div class="card">
+      <h2>解题后文本</h2>
+      <label>resolution（结论）</label><textarea id="f-resolution"></textarea>
+      <label>twist（哪种记录机制造成了误会）</label><textarea id="f-twist"></textarea>
+      <label>logic_recap（只能用可证明的排序事实）</label><textarea id="f-logic"></textarea>
+      <label>epilogue（结案后补充的叙事，不代表排序能证明）</label><textarea id="f-epilogue"></textarea>
+      <label>motif（非必要彩蛋）</label><input id="f-motif">
+    </div>
+  </div>
+
+  <!-- ============ 右：校验与预览 ============ -->
+  <div>
+    <div class="card" style="position:sticky;top:70px">
+      <h2>实时校验</h2>
+      <div class="flex">
+        <button class="primary" id="btn-check">运行校验</button>
+        <label style="margin:0;display:flex;align-items:center;gap:6px;font-size:12px">
+          <input type="checkbox" id="chk-auto" checked style="width:auto"> 自动
+        </label>
+      </div>
+      <div class="verdict" id="verdict"></div>
+      <div class="stat" id="stats"></div>
+    </div>
+
+    <div class="card">
+      <h2>证据预览（玩家视角）</h2>
+      <div class="preview" id="preview"></div>
+    </div>
+
+    <div class="card">
+      <h2>求解结果</h2>
+      <div id="solutions" class="muted">尚未运行校验。</div>
+    </div>
+  </div>
+</div>
+
+<datalist id="item-names"></datalist>
+
+<script type="module">
+import { checkRule, countSolutions, necessityReport, describeRule, assertCaseShape } from '../engine/solver.mjs';
+
+const $ = (s) => document.querySelector(s);
+const el = (t, props = {}, kids = []) => {
+  const n = document.createElement(t);
+  for (const [k, v] of Object.entries(props)) {
+    if (v == null) continue;
+    if (k === 'class') n.className = v;
+    else if (k === 'text') n.textContent = v;
+    else if (k === 'on') for (const [e, f] of Object.entries(v)) n.addEventListener(e, f);
+    else if (k === 'style') n.setAttribute('style', v);
+    else n.setAttribute(k, v);
+  }
+  for (const c of [].concat(kids)) {
+    if (c == null) continue;
+    n.append(typeof c === 'string' ? document.createTextNode(c) : c);
+  }
+  return n;
+};
+
+/* ---------------- 状态 ---------------- */
+let S = {
+  id: 'NA-007', slug: 'new-case', title: '', subtitle: '', difficulty: '进阶',
+  chapter: 1, play_minutes: [3, 6], mechanic: 'order',
+  setting: '', objective: '',
+  slots: ['第1格', '第2格', '第3格', '第4格'],
+  items: ['物件A', '物件B', '物件C', '物件D'],
+  constraints: [],
+  evidence: [],
+  hints: ['', '', ''],
+  resolution: '', twist: '', logic_recap: '', epilogue: '', motif: '零号印章的半边压痕（彩蛋，不参与推理）',
+};
+
+const OPS = ['at','not_at','before','after','immediately_before','immediately_after','adjacent','distance','between'];
+
+function nid(prefix, arr) {
+  let i = arr.length + 1;
+  const used = new Set(arr.map(x => x.id));
+  while (used.has(`${prefix}${String(i).padStart(2,'0')}`)) i += 1;
+  return `${prefix}${String(i).padStart(2,'0')}`;
+}
+
+/* ---------------- 渲染 ---------------- */
+function renderSlots() {
+  const host = $('#slots-list'); host.replaceChildren();
+  S.slots.forEach((v, i) => {
+    host.append(el('div', { class: 'item-row' }, [
+      el('span', { class: 'tag', text: String(i + 1) }),
+      el('input', { value: v, on: { input: (e) => { S.slots[i] = e.target.value; schedule(); } } }),
+      el('button', { class: 'sm danger', text: '×', on: { click: () => { S.slots.splice(i,1); renderAll(); } } }),
+    ]));
+  });
+}
+
+function renderItems() {
+  const host = $('#items-list'); host.replaceChildren();
+  S.items.forEach((v, i) => {
+    host.append(el('div', { class: 'item-row' }, [
+      el('span', { class: 'tag', text: String(i + 1) }),
+      el('input', { value: v, on: { input: (e) => { S.items[i] = e.target.value; schedule(); } } }),
+      el('button', { class: 'sm danger', text: '×', on: { click: () => { S.items.splice(i,1); renderAll(); } } }),
+    ]));
+  });
+  const dl = $('#item-names'); dl.replaceChildren();
+  S.items.forEach(v => dl.append(el('option', { value: v })));
+}
+
+function itemSelect(value, onChange) {
+  const sel = el('select', { on: { change: (e) => { onChange(e.target.value); schedule(); } } });
+  sel.append(el('option', { value: '', text: '— 选择 —' }));
+  S.items.forEach(n => {
+    const o = el('option', { value: n, text: n });
+    if (n === value) o.selected = true;
+    sel.append(o);
+  });
+  return sel;
+}
+
+function renderCons() {
+  const host = $('#con-list'); host.replaceChildren();
+  if (!S.constraints.length) host.append(el('p', { class: 'muted', text: '还没有约束。' }));
+  S.constraints.forEach((c, i) => {
+    const opSel = el('select', { on: { change: (e) => { c.op = e.target.value; renderCons(); schedule(); } } });
+    OPS.forEach(o => { const x = el('option', { value: o, text: o }); if (o === c.op) x.selected = true; opSel.append(x); });
+    const needsB = !['at','not_at'].includes(c.op);
+    const needsC = c.op === 'between';
+    const needsGap = c.op === 'distance';
+
+    const row = el('div', { class: 'con-row' });
+    row.append(el('span', { class: 'tag', text: c.id }));
+    row.append(opSel);
+    row.append(itemSelect(c.a || '', v => { c.a = v; }));
+    row.append(needsB ? itemSelect(c.b || '', v => { c.b = v; }) : el('span', { class: 'muted', text: '—' }));
+    row.append(needsC ? itemSelect(c.c || '', v => { c.c = v; })
+               : needsGap ? el('input', { type: 'number', min: 1, value: c.gap ?? 1, style: 'width:64px',
+                   on: { input: (e) => { c.gap = Number(e.target.value); schedule(); } } })
+               : ['at','not_at'].includes(c.op) ? el('input', { type: 'number', min: 0, value: c.slot ?? 0, style: 'width:64px',
+                   title: '索引，从 0 开始', on: { input: (e) => { c.slot = Number(e.target.value); schedule(); } } })
+               : el('span', { class: 'muted', text: '—' }));
+    row.append(el('button', { class: 'sm danger', text: '×', on: { click: () => { S.constraints.splice(i,1); renderAll(); } } }));
+    host.append(row);
+  });
+}
+
+function renderEvs() {
+  const host = $('#ev-list'); host.replaceChildren();
+  if (!S.evidence.length) host.append(el('p', { class: 'muted', text: '还没有证据。' }));
+  S.evidence.forEach((e, i) => {
+    const wrap = el('div', { class: 'ev-row' });
+    const inner = el('div');
+    const top = el('div', { class: 'row' });
+    top.append(el('input', { value: e.id, placeholder: 'E01', on: { input: (ev) => { e.id = ev.target.value; schedule(); } } }));
+    top.append(el('input', { value: e.title, placeholder: '证据标题', on: { input: (ev) => { e.title = ev.target.value; schedule(); } } }));
+    inner.append(top);
+    inner.append(el('label', { text: '正文（玩家读到的原话）' }));
+    inner.append(el('textarea', { on: { input: (ev) => { e.body = ev.target.value; schedule(); } } }, [e.body || '']));
+    inner.append(el('label', { text: '引用约束 ID（逗号分隔）' }));
+    inner.append(el('input', {
+      value: (e.constraint_ids || []).join(','),
+      placeholder: 'C01',
+      on: { input: (ev) => { e.constraint_ids = ev.target.value.split(',').map(s => s.trim()).filter(Boolean); schedule(); } },
+    }));
+    inner.append(el('div', { class: 'row', style: 'margin-top:8px' }, [
+      el('input', { value: e.type || '物证', placeholder: '类型', on: { input: (ev) => { e.type = ev.target.value; } } }),
+      el('input', { value: e.illustration_hint || '', placeholder: '插画提示', on: { input: (ev) => { e.illustration_hint = ev.target.value; } } }),
+    ]));
+    wrap.append(inner);
+    wrap.append(el('button', { class: 'sm danger', text: '×', on: { click: () => { S.evidence.splice(i,1); renderAll(); } } }));
+    host.append(wrap);
+  });
+}
+
+function renderHints() {
+  const host = $('#hint-list'); host.replaceChildren();
+  S.hints.forEach((h, i) => {
+    host.append(el('div', { class: 'hint-row' }, [
+      el('span', { text: `提示 ${i + 1}` }),
+      el('textarea', { on: { input: (e) => { S.hints[i] = e.target.value; schedule(); } } }, [h]),
+    ]));
+  });
+}
+
+function renderPreview() {
+  const host = $('#preview'); host.replaceChildren();
+  if (!S.evidence.length) { host.append(el('p', { class: 'muted', text: '（无证据）' })); return; }
+  S.evidence.forEach(e => {
+    const rules = (e.constraint_ids || [])
+      .map(id => S.constraints.find(c => c.id === id))
+      .filter(Boolean)
+      .map(r => describeRule(r, S.slots));
+    host.append(el('div', { class: 'ev' }, [
+      el('small', { text: `${e.id || '?'} · ${e.type || '物证'}` }),
+      el('b', { text: e.title || '(无标题)' }),
+      el('div', { text: e.body || '(无正文)' }),
+      rules.length ? el('div', { style: 'margin-top:6px;font-size:11px;color:#5a4520;border-top:1px dashed rgba(109,85,40,.4);padding-top:5px',
+        text: '可核对的关系：' + rules.join(' ') }) : null,
+    ]));
+  });
+}
+
+function renderAll() {
+  $('#f-id').value = S.id; $('#f-slug').value = S.slug; $('#f-title').value = S.title;
+  $('#f-subtitle').value = S.subtitle; $('#f-difficulty').value = S.difficulty;
+  $('#f-chapter').value = S.chapter; $('#f-min').value = S.play_minutes[0]; $('#f-max').value = S.play_minutes[1];
+  $('#f-setting').value = S.setting; $('#f-objective').value = S.objective;
+  $('#f-resolution').value = S.resolution; $('#f-twist').value = S.twist;
+  $('#f-logic').value = S.logic_recap; $('#f-epilogue').value = S.epilogue; $('#f-motif').value = S.motif;
+  renderSlots(); renderItems(); renderCons(); renderEvs(); renderHints(); renderPreview();
+  schedule();
+}
+
+/* ---------------- 校验 ---------------- */
+let timer = null;
+function schedule() {
+  renderPreview();
+  if (!$('#chk-auto').checked) return;
+  clearTimeout(timer);
+  timer = setTimeout(validate, 350);
+}
+
+function buildCase() {
+  return {
+    id: S.id, slug: S.slug, title: S.title, subtitle: S.subtitle,
+    difficulty: S.difficulty, play_minutes: S.play_minutes, chapter: Number(S.chapter),
+    theme: `第 ${S.chapter} 幕`, mechanic: 'order',
+    setting: S.setting, objective: S.objective,
+    slots: [...S.slots], items: [...S.items],
+    constraints: S.constraints.map(c => {
+      const o = { id: c.id, op: c.op, a: c.a };
+      if (!['at','not_at'].includes(c.op)) o.b = c.b;
+      if (c.op === 'between') o.c = c.c;
+      if (c.op === 'distance') o.gap = Number(c.gap);
+      if (['at','not_at'].includes(c.op)) o.slot = Number(c.slot);
+      return o;
+    }),
+    evidence: S.evidence.map(e => ({
+      id: e.id, title: e.title, type: e.type || '物证', body: e.body || '',
+      constraint_ids: e.constraint_ids || [], illustration_hint: e.illustration_hint || '',
+    })),
+    hints: S.hints.filter(h => h && h.trim()),
+    resolution: S.resolution, twist: S.twist,
+    logic_recap: S.logic_recap, epilogue: S.epilogue, motif: S.motif,
+  };
+}
+
+function validate() {
+  const box = $('#verdict'); const stats = $('#stats'); const solBox = $('#solutions');
+  const problems = []; const warnings = [];
+  const c = buildCase();
+
+  // --- 结构 ---
+  if (!/^NA-\d{3}$/.test(c.id)) problems.push('案件编号必须形如 NA-007');
+  if (!c.title.trim()) problems.push('标题不能为空');
+  if (c.items.length !== c.slots.length) problems.push(`物件 ${c.items.length} 个，格位 ${c.slots.length} 个，必须相等`);
+  if (new Set(c.items).size !== c.items.length) problems.push('物件名称有重复');
+  if (new Set(c.slots).size !== c.slots.length) problems.push('格位名称有重复');
+  if (!(c.items.length >= 3 && c.items.length <= 8)) problems.push(`物件数 ${c.items.length}，求解器只支持 3–8`);
+  if (!c.constraints.length) problems.push('没有任何约束');
+  if (c.hints.length < 3) problems.push(`提示 ${c.hints.length} 条，至少要 3 条`);
+
+  // --- 约束字段 ---
+  const ids = new Set();
+  for (const r of c.constraints) {
+    if (!r.id) problems.push('有约束缺少 ID');
+    if (ids.has(r.id)) problems.push(`约束 ID 重复：${r.id}`);
+    ids.add(r.id);
+    if (!c.items.includes(r.a)) problems.push(`${r.id}: a「${r.a}」不是有效物件`);
+    if (!['at','not_at'].includes(r.op) && !c.items.includes(r.b)) problems.push(`${r.id}: b「${r.b}」不是有效物件`);
+    if (r.op === 'between' && !c.items.includes(r.c)) problems.push(`${r.id}: c「${r.c}」不是有效物件`);
+  }
+
+  // --- 证据覆盖 ---
+  const used = new Set();
+  for (const e of c.evidence) {
+    if (!e.body || e.body.trim().length < 5) problems.push(`${e.id || '?'}: 正文太短`);
+    if (!e.constraint_ids.length) problems.push(`${e.id || '?'}: 没有引用任何约束`);
+    for (const ref of e.constraint_ids) {
+      if (!ids.has(ref)) problems.push(`${e.id}: 引用了不存在的约束 ${ref}`);
+      used.add(ref);
+    }
+  }
+  const uncovered = [...ids].filter(x => !used.has(x));
+  if (uncovered.length) problems.push(`存在隐藏约束（没有证据承载）：${uncovered.join(', ')}`);
+
+  // --- 求解（用站点同一份核心）---
+  let sol = null;
+  if (!problems.length) {
+    try {
+      assertCaseShape(c);
+      sol = countSolutions(c.items, c.constraints);
+      if (sol.count === 0) problems.push('无解：没有任何排列满足全部约束');
+      else if (sol.count > 1) problems.push(`非唯一解：共 ${sol.count} 种排列，玩家无法确定答案`);
+      else {
+        const nec = necessityReport(c.items, c.constraints);
+        const redundant = nec.filter(n => !n.essential);
+        if (redundant.length) {
+          warnings.push(`冗余约束（删掉后仍唯一）：${redundant.map(r => `${r.id}（剩 ${r.remaining} 解）`).join('、')} —— 玩家会觉得这些线索没用`);
+        }
+      }
+    } catch (err) {
+      problems.push(`求解异常：${err.message}`);
+    }
+  }
+
+  // --- 文案 ---
+  if (/相距\s*[一二三四五六七八九十\d]+\s*次/.test(c.evidence.map(e => e.body).join(''))) {
+    warnings.push('正文出现「相距 N 次」：若 N 指格位差，请改用「格位编号相差 N 格」或「序号相差 N」，否则会被读成中间隔 N 件');
+  }
+  const txt = [c.logic_recap, c.epilogue].join(' ');
+  if (!c.epilogue.trim()) warnings.push('没有 epilogue：结案页的「档案后记」段会空着');
+  if (!c.logic_recap.trim()) warnings.push('没有 logic_recap：结案页的「逻辑复盘」段会空着');
+  if (!c.twist.trim()) warnings.push('没有 twist：每案都应讲清哪种记录机制造成了误会');
+
+  // --- 输出 ---
+  box.className = 'verdict show ' + (problems.length ? 'fail' : 'pass');
+  box.replaceChildren();
+  if (problems.length) {
+    box.append(el('b', { text: `✗ ${problems.length} 个问题` }));
+    const ul = el('ul');
+    problems.forEach(p => ul.append(el('li', { text: p })));
+    box.append(ul);
+  } else {
+    box.append(el('b', { text: '✓ 通过：唯一解、无隐藏约束' }));
+    if (warnings.length) {
+      const ul = el('ul');
+      warnings.forEach(p => ul.append(el('li', { text: '⚠ ' + p })));
+      box.append(ul);
+    }
+  }
+
+  stats.replaceChildren();
+  if (sol && sol.count === 1) {
+    stats.append(el('div', {}, [el('b', { text: String(c.items.length) }), '物件']));
+    stats.append(el('div', {}, [el('b', { text: String(c.constraints.length) }), '约束']));
+    stats.append(el('div', {}, [el('b', { text: String(c.evidence.length) }), '证据']));
+    stats.append(el('div', {}, [el('b', { text: `${Math.min(1, 1)}` === '1' ? '1' : '?', text: '1' }), '唯一解']));
+    solBox.replaceChildren();
+    solBox.append(el('p', { style: 'margin:0 0 6px', text: '唯一合法排列：' }));
+    const strip = el('div', { class: 'sol' });
+    sol.solution.forEach((name, i) => strip.append(el('span', { text: `${i + 1}. ${name}` })));
+    solBox.append(strip);
+    solBox.append(el('p', { class: 'muted', style: 'margin:10px 0 0', text: '把它填进 expected_solution，再按作者指南导出。' }));
+  } else {
+    solBox.replaceChildren(el('p', { class: 'muted', text: problems.length ? '先修好上面的问题。' : '尚未运行校验。' }));
+  }
+}
+
+/* ---------------- 事件 ---------------- */
+const bindText = (sel, key, fn) => $(sel).addEventListener('input', e => {
+  const v = fn ? fn(e.target.value) : e.target.value;
+  S[key] = v; schedule();
+});
+bindText('#f-id', 'id');
+bindText('#f-slug', 'slug');
+bindText('#f-title', 'title');
+bindText('#f-subtitle', 'subtitle');
+bindText('#f-difficulty', 'difficulty');
+bindText('#f-chapter', 'chapter', v => Number(v));
+bindText('#f-setting', 'setting');
+bindText('#f-objective', 'objective');
+bindText('#f-resolution', 'resolution');
+bindText('#f-twist', 'twist');
+bindText('#f-logic', 'logic_recap');
+bindText('#f-epilogue', 'epilogue');
+bindText('#f-motif', 'motif');
+$('#f-min').addEventListener('input', e => { S.play_minutes[0] = Number(e.target.value); });
+$('#f-max').addEventListener('input', e => { S.play_minutes[1] = Number(e.target.value); });
+
+$('#btn-add-slot').addEventListener('click', () => { S.slots.push(`第${S.slots.length + 1}格`); renderAll(); });
+$('#btn-add-item').addEventListener('click', () => { S.items.push(`物件${String.fromCharCode(65 + S.items.length)}`); renderAll(); });
+$('#btn-add-con').addEventListener('click', () => {
+  S.constraints.push({ id: nid('C', S.constraints), op: 'before', a: '', b: '' });
+  renderAll();
+});
+$('#btn-add-ev').addEventListener('click', () => {
+  S.evidence.push({ id: nid('E', S.evidence), title: '', type: '物证', body: '', constraint_ids: [], illustration_hint: '' });
+  renderAll();
+});
+$('#btn-check').addEventListener('click', validate);
+$('#chk-auto').addEventListener('change', validate);
+
+$('#btn-new').addEventListener('click', () => {
+  if (!confirm('清空当前编辑内容，开始新案件？')) return;
+  S = {
+    id: 'NA-007', slug: 'new-case', title: '', subtitle: '', difficulty: '进阶',
+    chapter: 1, play_minutes: [3, 6], mechanic: 'order',
+    setting: '', objective: '',
+    slots: ['第1格','第2格','第3格','第4格'],
+    items: ['物件A','物件B','物件C','物件D'],
+    constraints: [], evidence: [], hints: ['','',''],
+    resolution: '', twist: '', logic_recap: '', epilogue: '', motif: '零号印章的半边压痕（彩蛋，不参与推理）',
+  };
+  renderAll();
+});
+
+$('#btn-import').addEventListener('click', () => {
+  const raw = prompt('粘贴作者版案件 JSON：');
+  if (!raw) return;
+  try {
+    const d = JSON.parse(raw);
+    S = {
+      ...S, ...d,
+      play_minutes: d.play_minutes || [3, 6],
+      slots: d.slots || S.slots, items: d.items || S.items,
+      constraints: d.constraints || [], evidence: d.evidence || [],
+      hints: d.hints || ['','',''],
+    };
+    renderAll();
+  } catch (err) { alert('JSON 解析失败：' + err.message); }
+});
+
+$('#btn-export').addEventListener('click', () => {
+  const c = buildCase();
+  const out = JSON.stringify(c, null, 2);
+  navigator.clipboard?.writeText(out).catch(() => {});
+  const blob = new Blob([out], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `${c.id}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+renderAll();
+validate();
+</script>
+</body>
+</html>

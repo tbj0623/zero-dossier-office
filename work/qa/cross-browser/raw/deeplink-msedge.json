@@ -1,0 +1,148 @@
+{
+  "suite": "deeplink",
+  "engine": "msedge",
+  "when": "2026-10-30T00:50:15+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "results": [
+    {
+      "check": "cold deep-link #/case/NA-004 opens the desk",
+      "ok": true,
+      "detail": "title='灯塔没有亮起的第五盏灯' hash=#/case/NA-004 caseActive=true"
+    },
+    {
+      "check": "cold deep-link renders a real case, not an error",
+      "ok": true,
+      "detail": "rootLen=432"
+    },
+    {
+      "check": "cold deep-link sets the document title",
+      "ok": true,
+      "detail": "灯塔没有亮起的第五盏灯｜第零证物局"
+    },
+    {
+      "check": "refresh on a deep link keeps the case",
+      "ok": true,
+      "detail": "#/case/NA-004"
+    },
+    {
+      "check": "arrangement restored after refresh",
+      "ok": true,
+      "detail": "['航海图', '银徽章', '玻璃球', '铜钥匙'] -> ['航海图', '银徽章', '玻璃球', '铜钥匙']"
+    },
+    {
+      "check": "hint progress restored after refresh",
+      "ok": true,
+      "detail": "1 -> 1"
+    },
+    {
+      "check": "Back from a case returns to the cabinet",
+      "ok": true,
+      "detail": "hash=#/cabinet cabinetActive=true cards=6"
+    },
+    {
+      "check": "cabinet still renders all cards after Back",
+      "ok": true,
+      "detail": "6 cards"
+    },
+    {
+      "check": "Forward returns to the same case",
+      "ok": true,
+      "detail": "hash=#/case/NA-003 slots=True"
+    },
+    {
+      "check": "Back from a deep link returns to the previous in-site page",
+      "ok": true,
+      "detail": "hash='' homeVisible=True cabinetVisible=False caseVisible=False"
+    },
+    {
+      "check": "invalid case id (#/case/NA-999) does not blank the app",
+      "ok": true,
+      "detail": "hash=#/case/NA-999 home=false cabinet=false slots=False err=True rootLen=29"
+    },
+    {
+      "check": "unknown route (#/nonsense) does not blank the app",
+      "ok": true,
+      "detail": "hash=#/nonsense home=true cabinet=false slots=False err=False rootLen=25"
+    },
+    {
+      "check": "malformed case id (#/case/NA-00) does not blank the app",
+      "ok": true,
+      "detail": "hash=#/case/NA-00 home=true cabinet=false slots=False err=False rootLen=25"
+    },
+    {
+      "check": "lowercase id (#/case/na-001) does not blank the app",
+      "ok": true,
+      "detail": "hash=#/case/na-001 home=true cabinet=false slots=False err=False rootLen=25"
+    },
+    {
+      "check": "NA-999 shows a clear in-app explanation",
+      "ok": true,
+      "detail": "这份档案尚未完整送达 |  | 该案尚未通过全部门禁 |  | 返回档案柜"
+    },
+    {
+      "check": "after clearing localStorage the case still loads",
+      "ok": true,
+      "detail": "order=['蓝票', '绿票', '红票', '黄票']"
+    },
+    {
+      "check": "after clearing localStorage the order resets to the default",
+      "ok": true,
+      "detail": "default=['蓝票', '绿票', '红票', '黄票'] now=['蓝票', '绿票', '红票', '黄票']"
+    },
+    {
+      "check": "after clearing localStorage hints are gone",
+      "ok": true,
+      "detail": "0 hint cards"
+    },
+    {
+      "check": "after clearing localStorage progress badge is zero",
+      "ok": true,
+      "detail": "已归档 0 / 6"
+    },
+    {
+      "check": "no console errors across the deep-link run",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no third-party requests",
+      "ok": true,
+      "detail": "0: []"
+    }
+  ],
+  "pass": 21,
+  "fail": 0,
+  "browser_version": "156.0.4314.50",
+  "cold_tab_back": {
+    "history_length": 2,
+    "url_after_back": "about:blank",
+    "note": "about:blank = the tab's initial page (harness artefact / normal browser behaviour); the app itself did not blank"
+  },
+  "invalid_route_text": {
+    "#/case/NA-999": "这份档案尚未完整送达 |  | 该案尚未通过全部门禁 |  | 返回档案柜",
+    "#/nonsense": "这份档案尚未完整送达该案尚未通过全部门禁返回档案柜",
+    "#/case/NA-00": "这份档案尚未完整送达该案尚未通过全部门禁返回档案柜",
+    "#/case/na-001": "这份档案尚未完整送达该案尚未通过全部门禁返回档案柜"
+  },
+  "na999": {
+    "state": {
+      "hash": "#/case/NA-999",
+      "title": "第零证物局｜雾港异常档案 · 原创互动推理",
+      "homeActive": "false",
+      "cabinetActive": "false",
+      "caseActive": "true",
+      "homeVisible": false,
+      "cabinetVisible": false,
+      "caseVisible": true,
+      "hasSlots": false,
+      "hasErrorHeadline": true,
+      "hasEmptyState": true,
+      "caseRootLen": 29,
+      "navCurrent": "档案柜"
+    },
+    "text": "这份档案尚未完整送达\n\n该案尚未通过全部门禁\n\n返回档案柜"
+  },
+  "external_requests": [],
+  "console_errors": [],
+  "pageerrors": []
+}

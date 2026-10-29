@@ -1,0 +1,57 @@
+{
+ "btn_primary": {
+  "selector": "#btn-submit",
+  "text_color": "rgb(35, 25, 6)",
+  "bg_image": "linear-gradient(168deg, rgb(232, 195, 131), rgb(205, 164, 95) 65%, rgb(184, 145, 79))",
+  "bg_color": "rgba(0, 0, 0, 0)",
+  "sampled_bg": "#d1a965",
+  "ratio_median": 7.89,
+  "ratio_min": 6.74,
+  "ratio_max": 9.08,
+  "font": "16.32px/600"
+ },
+ "btn_primary_hover": {
+  "selector": "#btn-submit",
+  "text_color": "rgba(0, 0, 0, 0)",
+  "bg_image": "linear-gradient(168deg, rgb(243, 210, 155), rgb(220, 178, 112) 65%, rgb(198, 156, 86))",
+  "bg_color": "rgba(0, 0, 0, 0)",
+  "sampled_bg": "#e2ba7a",
+  "ratio_median": 11.54,
+  "ratio_min": 10.19,
+  "ratio_max": 12.81,
+  "font": "16.32px/600"
+ },
+ "nav_current": {
+  "selector": ".site-nav a[aria-current=\"page\"]",
+  "text_color": "rgb(223, 185, 120)",
+  "bg_image": "none",
+  "bg_color": "rgba(223, 185, 120, 0.1)",
+  "sampled_bg": "#232b29",
+  "ratio_median": 7.83,
+  "ratio_min": 8.29,
+  "ratio_max": 7.22,
+  "font": "13.76px/600"
+ },
+ "brand_name": {
+  "selector": ".brand__name",
+  "text_color": "rgb(242, 236, 224)",
+  "bg_image": "none",
+  "bg_color": "rgba(0, 0, 0, 0)",
+  "sampled_bg": "#06161e",
+  "ratio_median": 15.64,
+  "ratio_min": 15.64,
+  "ratio_max": 15.64,
+  "font": "16.8px/700"
+ },
+ "clear_progress_small_btn": {
+  "selector": "#clear-progress",
+  "text_color": "rgb(255, 176, 162)",
+  "bg_image": "none",
+  "bg_color": "rgba(0, 0, 0, 0)",
+  "sampled_bg": "#14222a",
+  "ratio_median": 9.28,
+  "ratio_min": 9.62,
+  "ratio_max": 9.01,
+  "font": "13.76px/600"
+ }
+}

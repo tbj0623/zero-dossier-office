@@ -1,0 +1,55 @@
+{
+ "modal": {
+  "modal": true,
+  "pageInert": false,
+  "bodyInertAttr": false,
+  "canFocusOutside": false,
+  "activeStillInDialog": true,
+  "dialogSize": {
+   "w": 440,
+   "h": 188
+  }
+ },
+ "contrast": {
+  "title": {
+   "selector": "#confirm-title",
+   "text": "rgb(242, 236, 224)",
+   "bg": "#173848",
+   "ratio": 10.53,
+   "font": "20.8px/700"
+  },
+  "body": {
+   "selector": "#confirm-body",
+   "text": "rgb(185, 200, 197)",
+   "bg": "#153543",
+   "ratio": 7.48,
+   "font": "13.76px/400"
+  },
+  "cancel": {
+   "selector": "button[data-confirm=\"cancel\"]",
+   "text": "rgb(185, 200, 197)",
+   "bg": "#143240",
+   "ratio": 7.78,
+   "font": "16.32px/600"
+  },
+  "ok": {
+   "selector": "button[data-confirm=\"ok\"]",
+   "text": "rgb(255, 176, 162)",
+   "bg": "#13303e",
+   "ratio": 7.88,
+   "font": "16.32px/600"
+  }
+ },
+ "axe_coverage": {
+  "passes": 6,
+  "inapplicable": 24,
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 4
+   }
+  ],
+  "nodesChecked": 12
+ }
+}

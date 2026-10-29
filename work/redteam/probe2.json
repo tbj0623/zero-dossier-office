@@ -1,0 +1,151 @@
+{
+  "garbage_progress": {
+    "state": "rendered",
+    "slots": [
+      "蓝票",
+      "绿票",
+      "红票",
+      "黄票"
+    ],
+    "hint_cards": 0,
+    "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票  同一辆车的打票机，在十分钟内留下四条互相错位的记录。  新手 档案 #001 已采集证物  3 份 · 可逐张展开  雾港，旧环线车站，22:00—22:30。四张不同颜色的检票存根被撕下，原始登记顺序丢失。车站管理员相信",
+    "page_errors": []
+  },
+  "wrong_types_progress": {
+    "state": "rendered",
+    "slots": [
+      "蓝票",
+      "绿票",
+      "红票",
+      "黄票"
+    ],
+    "hint_cards": 0,
+    "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票  同一辆车的打票机，在十分钟内留下四条互相错位的记录。  新手 档案 #001 已采集证物  3 份 · 可逐张展开  雾港，旧环线车站，22:00—22:30。四张不同颜色的检票存根被撕下，原始登记顺序丢失。车站管理员相信",
+    "page_errors": []
+  },
+  "order_wrong_len": {
+    "state": "rendered",
+    "slots": [
+      "蓝票",
+      "绿票",
+      "红票",
+      "黄票"
+    ],
+    "hint_cards": 0,
+    "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票  同一辆车的打票机，在十分钟内留下四条互相错位的记录。  新手 档案 #001 已采集证物  3 份 · 可逐张展开  雾港，旧环线车站，22:00—22:30。四张不同颜色的检票存根被撕下，原始登记顺序丢失。车站管理员相信",
+    "page_errors": []
+  },
+  "order_unknown_items": {
+    "state": "rendered",
+    "slots": [
+      "蓝票",
+      "绿票",
+      "红票",
+      "黄票"
+    ],
+    "hint_cards": 0,
+    "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票  同一辆车的打票机，在十分钟内留下四条互相错位的记录。  新手 档案 #001 已采集证物  3 份 · 可逐张展开  雾港，旧环线车站，22:00—22:30。四张不同颜色的检票存根被撕下，原始登记顺序丢失。车站管理员相信",
+    "page_errors": []
+  },
+  "order_null": {
+    "state": "rendered",
+    "slots": [
+      "蓝票",
+      "绿票",
+      "红票",
+      "黄票"
+    ],
+    "hint_cards": 0,
+    "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票  同一辆车的打票机，在十分钟内留下四条互相错位的记录。  新手 档案 #001 已采集证物  3 份 · 可逐张展开  雾港，旧环线车站，22:00—22:30。四张不同颜色的检票存根被撕下，原始登记顺序丢失。车站管理员相信",
+    "page_errors": []
+  },
+  "hintIndex_huge": {
+    "state": "rendered",
+    "slots": [
+      "蓝票",
+      "绿票",
+      "红票",
+      "黄票"
+    ],
+    "hint_cards": 0,
+    "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票  同一辆车的打票机，在十分钟内留下四条互相错位的记录。  新手 档案 #001 已采集证物  3 份 · 可逐张展开  雾港，旧环线车站，22:00—22:30。四张不同颜色的检票存根被撕下，原始登记顺序丢失。车站管理员相信",
+    "page_errors": []
+  },
+  "badge_with_mixed_progress": "已归档 1 / 6",
+  "keyboard_only_playthrough": {
+    "final_order": [
+      "红票",
+      "蓝票",
+      "黄票",
+      "绿票"
+    ],
+    "result": "completed"
+  },
+  "axe_violations": {
+    "home": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "help": "Heading levels should only increase by one",
+        "nodes": 1,
+        "targets": [
+          ".pitch__card:nth-child(1) > h3"
+        ]
+      }
+    ],
+    "cabinet": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "help": "Heading levels should only increase by one",
+        "nodes": 1,
+        "targets": [
+          "#cabinet > .act:nth-child(1) > .act__head > div > .act__title"
+        ]
+      }
+    ],
+    "case": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "help": "Elements must only use permitted ARIA attributes",
+        "nodes": 1,
+        "targets": [
+          "#hints"
+        ]
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "help": "Heading levels should only increase by one",
+        "nodes": 1,
+        "targets": [
+          "div:nth-child(1) > h4"
+        ]
+      }
+    ],
+    "manual": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "help": "Heading levels should only increase by one",
+        "nodes": 1,
+        "targets": [
+          "div:nth-child(1) > h4"
+        ]
+      }
+    ],
+    "about": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "help": "Heading levels should only increase by one",
+        "nodes": 1,
+        "targets": [
+          "div:nth-child(1) > h4"
+        ]
+      }
+    ]
+  },
+  "axe_total": 6
+}

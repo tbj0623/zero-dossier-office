@@ -45,7 +45,7 @@ const ACTS = [
 
 /** 每案的图片与钩子（不剧透）；数据正文仍来自 cases JSON。 */
 const CASE_META = {
-  'NA-001': { img: 'evidence-case-001.webp', hook: '同一台打票机，十分钟里打出四张互相错位的存根。' },
+  'NA-001': { img: 'evidence-case-001.webp', hook: '同一台打票机，半小时里打出四张互相错位的存根。' },
   'NA-002': { img: 'evidence-case-002.webp', hook: '四格抽屉都被上锁，清点记录却对不上任何一件东西。' },
   'NA-003': { img: 'evidence-case-003.webp', hook: '五个包裹经过同一条分拣线，三份日志各自只说了一半。' },
   'NA-004': { img: 'NA-004-episode-card.webp', hook: '第五盏灯整夜没亮，检修记录却坚持它从未熄灭。' },
@@ -253,11 +253,13 @@ function parseHash() {
   const raw = (location.hash || '#/').replace(/^#/, '');
   const parts = raw.split('/').filter(Boolean);
   if (parts.length === 0) return { view: 'home' };
-  if (parts[0] === 'case' && /^NA-\d{3}$/.test(parts[1] || '')) {
-    return { view: 'case', id: parts[1] };
+  if (parts[0] === 'case') {
+    // 合法案件编号才进入调查桌；否则明确标记无法识别，给出可读提示
+    if (/^NA-\d{3}$/.test(parts[1] || '')) return { view: 'case', id: parts[1] };
+    return { view: 'home', invalid: true, raw };
   }
   if (['cabinet', 'manual', 'about'].includes(parts[0])) return { view: parts[0] };
-  return { view: 'home' };
+  return { view: 'home', invalid: true, raw };
 }
 
 const ROUTES = ['home', 'cabinet', 'case', 'manual', 'about'];
@@ -330,6 +332,10 @@ async function router() {
   }
 
   showView(route.view);
+  if (route.invalid) {
+    toast('这个地址没有对应的档案，已回到封面。');
+    if (history.replaceState) history.replaceState(null, '', '#/');
+  }
   document.title = {
     home: '第零证物局｜雾港异常档案 · 原创互动推理',
     cabinet: '档案柜｜第零证物局',
@@ -450,7 +456,7 @@ function renderActBlocks(host, { compact = false } = {}) {
     const head = el('div', { class: 'act__head' });
     head.append(el('span', { class: 'act__roman', text: act.roman }));
     const headText = el('div');
-    headText.append(el('h3', { class: 'act__title', text: `第 ${act.roman} 幕 · ${act.title}` }));
+    headText.append(el('h2', { class: 'act__title', text: `第 ${act.roman} 幕 · ${act.title}` }));
     headText.append(el('p', { class: 'act__desc', text: act.desc }));
     head.append(headText);
     section.append(head);
@@ -471,7 +477,7 @@ function renderHomeCabinet() {
   const head = el('div', { class: 'act__head' });
   head.append(el('span', { class: 'act__roman', text: act.roman }));
   const t = el('div');
-  t.append(el('h3', { class: 'act__title', text: `第 ${act.roman} 幕 · ${act.title}` }));
+  t.append(el('h2', { class: 'act__title', text: `第 ${act.roman} 幕 · ${act.title}` }));
   t.append(el('p', { class: 'act__desc', text: act.desc }));
   head.append(t);
   section.append(head);
@@ -523,9 +529,19 @@ async function openCase(id) {
   const saved = progress.savedOrder(id);
   const prog = progress.of(id);
   const solvedBefore = Boolean(prog?.solved);
-  state.order = Array.isArray(saved?.order) && saved.order.length === c.items.length && new Set(saved.order).size === c.items.length
-    ? [...saved.order]
-    : [...c.items];
+
+  // 存档校验：必须是本案物件的完整排列。旧版本存档 / 手改 localStorage / 案件改版
+  // 都可能带来不存在的物件名，此时必须丢弃存档并重置，而不是让页面卡在加载态。
+  let restored = null;
+  if (Array.isArray(saved?.order)) {
+    const legit = new Set(c.items);
+    const unique = new Set(saved.order).size === saved.order.length;
+    const sameLength = saved.order.length === c.items.length;
+    const allKnown = saved.order.every((x) => legit.has(x));
+    if (sameLength && unique && allKnown) restored = [...saved.order];
+    else progress.dropOrder(id);   // 丢弃不兼容存档，顺带清掉损坏数据
+  }
+  state.order = restored ?? [...c.items];
   state.hintIndex = Number.isInteger(saved?.hintIndex) ? saved.hintIndex : 0;
 
   // 绝不默认给出答案：若初始排列恰好满足全部约束，做一次确定性错位。
@@ -540,8 +556,17 @@ async function openCase(id) {
   if (crumb) crumb.textContent = `档案 #${id.slice(3)} · ${c.title}`;
   if (solvedBefore) toast('这份档案已在本地归档，你可以重看或重新调查。');
 
-  renderDesk(c);
-  bindDeskEvents(c);
+  try {
+    renderDesk(c);
+    bindDeskEvents(c);
+  } catch (err) {
+    // 渲染期异常同样兜底，绝不把玩家留在「正在取阅档案…」加载态
+    root.replaceChildren(el('div', { class: 'empty-state' }, [
+      el('h2', { text: '这份档案暂时无法展开' }),
+      el('p', { text: err.message || '请刷新，或回到档案柜。' }),
+      el('p', {}, [el('a', { class: 'btn btn--ghost', href: '#/cabinet', text: '返回档案柜' })]),
+    ]));
+  }
 }
 
 function renderDesk(c) {
@@ -604,6 +629,23 @@ function renderDesk(c) {
     list.append(card);
   });
   evCol.append(list);
+
+  // 主线彩蛋 + 局长短句：放在证物册末尾，读不读都不影响解题（非承重）
+  const afterword = el('div', { class: 'case-afterword' });
+  if (c.motif) {
+    afterword.append(el('p', { class: 'case-afterword__motif' }, [
+      el('span', { class: 'case-afterword__tag', text: '案卷边注' }),
+      document.createTextNode(c.motif),
+    ]));
+  }
+  if (c.director_note) {
+    afterword.append(el('p', { class: 'case-afterword__note' }, [
+      el('span', { class: 'case-afterword__who', text: '局长 · 陆柏：' }),
+      document.createTextNode(`「${c.director_note}」`),
+    ]));
+  }
+  if (afterword.childElementCount) evCol.append(afterword);
+
   desk.append(evCol);
 
   /* ---------- 右：复原板 ---------- */
@@ -639,7 +681,7 @@ function renderDesk(c) {
   const msg = el('div', { class: 'message', id: 'message', role: 'status', aria: { live: 'polite' } });
   board.append(msg);
 
-  const hints = el('div', { class: 'hints', id: 'hints', aria: { label: '已揭开的提示' } });
+  const hints = el('div', { class: 'hints', id: 'hints', role: 'region', aria: { label: '已揭开的提示' } });
   board.append(hints);
 
   desk.append(orderCol);
@@ -785,7 +827,7 @@ function onPick(i) {
   if (state.selected == null) {
     state.selected = i;
     clearMessage();
-    drawSlots();
+    drawSlots({ index: i, act: 'pick' });   // 重建 DOM 后把焦点放回同一格
     const item = state.order[i];
     setStatus('warn', `已选中「${item}」，请点目标格位`);
     toast(`已选中「${item}」，再点一个格位即可交换`);
@@ -793,7 +835,7 @@ function onPick(i) {
   }
   if (state.selected === i) {
     state.selected = null;
-    drawSlots();
+    drawSlots({ index: i, act: 'pick' });
     setStatus('idle', '准备核对');
     return;
   }
@@ -921,7 +963,7 @@ function renderVerdict(c, checks) {
   const box = el('section', { class: 'verdict', aria: { labelledby: 'verdict-title' } });
 
   box.append(el('div', { class: 'stamp', text: '档案归位' }));
-  box.append(el('h2', { id: 'verdict-title', text: '档案归位。' }));
+  box.append(el('h1', { id: 'verdict-title', class: 'verdict__h1', tabindex: '-1', text: '档案归位。' }));
   box.append(el('p', { class: 'verdict__lede', text: '没有凭空消失的证物，只有尚未排列好的事实。' }));
 
   /* --- 第一部分：逻辑复盘（严格可证明） --- */
@@ -935,10 +977,10 @@ function renderVerdict(c, checks) {
       el('small', { text: ` ${c.slots[i] || `第${i + 1}格`}`, style: 'color:var(--brass);font-family:var(--font-ui);font-weight:600' }),
     ]));
   });
-  logic.append(el('h3', { text: '你的最终排列', style: 'font-size:var(--step-1)' }));
+  logic.append(el('h2', { class: 'recap-h', text: '你的最终排列' }));
   logic.append(strip);
 
-  logic.append(el('h3', { text: '每条证据如何锁死一个位置', style: 'font-size:var(--step-1);margin-top:var(--sp-5)' }));
+  logic.append(el('h2', { class: 'recap-h', style: 'margin-top:var(--sp-5)', text: '每条证据如何锁死一个位置' }));
   const scroll = el('div', { class: 'table-scroll' });
   const table = el('table', { class: 'chain-table' });
   table.append(el('thead', {}, [el('tr', {}, [
@@ -994,9 +1036,11 @@ function renderVerdict(c, checks) {
 
   if (c.id === 'NA-006') {
     const finale = el('div', { class: 'recap-block', style: 'margin-top:var(--sp-6);border:1px solid rgb(223 185 120/.35)' });
-    finale.append(el('span', { class: 'recap-block__label', text: '终章 · 第零号' }));
+    finale.append(el('span', { class: 'recap-block__label', text: '终章 · 第零号 ／ 结案后补充记录' }));
     finale.append(el('p', { style: 'font-family:var(--font-serif);font-size:var(--step-2);line-height:1.5;color:var(--paper)', text: '第零号，不是第一张之前的照片。' }));
-    finale.append(el('p', { style: 'color:var(--text-dim)', text: '它是一条不该被当成事件的记录。底片没有骗人，整理方式却让它看起来像是凭空消失。局长把半圈「0」章盖在每一份分类不确定的档案上，从来不是为了隐藏真相，而是为了提醒下一位读档者：先问「它是什么」，再问「它发生了什么」。' }));
+    finale.append(el('p', { style: 'color:var(--text-dim)', text: '它是一条不该被当成事件的记录。底片没有骗人——错的是那一栏「拍摄内容」：一次校准光圈的动作，被登记成了第六次真实曝光，六张底片于是看起来比五个瞬间多出一张。' }));
+    finale.append(el('p', { style: 'color:var(--text-dim);font-weight:600', text: '所以「第零号证物」不是超自然物件，而是一次分类错误：把「校准」写进了「事件」的类目。' }));
+    finale.append(el('p', { style: 'color:var(--text-dim)', text: '局长把半圈「0」章盖在每一份分类不确定的档案上，从来不是为了隐藏真相，而是为了提醒下一位读档者：先问「它是什么」，再问「它发生了什么」。' }));
     box.append(finale);
   }
 
@@ -1057,6 +1101,13 @@ function bindDeskEvents(c) {
   }, { signal });
 
   root.addEventListener('keydown', (e) => {
+    // Esc 取消选中：不要求焦点在格位内（玩家可能刚点过别处）
+    if (e.key === 'Escape' && state.selected != null) {
+      state.selected = null;
+      drawSlots();
+      setStatus('idle', '已取消选中');
+      return;
+    }
     const li = e.target.closest('.slot');
     if (!li) return;
     // 只在格位区域内响应上下键，避免影响页面滚动时误触
@@ -1066,12 +1117,6 @@ function bindDeskEvents(c) {
       if ((delta < 0 && i === 0) || (delta > 0 && i === state.order.length - 1)) return;
       e.preventDefault();
       move(i, delta, delta < 0 ? 'up' : 'down');
-    } else if (e.key === 'Escape') {
-      if (state.selected != null) {
-        state.selected = null;
-        drawSlots();
-        setStatus('idle', '已取消选中');
-      }
     }
   }, { signal });
 
@@ -1141,6 +1186,19 @@ function bindDeskEvents(c) {
 function bindGlobal() {
   window.addEventListener('hashchange', router);
 
+  // 「跳到主要内容」不能让 #main 变成路由的一部分（#main 会被 parseHash 当成未知路由）。
+  // 改为直接聚焦 <main>，不改 URL、不触发路由。
+  document.addEventListener('click', (e) => {
+    const skip = e.target.closest('[data-skip]');
+    if (!skip) return;
+    e.preventDefault();
+    const main = $('#main');
+    if (!main) return;
+    main.setAttribute('tabindex', '-1');
+    main.focus({ preventScroll: false });
+    main.scrollIntoView({ block: 'start', behavior: 'auto' });
+  });
+
   const toggle = $('#nav-toggle');
   const nav = $('#site-nav');
   toggle?.addEventListener('click', () => {
@@ -1160,6 +1218,16 @@ function bindGlobal() {
     store.clearAll();
     toast('已清除本机全部进度');
     renderCabinet();
+  });
+
+  const briefing = $('#briefing-card');
+  const dismiss = $('#briefing-dismiss');
+  if (briefing && store.get('briefing_dismissed', false)) briefing.hidden = true;
+  dismiss?.addEventListener('click', () => {
+    if (!briefing) return;
+    briefing.hidden = true;
+    store.set('briefing_dismissed', true);
+    toast('随时可以在「玩法说明」里重看局规。');
   });
 
   const ver = $('#build-version');

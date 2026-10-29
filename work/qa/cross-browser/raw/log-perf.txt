@@ -1,0 +1,60 @@
+cold-normal-1: TTFB=387.5 DCL=1332.2 load=1332.3 TTI=1599 reqs=13 bytes=45602 warmTTI=143 warmBytes=1800
+cold-normal-2: TTFB=424.9 DCL=1030.6 load=1030.6 TTI=1327 reqs=13 bytes=45602 warmTTI=144 warmBytes=1800
+cold-normal-3: TTFB=255.9 DCL=556.1 load=556.2 TTI=719 reqs=13 bytes=45602 warmTTI=139 warmBytes=1800
+cold-slow4g-1: TTFB=285.4 DCL=1043.6 load=1043.7 TTI=1416 reqs=13 bytes=45602 probe={'ms': 1007, 'bytes': 100220, 'impliedKbps': 796.2}
+cold-slow4g-2: TTFB=396.9 DCL=989.6 load=989.7 TTI=1371 reqs=13 bytes=45602 probe={'ms': 651, 'bytes': 100220, 'impliedKbps': 1231.6}
+cold-slow4g-3: TTFB=755.7 DCL=1582 load=1582.1 TTI=1984 reqs=13 bytes=45602 probe={'ms': 1314, 'bytes': 100220, 'impliedKbps': 610.2}
+
+summary: {
+ "normal": {
+  "ttfb_ms": 387.5,
+  "dcl_ms": 1030.6,
+  "load_ms": 1030.6,
+  "tti_ms": 1327,
+  "requests_including_document": 13,
+  "total_transfer_bytes": 45602,
+  "warm_tti_ms": 143,
+  "warm_total_transfer_bytes": 1800,
+  "ranges": {
+   "ttfb": [
+    255.9,
+    424.9
+   ],
+   "load": [
+    556.2,
+    1332.3
+   ],
+   "tti": [
+    719,
+    1599
+   ]
+  }
+ },
+ "slow4g": {
+  "ttfb_ms": 396.9,
+  "dcl_ms": 1043.6,
+  "load_ms": 1043.7,
+  "tti_ms": 1416,
+  "requests_including_document": 13,
+  "total_transfer_bytes": 45602,
+  "warm_tti_ms": 261,
+  "warm_total_transfer_bytes": 1800,
+  "ranges": {
+   "ttfb": [
+    285.4,
+    755.7
+   ],
+   "load": [
+    989.7,
+    1582.1
+   ],
+   "tti": [
+    1371,
+    1984
+   ]
+  }
+ }
+}
+largest: {'name': 'https://tbj0623.github.io/zero-dossier-office/app.mjs', 'initiatorType': 'script', 'startTime': 397, 'duration': 613.9, 'transferSize': 14701, 'encodedBodySize': 14401, 'decodedBodySize': 45288, 'renderBlockingStatus': 'non-blocking', 'nextHopProtocol': 'h2'}
+render-blocking: 3
+-> raw/perf.json

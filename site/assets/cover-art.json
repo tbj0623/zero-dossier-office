@@ -1,0 +1,56 @@
+{
+  "_comment": "记录每张案件封面图中，从左到右可辨认的物件顺序。用于自动化检查封面不得按答案顺序排列。若封面不含可辨认物件（例如空抽屉），把 left_to_right 留空并设 contains_no_objects=true。",
+  "covers": [
+    {
+      "case": "NA-001",
+      "file": "evidence-case-001.webp",
+      "left_to_right": [
+        "黄票",
+        "绿票",
+        "红票",
+        "蓝票"
+      ],
+      "note": "刻意打乱：唯一解是 红→蓝→黄→绿。2026-10-30 由叙事审稿 C-04 发现原图按答案顺序绘制后重绘。"
+    },
+    {
+      "case": "NA-002",
+      "file": "evidence-case-002.webp",
+      "left_to_right": [],
+      "contains_no_objects": true,
+      "note": "四格空抽屉 + 编号，不含物件，是正确做法。"
+    },
+    {
+      "case": "NA-003",
+      "file": "evidence-case-003.webp",
+      "left_to_right": [
+        "星图",
+        "蓝灯",
+        "红盒",
+        "纸鹤",
+        "铜铃"
+      ],
+      "note": "刻意打乱：唯一解是 红盒→纸鹤→铜铃→星图→蓝灯。原图不仅按序绘制，还标了 1–5 序号，两处均已修正。"
+    },
+    {
+      "case": "NA-004",
+      "file": "NA-004-episode-card.webp",
+      "left_to_right": [],
+      "contains_no_objects": true,
+      "note": "氛围插画，不含可辨认的解题物件。"
+    },
+    {
+      "case": "NA-005",
+      "file": "NA-005-episode-card.webp",
+      "left_to_right": [],
+      "contains_no_objects": true,
+      "note": "氛围插画，不含可辨认的解题物件。"
+    },
+    {
+      "case": "NA-006",
+      "file": "NA-006-episode-card.webp",
+      "left_to_right": [],
+      "contains_no_objects": true,
+      "note": "氛围插画，不含可辨认的解题物件。"
+    }
+  ]
+}

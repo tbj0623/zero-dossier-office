@@ -68,15 +68,97 @@ if (copied === 0) {
 
 /* 4) 产出 dist/（源目录只读，绝不回写 site/） */
 const outDir = process.env.npm_config_out ? resolve(process.env.npm_config_out) : DIST;
-rmSync(outDir, { recursive: true, force: true });
+
+/**
+ * 清空输出目录：先尝试删目录本身；Windows 上若目录被别的进程（如静态服务器）
+ * 占住句柄，rmSync 会 EPERM。此时退化为「清空内容」——之后的 cpSync 会覆盖，
+ * 少量残留也不会影响结果，且不再让整个构建失败。
+ */
+try {
+  rmSync(outDir, { recursive: true, force: true });
+} catch (err) {
+  if (err && (err.code === 'EPERM' || err.code === 'EBUSY' || err.code === 'ENOTEMPTY')) {
+    console.warn(`· 无法整体删除 ${outDir}（可能被其它进程占用），改为清空内容`);
+    if (existsSync(outDir)) {
+      for (const entry of readdirSync(outDir)) {
+        try {
+          rmSync(join(outDir, entry), { recursive: true, force: true });
+        } catch {
+          console.warn(`· 跳过被占用的 ${entry}`);
+        }
+      }
+    }
+  } else {
+    throw err;
+  }
+}
 mkdirSync(outDir, { recursive: true });
 cpSync(SITE, outDir, {
   recursive: true,
   filter: (src) => {
-    const base = src.split(/[\\/]/).pop();
+    const rel = src.slice(SITE.length + 1).split(/[\\/]/);
+    // 作者工具（案件编辑器）只留在仓库里，不随发布产物公开。
+    // 需要临时带上看效果时：INCLUDE_TOOLS=1 node tools/build.mjs
+    if (process.env.INCLUDE_TOOLS !== '1' && rel[0] === 'tools') return false;
+    const base = rel[rel.length - 1];
     return !['node_modules', '.DS_Store', 'Thumbs.db'].includes(base);
   },
 });
+
+/* 4a) 自校验：dist 必须与 site 的每个源文件字节一致（防止占用导致静默跳过） */
+const REQUIRED_TOP = ['index.html', 'app.mjs', 'styles', 'engine', 'cases', 'assets'];
+for (const item of REQUIRED_TOP) {
+  if (!existsSync(join(outDir, item))) {
+    console.error(`构建产物缺少 ${item}`);
+    process.exit(1);
+  }
+}
+
+/** 递归列出目录下所有文件（相对路径）。 */
+function listFiles(root, base = root) {
+  const out = [];
+  for (const entry of readdirSync(root, { withFileTypes: true })) {
+    const abs = join(root, entry.name);
+    if (entry.isDirectory()) out.push(...listFiles(abs, base));
+    else out.push(abs.slice(base.length + 1));
+  }
+  return out;
+}
+
+const stale = [];
+for (const rel of listFiles(SITE)) {
+  if (process.env.INCLUDE_TOOLS !== '1' && rel.split(/[\\/]/)[0] === 'tools') continue;
+  const srcPath = join(SITE, rel);
+  const dstPath = join(outDir, rel);
+  if (!existsSync(dstPath)) {
+    stale.push(`${rel}: 构建产物缺失`);
+    continue;
+  }
+  const a = readFileSync(srcPath);
+  const b = readFileSync(dstPath);
+  // app.mjs 会被注入 BUILD 版本号，比较时忽略该行
+  if (rel === 'app.mjs') {
+    const norm = (buf) => buf.toString('utf8').replace(/const BUILD = '[^']*';/, 'const BUILD = X;');
+    if (norm(a) !== norm(b)) stale.push(`${rel}: 与源文件不一致`);
+  } else if (!a.equals(b)) {
+    stale.push(`${rel}: 与源文件不一致`);
+  }
+}
+if (stale.length) {
+  console.error('构建产物与源码不一致（可能因文件被占用而跳过覆盖）：');
+  for (const line of stale.slice(0, 20)) console.error('  ' + line);
+  process.exit(1);
+}
+if (process.env.INCLUDE_TOOLS !== '1' && existsSync(join(outDir, 'tools'))) {
+  console.error('发布包中出现了 site/tools/（作者工具不应公开）');
+  process.exit(1);
+}
+
+/* 4a2) 发布包不得包含作者工具（防回归） */
+if (process.env.INCLUDE_TOOLS !== '1' && existsSync(join(outDir, 'tools'))) {
+  console.error('发布包中出现了 site/tools/（作者工具不应公开）');
+  process.exit(1);
+}
 
 /* 4b) 只在 dist 副本里注入构建版本 */
 const distApp = join(outDir, 'app.mjs');

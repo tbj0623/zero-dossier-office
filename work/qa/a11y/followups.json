@@ -1,0 +1,370 @@
+{
+ "headings_desk": [
+  {
+   "lvl": 1,
+   "text": "末班车的四张车票",
+   "inMain": true
+  },
+  {
+   "lvl": 2,
+   "text": "已采集证物",
+   "inMain": true
+  },
+  {
+   "lvl": 2,
+   "text": "复原格位",
+   "inMain": true
+  },
+  {
+   "lvl": 4,
+   "text": "文献",
+   "inMain": false
+  },
+  {
+   "lvl": 4,
+   "text": "技术",
+   "inMain": false
+  },
+  {
+   "lvl": 4,
+   "text": "声明",
+   "inMain": false
+  }
+ ],
+ "desk_h1": {
+  "text": "这些记录，不应该同时成立。",
+  "visible": false
+ },
+ "case_title_tag": "H1",
+ "view_case_aria": {
+  "labelledby": "case-title",
+  "targetExists": true
+ },
+ "hint_live_log": [
+  {
+   "id": "case-root",
+   "type": "childList",
+   "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+  },
+  {
+   "id": "case-root",
+   "type": "childList",
+   "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+  },
+  {
+   "id": "case-root",
+   "type": "attributes",
+   "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+  },
+  {
+   "id": "message",
+   "type": "attributes",
+   "text": "提示只是帮你推进，不会自动完成排列。"
+  },
+  {
+   "id": "message",
+   "type": "attributes",
+   "text": "提示只是帮你推进，不会自动完成排列。"
+  },
+  {
+   "id": "message",
+   "type": "childList",
+   "text": "提示只是帮你推进，不会自动完成排列。"
+  }
+ ],
+ "hint_dom": {
+  "hintsLive": null,
+  "hintsRole": null,
+  "hintInA11yTree": true,
+  "hintText": "档案员注 01 ／ 03\n先把红票和蓝票当成一组不可分开的相邻票。",
+  "messageText": "提示只是帮你推进，不会自动完成排列。",
+  "messageLive": "polite"
+ },
+ "repeat_wrong_submit": {
+  "first_mutations": 12,
+  "second_mutations": 12,
+  "message_identical": "档案仍有不一致：2 条关系未满足。\n\n你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。\n\nE01「粘连的票根",
+  "second_log": [
+   {
+    "id": "message",
+    "type": "childList",
+    "text": "档案仍有不一致：2 条关系未满足。 你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。 E01「粘连的票根」中描述的关系与你的排列不一致。 E02「灯塔站的回执」中描述的"
+   },
+   {
+    "id": "message",
+    "type": "attributes",
+    "text": "档案仍有不一致：2 条关系未满足。 你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。 E01「粘连的票根」中描述的关系与你的排列不一致。 E02「灯塔站的回执」中描述的"
+   },
+   {
+    "id": "message",
+    "type": "attributes",
+    "text": "档案仍有不一致：2 条关系未满足。 你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。 E01「粘连的票根」中描述的关系与你的排列不一致。 E02「灯塔站的回执」中描述的"
+   },
+   {
+    "id": "message",
+    "type": "childList",
+    "text": "档案仍有不一致：2 条关系未满足。 你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。 E01「粘连的票根」中描述的关系与你的排列不一致。 E02「灯塔站的回执」中描述的"
+   },
+   {
+    "id": "message",
+    "type": "childList",
+    "text": "档案仍有不一致：2 条关系未满足。 你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。 E01「粘连的票根」中描述的关系与你的排列不一致。 E02「灯塔站的回执」中描述的"
+   },
+   {
+    "id": "message",
+    "type": "childList",
+    "text": "档案仍有不一致：2 条关系未满足。 你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。 E01「粘连的票根」中描述的关系与你的排列不一致。 E02「灯塔站的回执」中描述的"
+   },
+   {
+    "id": "case-root",
+    "type": "attributes",
+    "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+   },
+   {
+    "id": "case-root",
+    "type": "childList",
+    "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+   },
+   {
+    "id": "case-root",
+    "type": "attributes",
+    "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+   },
+   {
+    "id": "case-root",
+    "type": "attributes",
+    "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+   },
+   {
+    "id": "case-root",
+    "type": "attributes",
+    "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+   },
+   {
+    "id": "case-root",
+    "type": "attributes",
+    "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+   }
+  ]
+ },
+ "select_live_log": [
+  {
+   "id": "message",
+   "type": "attributes",
+   "text": ""
+  },
+  {
+   "id": "message",
+   "type": "childList",
+   "text": ""
+  },
+  {
+   "id": "case-root",
+   "type": "childList",
+   "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+  },
+  {
+   "id": "case-root",
+   "type": "childList",
+   "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+  },
+  {
+   "id": "case-root",
+   "type": "childList",
+   "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+  },
+  {
+   "id": "case-root",
+   "type": "childList",
+   "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+  },
+  {
+   "id": "case-root",
+   "type": "childList",
+   "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+  },
+  {
+   "id": "case-root",
+   "type": "attributes",
+   "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+  },
+  {
+   "id": "case-root",
+   "type": "childList",
+   "text": "第 1 幕 · 开卷：雾港的错位记录 末班车的四张车票 同一辆车的打票机，在十分钟内留下四条互相错位的记录。 新手 档案 #001 已采集证物 3 份 · 可逐张展开 雾港，旧环线"
+  },
+  {
+   "id": "toast",
+   "type": "childList",
+   "text": "已选中「绿票」，再点一个格位即可交换"
+  },
+  {
+   "id": "toast",
+   "type": "attributes",
+   "text": "已选中「绿票」，再点一个格位即可交换"
+  }
+ ],
+ "select_state": {
+  "toast": "已选中「绿票」，再点一个格位即可交换",
+  "toastLive": "polite",
+  "statusText": "已选中「绿票」，请点目标格位",
+  "statusLive": null,
+  "message": ""
+ },
+ "keyboard_solve": {
+  "start": [
+   "蓝票",
+   "绿票",
+   "红票",
+   "黄票"
+  ],
+  "moves": [
+   {
+    "item": "红票",
+    "target": 0,
+    "ok": true,
+    "order": [
+     "红票",
+     "蓝票",
+     "绿票",
+     "黄票"
+    ]
+   },
+   {
+    "item": "蓝票",
+    "target": 1,
+    "ok": true,
+    "order": [
+     "红票",
+     "蓝票",
+     "绿票",
+     "黄票"
+    ]
+   },
+   {
+    "item": "黄票",
+    "target": 2,
+    "ok": true,
+    "order": [
+     "红票",
+     "蓝票",
+     "黄票",
+     "绿票"
+    ]
+   },
+   {
+    "item": "绿票",
+    "target": 3,
+    "ok": true,
+    "order": [
+     "红票",
+     "蓝票",
+     "黄票",
+     "绿票"
+    ]
+   }
+  ],
+  "final": [
+   "红票",
+   "蓝票",
+   "黄票",
+   "绿票"
+  ],
+  "arrow_key": {
+   "before": [
+    "红票",
+    "蓝票",
+    "黄票",
+    "绿票"
+   ],
+   "after": [
+    "红票",
+    "蓝票",
+    "黄票",
+    "绿票"
+   ],
+   "focus": "将「红票」下移一格",
+   "preventedScroll": true
+  },
+  "submit_reached_verdict": true,
+  "verdict_headings": [
+   {
+    "lvl": 2,
+    "text": "档案归位。",
+    "inMain": true
+   },
+   {
+    "lvl": 3,
+    "text": "你的最终排列",
+    "inMain": true
+   },
+   {
+    "lvl": 3,
+    "text": "每条证据如何锁死一个位置",
+    "inMain": true
+   },
+   {
+    "lvl": 4,
+    "text": "文献",
+    "inMain": false
+   },
+   {
+    "lvl": 4,
+    "text": "技术",
+    "inMain": false
+   },
+   {
+    "lvl": 4,
+    "text": "声明",
+    "inMain": false
+   }
+  ],
+  "verdict_h1_count": 4,
+  "verdict_aria": {
+   "labelledby": "case-title",
+   "targetExists": false,
+   "activeTag": "BODY",
+   "activeId": ""
+  },
+  "verdict_buttons": [
+   {
+    "tag": "A",
+    "text": "继续下一案 #002",
+    "href": "#/case/NA-002"
+   },
+   {
+    "tag": "A",
+    "text": "返回档案柜",
+    "href": "#/cabinet"
+   },
+   {
+    "tag": "BUTTON",
+    "text": "重新调查此案",
+    "href": null
+   }
+  ]
+ },
+ "escape_cancel": {
+  "after_pick_focus": "BODY|",
+  "after_escape_focus": "BODY|",
+  "selected_now": 1,
+  "status": "已选中「红票」，请点目标格位"
+ },
+ "toggle_sequence": [
+  {
+   "expanded": "true",
+   "hidden": false,
+   "visible": true
+  },
+  {
+   "expanded": "false",
+   "hidden": true,
+   "visible": false
+  },
+  {
+   "expanded": "true",
+   "hidden": false,
+   "visible": true
+  }
+ ]
+}

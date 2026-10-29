@@ -42,6 +42,12 @@ jobs:
           BUILD_VERSION: ${{ github.sha }}
         run: node tools/build.mjs
 
+      - name: 生成发布状态仪表盘
+        run: python tools/build_dashboard.py
+
+      - name: 站内链接完整性
+        run: python tools/check_links.py dist
+
       - name: 校验发布产物
         run: |
           set -e

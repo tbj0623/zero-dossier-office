@@ -1,0 +1,102 @@
+{
+ "focus_before_submit": "btn-submit",
+ "focus_samples": [
+  {
+   "t": 2972,
+   "tag": "BUTTON",
+   "id": "btn-submit",
+   "verdict": false
+  },
+  {
+   "t": 3251,
+   "tag": "BODY",
+   "id": null,
+   "verdict": true
+  },
+  {
+   "t": 3476,
+   "tag": "BODY",
+   "id": null,
+   "verdict": true
+  },
+  {
+   "t": 3692,
+   "tag": "BODY",
+   "id": null,
+   "verdict": true
+  },
+  {
+   "t": 3927,
+   "tag": "BODY",
+   "id": null,
+   "verdict": true
+  },
+  {
+   "t": 4146,
+   "tag": "BODY",
+   "id": null,
+   "verdict": true
+  },
+  {
+   "t": 4364,
+   "tag": "BODY",
+   "id": null,
+   "verdict": true
+  },
+  {
+   "t": 4584,
+   "tag": "BODY",
+   "id": null,
+   "verdict": true
+  },
+  {
+   "t": 4795,
+   "tag": "BODY",
+   "id": null,
+   "verdict": true
+  },
+  {
+   "t": 5012,
+   "tag": "BODY",
+   "id": null,
+   "verdict": true
+  },
+  {
+   "t": 5229,
+   "tag": "BODY",
+   "id": null,
+   "verdict": true
+  },
+  {
+   "t": 5449,
+   "tag": "BODY",
+   "id": null,
+   "verdict": true
+  },
+  {
+   "t": 5668,
+   "tag": "BODY",
+   "id": null,
+   "verdict": true
+  },
+  {
+   "t": 5888,
+   "tag": "BODY",
+   "id": null,
+   "verdict": true
+  }
+ ],
+ "verdict_tab": {
+  "before": "BODY#",
+  "tab1": "A|继续下一案 #002",
+  "tab2": "A|返回档案柜"
+ },
+ "verdict_live": {
+  "caseRootLive": "off",
+  "verdictLive": null,
+  "messageText": null,
+  "messageLive": null,
+  "documentTitle": "末班车的四张车票｜第零证物局",
+  "activeInVerdict": true
+ }
+}

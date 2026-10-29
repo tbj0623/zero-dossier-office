@@ -1,0 +1,60 @@
+{
+ "skip_link_routing": {
+  "#/case/NA-001": {
+   "before": {
+    "hash": "#/case/NA-001",
+    "activeView": "view-case",
+    "deskExists": true
+   },
+   "after": {
+    "hash": "#main",
+    "activeView": "view-home",
+    "deskExists": true,
+    "active": "MAIN#main"
+   },
+   "navigated_away": true
+  },
+  "#/cabinet": {
+   "before": {
+    "hash": "#/cabinet",
+    "activeView": "view-cabinet",
+    "deskExists": true
+   },
+   "after": {
+    "hash": "#main",
+    "activeView": "view-home",
+    "deskExists": true,
+    "active": "MAIN#main"
+   },
+   "navigated_away": true
+  },
+  "#/manual": {
+   "before": {
+    "hash": "#/manual",
+    "activeView": "view-manual",
+    "deskExists": true
+   },
+   "after": {
+    "hash": "#main",
+    "activeView": "view-home",
+    "deskExists": true,
+    "active": "MAIN#main"
+   },
+   "navigated_away": true
+  },
+  "#/about": {
+   "before": {
+    "hash": "#/about",
+    "activeView": "view-about",
+    "deskExists": true
+   },
+   "after": {
+    "hash": "#main",
+    "activeView": "view-home",
+    "deskExists": true,
+    "active": "MAIN#main"
+   },
+   "navigated_away": true
+  }
+ }
+}

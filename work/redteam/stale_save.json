@@ -1,0 +1,13 @@
+{
+  "case_root_text": "正在取阅档案…",
+  "case_root_html_head": "<div class=\"loading\"><div class=\"spinner\"></div><p>正在取阅档案…</p></div>",
+  "slots_present": false,
+  "submit_button": false,
+  "errors": [
+    "未知物件：红票",
+    "未知物件：红票"
+  ],
+  "clear_button_reachable": true,
+  "storage_after_clear": [],
+  "recovers_after_clear": true
+}

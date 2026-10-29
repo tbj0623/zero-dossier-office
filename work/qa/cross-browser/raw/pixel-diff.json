@@ -1,0 +1,62 @@
+{
+  "verdict": {
+    "same_size": true,
+    "size": [
+      1440,
+      1582
+    ],
+    "diff_bbox": [
+      0,
+      0,
+      1440,
+      1529
+    ],
+    "pixels_differing_gt2": 2244,
+    "pct": 0.0985
+  },
+  "mobile390": {
+    "same_size": true,
+    "size": [
+      1170,
+      6867
+    ],
+    "diff_bbox": [
+      0,
+      0,
+      1170,
+      6712
+    ],
+    "pixels_differing_gt2": 441488,
+    "pct": 5.495
+  },
+  "cleared": {
+    "same_size": true,
+    "size": [
+      1440,
+      900
+    ],
+    "diff_bbox": [
+      0,
+      0,
+      1440,
+      857
+    ],
+    "pixels_differing_gt2": 214475,
+    "pct": 16.549
+  },
+  "deeplink": {
+    "same_size": true,
+    "size": [
+      1440,
+      900
+    ],
+    "diff_bbox": [
+      0,
+      0,
+      1440,
+      900
+    ],
+    "pixels_differing_gt2": 4389,
+    "pct": 0.3387
+  }
+}

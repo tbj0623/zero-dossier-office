@@ -1,0 +1,9 @@
+axe-core 4.10.2 (wcag2a/2aa/21aa/22aa/best-practice) + 11 manual checks, live site build 41fc9520, 12 states.
+axe: 0 critical / 5 serious / 11 moderate / 0 minor = 16 nodes, 3 rules (aria-prohibited-attr, heading-order, page-has-heading-one).
+Manual-only findings add: 3 critical / 3 serious / 3 moderate / 2 minor = 11 real issues axe cannot see.
+MOST IMPORTANT FIX: skip-link href="#main" fires hashchange, parseHash() falls back to view 'home' — the very first Tab+Enter kicks the user off the desk back to the homepage on all 4 pages tested.
+2nd: onPick() calls bare drawSlots(), replaceChildren() destroys the focused button — focus lands on <body>; the documented Esc-to-cancel then never fires because its keydown listener is scoped to .slot.
+3rd: verdict renders <h2> without tabindex and deletes #case-title, so focus drops to <body>, h1 vanishes, and #view-case aria-labelledby dangles (axe critical/incomplete).
+PASS with numbers: contrast worst pair 5.16:1 (32 measured pairs, all >=4.5:1); focus ring 3px solid brass on 25/25 stops; reflow 320px zero h-scroll; reduced-motion 1e-06s and fully painted at frame 1.
+NOT VERIFIABLE HERE: real NVDA/JAWS/VoiceOver/TalkBack, forced-colors rendering, true browser zoom, real finger-tap hit rates.
+VERDICT: NOT shippable as-is. Visual/colour/motion/reflow craft is genuinely strong, but the keyboard and screen-reader main path is broken at three points; all three are small, local fixes in app.mjs + index.html.

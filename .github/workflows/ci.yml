@@ -39,6 +39,18 @@ jobs:
       - name: 构建站点
         run: node tools/build.mjs
 
+      - name: 生成发布状态仪表盘
+        run: python tools/build_dashboard.py
+
+      - name: 封面图泄题检查（tools/check_cover_art.py）
+        run: python tools/check_cover_art.py
+
+      - name: 许可覆盖完整性（tools/check_license_coverage.py）
+        run: python tools/check_license_coverage.py
+
+      - name: 站内链接完整性（tools/check_links.py）
+        run: python tools/check_links.py dist
+
       - name: 发布包卫生检查（不得含作者答案）
         run: |
           set -e
@@ -48,15 +60,8 @@ jobs:
           fi
           echo "OK: dist 无作者答案字段"
 
-      - name: 无第三方远程资源
-        run: |
-          set -e
-          if grep -rEn 'https?://(?!127\.0\.0\.1|localhost)' dist/ --include='*.html' --include='*.css' --include='*.mjs' \
-             | grep -vE 'github\.com|creativecommons\.org|w3\.org' ; then
-            echo "::error::发现外部资源引用"
-            exit 1
-          fi
-          echo "OK: 无第三方运行时资源"
+      - name: 无第三方远程资源（tools/check_no_remote.py）
+        run: python tools/check_no_remote.py dist
 
       - uses: actions/upload-artifact@v4
         with:
@@ -96,6 +101,9 @@ jobs:
 
       - name: 端到端测试
         run: python tests/browser/e2e.py --base http://127.0.0.1:8080
+
+      - name: 无障碍门禁（axe-core，零违规）
+        run: python tests/browser/a11y.py --base http://127.0.0.1:8080
 
       - uses: actions/upload-artifact@v4
         if: always()

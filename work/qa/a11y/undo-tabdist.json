@@ -1,0 +1,32 @@
+{
+ "undo_initial": {
+  "disabled": true,
+  "tabIndex": 0,
+  "ariaDisabled": null,
+  "inTabOrder": false
+ },
+ "undo_after_move": {
+  "disabled": false,
+  "inTabOrder": true
+ },
+ "tab_distance_after_select": {
+  "focus_after_select": "BODY",
+  "tab_presses_to_reach_board": 1,
+  "landed_on": "将「蓝票」下移一格"
+ },
+ "tab_distance_after_verdict": {
+  "focus_after_verdict": "A",
+  "tab_presses_to_reach_verdict_content": 1,
+  "landed_on": "继续下一案 #002"
+ },
+ "mobile_menu": {
+  "openAfterEscape": "true",
+  "expanded": "true",
+  "linksStillVisible": "flex",
+  "focusOnToggle": true,
+  "after_toggle_close": {
+   "open": "false",
+   "focus": "BUTTON#nav-toggle"
+  }
+ }
+}

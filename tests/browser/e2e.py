@@ -142,6 +142,30 @@ def run(base: str, headless: bool = True) -> int:
         ev_count = len(page.query_selector_all(".ev-card"))
         record("NA-001 三条证据", ev_count == 3, f"{ev_count} 张")
 
+        # 负向断言：**单击一次**下移必须恰好改变一次排列。
+        # 这条测试的存在本身是有原因的：曾出现 bindDeskEvents 被绑定两次，
+        # 一次点击触发两次 move()，两次交换互相抵消，排列原地不动；
+        # 而当时所有正向断言（能通关）依然通过，因此没有发现。
+        before_click = current_order(page)
+        page.locator('#slots .slot[data-index="0"] [data-act="down"]').click()
+        page.wait_for_timeout(250)
+        after_click = current_order(page)
+        expected = [before_click[1], before_click[0], *before_click[2:]]
+        record(
+            "单击上/下移恰好移动一格（防重复绑定）",
+            after_click == expected,
+            f"{before_click} -> {after_click}（期望 {expected}）",
+        )
+
+        # 负向断言：picker 选中后再次点击同一格应取消选中
+        page.locator('#slots .slot[data-index="0"] [data-act="pick"]').click()
+        page.wait_for_timeout(150)
+        sel1 = page.get_attribute('#slots .slot[data-index="0"]', 'data-selected')
+        page.locator('#slots .slot[data-index="0"] [data-act="pick"]').click()
+        page.wait_for_timeout(150)
+        sel2 = page.get_attribute('#slots .slot[data-index="0"]', 'data-selected')
+        record("点击选中可再次点击取消", sel1 == "true" and sel2 == "false", f"{sel1} -> {sel2}")
+
         # 展开全部证据
         for i in range(ev_count):
             btn = page.query_selector_all(".ev-card__summary")[i]

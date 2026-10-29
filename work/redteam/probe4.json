@@ -1,0 +1,85 @@
+{
+  "touch_playthrough_390": {
+    "taps": 3,
+    "final": [
+      "红票",
+      "蓝票",
+      "黄票",
+      "绿票"
+    ],
+    "verdict": "completed"
+  },
+  "tap_to_swap": {
+    "before": [
+      "银徽章",
+      "航海图",
+      "玻璃球",
+      "铜钥匙"
+    ],
+    "after": [
+      "航海图",
+      "银徽章",
+      "玻璃球",
+      "铜钥匙"
+    ],
+    "swapped": true
+  },
+  "reflow": {
+    "320px/home": {
+      "overflow_px": 0,
+      "ok": true
+    },
+    "320px#/cabinet": {
+      "overflow_px": 0,
+      "ok": true
+    },
+    "320px#/case/NA-004": {
+      "overflow_px": 0,
+      "ok": true
+    },
+    "320px#/manual": {
+      "overflow_px": 0,
+      "ok": true
+    },
+    "320px#/about": {
+      "overflow_px": 0,
+      "ok": true
+    },
+    "360px/home": {
+      "overflow_px": 0,
+      "ok": true
+    },
+    "360px#/cabinet": {
+      "overflow_px": 0,
+      "ok": true
+    },
+    "360px#/case/NA-004": {
+      "overflow_px": 0,
+      "ok": true
+    },
+    "360px#/manual": {
+      "overflow_px": 0,
+      "ok": true
+    },
+    "360px#/about": {
+      "overflow_px": 0,
+      "ok": true
+    }
+  },
+  "malicious_case_json": {
+    "xss": {
+      "title": 0,
+      "body": 0,
+      "hint": 0,
+      "evt": 0,
+      "injectedImgs": 0,
+      "injectedSvg": 0,
+      "titleText": "末班车的四张车票"
+    },
+    "pageerrors": []
+  },
+  "long_string": {
+    "state": "rendered",
+    "seconds": 0.09
+  }
+}

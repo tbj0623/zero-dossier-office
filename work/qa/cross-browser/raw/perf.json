@@ -1,0 +1,1814 @@
+{
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "when": "2026-10-30T00:52:10+0800",
+  "tool": "Playwright Python (Chromium)",
+  "note": "Raw measurements only. This is NOT a Lighthouse audit and no Lighthouse score is reported.",
+  "ttiDefinition": "performance.now() at the first 10ms poll where #slots .slot exists and the first slot's move button is enabled, visible and hit-testable, measured from navigation start of that document.",
+  "runs": [
+    {
+      "label": "cold-normal-1",
+      "slow4g": false,
+      "emulation": null,
+      "navigation": {
+        "type": "navigate",
+        "ttfb": 387.5,
+        "domInteractive": 404.4,
+        "domContentLoaded": 1332.2,
+        "loadEvent": 1332.3,
+        "responseEnd": 388.6,
+        "transferSize": 5590,
+        "encodedBodySize": 5290,
+        "decodedBodySize": 13810,
+        "nextHopProtocol": "h2",
+        "redirectCount": 0
+      },
+      "tti": {
+        "ttiMs": 1599,
+        "slots": 4,
+        "order": [
+          "蓝票",
+          "绿票",
+          "红票",
+          "黄票"
+        ],
+        "readyState": "complete"
+      },
+      "ttiWallMs": 1669,
+      "paint": [
+        {
+          "name": "first-paint",
+          "startTime": 1136
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 1136
+        }
+      ],
+      "resources": [
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/tokens.css",
+          "initiatorType": "link",
+          "startTime": 396.2,
+          "duration": 615.6,
+          "transferSize": 1497,
+          "encodedBodySize": 1197,
+          "decodedBodySize": 2309,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/base.css",
+          "initiatorType": "link",
+          "startTime": 396.6,
+          "duration": 222.1,
+          "transferSize": 2339,
+          "encodedBodySize": 2039,
+          "decodedBodySize": 5839,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/app.css",
+          "initiatorType": "link",
+          "startTime": 396.7,
+          "duration": 222.9,
+          "transferSize": 6915,
+          "encodedBodySize": 6615,
+          "decodedBodySize": 27560,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+          "initiatorType": "img",
+          "startTime": 396.9,
+          "duration": 615.6,
+          "transferSize": 737,
+          "encodedBodySize": 437,
+          "decodedBodySize": 803,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/app.mjs",
+          "initiatorType": "script",
+          "startTime": 397,
+          "duration": 613.9,
+          "transferSize": 14701,
+          "encodedBodySize": 14401,
+          "decodedBodySize": 45288,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/engine/solver.mjs",
+          "initiatorType": "script",
+          "startTime": 1117.6,
+          "duration": 208.9,
+          "transferSize": 3312,
+          "encodedBodySize": 3012,
+          "decodedBodySize": 7277,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-001.json",
+          "initiatorType": "fetch",
+          "startTime": 1330.9,
+          "duration": 96.3,
+          "transferSize": 1793,
+          "encodedBodySize": 1493,
+          "decodedBodySize": 3224,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-002.json",
+          "initiatorType": "fetch",
+          "startTime": 1331.1,
+          "duration": 118.9,
+          "transferSize": 1534,
+          "encodedBodySize": 1234,
+          "decodedBodySize": 2897,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-003.json",
+          "initiatorType": "fetch",
+          "startTime": 1331.3,
+          "duration": 187.4,
+          "transferSize": 1825,
+          "encodedBodySize": 1525,
+          "decodedBodySize": 3623,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-004.json",
+          "initiatorType": "fetch",
+          "startTime": 1331.6,
+          "duration": 187.5,
+          "transferSize": 1709,
+          "encodedBodySize": 1409,
+          "decodedBodySize": 3375,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-005.json",
+          "initiatorType": "fetch",
+          "startTime": 1331.8,
+          "duration": 195.2,
+          "transferSize": 1783,
+          "encodedBodySize": 1483,
+          "decodedBodySize": 3634,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-006.json",
+          "initiatorType": "fetch",
+          "startTime": 1332,
+          "duration": 195.5,
+          "transferSize": 1867,
+          "encodedBodySize": 1567,
+          "decodedBodySize": 3807,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        }
+      ],
+      "requestCount": 12,
+      "requestCountIncludingDocument": 13,
+      "subresourceTransferBytes": 40012,
+      "documentTransferBytes": 5590,
+      "totalTransferBytes": 45602,
+      "console": [],
+      "cacheHeaders": {
+        "./": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-35f2\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "258"
+        },
+        "./app.mjs": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-b0e8\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "258"
+        },
+        "./styles/app.css": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-6ba8\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "258"
+        },
+        "./cases/NA-001.json": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-c98\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "257"
+        }
+      },
+      "measuredAt": "2026-10-30T00:52:14+0800",
+      "warm": {
+        "navigation": {
+          "type": "navigate",
+          "ttfb": 1,
+          "domInteractive": 13.6,
+          "domContentLoaded": 16.5,
+          "loadEvent": 18.5,
+          "responseEnd": 1.5,
+          "transferSize": 0,
+          "encodedBodySize": 5290,
+          "decodedBodySize": 13810,
+          "nextHopProtocol": "h2",
+          "redirectCount": 0
+        },
+        "tti": {
+          "ttiMs": 143,
+          "slots": 4,
+          "order": [
+            "蓝票",
+            "绿票",
+            "红票",
+            "黄票"
+          ],
+          "readyState": "complete"
+        },
+        "requestCount": 12,
+        "fromCacheCount": 6,
+        "subresourceTransferBytes": 1800,
+        "documentTransferBytes": 0,
+        "totalTransferBytes": 1800,
+        "console": []
+      },
+      "throughputProbe": {
+        "ms": 1665,
+        "bytes": 100220,
+        "impliedKbps": 481.5
+      }
+    },
+    {
+      "label": "cold-normal-2",
+      "slow4g": false,
+      "emulation": null,
+      "navigation": {
+        "type": "navigate",
+        "ttfb": 424.9,
+        "domInteractive": 699.2,
+        "domContentLoaded": 1030.6,
+        "loadEvent": 1030.6,
+        "responseEnd": 627,
+        "transferSize": 5590,
+        "encodedBodySize": 5290,
+        "decodedBodySize": 13810,
+        "nextHopProtocol": "h2",
+        "redirectCount": 0
+      },
+      "tti": {
+        "ttiMs": 1327,
+        "slots": 4,
+        "order": [
+          "蓝票",
+          "绿票",
+          "红票",
+          "黄票"
+        ],
+        "readyState": "complete"
+      },
+      "ttiWallMs": 1331,
+      "paint": [
+        {
+          "name": "first-paint",
+          "startTime": 720
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 720
+        }
+      ],
+      "resources": [
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/tokens.css",
+          "initiatorType": "link",
+          "startTime": 432.3,
+          "duration": 196.1,
+          "transferSize": 1497,
+          "encodedBodySize": 1197,
+          "decodedBodySize": 2309,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/base.css",
+          "initiatorType": "link",
+          "startTime": 432.6,
+          "duration": 196.1,
+          "transferSize": 2339,
+          "encodedBodySize": 2039,
+          "decodedBodySize": 5839,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/app.css",
+          "initiatorType": "link",
+          "startTime": 432.8,
+          "duration": 196.6,
+          "transferSize": 6915,
+          "encodedBodySize": 6615,
+          "decodedBodySize": 27560,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+          "initiatorType": "img",
+          "startTime": 433,
+          "duration": 197.2,
+          "transferSize": 737,
+          "encodedBodySize": 437,
+          "decodedBodySize": 803,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/app.mjs",
+          "initiatorType": "script",
+          "startTime": 698.7,
+          "duration": 212.8,
+          "transferSize": 14701,
+          "encodedBodySize": 14401,
+          "decodedBodySize": 45288,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/engine/solver.mjs",
+          "initiatorType": "script",
+          "startTime": 914.3,
+          "duration": 110.1,
+          "transferSize": 3312,
+          "encodedBodySize": 3012,
+          "decodedBodySize": 7277,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-001.json",
+          "initiatorType": "fetch",
+          "startTime": 1029.3,
+          "duration": 218,
+          "transferSize": 1793,
+          "encodedBodySize": 1493,
+          "decodedBodySize": 3224,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-002.json",
+          "initiatorType": "fetch",
+          "startTime": 1029.6,
+          "duration": 218,
+          "transferSize": 1534,
+          "encodedBodySize": 1234,
+          "decodedBodySize": 2897,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-003.json",
+          "initiatorType": "fetch",
+          "startTime": 1029.8,
+          "duration": 218.6,
+          "transferSize": 1825,
+          "encodedBodySize": 1525,
+          "decodedBodySize": 3623,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-004.json",
+          "initiatorType": "fetch",
+          "startTime": 1029.9,
+          "duration": 217.9,
+          "transferSize": 1709,
+          "encodedBodySize": 1409,
+          "decodedBodySize": 3375,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-005.json",
+          "initiatorType": "fetch",
+          "startTime": 1030.1,
+          "duration": 217.9,
+          "transferSize": 1783,
+          "encodedBodySize": 1483,
+          "decodedBodySize": 3634,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-006.json",
+          "initiatorType": "fetch",
+          "startTime": 1030.3,
+          "duration": 218.5,
+          "transferSize": 1867,
+          "encodedBodySize": 1567,
+          "decodedBodySize": 3807,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        }
+      ],
+      "requestCount": 12,
+      "requestCountIncludingDocument": 13,
+      "subresourceTransferBytes": 40012,
+      "documentTransferBytes": 5590,
+      "totalTransferBytes": 45602,
+      "console": [],
+      "cacheHeaders": {
+        "./": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-35f2\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "263"
+        },
+        "./app.mjs": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-b0e8\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "263"
+        },
+        "./styles/app.css": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-6ba8\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "263"
+        },
+        "./cases/NA-001.json": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-c98\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "262"
+        }
+      },
+      "measuredAt": "2026-10-30T00:52:19+0800",
+      "warm": {
+        "navigation": {
+          "type": "navigate",
+          "ttfb": 0.9,
+          "domInteractive": 14.8,
+          "domContentLoaded": 23.2,
+          "loadEvent": 23.3,
+          "responseEnd": 1.5,
+          "transferSize": 0,
+          "encodedBodySize": 5290,
+          "decodedBodySize": 13810,
+          "nextHopProtocol": "h2",
+          "redirectCount": 0
+        },
+        "tti": {
+          "ttiMs": 144,
+          "slots": 4,
+          "order": [
+            "蓝票",
+            "绿票",
+            "红票",
+            "黄票"
+          ],
+          "readyState": "complete"
+        },
+        "requestCount": 12,
+        "fromCacheCount": 6,
+        "subresourceTransferBytes": 1800,
+        "documentTransferBytes": 0,
+        "totalTransferBytes": 1800,
+        "console": []
+      },
+      "throughputProbe": {
+        "ms": 2534,
+        "bytes": 100220,
+        "impliedKbps": 316.4
+      }
+    },
+    {
+      "label": "cold-normal-3",
+      "slow4g": false,
+      "emulation": null,
+      "navigation": {
+        "type": "navigate",
+        "ttfb": 255.9,
+        "domInteractive": 272,
+        "domContentLoaded": 556.1,
+        "loadEvent": 556.2,
+        "responseEnd": 258.9,
+        "transferSize": 5590,
+        "encodedBodySize": 5290,
+        "decodedBodySize": 13810,
+        "nextHopProtocol": "h2",
+        "redirectCount": 0
+      },
+      "tti": {
+        "ttiMs": 719,
+        "slots": 4,
+        "order": [
+          "蓝票",
+          "绿票",
+          "红票",
+          "黄票"
+        ],
+        "readyState": "complete"
+      },
+      "ttiWallMs": 725,
+      "paint": [
+        {
+          "name": "first-paint",
+          "startTime": 500
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 500
+        }
+      ],
+      "resources": [
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/tokens.css",
+          "initiatorType": "link",
+          "startTime": 264.3,
+          "duration": 90.5,
+          "transferSize": 1497,
+          "encodedBodySize": 1197,
+          "decodedBodySize": 2309,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/base.css",
+          "initiatorType": "link",
+          "startTime": 264.6,
+          "duration": 99.4,
+          "transferSize": 2339,
+          "encodedBodySize": 2039,
+          "decodedBodySize": 5839,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/app.css",
+          "initiatorType": "link",
+          "startTime": 264.8,
+          "duration": 97.3,
+          "transferSize": 6915,
+          "encodedBodySize": 6615,
+          "decodedBodySize": 27560,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+          "initiatorType": "img",
+          "startTime": 264.9,
+          "duration": 97.4,
+          "transferSize": 737,
+          "encodedBodySize": 437,
+          "decodedBodySize": 803,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/app.mjs",
+          "initiatorType": "script",
+          "startTime": 265.1,
+          "duration": 112.2,
+          "transferSize": 14701,
+          "encodedBodySize": 14401,
+          "decodedBodySize": 45288,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/engine/solver.mjs",
+          "initiatorType": "script",
+          "startTime": 466.9,
+          "duration": 83.6,
+          "transferSize": 3312,
+          "encodedBodySize": 3012,
+          "decodedBodySize": 7277,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-001.json",
+          "initiatorType": "fetch",
+          "startTime": 554.7,
+          "duration": 82.9,
+          "transferSize": 1793,
+          "encodedBodySize": 1493,
+          "decodedBodySize": 3224,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-002.json",
+          "initiatorType": "fetch",
+          "startTime": 554.9,
+          "duration": 83.5,
+          "transferSize": 1534,
+          "encodedBodySize": 1234,
+          "decodedBodySize": 2897,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-003.json",
+          "initiatorType": "fetch",
+          "startTime": 555.2,
+          "duration": 84.6,
+          "transferSize": 1825,
+          "encodedBodySize": 1525,
+          "decodedBodySize": 3623,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-004.json",
+          "initiatorType": "fetch",
+          "startTime": 555.3,
+          "duration": 88.1,
+          "transferSize": 1709,
+          "encodedBodySize": 1409,
+          "decodedBodySize": 3375,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-005.json",
+          "initiatorType": "fetch",
+          "startTime": 555.5,
+          "duration": 84.9,
+          "transferSize": 1783,
+          "encodedBodySize": 1483,
+          "decodedBodySize": 3634,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-006.json",
+          "initiatorType": "fetch",
+          "startTime": 555.7,
+          "duration": 85.8,
+          "transferSize": 1867,
+          "encodedBodySize": 1567,
+          "decodedBodySize": 3807,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        }
+      ],
+      "requestCount": 12,
+      "requestCountIncludingDocument": 13,
+      "subresourceTransferBytes": 40012,
+      "documentTransferBytes": 5590,
+      "totalTransferBytes": 45602,
+      "console": [],
+      "cacheHeaders": {
+        "./": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-35f2\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "269"
+        },
+        "./app.mjs": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-b0e8\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "268"
+        },
+        "./styles/app.css": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-6ba8\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "268"
+        },
+        "./cases/NA-001.json": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-c98\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "268"
+        }
+      },
+      "measuredAt": "2026-10-30T00:52:24+0800",
+      "warm": {
+        "navigation": {
+          "type": "navigate",
+          "ttfb": 1.2,
+          "domInteractive": 17.7,
+          "domContentLoaded": 21.4,
+          "loadEvent": 24,
+          "responseEnd": 1.8,
+          "transferSize": 0,
+          "encodedBodySize": 5290,
+          "decodedBodySize": 13810,
+          "nextHopProtocol": "h2",
+          "redirectCount": 0
+        },
+        "tti": {
+          "ttiMs": 139,
+          "slots": 4,
+          "order": [
+            "蓝票",
+            "绿票",
+            "红票",
+            "黄票"
+          ],
+          "readyState": "complete"
+        },
+        "requestCount": 12,
+        "fromCacheCount": 6,
+        "subresourceTransferBytes": 1800,
+        "documentTransferBytes": 0,
+        "totalTransferBytes": 1800,
+        "console": []
+      },
+      "throughputProbe": {
+        "ms": 398,
+        "bytes": 100220,
+        "impliedKbps": 2014.5
+      }
+    },
+    {
+      "label": "cold-slow4g-1",
+      "slow4g": true,
+      "emulation": {
+        "offline": false,
+        "downloadThroughput": 209715,
+        "uploadThroughput": 96000,
+        "latency": 150
+      },
+      "navigation": {
+        "type": "navigate",
+        "ttfb": 285.4,
+        "domInteractive": 407.3,
+        "domContentLoaded": 1043.6,
+        "loadEvent": 1043.7,
+        "responseEnd": 397.2,
+        "transferSize": 5590,
+        "encodedBodySize": 5290,
+        "decodedBodySize": 13810,
+        "nextHopProtocol": "h2",
+        "redirectCount": 0
+      },
+      "tti": {
+        "ttiMs": 1416,
+        "slots": 4,
+        "order": [
+          "蓝票",
+          "绿票",
+          "红票",
+          "黄票"
+        ],
+        "readyState": "complete"
+      },
+      "ttiWallMs": 1489,
+      "paint": [
+        {
+          "name": "first-paint",
+          "startTime": 844
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 844
+        }
+      ],
+      "resources": [
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/tokens.css",
+          "initiatorType": "link",
+          "startTime": 399.3,
+          "duration": 216.6,
+          "transferSize": 1497,
+          "encodedBodySize": 1197,
+          "decodedBodySize": 2309,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/base.css",
+          "initiatorType": "link",
+          "startTime": 399.9,
+          "duration": 223.4,
+          "transferSize": 2339,
+          "encodedBodySize": 2039,
+          "decodedBodySize": 5839,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/app.css",
+          "initiatorType": "link",
+          "startTime": 400,
+          "duration": 285.9,
+          "transferSize": 6915,
+          "encodedBodySize": 6615,
+          "decodedBodySize": 27560,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+          "initiatorType": "img",
+          "startTime": 400.2,
+          "duration": 215.2,
+          "transferSize": 737,
+          "encodedBodySize": 437,
+          "decodedBodySize": 803,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/app.mjs",
+          "initiatorType": "script",
+          "startTime": 400.3,
+          "duration": 316.7,
+          "transferSize": 14701,
+          "encodedBodySize": 14401,
+          "decodedBodySize": 45288,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/engine/solver.mjs",
+          "initiatorType": "script",
+          "startTime": 814,
+          "duration": 222.6,
+          "transferSize": 3312,
+          "encodedBodySize": 3012,
+          "decodedBodySize": 7277,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-001.json",
+          "initiatorType": "fetch",
+          "startTime": 1042.1,
+          "duration": 222.1,
+          "transferSize": 1793,
+          "encodedBodySize": 1493,
+          "decodedBodySize": 3224,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-002.json",
+          "initiatorType": "fetch",
+          "startTime": 1042.4,
+          "duration": 180.2,
+          "transferSize": 1534,
+          "encodedBodySize": 1234,
+          "decodedBodySize": 2897,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-003.json",
+          "initiatorType": "fetch",
+          "startTime": 1042.6,
+          "duration": 231.2,
+          "transferSize": 1825,
+          "encodedBodySize": 1525,
+          "decodedBodySize": 3623,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-004.json",
+          "initiatorType": "fetch",
+          "startTime": 1042.8,
+          "duration": 247.1,
+          "transferSize": 1709,
+          "encodedBodySize": 1409,
+          "decodedBodySize": 3375,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-005.json",
+          "initiatorType": "fetch",
+          "startTime": 1042.9,
+          "duration": 221.7,
+          "transferSize": 1783,
+          "encodedBodySize": 1483,
+          "decodedBodySize": 3634,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-006.json",
+          "initiatorType": "fetch",
+          "startTime": 1043.2,
+          "duration": 247.9,
+          "transferSize": 1867,
+          "encodedBodySize": 1567,
+          "decodedBodySize": 3807,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        }
+      ],
+      "requestCount": 12,
+      "requestCountIncludingDocument": 13,
+      "subresourceTransferBytes": 40012,
+      "documentTransferBytes": 5590,
+      "totalTransferBytes": 45602,
+      "console": [],
+      "cacheHeaders": {
+        "./": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-35f2\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "273"
+        },
+        "./app.mjs": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-b0e8\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "272"
+        },
+        "./styles/app.css": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-6ba8\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "272"
+        },
+        "./cases/NA-001.json": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-c98\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "272"
+        }
+      },
+      "measuredAt": "2026-10-30T00:52:28+0800",
+      "warm": {
+        "navigation": {
+          "type": "navigate",
+          "ttfb": 1.2,
+          "domInteractive": 18.2,
+          "domContentLoaded": 28.3,
+          "loadEvent": 28.5,
+          "responseEnd": 1.9,
+          "transferSize": 0,
+          "encodedBodySize": 5290,
+          "decodedBodySize": 13810,
+          "nextHopProtocol": "h2",
+          "redirectCount": 0
+        },
+        "tti": {
+          "ttiMs": 270,
+          "slots": 4,
+          "order": [
+            "蓝票",
+            "绿票",
+            "红票",
+            "黄票"
+          ],
+          "readyState": "complete"
+        },
+        "requestCount": 12,
+        "fromCacheCount": 6,
+        "subresourceTransferBytes": 1800,
+        "documentTransferBytes": 0,
+        "totalTransferBytes": 1800,
+        "console": []
+      },
+      "throughputProbe": {
+        "ms": 1007,
+        "bytes": 100220,
+        "impliedKbps": 796.2
+      }
+    },
+    {
+      "label": "cold-slow4g-2",
+      "slow4g": true,
+      "emulation": {
+        "offline": false,
+        "downloadThroughput": 209715,
+        "uploadThroughput": 96000,
+        "latency": 150
+      },
+      "navigation": {
+        "type": "navigate",
+        "ttfb": 396.9,
+        "domInteractive": 432.3,
+        "domContentLoaded": 989.6,
+        "loadEvent": 989.7,
+        "responseEnd": 430,
+        "transferSize": 5590,
+        "encodedBodySize": 5290,
+        "decodedBodySize": 13810,
+        "nextHopProtocol": "h2",
+        "redirectCount": 0
+      },
+      "tti": {
+        "ttiMs": 1371,
+        "slots": 4,
+        "order": [
+          "蓝票",
+          "绿票",
+          "红票",
+          "黄票"
+        ],
+        "readyState": "complete"
+      },
+      "ttiWallMs": 1441,
+      "paint": [
+        {
+          "name": "first-paint",
+          "startTime": 816
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 816
+        }
+      ],
+      "resources": [
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/tokens.css",
+          "initiatorType": "link",
+          "startTime": 412.3,
+          "duration": 174.7,
+          "transferSize": 1497,
+          "encodedBodySize": 1197,
+          "decodedBodySize": 2309,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/base.css",
+          "initiatorType": "link",
+          "startTime": 412.7,
+          "duration": 212.1,
+          "transferSize": 2339,
+          "encodedBodySize": 2039,
+          "decodedBodySize": 5839,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/app.css",
+          "initiatorType": "link",
+          "startTime": 412.9,
+          "duration": 259.1,
+          "transferSize": 6915,
+          "encodedBodySize": 6615,
+          "decodedBodySize": 27560,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+          "initiatorType": "img",
+          "startTime": 413,
+          "duration": 189.7,
+          "transferSize": 737,
+          "encodedBodySize": 437,
+          "decodedBodySize": 803,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/app.mjs",
+          "initiatorType": "script",
+          "startTime": 431.2,
+          "duration": 286.3,
+          "transferSize": 14701,
+          "encodedBodySize": 14401,
+          "decodedBodySize": 45288,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/engine/solver.mjs",
+          "initiatorType": "script",
+          "startTime": 794.4,
+          "duration": 188.3,
+          "transferSize": 3312,
+          "encodedBodySize": 3012,
+          "decodedBodySize": 7277,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-001.json",
+          "initiatorType": "fetch",
+          "startTime": 987.9,
+          "duration": 260.1,
+          "transferSize": 1793,
+          "encodedBodySize": 1493,
+          "decodedBodySize": 3224,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-002.json",
+          "initiatorType": "fetch",
+          "startTime": 988.2,
+          "duration": 259.4,
+          "transferSize": 1534,
+          "encodedBodySize": 1234,
+          "decodedBodySize": 2897,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-003.json",
+          "initiatorType": "fetch",
+          "startTime": 988.4,
+          "duration": 287.4,
+          "transferSize": 1825,
+          "encodedBodySize": 1525,
+          "decodedBodySize": 3623,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-004.json",
+          "initiatorType": "fetch",
+          "startTime": 988.6,
+          "duration": 286.7,
+          "transferSize": 1709,
+          "encodedBodySize": 1409,
+          "decodedBodySize": 3375,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-005.json",
+          "initiatorType": "fetch",
+          "startTime": 988.9,
+          "duration": 273.7,
+          "transferSize": 1783,
+          "encodedBodySize": 1483,
+          "decodedBodySize": 3634,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-006.json",
+          "initiatorType": "fetch",
+          "startTime": 989.2,
+          "duration": 273.9,
+          "transferSize": 1867,
+          "encodedBodySize": 1567,
+          "decodedBodySize": 3807,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        }
+      ],
+      "requestCount": 12,
+      "requestCountIncludingDocument": 13,
+      "subresourceTransferBytes": 40012,
+      "documentTransferBytes": 5590,
+      "totalTransferBytes": 45602,
+      "console": [],
+      "cacheHeaders": {
+        "./": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-35f2\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "278"
+        },
+        "./app.mjs": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-b0e8\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "277"
+        },
+        "./styles/app.css": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-6ba8\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "278"
+        },
+        "./cases/NA-001.json": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-c98\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "277"
+        }
+      },
+      "measuredAt": "2026-10-30T00:52:33+0800",
+      "warm": {
+        "navigation": {
+          "type": "navigate",
+          "ttfb": 1.1,
+          "domInteractive": 18.9,
+          "domContentLoaded": 30.1,
+          "loadEvent": 30.2,
+          "responseEnd": 1.8,
+          "transferSize": 0,
+          "encodedBodySize": 5290,
+          "decodedBodySize": 13810,
+          "nextHopProtocol": "h2",
+          "redirectCount": 0
+        },
+        "tti": {
+          "ttiMs": 261,
+          "slots": 4,
+          "order": [
+            "蓝票",
+            "绿票",
+            "红票",
+            "黄票"
+          ],
+          "readyState": "complete"
+        },
+        "requestCount": 12,
+        "fromCacheCount": 6,
+        "subresourceTransferBytes": 1800,
+        "documentTransferBytes": 0,
+        "totalTransferBytes": 1800,
+        "console": []
+      },
+      "throughputProbe": {
+        "ms": 651,
+        "bytes": 100220,
+        "impliedKbps": 1231.6
+      }
+    },
+    {
+      "label": "cold-slow4g-3",
+      "slow4g": true,
+      "emulation": {
+        "offline": false,
+        "downloadThroughput": 209715,
+        "uploadThroughput": 96000,
+        "latency": 150
+      },
+      "navigation": {
+        "type": "navigate",
+        "ttfb": 755.7,
+        "domInteractive": 1036,
+        "domContentLoaded": 1582,
+        "loadEvent": 1582.1,
+        "responseEnd": 1034.7,
+        "transferSize": 5590,
+        "encodedBodySize": 5290,
+        "decodedBodySize": 13810,
+        "nextHopProtocol": "h2",
+        "redirectCount": 0
+      },
+      "tti": {
+        "ttiMs": 1984,
+        "slots": 4,
+        "order": [
+          "蓝票",
+          "绿票",
+          "红票",
+          "黄票"
+        ],
+        "readyState": "complete"
+      },
+      "ttiWallMs": 2053,
+      "paint": [
+        {
+          "name": "first-paint",
+          "startTime": 1412
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 1412
+        }
+      ],
+      "resources": [
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/tokens.css",
+          "initiatorType": "link",
+          "startTime": 848.7,
+          "duration": 420.6,
+          "transferSize": 1497,
+          "encodedBodySize": 1197,
+          "decodedBodySize": 2309,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/base.css",
+          "initiatorType": "link",
+          "startTime": 849.1,
+          "duration": 224.7,
+          "transferSize": 2339,
+          "encodedBodySize": 2039,
+          "decodedBodySize": 5839,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/styles/app.css",
+          "initiatorType": "link",
+          "startTime": 849.2,
+          "duration": 262.4,
+          "transferSize": 6915,
+          "encodedBodySize": 6615,
+          "decodedBodySize": 27560,
+          "renderBlockingStatus": "blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+          "initiatorType": "img",
+          "startTime": 849.5,
+          "duration": 224.6,
+          "transferSize": 737,
+          "encodedBodySize": 437,
+          "decodedBodySize": 803,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/app.mjs",
+          "initiatorType": "script",
+          "startTime": 858.2,
+          "duration": 458.3,
+          "transferSize": 14701,
+          "encodedBodySize": 14401,
+          "decodedBodySize": 45288,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/engine/solver.mjs",
+          "initiatorType": "script",
+          "startTime": 1388,
+          "duration": 188,
+          "transferSize": 3312,
+          "encodedBodySize": 3012,
+          "decodedBodySize": 7277,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-001.json",
+          "initiatorType": "fetch",
+          "startTime": 1580.7,
+          "duration": 303.1,
+          "transferSize": 1793,
+          "encodedBodySize": 1493,
+          "decodedBodySize": 3224,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-002.json",
+          "initiatorType": "fetch",
+          "startTime": 1581,
+          "duration": 271.7,
+          "transferSize": 1534,
+          "encodedBodySize": 1234,
+          "decodedBodySize": 2897,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-003.json",
+          "initiatorType": "fetch",
+          "startTime": 1581.2,
+          "duration": 302.9,
+          "transferSize": 1825,
+          "encodedBodySize": 1525,
+          "decodedBodySize": 3623,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-004.json",
+          "initiatorType": "fetch",
+          "startTime": 1581.4,
+          "duration": 319,
+          "transferSize": 1709,
+          "encodedBodySize": 1409,
+          "decodedBodySize": 3375,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-005.json",
+          "initiatorType": "fetch",
+          "startTime": 1581.6,
+          "duration": 318.3,
+          "transferSize": 1783,
+          "encodedBodySize": 1483,
+          "decodedBodySize": 3634,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        },
+        {
+          "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-006.json",
+          "initiatorType": "fetch",
+          "startTime": 1581.7,
+          "duration": 252.5,
+          "transferSize": 1867,
+          "encodedBodySize": 1567,
+          "decodedBodySize": 3807,
+          "renderBlockingStatus": "non-blocking",
+          "nextHopProtocol": "h2"
+        }
+      ],
+      "requestCount": 12,
+      "requestCountIncludingDocument": 13,
+      "subresourceTransferBytes": 40012,
+      "documentTransferBytes": 5590,
+      "totalTransferBytes": 45602,
+      "console": [],
+      "cacheHeaders": {
+        "./": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-35f2\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "283"
+        },
+        "./app.mjs": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-b0e8\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "283"
+        },
+        "./styles/app.css": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-6ba8\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "283"
+        },
+        "./cases/NA-001.json": {
+          "cacheControl": "max-age=600",
+          "etag": "W/\"6ae37505-c98\"",
+          "lastModified": "Thu, 29 Oct 2026 16:32:05 GMT",
+          "contentEncoding": "gzip",
+          "age": "282"
+        }
+      },
+      "measuredAt": "2026-10-30T00:52:39+0800",
+      "warm": {
+        "navigation": {
+          "type": "navigate",
+          "ttfb": 0.9,
+          "domInteractive": 14.6,
+          "domContentLoaded": 22.3,
+          "loadEvent": 22.3,
+          "responseEnd": 1.4,
+          "transferSize": 0,
+          "encodedBodySize": 5290,
+          "decodedBodySize": 13810,
+          "nextHopProtocol": "h2",
+          "redirectCount": 0
+        },
+        "tti": {
+          "ttiMs": 244,
+          "slots": 4,
+          "order": [
+            "蓝票",
+            "绿票",
+            "红票",
+            "黄票"
+          ],
+          "readyState": "complete"
+        },
+        "requestCount": 12,
+        "fromCacheCount": 6,
+        "subresourceTransferBytes": 1800,
+        "documentTransferBytes": 0,
+        "totalTransferBytes": 1800,
+        "console": []
+      },
+      "throughputProbe": {
+        "ms": 1314,
+        "bytes": 100220,
+        "impliedKbps": 610.2
+      }
+    }
+  ],
+  "summary": {
+    "normal": {
+      "ttfb_ms": 387.5,
+      "dcl_ms": 1030.6,
+      "load_ms": 1030.6,
+      "tti_ms": 1327,
+      "requests_including_document": 13,
+      "total_transfer_bytes": 45602,
+      "warm_tti_ms": 143,
+      "warm_total_transfer_bytes": 1800,
+      "ranges": {
+        "ttfb": [
+          255.9,
+          424.9
+        ],
+        "load": [
+          556.2,
+          1332.3
+        ],
+        "tti": [
+          719,
+          1599
+        ]
+      }
+    },
+    "slow4g": {
+      "ttfb_ms": 396.9,
+      "dcl_ms": 1043.6,
+      "load_ms": 1043.7,
+      "tti_ms": 1416,
+      "requests_including_document": 13,
+      "total_transfer_bytes": 45602,
+      "warm_tti_ms": 261,
+      "warm_total_transfer_bytes": 1800,
+      "ranges": {
+        "ttfb": [
+          285.4,
+          755.7
+        ],
+        "load": [
+          989.7,
+          1582.1
+        ],
+        "tti": [
+          1371,
+          1984
+        ]
+      }
+    }
+  },
+  "largestResource": {
+    "name": "https://tbj0623.github.io/zero-dossier-office/app.mjs",
+    "initiatorType": "script",
+    "startTime": 397,
+    "duration": 613.9,
+    "transferSize": 14701,
+    "encodedBodySize": 14401,
+    "decodedBodySize": 45288,
+    "renderBlockingStatus": "non-blocking",
+    "nextHopProtocol": "h2"
+  },
+  "topResources": [
+    {
+      "name": "https://tbj0623.github.io/zero-dossier-office/app.mjs",
+      "initiatorType": "script",
+      "startTime": 397,
+      "duration": 613.9,
+      "transferSize": 14701,
+      "encodedBodySize": 14401,
+      "decodedBodySize": 45288,
+      "renderBlockingStatus": "non-blocking",
+      "nextHopProtocol": "h2"
+    },
+    {
+      "name": "https://tbj0623.github.io/zero-dossier-office/styles/app.css",
+      "initiatorType": "link",
+      "startTime": 396.7,
+      "duration": 222.9,
+      "transferSize": 6915,
+      "encodedBodySize": 6615,
+      "decodedBodySize": 27560,
+      "renderBlockingStatus": "blocking",
+      "nextHopProtocol": "h2"
+    },
+    {
+      "name": "https://tbj0623.github.io/zero-dossier-office/engine/solver.mjs",
+      "initiatorType": "script",
+      "startTime": 1117.6,
+      "duration": 208.9,
+      "transferSize": 3312,
+      "encodedBodySize": 3012,
+      "decodedBodySize": 7277,
+      "renderBlockingStatus": "non-blocking",
+      "nextHopProtocol": "h2"
+    },
+    {
+      "name": "https://tbj0623.github.io/zero-dossier-office/styles/base.css",
+      "initiatorType": "link",
+      "startTime": 396.6,
+      "duration": 222.1,
+      "transferSize": 2339,
+      "encodedBodySize": 2039,
+      "decodedBodySize": 5839,
+      "renderBlockingStatus": "blocking",
+      "nextHopProtocol": "h2"
+    },
+    {
+      "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-006.json",
+      "initiatorType": "fetch",
+      "startTime": 1332,
+      "duration": 195.5,
+      "transferSize": 1867,
+      "encodedBodySize": 1567,
+      "decodedBodySize": 3807,
+      "renderBlockingStatus": "non-blocking",
+      "nextHopProtocol": "h2"
+    },
+    {
+      "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-003.json",
+      "initiatorType": "fetch",
+      "startTime": 1331.3,
+      "duration": 187.4,
+      "transferSize": 1825,
+      "encodedBodySize": 1525,
+      "decodedBodySize": 3623,
+      "renderBlockingStatus": "non-blocking",
+      "nextHopProtocol": "h2"
+    },
+    {
+      "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-001.json",
+      "initiatorType": "fetch",
+      "startTime": 1330.9,
+      "duration": 96.3,
+      "transferSize": 1793,
+      "encodedBodySize": 1493,
+      "decodedBodySize": 3224,
+      "renderBlockingStatus": "non-blocking",
+      "nextHopProtocol": "h2"
+    },
+    {
+      "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-005.json",
+      "initiatorType": "fetch",
+      "startTime": 1331.8,
+      "duration": 195.2,
+      "transferSize": 1783,
+      "encodedBodySize": 1483,
+      "decodedBodySize": 3634,
+      "renderBlockingStatus": "non-blocking",
+      "nextHopProtocol": "h2"
+    }
+  ],
+  "renderBlocking": [
+    {
+      "name": "https://tbj0623.github.io/zero-dossier-office/styles/tokens.css",
+      "initiatorType": "link",
+      "startTime": 396.2,
+      "duration": 615.6,
+      "transferSize": 1497,
+      "encodedBodySize": 1197,
+      "decodedBodySize": 2309,
+      "renderBlockingStatus": "blocking",
+      "nextHopProtocol": "h2"
+    },
+    {
+      "name": "https://tbj0623.github.io/zero-dossier-office/styles/base.css",
+      "initiatorType": "link",
+      "startTime": 396.6,
+      "duration": 222.1,
+      "transferSize": 2339,
+      "encodedBodySize": 2039,
+      "decodedBodySize": 5839,
+      "renderBlockingStatus": "blocking",
+      "nextHopProtocol": "h2"
+    },
+    {
+      "name": "https://tbj0623.github.io/zero-dossier-office/styles/app.css",
+      "initiatorType": "link",
+      "startTime": 396.7,
+      "duration": 222.9,
+      "transferSize": 6915,
+      "encodedBodySize": 6615,
+      "decodedBodySize": 27560,
+      "renderBlockingStatus": "blocking",
+      "nextHopProtocol": "h2"
+    }
+  ],
+  "firstLoadDetails": {
+    "requestCountIncludingDocument": 13,
+    "subresourceTransferBytes": 40012,
+    "documentTransferBytes": 5590,
+    "totalTransferBytes": 45602,
+    "perResource": [
+      {
+        "name": "https://tbj0623.github.io/zero-dossier-office/styles/tokens.css",
+        "initiatorType": "link",
+        "transferSize": 1497,
+        "encodedBodySize": 1197,
+        "decodedBodySize": 2309,
+        "renderBlockingStatus": "blocking",
+        "duration": 615.6
+      },
+      {
+        "name": "https://tbj0623.github.io/zero-dossier-office/styles/base.css",
+        "initiatorType": "link",
+        "transferSize": 2339,
+        "encodedBodySize": 2039,
+        "decodedBodySize": 5839,
+        "renderBlockingStatus": "blocking",
+        "duration": 222.1
+      },
+      {
+        "name": "https://tbj0623.github.io/zero-dossier-office/styles/app.css",
+        "initiatorType": "link",
+        "transferSize": 6915,
+        "encodedBodySize": 6615,
+        "decodedBodySize": 27560,
+        "renderBlockingStatus": "blocking",
+        "duration": 222.9
+      },
+      {
+        "name": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+        "initiatorType": "img",
+        "transferSize": 737,
+        "encodedBodySize": 437,
+        "decodedBodySize": 803,
+        "renderBlockingStatus": "non-blocking",
+        "duration": 615.6
+      },
+      {
+        "name": "https://tbj0623.github.io/zero-dossier-office/app.mjs",
+        "initiatorType": "script",
+        "transferSize": 14701,
+        "encodedBodySize": 14401,
+        "decodedBodySize": 45288,
+        "renderBlockingStatus": "non-blocking",
+        "duration": 613.9
+      },
+      {
+        "name": "https://tbj0623.github.io/zero-dossier-office/engine/solver.mjs",
+        "initiatorType": "script",
+        "transferSize": 3312,
+        "encodedBodySize": 3012,
+        "decodedBodySize": 7277,
+        "renderBlockingStatus": "non-blocking",
+        "duration": 208.9
+      },
+      {
+        "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-001.json",
+        "initiatorType": "fetch",
+        "transferSize": 1793,
+        "encodedBodySize": 1493,
+        "decodedBodySize": 3224,
+        "renderBlockingStatus": "non-blocking",
+        "duration": 96.3
+      },
+      {
+        "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-002.json",
+        "initiatorType": "fetch",
+        "transferSize": 1534,
+        "encodedBodySize": 1234,
+        "decodedBodySize": 2897,
+        "renderBlockingStatus": "non-blocking",
+        "duration": 118.9
+      },
+      {
+        "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-003.json",
+        "initiatorType": "fetch",
+        "transferSize": 1825,
+        "encodedBodySize": 1525,
+        "decodedBodySize": 3623,
+        "renderBlockingStatus": "non-blocking",
+        "duration": 187.4
+      },
+      {
+        "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-004.json",
+        "initiatorType": "fetch",
+        "transferSize": 1709,
+        "encodedBodySize": 1409,
+        "decodedBodySize": 3375,
+        "renderBlockingStatus": "non-blocking",
+        "duration": 187.5
+      },
+      {
+        "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-005.json",
+        "initiatorType": "fetch",
+        "transferSize": 1783,
+        "encodedBodySize": 1483,
+        "decodedBodySize": 3634,
+        "renderBlockingStatus": "non-blocking",
+        "duration": 195.2
+      },
+      {
+        "name": "https://tbj0623.github.io/zero-dossier-office/cases/NA-006.json",
+        "initiatorType": "fetch",
+        "transferSize": 1867,
+        "encodedBodySize": 1567,
+        "decodedBodySize": 3807,
+        "renderBlockingStatus": "non-blocking",
+        "duration": 195.5
+      }
+    ]
+  }
+}

@@ -1,0 +1,348 @@
+{
+  "when": "2026-10-30T00:58:02+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "scenes": {
+    "home-1440": {
+      "chromium": {
+        "size": [
+          1440,
+          900
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "images": {
+          "images": 4,
+          "decoded": 4
+        }
+      },
+      "msedge": {
+        "size": [
+          1440,
+          900
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "images": {
+          "images": 4,
+          "decoded": 4
+        }
+      },
+      "same_size": true,
+      "diff_bbox": [
+        0,
+        0,
+        1440,
+        900
+      ],
+      "pixels_differing_gt2": 11527,
+      "pct": 0.8894,
+      "layout_scrollwidth_equal": true
+    },
+    "cabinet-1440": {
+      "chromium": {
+        "size": [
+          1440,
+          2397
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "images": {
+          "images": 7,
+          "decoded": 7
+        }
+      },
+      "msedge": {
+        "size": [
+          1440,
+          2397
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "images": {
+          "images": 7,
+          "decoded": 7
+        }
+      },
+      "same_size": true,
+      "diff_bbox": [
+        0,
+        0,
+        1440,
+        2345
+      ],
+      "pixels_differing_gt2": 45222,
+      "pct": 1.3101,
+      "layout_scrollwidth_equal": true
+    },
+    "case-NA001-1440": {
+      "chromium": {
+        "size": [
+          1440,
+          1211
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "images": {
+          "images": 1,
+          "decoded": 1
+        }
+      },
+      "msedge": {
+        "size": [
+          1440,
+          1211
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "images": {
+          "images": 1,
+          "decoded": 1
+        }
+      },
+      "same_size": true,
+      "diff_bbox": [
+        0,
+        0,
+        1440,
+        1158
+      ],
+      "pixels_differing_gt2": 3835,
+      "pct": 0.2199,
+      "layout_scrollwidth_equal": true
+    },
+    "case-NA004-mobile390": {
+      "chromium": {
+        "size": [
+          390,
+          2289
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "images": {
+          "images": 1,
+          "decoded": 1
+        }
+      },
+      "msedge": {
+        "size": [
+          390,
+          2289
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "images": {
+          "images": 1,
+          "decoded": 1
+        }
+      },
+      "same_size": true,
+      "diff_bbox": [
+        0,
+        0,
+        390,
+        2237
+      ],
+      "pixels_differing_gt2": 4962,
+      "pct": 0.5558,
+      "layout_scrollwidth_equal": true
+    },
+    "cabinet-mobile390": {
+      "chromium": {
+        "size": [
+          390,
+          844
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "images": {
+          "images": 7,
+          "decoded": 7
+        }
+      },
+      "msedge": {
+        "size": [
+          390,
+          844
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "images": {
+          "images": 7,
+          "decoded": 5
+        }
+      },
+      "same_size": true,
+      "diff_bbox": [
+        0,
+        0,
+        390,
+        844
+      ],
+      "pixels_differing_gt2": 8662,
+      "pct": 2.6315,
+      "layout_scrollwidth_equal": true
+    },
+    "manual-1024": {
+      "chromium": {
+        "size": [
+          1024,
+          768
+        ],
+        "scrollWidth": 1024,
+        "clientWidth": 1024,
+        "images": {
+          "images": 1,
+          "decoded": 1
+        }
+      },
+      "msedge": {
+        "size": [
+          1024,
+          768
+        ],
+        "scrollWidth": 1024,
+        "clientWidth": 1024,
+        "images": {
+          "images": 1,
+          "decoded": 1
+        }
+      },
+      "same_size": true,
+      "diff_bbox": [
+        0,
+        0,
+        1024,
+        758
+      ],
+      "pixels_differing_gt2": 897,
+      "pct": 0.1141,
+      "layout_scrollwidth_equal": true
+    }
+  },
+  "shots": {
+    "chromium": {
+      "home-1440": {
+        "path": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\cross-browser\\shots\\chromium-home-1440.png",
+        "settle": {
+          "images": 4,
+          "decoded": 4
+        },
+        "console": [],
+        "scrollWidth": 1440,
+        "clientWidth": 1440
+      },
+      "cabinet-1440": {
+        "path": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\cross-browser\\shots\\chromium-cabinet-1440.png",
+        "settle": {
+          "images": 7,
+          "decoded": 7
+        },
+        "console": [],
+        "scrollWidth": 1440,
+        "clientWidth": 1440
+      },
+      "case-NA001-1440": {
+        "path": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\cross-browser\\shots\\chromium-case-NA001-1440.png",
+        "settle": {
+          "images": 1,
+          "decoded": 1
+        },
+        "console": [],
+        "scrollWidth": 1440,
+        "clientWidth": 1440
+      },
+      "case-NA004-mobile390": {
+        "path": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\cross-browser\\shots\\chromium-case-NA004-mobile390.png",
+        "settle": {
+          "images": 1,
+          "decoded": 1
+        },
+        "console": [],
+        "scrollWidth": 390,
+        "clientWidth": 390
+      },
+      "cabinet-mobile390": {
+        "path": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\cross-browser\\shots\\chromium-cabinet-mobile390.png",
+        "settle": {
+          "images": 7,
+          "decoded": 7
+        },
+        "console": [],
+        "scrollWidth": 390,
+        "clientWidth": 390
+      },
+      "manual-1024": {
+        "path": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\cross-browser\\shots\\chromium-manual-1024.png",
+        "settle": {
+          "images": 1,
+          "decoded": 1
+        },
+        "console": [],
+        "scrollWidth": 1024,
+        "clientWidth": 1024
+      }
+    },
+    "msedge": {
+      "home-1440": {
+        "path": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\cross-browser\\shots\\msedge-home-1440.png",
+        "settle": {
+          "images": 4,
+          "decoded": 4
+        },
+        "console": [],
+        "scrollWidth": 1440,
+        "clientWidth": 1440
+      },
+      "cabinet-1440": {
+        "path": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\cross-browser\\shots\\msedge-cabinet-1440.png",
+        "settle": {
+          "images": 7,
+          "decoded": 7
+        },
+        "console": [],
+        "scrollWidth": 1440,
+        "clientWidth": 1440
+      },
+      "case-NA001-1440": {
+        "path": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\cross-browser\\shots\\msedge-case-NA001-1440.png",
+        "settle": {
+          "images": 1,
+          "decoded": 1
+        },
+        "console": [],
+        "scrollWidth": 1440,
+        "clientWidth": 1440
+      },
+      "case-NA004-mobile390": {
+        "path": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\cross-browser\\shots\\msedge-case-NA004-mobile390.png",
+        "settle": {
+          "images": 1,
+          "decoded": 1
+        },
+        "console": [],
+        "scrollWidth": 390,
+        "clientWidth": 390
+      },
+      "cabinet-mobile390": {
+        "path": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\cross-browser\\shots\\msedge-cabinet-mobile390.png",
+        "settle": {
+          "images": 7,
+          "decoded": 5
+        },
+        "console": [],
+        "scrollWidth": 390,
+        "clientWidth": 390
+      },
+      "manual-1024": {
+        "path": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\cross-browser\\shots\\msedge-manual-1024.png",
+        "settle": {
+          "images": 1,
+          "decoded": 1
+        },
+        "console": [],
+        "scrollWidth": 1024,
+        "clientWidth": 1024
+      }
+    }
+  }
+}

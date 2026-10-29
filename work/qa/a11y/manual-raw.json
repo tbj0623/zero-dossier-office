@@ -1,0 +1,2223 @@
+{
+  "focus_order": {
+    "stops": [
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "skip-link",
+        "name": "跳到主要内容",
+        "rect": [
+          16,
+          -38,
+          146,
+          52
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgb(223, 185, 120)",
+        "focusVisible": true,
+        "inViewport": false,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "brand",
+        "name": "第零证物局 · 返回封面",
+        "rect": [
+          130,
+          9,
+          227,
+          46
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "档案柜",
+        "rect": [
+          1041,
+          10,
+          73,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(223, 185, 120, 0.1)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "玩法说明",
+        "rect": [
+          1118,
+          10,
+          87,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "关于与隐私",
+        "rect": [
+          1209,
+          10,
+          101,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "档案柜",
+        "rect": [
+          130,
+          97,
+          41,
+          23
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "ev-btn-E01",
+        "cls": "ev-card__summary",
+        "name": "E01 粘连的票根 物证",
+        "rect": [
+          131,
+          429,
+          521,
+          47
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "ev-btn-E02",
+        "cls": "ev-card__summary",
+        "name": "E02 灯塔站的回执 记录",
+        "rect": [
+          131,
+          602,
+          521,
+          47
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "ev-btn-E03",
+        "cls": "ev-card__summary",
+        "name": "E03 维修铃声 证词",
+        "rect": [
+          131,
+          663,
+          521,
+          47
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「蓝票」下移一格",
+        "rect": [
+          1188,
+          416,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「蓝票」以交换位置",
+        "rect": [
+          1236,
+          416,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「绿票」上移一格",
+        "rect": [
+          1140,
+          497,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「绿票」下移一格",
+        "rect": [
+          1188,
+          497,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「绿票」以交换位置",
+        "rect": [
+          1236,
+          497,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「红票」上移一格",
+        "rect": [
+          1140,
+          578,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「红票」下移一格",
+        "rect": [
+          1188,
+          578,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「红票」以交换位置",
+        "rect": [
+          1236,
+          578,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「黄票」上移一格",
+        "rect": [
+          1140,
+          660,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「黄票」以交换位置",
+        "rect": [
+          1236,
+          660,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "btn-submit",
+        "cls": "btn btn--primary",
+        "name": "提交复原",
+        "rect": [
+          694,
+          738,
+          183,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "rgba(0, 0, 0, 0.35) 0px 1px 2px 0px, rgba(0, 0, 0, 0.22) 0px 2px 8px 0px, rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "btn-hint",
+        "cls": "btn",
+        "name": "查看提示",
+        "rect": [
+          1024,
+          738,
+          131,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "btn-reset",
+        "cls": "btn btn--danger",
+        "name": "重置此案",
+        "rect": [
+          1162,
+          738,
+          131,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "档案柜",
+        "rect": [
+          130,
+          706,
+          41,
+          20
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "玩法说明",
+        "rect": [
+          130,
+          734,
+          55,
+          20
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "关于与隐私",
+        "rect": [
+          130,
+          761,
+          69,
+          20
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BODY",
+        "id": null,
+        "cls": "",
+        "name": "跳到主要内容 第零证物局 THE ZERO DOSSIER OFFICE 档案柜 玩法说明 关于与隐私 档案柜 ／ 档案",
+        "rect": [
+          0,
+          -311,
+          1440,
+          1211
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "none",
+        "outlineColor": "rgb(242, 236, 224)",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "bg": "rgb(8, 24, 33)",
+        "focusVisible": false,
+        "inViewport": false,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "skip-link",
+        "name": "跳到主要内容",
+        "rect": [
+          16,
+          -38,
+          146,
+          52
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgb(223, 185, 120)",
+        "focusVisible": true,
+        "inViewport": false,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "brand",
+        "name": "第零证物局 · 返回封面",
+        "rect": [
+          130,
+          9,
+          227,
+          46
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "档案柜",
+        "rect": [
+          1041,
+          10,
+          73,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(223, 185, 120, 0.1)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "玩法说明",
+        "rect": [
+          1118,
+          10,
+          87,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "关于与隐私",
+        "rect": [
+          1209,
+          10,
+          101,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "档案柜",
+        "rect": [
+          130,
+          97,
+          41,
+          23
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "ev-btn-E01",
+        "cls": "ev-card__summary",
+        "name": "E01 粘连的票根 物证",
+        "rect": [
+          131,
+          429,
+          521,
+          47
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "ev-btn-E02",
+        "cls": "ev-card__summary",
+        "name": "E02 灯塔站的回执 记录",
+        "rect": [
+          131,
+          602,
+          521,
+          47
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "ev-btn-E03",
+        "cls": "ev-card__summary",
+        "name": "E03 维修铃声 证词",
+        "rect": [
+          131,
+          663,
+          521,
+          47
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「蓝票」下移一格",
+        "rect": [
+          1188,
+          416,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「蓝票」以交换位置",
+        "rect": [
+          1236,
+          416,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「绿票」上移一格",
+        "rect": [
+          1140,
+          497,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「绿票」下移一格",
+        "rect": [
+          1188,
+          497,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「绿票」以交换位置",
+        "rect": [
+          1236,
+          497,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「红票」上移一格",
+        "rect": [
+          1140,
+          578,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「红票」下移一格",
+        "rect": [
+          1188,
+          578,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「红票」以交换位置",
+        "rect": [
+          1236,
+          578,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「黄票」上移一格",
+        "rect": [
+          1140,
+          660,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「黄票」以交换位置",
+        "rect": [
+          1236,
+          660,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "btn-submit",
+        "cls": "btn btn--primary",
+        "name": "提交复原",
+        "rect": [
+          694,
+          738,
+          183,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "rgba(0, 0, 0, 0.35) 0px 1px 2px 0px, rgba(0, 0, 0, 0.22) 0px 2px 8px 0px, rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "btn-hint",
+        "cls": "btn",
+        "name": "查看提示",
+        "rect": [
+          1024,
+          738,
+          131,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "btn-reset",
+        "cls": "btn btn--danger",
+        "name": "重置此案",
+        "rect": [
+          1162,
+          738,
+          131,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "档案柜",
+        "rect": [
+          130,
+          706,
+          41,
+          20
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "玩法说明",
+        "rect": [
+          130,
+          734,
+          55,
+          20
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "关于与隐私",
+        "rect": [
+          130,
+          761,
+          69,
+          20
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true,
+        "page": "#/case/NA-001"
+      },
+      {
+        "tag": "BODY",
+        "id": null,
+        "cls": "",
+        "name": "跳到主要内容 第零证物局 THE ZERO DOSSIER OFFICE 档案柜 玩法说明 关于与隐私 档案柜 ／ 档案",
+        "rect": [
+          0,
+          -311,
+          1440,
+          1211
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "none",
+        "outlineColor": "rgb(242, 236, 224)",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "bg": "rgb(8, 24, 33)",
+        "focusVisible": false,
+        "inViewport": false,
+        "page": "#/case/NA-001"
+      }
+    ],
+    "dom_focusables": [
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "skip-link",
+        "name": "跳到主要内容"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "brand",
+        "name": "第零证物局 · 返回封面"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "档案柜"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "玩法说明"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "关于与隐私"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "档案柜"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "ev-btn-E01",
+        "cls": "ev-card__summary",
+        "name": "E01 粘连的票根 物证"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "ev-btn-E02",
+        "cls": "ev-card__summary",
+        "name": "E02 灯塔站的回执 记录"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "ev-btn-E03",
+        "cls": "ev-card__summary",
+        "name": "E03 维修铃声 证词"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「蓝票」下移一格"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「蓝票」以交换位置"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「绿票」上移一格"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「绿票」下移一格"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「绿票」以交换位置"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「红票」上移一格"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「红票」下移一格"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「红票」以交换位置"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「黄票」上移一格"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「黄票」以交换位置"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "btn-submit",
+        "cls": "btn btn--primary",
+        "name": "提交复原"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "btn-hint",
+        "cls": "btn",
+        "name": "查看提示"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "btn-reset",
+        "cls": "btn btn--danger",
+        "name": "重置此案"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "档案柜"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "玩法说明"
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "关于与隐私"
+      }
+    ]
+  },
+  "focus_restoration": {
+    "up_keyboard_enter": {
+      "before": {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「红票」上移一格",
+        "rect": [
+          1140,
+          578,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true
+      },
+      "after": {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「红票」上移一格",
+        "rect": [
+          1140,
+          497,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true
+      },
+      "order": [
+        "蓝票",
+        "红票",
+        "绿票",
+        "黄票"
+      ]
+    },
+    "pick_select": {
+      "before": {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「蓝票」以交换位置",
+        "rect": [
+          1236,
+          416,
+          44,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(255, 255, 255, 0.05)",
+        "focusVisible": true,
+        "inViewport": true
+      },
+      "after": {
+        "tag": "BODY",
+        "id": null,
+        "cls": "",
+        "name": "跳到主要内容 第零证物局 THE ZERO DOSSIER OFFICE 档案柜 玩法说明 关于与隐私 档案柜 ／ 档案",
+        "rect": [
+          0,
+          0,
+          1440,
+          1211
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "none",
+        "outlineColor": "rgb(242, 236, 224)",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "bg": "rgb(8, 24, 33)",
+        "focusVisible": false,
+        "inViewport": false
+      },
+      "selected": "0"
+    },
+    "pick_swap": {
+      "after": {
+        "tag": "BODY",
+        "id": null,
+        "cls": "",
+        "name": "跳到主要内容 第零证物局 THE ZERO DOSSIER OFFICE 档案柜 玩法说明 关于与隐私 档案柜 ／ 档案",
+        "rect": [
+          0,
+          0,
+          1440,
+          1211
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "none",
+        "outlineColor": "rgb(242, 236, 224)",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "bg": "rgb(8, 24, 33)",
+        "focusVisible": false,
+        "inViewport": false
+      },
+      "order": [
+        "绿票",
+        "红票",
+        "蓝票",
+        "黄票"
+      ]
+    },
+    "undo": {
+      "after": {
+        "tag": "BUTTON",
+        "id": "btn-undo",
+        "cls": "btn",
+        "name": "撤销一步",
+        "rect": [
+          885,
+          738,
+          131,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "none",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true
+      }
+    },
+    "wrong_submit": {
+      "after": {
+        "tag": "BUTTON",
+        "id": "btn-submit",
+        "cls": "btn btn--primary",
+        "name": "提交复原",
+        "rect": [
+          694,
+          738,
+          183,
+          44
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "solid",
+        "outlineColor": "rgb(223, 185, 120)",
+        "outlineOffset": "3px",
+        "boxShadow": "rgba(0, 0, 0, 0.35) 0px 1px 2px 0px, rgba(0, 0, 0, 0.22) 0px 2px 8px 0px, rgba(255, 255, 255, 0.35) 0px 1px 0px 0px inset",
+        "bg": "rgba(0, 0, 0, 0)",
+        "focusVisible": true,
+        "inViewport": true
+      },
+      "msgShown": "true",
+      "msgText": "档案仍有不一致：2 条关系未满足。\n\n你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。\n\nE01「粘连的票根」中描述的关系与你的排列不一致。\nE02「灯塔站的回执」中描述的关系与你的排列不一致。"
+    },
+    "verdict": {
+      "order_before_submit": [
+        "红票",
+        "蓝票",
+        "黄票",
+        "绿票"
+      ],
+      "after": {
+        "tag": "BODY",
+        "id": null,
+        "cls": "",
+        "name": "跳到主要内容 第零证物局 THE ZERO DOSSIER OFFICE 档案柜 玩法说明 关于与隐私 档案柜 ／ 档案",
+        "rect": [
+          0,
+          -56,
+          1440,
+          1582
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "none",
+        "outlineColor": "rgb(242, 236, 224)",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "bg": "rgb(8, 24, 33)",
+        "focusVisible": false,
+        "inViewport": false
+      },
+      "verdictTitleFocusable": -1,
+      "h1count": 4,
+      "caseTitleExists": false,
+      "viewCaseLabelledby": "case-title"
+    },
+    "enter_case_from_cabinet": {
+      "after": {
+        "tag": "BODY",
+        "id": null,
+        "cls": "",
+        "name": "跳到主要内容 第零证物局 THE ZERO DOSSIER OFFICE 档案柜 玩法说明 关于与隐私 档案柜 ／ 档案",
+        "rect": [
+          0,
+          0,
+          1440,
+          1211
+        ],
+        "outlineWidth": "3px",
+        "outlineStyle": "none",
+        "outlineColor": "rgb(242, 236, 224)",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "bg": "rgb(8, 24, 33)",
+        "focusVisible": false,
+        "inViewport": false
+      }
+    }
+  },
+  "sr_semantics": {
+    "cards": [
+      {
+        "evId": "E01",
+        "buttonId": "ev-btn-E01",
+        "expanded": "true",
+        "controls": "ev-body-E01",
+        "controlsExists": true,
+        "bodyHidden": false,
+        "ariaLabel": null,
+        "textName": "E01 粘连的票根 物证",
+        "tag": "BUTTON"
+      },
+      {
+        "evId": "E02",
+        "buttonId": "ev-btn-E02",
+        "expanded": "false",
+        "controls": "ev-body-E02",
+        "controlsExists": true,
+        "bodyHidden": true,
+        "ariaLabel": null,
+        "textName": "E02 灯塔站的回执 记录",
+        "tag": "BUTTON"
+      },
+      {
+        "evId": "E03",
+        "buttonId": "ev-btn-E03",
+        "expanded": "false",
+        "controls": "ev-body-E03",
+        "controlsExists": true,
+        "bodyHidden": true,
+        "ariaLabel": null,
+        "textName": "E03 维修铃声 证词",
+        "tag": "BUTTON"
+      }
+    ],
+    "slots": [
+      {
+        "index": "0",
+        "slotLabel": "22:00",
+        "item": "蓝票",
+        "liRole": null,
+        "liTabIndex": -1,
+        "draggable": "true",
+        "buttons": [
+          {
+            "act": "up",
+            "ariaLabel": "将「蓝票」上移一格",
+            "pressed": null,
+            "disabled": true,
+            "accessibleText": "将「蓝票」上移一格"
+          },
+          {
+            "act": "down",
+            "ariaLabel": "将「蓝票」下移一格",
+            "pressed": null,
+            "disabled": false,
+            "accessibleText": "将「蓝票」下移一格"
+          },
+          {
+            "act": "pick",
+            "ariaLabel": "选中「蓝票」以交换位置",
+            "pressed": "false",
+            "disabled": false,
+            "accessibleText": "选中「蓝票」以交换位置"
+          }
+        ]
+      },
+      {
+        "index": "1",
+        "slotLabel": "22:10",
+        "item": "绿票",
+        "liRole": null,
+        "liTabIndex": -1,
+        "draggable": "true",
+        "buttons": [
+          {
+            "act": "up",
+            "ariaLabel": "将「绿票」上移一格",
+            "pressed": null,
+            "disabled": false,
+            "accessibleText": "将「绿票」上移一格"
+          },
+          {
+            "act": "down",
+            "ariaLabel": "将「绿票」下移一格",
+            "pressed": null,
+            "disabled": false,
+            "accessibleText": "将「绿票」下移一格"
+          },
+          {
+            "act": "pick",
+            "ariaLabel": "选中「绿票」以交换位置",
+            "pressed": "false",
+            "disabled": false,
+            "accessibleText": "选中「绿票」以交换位置"
+          }
+        ]
+      },
+      {
+        "index": "2",
+        "slotLabel": "22:20",
+        "item": "红票",
+        "liRole": null,
+        "liTabIndex": -1,
+        "draggable": "true",
+        "buttons": [
+          {
+            "act": "up",
+            "ariaLabel": "将「红票」上移一格",
+            "pressed": null,
+            "disabled": false,
+            "accessibleText": "将「红票」上移一格"
+          },
+          {
+            "act": "down",
+            "ariaLabel": "将「红票」下移一格",
+            "pressed": null,
+            "disabled": false,
+            "accessibleText": "将「红票」下移一格"
+          },
+          {
+            "act": "pick",
+            "ariaLabel": "选中「红票」以交换位置",
+            "pressed": "false",
+            "disabled": false,
+            "accessibleText": "选中「红票」以交换位置"
+          }
+        ]
+      },
+      {
+        "index": "3",
+        "slotLabel": "22:30",
+        "item": "黄票",
+        "liRole": null,
+        "liTabIndex": -1,
+        "draggable": "true",
+        "buttons": [
+          {
+            "act": "up",
+            "ariaLabel": "将「黄票」上移一格",
+            "pressed": null,
+            "disabled": false,
+            "accessibleText": "将「黄票」上移一格"
+          },
+          {
+            "act": "down",
+            "ariaLabel": "将「黄票」下移一格",
+            "pressed": null,
+            "disabled": true,
+            "accessibleText": "将「黄票」下移一格"
+          },
+          {
+            "act": "pick",
+            "ariaLabel": "选中「黄票」以交换位置",
+            "pressed": "false",
+            "disabled": false,
+            "accessibleText": "选中「黄票」以交换位置"
+          }
+        ]
+      }
+    ],
+    "duplicateLabels": [],
+    "labelCount": 12,
+    "listRole": "OL",
+    "listLabel": "复原格位列表",
+    "hintsRole": null,
+    "hintsLabel": "已揭开的提示",
+    "after_select_labels": [
+      "将「蓝票」上移一格",
+      "将「蓝票」下移一格",
+      "取消选中「蓝票」",
+      "将「绿票」上移一格",
+      "将「绿票」下移一格",
+      "选中「绿票」以交换位置",
+      "将「红票」上移一格",
+      "将「红票」下移一格",
+      "选中「红票」以交换位置",
+      "将「黄票」上移一格",
+      "将「黄票」下移一格",
+      "选中「黄票」以交换位置"
+    ],
+    "after_select_pressed": [
+      "true",
+      "false",
+      "false",
+      "false"
+    ]
+  },
+  "live_regions": {
+    "message": {
+      "role": "status",
+      "ariaLive": "polite",
+      "ariaAtomic": null,
+      "display": "none",
+      "inA11yTree": false
+    },
+    "toast": {
+      "role": "status",
+      "ariaLive": "polite",
+      "display": "block",
+      "opacity": "0",
+      "text": "",
+      "dataShow": null
+    },
+    "statusText": {
+      "role": null,
+      "ariaLive": null
+    },
+    "liveRegionCount": [
+      {
+        "tag": "DIV",
+        "id": "progress-badge",
+        "cls": "pill pill--mist",
+        "role": null,
+        "live": "polite"
+      },
+      {
+        "tag": "DIV",
+        "id": "case-root",
+        "cls": "",
+        "role": null,
+        "live": "off"
+      },
+      {
+        "tag": "DIV",
+        "id": "message",
+        "cls": "message",
+        "role": "status",
+        "live": "polite"
+      },
+      {
+        "tag": "DIV",
+        "id": "toast",
+        "cls": "toast",
+        "role": "status",
+        "live": "polite"
+      }
+    ],
+    "wrong_submit_mutations": [
+      {
+        "id": "message",
+        "n": "attributes"
+      },
+      {
+        "id": "message",
+        "n": "attributes"
+      },
+      {
+        "id": "message",
+        "n": "childList"
+      },
+      {
+        "id": "message",
+        "n": "childList"
+      },
+      {
+        "id": "message",
+        "n": "childList"
+      },
+      {
+        "id": "case-root",
+        "n": "attributes"
+      },
+      {
+        "id": "case-root",
+        "n": "childList"
+      },
+      {
+        "id": "case-root",
+        "n": "attributes"
+      },
+      {
+        "id": "case-root",
+        "n": "attributes"
+      },
+      {
+        "id": "case-root",
+        "n": "attributes"
+      },
+      {
+        "id": "case-root",
+        "n": "attributes"
+      }
+    ],
+    "wrong_submit_message_text": "档案仍有不一致：2 条关系未满足。\n\n你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。\n\nE01「粘连的票根」中描述的关系与你的排列不一致。\nE02「灯塔站的回执」中描述的关系与你的排列不一致。",
+    "hint_mutations": [
+      {
+        "id": "case-root",
+        "n": "childList"
+      },
+      {
+        "id": "case-root",
+        "n": "childList"
+      },
+      {
+        "id": "case-root",
+        "n": "attributes"
+      },
+      {
+        "id": "message",
+        "n": "childList"
+      },
+      {
+        "id": "message",
+        "n": "attributes"
+      },
+      {
+        "id": "message",
+        "n": "attributes"
+      },
+      {
+        "id": "message",
+        "n": "childList"
+      },
+      {
+        "id": "case-root",
+        "n": "attributes"
+      },
+      {
+        "id": "case-root",
+        "n": "attributes"
+      },
+      {
+        "id": "case-root",
+        "n": "attributes"
+      },
+      {
+        "id": "case-root",
+        "n": "attributes"
+      }
+    ],
+    "hint_texts": [
+      "档案员注 01 ／ 03\n先把红票和蓝票当成一组不可分开的相邻票。"
+    ],
+    "hint_button_label": "查看提示（1/3）",
+    "hints_live": null,
+    "message_after_hint": "提示只是帮你推进，不会自动完成排列。",
+    "toast_after_pick": {
+      "text": "已选中「蓝票」，再点一个格位即可交换",
+      "dataShow": "true",
+      "opacity": "1",
+      "display": "block"
+    },
+    "toast_after_timeout": {
+      "text": "已选中「蓝票」，再点一个格位即可交换",
+      "dataShow": "false",
+      "opacity": "0",
+      "display": "block",
+      "inTree": true
+    }
+  },
+  "dialog": {
+    "open": true,
+    "modal": true,
+    "activeInDialog": true,
+    "active": "BUTTON#ok",
+    "labelledby": "confirm-title",
+    "labelText": "重置此案？",
+    "describedby": null,
+    "role": null,
+    "after_escape": {
+      "tag": "BUTTON",
+      "id": "btn-reset",
+      "open": false
+    },
+    "tab_cycle": [
+      {
+        "tag": "BODY",
+        "id": null,
+        "confirm": null,
+        "inDialog": false,
+        "name": "跳到主要内容\n第零证物局\nTHE ZER"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "confirm": "cancel",
+        "inDialog": true,
+        "name": "取消"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "confirm": "ok",
+        "inDialog": true,
+        "name": "确认重置"
+      },
+      {
+        "tag": "BODY",
+        "id": null,
+        "confirm": null,
+        "inDialog": false,
+        "name": "跳到主要内容\n第零证物局\nTHE ZER"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "confirm": "cancel",
+        "inDialog": true,
+        "name": "取消"
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "confirm": "ok",
+        "inDialog": true,
+        "name": "确认重置"
+      }
+    ]
+  },
+  "targets": {
+    "all": [
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "skip-link",
+        "name": "跳到主要内容",
+        "w": 139.1,
+        "h": 49.8,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "brand",
+        "name": "第零证物局 · 返回封面",
+        "w": 226.9,
+        "h": 46,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": "nav-toggle",
+        "cls": "nav-toggle",
+        "name": "打开导航菜单",
+        "w": 44,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "档案柜",
+        "w": 37.8,
+        "h": 21.4,
+        "under44": true,
+        "under24": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": "ev-btn-E01",
+        "cls": "ev-card__summary",
+        "name": "E01 粘连的票根 物证",
+        "w": 340,
+        "h": 47,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": "ev-btn-E02",
+        "cls": "ev-card__summary",
+        "name": "E02 灯塔站的回执 记录",
+        "w": 340,
+        "h": 47,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": "ev-btn-E03",
+        "cls": "ev-card__summary",
+        "name": "E03 维修铃声 证词",
+        "w": 340,
+        "h": 47,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「蓝票」上移一格",
+        "w": 44,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「蓝票」下移一格",
+        "w": 44,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「蓝票」以交换位置",
+        "w": 44,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「绿票」上移一格",
+        "w": 44,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「绿票」下移一格",
+        "w": 44,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「绿票」以交换位置",
+        "w": 44,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「红票」上移一格",
+        "w": 44,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「红票」下移一格",
+        "w": 44,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「红票」以交换位置",
+        "w": 44,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「黄票」上移一格",
+        "w": 44,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "将「黄票」下移一格",
+        "w": 44,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": null,
+        "cls": "icon-btn",
+        "name": "选中「黄票」以交换位置",
+        "w": 44,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": "btn-submit",
+        "cls": "btn btn--primary",
+        "name": "提交复原",
+        "w": 308,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": "btn-undo",
+        "cls": "btn",
+        "name": "撤销一步",
+        "w": 150,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": "btn-hint",
+        "cls": "btn",
+        "name": "查看提示",
+        "w": 150,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": "btn-reset",
+        "cls": "btn btn--danger",
+        "name": "重置此案",
+        "w": 308,
+        "h": 44,
+        "under44": false,
+        "under24": false
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "档案柜",
+        "w": 37.8,
+        "h": 19,
+        "under44": true,
+        "under24": true
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "玩法说明",
+        "w": 50.3,
+        "h": 19,
+        "under44": true,
+        "under24": true
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "关于与隐私",
+        "w": 62.9,
+        "h": 19,
+        "under44": true,
+        "under24": true
+      }
+    ],
+    "pageWidth": 390,
+    "scrollWidth": 390,
+    "bodyScrollWidth": 390,
+    "manual_page": [
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "skip-link",
+        "name": "跳到主要内容",
+        "w": 139.1,
+        "h": 49.8,
+        "under44": false
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "brand",
+        "name": "第零证物局 · 返回封面",
+        "w": 226.9,
+        "h": 46,
+        "under44": false
+      },
+      {
+        "tag": "BUTTON",
+        "id": "nav-toggle",
+        "cls": "nav-toggle",
+        "name": "打开导航菜单",
+        "w": 44,
+        "h": 44,
+        "under44": false
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "封面",
+        "w": 25.2,
+        "h": 21.4,
+        "under44": true
+      },
+      {
+        "tag": "BUTTON",
+        "id": "clear-progress",
+        "cls": "btn btn--danger btn--sm",
+        "name": "清除本机全部进度",
+        "w": 126.6,
+        "h": 38,
+        "under44": true
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "档案柜",
+        "w": 37.8,
+        "h": 19,
+        "under44": true
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "玩法说明",
+        "w": 50.3,
+        "h": 19,
+        "under44": true
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "cls": "",
+        "name": "关于与隐私",
+        "w": 62.9,
+        "h": 19,
+        "under44": true
+      }
+    ]
+  }
+}

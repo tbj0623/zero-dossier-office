@@ -1,0 +1,16 @@
+{
+  "requests_seen": [
+    "https://tbj0623.github.io/zero-dossier-office/cases/NA-001.json"
+  ],
+  "page": {
+    "title": "<img src=x onerror=\"window.__X=1\">REDTEAMMARK",
+    "titleHTML": "&lt;img src=x onerror=\"window.__X=1\"&gt;REDTEAMMARK",
+    "marks": 3,
+    "imgX": 0,
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "evidence_first_body": "<img src=x onerror=\"window.__Y=1\">REDTEAMMARK",
+  "evidence_first_html": "&lt;img src=x onerror=\"window.__Y=1\"&gt;REDTEAMMARK"
+}

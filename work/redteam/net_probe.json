@@ -1,0 +1,219 @@
+{
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "pages": [
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/",
+      "method": "GET",
+      "type": "document"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/styles/tokens.css",
+      "method": "GET",
+      "type": "stylesheet"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/styles/base.css",
+      "method": "GET",
+      "type": "stylesheet"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/styles/app.css",
+      "method": "GET",
+      "type": "stylesheet"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+      "method": "GET",
+      "type": "image"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/app.mjs",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/engine/solver.mjs",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/cases/NA-001.json",
+      "method": "GET",
+      "type": "fetch"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/cases/NA-002.json",
+      "method": "GET",
+      "type": "fetch"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/cases/NA-003.json",
+      "method": "GET",
+      "type": "fetch"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/cases/NA-004.json",
+      "method": "GET",
+      "type": "fetch"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/cases/NA-005.json",
+      "method": "GET",
+      "type": "fetch"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/cases/NA-006.json",
+      "method": "GET",
+      "type": "fetch"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/assets/harbor-archive-background.webp",
+      "method": "GET",
+      "type": "image"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-001.webp",
+      "method": "GET",
+      "type": "image"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-002.webp",
+      "method": "GET",
+      "type": "image"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-003.webp",
+      "method": "GET",
+      "type": "image"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/assets/NA-004-episode-card.webp",
+      "method": "GET",
+      "type": "image"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/assets/NA-005-episode-card.webp",
+      "method": "GET",
+      "type": "image"
+    },
+    {
+      "url": "https://tbj0623.github.io/zero-dossier-office/assets/NA-006-episode-card.webp",
+      "method": "GET",
+      "type": "image"
+    }
+  ],
+  "request_count": 20,
+  "distinct_hosts": [
+    "tbj0623.github.io"
+  ],
+  "third_party_requests": [],
+  "requests_during_wrong_submit": [],
+  "localStorage": {
+    "zd:v1:order:NA-004": "{\"order\":[\"玻璃罩\",\"旧透镜\",\"铜铃\",\"海图\",\"值班簿\"],\"hintIndex\":3,\"at\":1793291821242}",
+    "zd:v1:order:NA-006": "{\"order\":[\"空白底片\",\"钟楼影\",\"玻璃影\",\"雨幕影\",\"灯塔影\",\"纸船影\"],\"hintIndex\":3,\"at\":1793291822085}",
+    "zd:v1:order:NA-003": "{\"order\":[\"红盒\",\"纸鹤\",\"星图\",\"铜铃\",\"蓝灯\"],\"hintIndex\":3,\"at\":1793291820636}",
+    "zd:v1:order:NA-002": "{\"order\":[\"银徽章\",\"航海图\",\"玻璃球\",\"铜钥匙\"],\"hintIndex\":3,\"at\":1793291819811}",
+    "zd:v1:order:NA-005": "{\"order\":[\"夜航申请\",\"红蜡封信\",\"晨雾邮笺\",\"空白回邮\",\"港口便条\"],\"hintIndex\":3,\"at\":1793291821658}",
+    "zd:v1:progress": "{\"NA-001\":{\"usedHints\":true},\"NA-002\":{\"usedHints\":true},\"NA-003\":{\"usedHints\":true},\"NA-004\":{\"usedHints\":true},\"NA-005\":{\"usedHints\":true},\"NA-006\":{\"usedHints\":true}}",
+    "zd:v1:order:NA-001": "{\"order\":[\"蓝票\",\"绿票\",\"红票\",\"黄票\"],\"hintIndex\":3,\"at\":1793291819222}"
+  },
+  "sessionStorage": {},
+  "cookies": [],
+  "document_cookie": "",
+  "indexedDB": [],
+  "cacheStorage": [],
+  "serviceWorkers": 0,
+  "performance_resources": [
+    "https://tbj0623.github.io/zero-dossier-office/styles/tokens.css",
+    "https://tbj0623.github.io/zero-dossier-office/styles/base.css",
+    "https://tbj0623.github.io/zero-dossier-office/styles/app.css",
+    "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+    "https://tbj0623.github.io/zero-dossier-office/app.mjs",
+    "https://tbj0623.github.io/zero-dossier-office/engine/solver.mjs",
+    "https://tbj0623.github.io/zero-dossier-office/cases/NA-001.json",
+    "https://tbj0623.github.io/zero-dossier-office/cases/NA-002.json",
+    "https://tbj0623.github.io/zero-dossier-office/cases/NA-003.json",
+    "https://tbj0623.github.io/zero-dossier-office/cases/NA-004.json",
+    "https://tbj0623.github.io/zero-dossier-office/cases/NA-005.json",
+    "https://tbj0623.github.io/zero-dossier-office/cases/NA-006.json",
+    "https://tbj0623.github.io/zero-dossier-office/assets/harbor-archive-background.webp",
+    "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-001.webp",
+    "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-002.webp",
+    "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-003.webp"
+  ],
+  "console": [],
+  "url_probes": {
+    "cases/NA-001.json": {
+      "status": 200,
+      "bytes": 2026,
+      "has_expected_solution": false,
+      "has_constraints": true
+    },
+    "cases/author/NA-001.json": {
+      "status": 404,
+      "bytes": 0,
+      "has_expected_solution": false,
+      "has_constraints": false
+    },
+    "cases/public/NA-001.json": {
+      "status": 404,
+      "bytes": 0,
+      "has_expected_solution": false,
+      "has_constraints": false
+    },
+    "engine/verify_cases.py": {
+      "status": 404,
+      "bytes": 0,
+      "has_expected_solution": false,
+      "has_constraints": false
+    },
+    "tools/editor.html": {
+      "status": 404,
+      "bytes": 0,
+      "has_expected_solution": false,
+      "has_constraints": false
+    },
+    "tools/export_case.py": {
+      "status": 404,
+      "bytes": 0,
+      "has_expected_solution": false,
+      "has_constraints": false
+    },
+    "work/blind-src/NA-001.json": {
+      "status": 404,
+      "bytes": 0,
+      "has_expected_solution": false,
+      "has_constraints": false
+    },
+    "review/NA-001-formal.json": {
+      "status": 404,
+      "bytes": 0,
+      "has_expected_solution": false,
+      "has_constraints": false
+    },
+    "app.mjs": {
+      "status": 200,
+      "bytes": 41199,
+      "has_expected_solution": false,
+      "has_constraints": false
+    },
+    "index.html": {
+      "status": 200,
+      "bytes": 10448,
+      "has_expected_solution": false,
+      "has_constraints": false
+    },
+    "sitemap.xml": {
+      "status": 404,
+      "bytes": 0,
+      "has_expected_solution": false,
+      "has_constraints": false
+    },
+    "robots.txt": {
+      "status": 404,
+      "bytes": 0,
+      "has_expected_solution": false,
+      "has_constraints": false
+    }
+  }
+}
