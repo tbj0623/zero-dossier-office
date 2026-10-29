@@ -1,5 +1,5 @@
 {
-  "base": "http://127.0.0.1:8177",
+  "base": "https://tbj0623.github.io/zero-dossier-office",
   "checks": 42,
   "passed": 42,
   "results": [
