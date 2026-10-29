@@ -173,6 +173,39 @@ writeFileSync(
   'utf8',
 );
 
+/* 4c) 把三张样式表内联进 dist/index.html
+ *
+ * 原来用 <link rel="preload" ... onload="this.rel='stylesheet'"> 异步加载 CSS，
+ * 换取不阻塞首屏。但 Lighthouse 实测 CLS = 0.442（远超 0.1 的良好线）：
+ * 样式表晚到时整页重排，正是"异步 CSS"最典型的代价。
+ *
+ * 站点 CSS 一共 44.6 KB（gzip 后约 9 KB），内联的代价远小于重排的代价：
+ *   - 少 3 个请求、少 1 轮往返
+ *   - 首帧就是最终版式，CLS 归零
+ *   - 仍然没有任何第三方资源
+ *
+ * 只改 dist 副本，site/ 源文件保持"外链样式表"以便开发时热改。
+ */
+const distIndex = join(outDir, 'index.html');
+let indexHtml = readFileSync(distIndex, 'utf8');
+let inlinedCount = 0;
+indexHtml = indexHtml.replace(
+  /<link rel="preload" href="\.\/styles\/([\w-]+)\.css" as="style"[^>]*>/g,
+  (match, name) => {
+    const cssPath = join(outDir, 'styles', `${name}.css`);
+    if (!existsSync(cssPath)) return match; // 文件不在就保留原标签，不静默丢样式
+    const css = readFileSync(cssPath, 'utf8');
+    inlinedCount += 1;
+    return `<style data-inlined="${name}">\n${css}\n</style>`;
+  },
+);
+if (inlinedCount !== 3) {
+  console.error(`样式内联异常：只内联了 ${inlinedCount}/3 张`);
+  process.exit(1);
+}
+writeFileSync(distIndex, indexHtml, 'utf8');
+console.log(`· 已内联 ${inlinedCount} 张样式表，dist/index.html = ${(indexHtml.length / 1024).toFixed(1)} KB`);
+
 /* 6) 自检：dist 内不得出现作者答案字段 */
 const bad = [];
 function scan(dir) {

@@ -26,6 +26,9 @@ ALLOW = (
     "creativecommons.org",   # 许可证链接（非运行时请求）
     "w3.org",                # SVG 命名空间（不是网络请求）
     "schema.org",
+    # 本站自己的生产域名：<link rel="canonical"> 与 og:image 必须写绝对 URL，
+    # 它们不产生运行时请求，但会出现在 HTML 里，不能算第三方。
+    "tbj0623.github.io",
 )
 
 # 每条：(名称, 正则)；只捕获 URL 本身
