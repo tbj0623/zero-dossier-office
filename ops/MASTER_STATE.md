@@ -1,6 +1,6 @@
 # MASTER_STATE · 第零证物局 V2
 
-更新时间：2026-10-30 05:30（Asia/Shanghai）
+更新时间：2026-10-30 06:30（Asia/Shanghai）
 
 ## 一句话
 
@@ -49,6 +49,19 @@
 | Firefox | `backdrop-filter` 在 Gecko 上能解析但不绘制 → 头部变成 0.84 透明灰块 | Low（视觉） | 头部改为近不透明渐变，不再依赖模糊成立 |
 | WebKit | **Safari 默认把 `<a href>` 排除在 Tab 序列外** → 键盘用户 20 个链接一个都到不了 | **High（无障碍）** | 所有 `<a>` 补 `tabindex="0"`；修复后 WebKit Tab 序列与 Chromium **逐项相同** |
 | WebKit | `<dialog>` 自动 focus trap 在 WebKit 不完整，Tab 会逃到 `BODY` | Medium（无障碍） | 补显式 Tab 循环；三引擎实测 escapes=0 |
+
+## Lighthouse 实测（Google 官方工具，线上 URL）
+
+| 页面 | 性能 | 无障碍 | 最佳实践 | SEO |
+|---|---|---|---|---|
+| 首页 | **97** | **100** | **100** | **100** |
+| 案件调查桌 NA-006（最重） | **96** | **100** | **100** | **100** |
+
+核心指标（首页，移动端模拟）：FCP 1.3 s · LCP 2.0 s · **TBT 0 ms** · **CLS 0**。
+修复前为 71/100/100/92，CLS 高达 0.442。详见 `work/qa/lighthouse/LIGHTHOUSE_REPORT.md`。
+
+注意：Lighthouse 是**实验室合成指标**，不等于真实用户体验，也不是 Core Web Vitals 现场数据。
+无障碍满分**不等于** WCAG 合规（本项目未做屏幕阅读器实机测试）。
 
 ## 双语言实测
 
