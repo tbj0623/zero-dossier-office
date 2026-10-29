@@ -1,0 +1,78 @@
+/* ==========================================================================
+   第零证物局 · DESIGN TOKENS
+   原创视觉世界：雾港的旧档案室 —— 沉木、黄铜、羊皮纸、雨痕。
+   无 CDN 字体、无外部资源。
+   ========================================================================== */
+
+:root {
+  /* ---- 色板（来自 02_交互设计/体验规格与艺术指导.md） ---- */
+  --ink: #081821;
+  --ink-deep: #05121a;
+  --panel: #132b36;
+  --panel-2: #1a3947;
+  --panel-3: #0e2430;
+  --paper: #e7d7b7;
+  --paper-dim: #d6c49f;
+  --brass: #dfb978;
+  --brass-deep: #b8914f;
+  --mist: #9eb7b4;
+  --error: #ffb0a2;
+  --error-deep: #7d3327;
+  --success: #87e1c1;
+  --success-deep: #1f5c48;
+  --text: #f2ece0;
+  --text-dim: #b9c8c5;
+
+  /* ---- 排版 ---- */
+  --font-ui: "Noto Sans SC", "Source Han Sans SC", "PingFang SC",
+             "Microsoft YaHei", "Hiragino Sans GB", system-ui, -apple-system, sans-serif;
+  --font-serif: "Songti SC", "SimSun", "Noto Serif SC", "Source Han Serif SC", Georgia, serif;
+  --font-mono: "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --step--1: clamp(0.78rem, 0.75rem + 0.15vw, 0.86rem);
+  --step-0: clamp(0.94rem, 0.9rem + 0.2vw, 1.02rem);
+  --step-1: clamp(1.12rem, 1.05rem + 0.35vw, 1.3rem);
+  --step-2: clamp(1.35rem, 1.2rem + 0.7vw, 1.7rem);
+  --step-3: clamp(1.7rem, 1.4rem + 1.5vw, 2.5rem);
+  --step-4: clamp(2.2rem, 1.6rem + 3.2vw, 4rem);
+
+  /* ---- 空间与形状 ---- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4.5rem;
+
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --tap: 44px; /* 最小可点区域 */
+
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.35), 0 2px 8px rgb(0 0 0 / 0.22);
+  --shadow-2: 0 4px 14px rgb(0 0 0 / 0.38), 0 14px 40px rgb(0 0 0 / 0.32);
+  --glow-brass: 0 0 0 1px rgb(223 185 120 / 0.45), 0 0 24px rgb(223 185 120 / 0.18);
+
+  --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --dur: 220ms;
+
+  color-scheme: dark;
+}
+
+/* 尊重系统减少动效 */
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 0ms; }
+}
+
+/* 强制高对比 */
+@media (forced-colors: active) {
+  :root {
+    --brass: Highlight;
+    --success: LinkText;
+    --error: Mark;
+  }
+}

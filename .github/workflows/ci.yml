@@ -1,0 +1,105 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  logic:
+    name: 逻辑与内容门禁
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 作者版案件校验（唯一解 + 逐条必要性）
+        run: python engine/verify_cases.py
+
+      - name: Python 单元测试
+        run: python -m unittest discover -s tests/logic -p 'test_*.py' -v
+
+      - name: JavaScript 单元测试
+        run: node --test tests/logic/solver.test.mjs
+
+      - name: Python ⇄ JavaScript 规则一致性
+        run: python tests/logic/cross_check.py
+
+      - name: 构建站点
+        run: node tools/build.mjs
+
+      - name: 发布包卫生检查（不得含作者答案）
+        run: |
+          set -e
+          if grep -rl --include='*.json' '"expected_solution"' dist/ ; then
+            echo "::error::dist/ 中出现了 expected_solution"
+            exit 1
+          fi
+          echo "OK: dist 无作者答案字段"
+
+      - name: 无第三方远程资源
+        run: |
+          set -e
+          if grep -rEn 'https?://(?!127\.0\.0\.1|localhost)' dist/ --include='*.html' --include='*.css' --include='*.mjs' \
+             | grep -vE 'github\.com|creativecommons\.org|w3\.org' ; then
+            echo "::error::发现外部资源引用"
+            exit 1
+          fi
+          echo "OK: 无第三方运行时资源"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
+          path: dist/
+          retention-days: 7
+
+  browser:
+    name: 真实浏览器端到端
+    runs-on: ubuntu-latest
+    needs: logic
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 安装 Playwright
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: 构建
+        run: node tools/build.mjs
+
+      - name: 启动静态服务器
+        run: |
+          python -m http.server 8080 --directory dist &
+          for i in $(seq 1 30); do
+            curl -sf http://127.0.0.1:8080/ > /dev/null && break
+            sleep 1
+          done
+
+      - name: 端到端测试
+        run: python tests/browser/e2e.py --base http://127.0.0.1:8080
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-report
+          path: screenshots/
+          retention-days: 14
