@@ -254,6 +254,7 @@ function confirmDialog({ title, body, okText = '确认' }) {
       if (settled) return;
       settled = true;
       dlg.removeEventListener('close', onClose);
+      dlg.removeEventListener('keydown', onKeydown);
       ok.removeEventListener('click', onOk);
       const cancel = dlg.querySelector('[data-confirm="cancel"]');
       cancel.removeEventListener('click', onCancel);
@@ -263,7 +264,32 @@ function confirmDialog({ title, body, okText = '确认' }) {
     const onClose = () => done(dlg.returnValue === 'ok');
     const onOk = () => { dlg.returnValue = 'ok'; done(true); };
     const onCancel = () => { dlg.returnValue = 'cancel'; done(false); };
+    // 显式 Tab 循环：WebKit 的 <dialog> 会让焦点落到 BODY（或 <dialog> 本身），
+    // 单靠 showModal() 的自动 focus trap 在部分引擎上不完整，这里兜住。
+    const onKeydown = (e) => {
+      if (e.key !== 'Tab') return;
+      const focusables = [...dlg.querySelectorAll('button, [href], input, select, textarea')]
+        .filter((n) => !n.disabled && n.offsetParent !== null);
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+      if (!dlg.contains(active) || active === dlg) {
+        e.preventDefault();
+        (e.shiftKey ? last : first).focus();
+        return;
+      }
+      if (e.shiftKey && active === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
     dlg.addEventListener('close', onClose);
+    dlg.addEventListener('keydown', onKeydown);
     ok.addEventListener('click', onOk);
     dlg.querySelector('[data-confirm="cancel"]').addEventListener('click', onCancel);
     dlg.showModal();
@@ -479,7 +505,7 @@ function caseCard(id, { compact = false } = {}) {
       el('span', { text: '待开放' }),
     ]));
   } else {
-    body.append(el('a', {
+    body.append(el('a', { tabindex: '0',
       class: 'btn btn--primary case-card__cta',
       href: `#/case/${id}`,
       aria: {
@@ -571,7 +597,7 @@ async function openCase(id) {
     root.replaceChildren(el('div', { class: 'empty-state' }, [
       el('h2', { text: '这份档案尚未完整送达' }),
       el('p', { text: err.message || '请刷新，或回到档案柜。' }),
-      el('p', {}, [el('a', { class: 'btn btn--ghost', href: '#/cabinet', text: t('verdict.cta.cabinet', '返回档案柜') })]),
+      el('p', {}, [el('a', { tabindex: '0', class: 'btn btn--ghost', href: '#/cabinet', text: t('verdict.cta.cabinet', '返回档案柜') })]),
     ]));
     return;
   }
@@ -621,7 +647,7 @@ async function openCase(id) {
     root.replaceChildren(el('div', { class: 'empty-state' }, [
       el('h2', { text: '这份档案暂时无法展开' }),
       el('p', { text: err.message || '请刷新，或回到档案柜。' }),
-      el('p', {}, [el('a', { class: 'btn btn--ghost', href: '#/cabinet', text: t('verdict.cta.cabinet', '返回档案柜') })]),
+      el('p', {}, [el('a', { tabindex: '0', class: 'btn btn--ghost', href: '#/cabinet', text: t('verdict.cta.cabinet', '返回档案柜') })]),
     ]));
   }
 }
@@ -1106,9 +1132,9 @@ function renderVerdict(c, checks) {
   const actions = el('div', { class: 'verdict__actions' });
   const nextId = nextReleasedCase(c.id);
   if (nextId) {
-    actions.append(el('a', { class: 'btn btn--primary', href: `#/case/${nextId}`, text: c.id === 'NA-006' ? t('verdict.cta.finale', '查看终章') : tf('verdict.cta.next', { num: nextId.slice(3) }, `继续下一案 #${nextId.slice(3)}`) }));
+    actions.append(el('a', { tabindex: '0', class: 'btn btn--primary', href: `#/case/${nextId}`, text: c.id === 'NA-006' ? t('verdict.cta.finale', '查看终章') : tf('verdict.cta.next', { num: nextId.slice(3) }, `继续下一案 #${nextId.slice(3)}`) }));
   }
-  actions.append(el('a', { class: 'btn', href: '#/cabinet', text: t('verdict.cta.cabinet', '返回档案柜') }));
+  actions.append(el('a', { tabindex: '0', class: 'btn', href: '#/cabinet', text: t('verdict.cta.cabinet', '返回档案柜') }));
   actions.append(el('button', { class: 'btn btn--ghost', type: 'button', id: 'btn-replay', text: t('verdict.cta.replay', '重新调查此案') }));
   box.append(actions);
 

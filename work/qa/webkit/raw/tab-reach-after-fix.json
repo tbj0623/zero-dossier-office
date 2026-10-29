@@ -1,0 +1,77 @@
+{
+  "home": {
+    "distinct": 14,
+    "links_reached": 11,
+    "buttons_reached": 2,
+    "link_names": [
+      "打开第 001 号档案",
+      "查看全部档案",
+      "开始整理",
+      "随时查看局内手册",
+      "进入档案柜",
+      "立即调查",
+      "档案柜",
+      "玩法说明",
+      "关于与隐私",
+      "跳到主要内容",
+      "第零证物局\n        The Ze"
+    ],
+    "all_focus_visible": true
+  },
+  "cabinet": {
+    "distinct": 9,
+    "links_reached": 7,
+    "buttons_reached": 1,
+    "link_names": [
+      "封面",
+      "立即调查",
+      "档案柜",
+      "玩法说明",
+      "关于与隐私",
+      "跳到主要内容",
+      "第零证物局\n        The Ze"
+    ],
+    "all_focus_visible": true
+  },
+  "desk": {
+    "distinct": 14,
+    "links_reached": 5,
+    "buttons_reached": 8,
+    "link_names": [
+      "档案柜",
+      "玩法说明",
+      "关于与隐私",
+      "跳到主要内容",
+      "第零证物局\n        The Ze"
+    ],
+    "all_focus_visible": true
+  },
+  "manual": {
+    "distinct": 9,
+    "links_reached": 6,
+    "buttons_reached": 2,
+    "link_names": [
+      "封面",
+      "档案柜",
+      "玩法说明",
+      "关于与隐私",
+      "跳到主要内容",
+      "第零证物局\n        The Ze"
+    ],
+    "all_focus_visible": true
+  },
+  "about": {
+    "distinct": 8,
+    "links_reached": 6,
+    "buttons_reached": 1,
+    "link_names": [
+      "封面",
+      "档案柜",
+      "玩法说明",
+      "关于与隐私",
+      "跳到主要内容",
+      "第零证物局\n        The Ze"
+    ],
+    "all_focus_visible": true
+  }
+}

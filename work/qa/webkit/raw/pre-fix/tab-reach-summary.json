@@ -1,0 +1,46 @@
+{
+  "suite": "tab_reach",
+  "engine": "webkit",
+  "when": "2026-10-30T04:26:05+0800",
+  "base": "http://127.0.0.1:8140",
+  "results": [
+    {
+      "check": "T1 WebKit 的最小页里，无 tabindex 的 <a href> 不可 Tab 到达",
+      "ok": true,
+      "detail": "order=['tabidx', 'btn', 'inp', 'BODY', 'tabidx', 'btn']"
+    },
+    {
+      "check": "T1b 加 tabindex=0 后同一链接可到达（根因确认）",
+      "ok": true,
+      "detail": "order=['tabidx', 'btn', 'inp', 'BODY', 'tabidx', 'btn']"
+    },
+    {
+      "check": "T1c Chromium/Firefox 上同一链接默认可到达（引擎差异，不是标记问题）",
+      "ok": true,
+      "detail": "chromium=['plain', 'tabidx', 'btn', 'rolebtn', 'inp', 'BODY'] firefox=['plain', 'tabidx', 'btn', 'rolebtn', 'inp', 'inp']"
+    },
+    {
+      "check": "T2 home: Tab 序列能到达页面上的链接（共 8 个）",
+      "ok": true,
+      "detail": "reachable tags=['A', 'BODY', 'BUTTON'], distinct=12"
+    },
+    {
+      "check": "T2 cabinet: Tab 序列能到达页面上的链接（共 7 个）",
+      "ok": true,
+      "detail": "reachable tags=['A', 'BODY'], distinct=8"
+    },
+    {
+      "check": "T2 desk-NA001: Tab 序列能到达页面上的链接（共 1 个）",
+      "ok": true,
+      "detail": "reachable tags=['A', 'BUTTON'], distinct=5"
+    },
+    {
+      "check": "T2 verdict-NA001: Tab 序列能到达页面上的链接（共 3 个）",
+      "ok": true,
+      "detail": "reachable tags=['A', 'BODY', 'BUTTON'], distinct=10"
+    }
+  ],
+  "pass": 7,
+  "fail": 0,
+  "webkit_version": "26.5"
+}

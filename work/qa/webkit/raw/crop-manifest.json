@@ -1,0 +1,83 @@
+{
+  "when": "2026-10-30T04:33:51+0800",
+  "base": "http://127.0.0.1:8140",
+  "scenes": {
+    "home-1440": {
+      "side_by_side": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\crops\\side-home-1440.png",
+      "webkit_crop": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\shots\\crop-home-1440-webkit.png",
+      "chromium_crop": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\shots\\crop-home-1440-chromium.png",
+      "pixels_compared": 1123200,
+      "mean_abs_diff": 3.269,
+      "pct_pixels_over_8": 3.561,
+      "pct_pixels_over_32": 1.844,
+      "max_diff": 236,
+      "diff_heatmap": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\crops\\diff-home-1440.png"
+    },
+    "home-768": {
+      "side_by_side": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\crops\\side-home-768.png",
+      "webkit_crop": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\shots\\crop-home-768-webkit.png",
+      "chromium_crop": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\shots\\crop-home-768-chromium.png",
+      "pixels_compared": 599040,
+      "mean_abs_diff": 4.895,
+      "pct_pixels_over_8": 5.234,
+      "pct_pixels_over_32": 3.472,
+      "max_diff": 240,
+      "diff_heatmap": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\crops\\diff-home-768.png"
+    },
+    "home-390": {
+      "side_by_side": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\crops\\side-home-390.png",
+      "webkit_crop": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\shots\\crop-home-390-webkit.png",
+      "chromium_crop": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\shots\\crop-home-390-chromium.png",
+      "pixels_compared": 249600,
+      "mean_abs_diff": 8.884,
+      "pct_pixels_over_8": 9.49,
+      "pct_pixels_over_32": 6.5,
+      "max_diff": 241,
+      "diff_heatmap": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\crops\\diff-home-390.png"
+    },
+    "cabinet-1440": {
+      "side_by_side": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\crops\\side-cabinet-1440.png",
+      "webkit_crop": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\shots\\crop-cabinet-1440-webkit.png",
+      "chromium_crop": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\shots\\crop-cabinet-1440-chromium.png",
+      "pixels_compared": 1008000,
+      "mean_abs_diff": 2.978,
+      "pct_pixels_over_8": 4.635,
+      "pct_pixels_over_32": 2.174,
+      "max_diff": 236,
+      "diff_heatmap": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\crops\\diff-cabinet-1440.png"
+    },
+    "cabinet-390": {
+      "side_by_side": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\crops\\side-cabinet-390.png",
+      "webkit_crop": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\shots\\crop-cabinet-390-webkit.png",
+      "chromium_crop": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\shots\\crop-cabinet-390-chromium.png",
+      "pixels_compared": 273000,
+      "mean_abs_diff": 5.821,
+      "pct_pixels_over_8": 8.025,
+      "pct_pixels_over_32": 4.911,
+      "max_diff": 236,
+      "diff_heatmap": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\crops\\diff-cabinet-390.png"
+    },
+    "desk-1440": {
+      "side_by_side": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\crops\\side-desk-1440.png",
+      "webkit_crop": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\shots\\crop-desk-1440-webkit.png",
+      "chromium_crop": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\shots\\crop-desk-1440-chromium.png",
+      "pixels_compared": 1296000,
+      "mean_abs_diff": 3.959,
+      "pct_pixels_over_8": 4.802,
+      "pct_pixels_over_32": 3.113,
+      "max_diff": 236,
+      "diff_heatmap": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\crops\\diff-desk-1440.png"
+    },
+    "desk-390": {
+      "side_by_side": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\crops\\side-desk-390.png",
+      "webkit_crop": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\shots\\crop-desk-390-webkit.png",
+      "chromium_crop": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\shots\\crop-desk-390-chromium.png",
+      "pixels_compared": 329160,
+      "mean_abs_diff": 9.084,
+      "pct_pixels_over_8": 10.863,
+      "pct_pixels_over_32": 7.48,
+      "max_diff": 236,
+      "diff_heatmap": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\webkit\\crops\\diff-desk-390.png"
+    }
+  }
+}

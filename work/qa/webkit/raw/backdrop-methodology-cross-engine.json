@@ -1,0 +1,23 @@
+{
+  "chromium": {
+    "mean_abs_diff": 114.495,
+    "hf_off": 33.37,
+    "hf_on": 0.22,
+    "painted": true,
+    "version": "151.0.7922.34"
+  },
+  "firefox": {
+    "mean_abs_diff": 0.0,
+    "hf_off": 33.37,
+    "hf_on": 33.37,
+    "painted": false,
+    "version": "153.0"
+  },
+  "webkit": {
+    "mean_abs_diff": 0.0,
+    "hf_off": 33.37,
+    "hf_on": 33.37,
+    "painted": false,
+    "version": "26.5"
+  }
+}

@@ -76,6 +76,26 @@ def run(engine_name: str, browser) -> None:
     kbd = page.eval_on_selector_all("#slots .slot__item", "e=>e.map(x=>x.textContent)")
     record(engine_name, kbd != after, "方向键可重排", f"{after} -> {kbd}")
 
+    # 对话框 Tab 陷阱：三个引擎都不得把焦点放出去
+    page.locator("#btn-reset").click()
+    page.wait_for_timeout(400)
+    if page.query_selector("dialog[open]"):
+        escapes = 0
+        for _ in range(6):
+            page.keyboard.press("Tab")
+            page.wait_for_timeout(60)
+            tag = page.evaluate("() => document.activeElement.tagName")
+            if tag in ("BODY", "HTML", "DIALOG"):
+                escapes += 1
+        record(engine_name, escapes == 0, "对话框 Tab 焦点不外逃", f"escapes={escapes}")
+        page.keyboard.press("Escape")
+        page.wait_for_timeout(300)
+        record(engine_name, page.query_selector("dialog[open]") is None, "Esc 关闭对话框")
+        # 重新进入案件，后面还要继续测
+        page.goto(f"{BASE}/#/case/NA-001", wait_until="networkidle")
+        page.wait_for_selector("#slots .slot", timeout=9000)
+        page.wait_for_timeout(300)
+
     # 提示逐条出现
     counts = []
     for _ in range(3):
@@ -115,7 +135,7 @@ def run(engine_name: str, browser) -> None:
 
 def main() -> int:
     with sync_playwright() as p:
-        for name, launcher in (("chromium", p.chromium), ("firefox", p.firefox)):
+        for name, launcher in (("chromium", p.chromium), ("firefox", p.firefox), ("webkit", p.webkit)):
             try:
                 browser = launcher.launch()
             except Exception as exc:  # 引擎不可用要显式失败，不能静默跳过

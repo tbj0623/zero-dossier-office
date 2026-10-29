@@ -1,7 +1,7 @@
 {
   "base": "http://127.0.0.1:8140",
-  "checks": 24,
-  "passed": 24,
+  "checks": 42,
+  "passed": 42,
   "results": [
     {
       "engine": "chromium",
@@ -50,6 +50,18 @@
       "ok": true,
       "name": "方向键可重排",
       "detail": "['绿票', '蓝票', '红票', '黄票'] -> ['蓝票', '绿票', '红票', '黄票']"
+    },
+    {
+      "engine": "chromium",
+      "ok": true,
+      "name": "对话框 Tab 焦点不外逃",
+      "detail": "escapes=0"
+    },
+    {
+      "engine": "chromium",
+      "ok": true,
+      "name": "Esc 关闭对话框",
+      "detail": ""
     },
     {
       "engine": "chromium",
@@ -126,6 +138,18 @@
     {
       "engine": "firefox",
       "ok": true,
+      "name": "对话框 Tab 焦点不外逃",
+      "detail": "escapes=0"
+    },
+    {
+      "engine": "firefox",
+      "ok": true,
+      "name": "Esc 关闭对话框",
+      "detail": ""
+    },
+    {
+      "engine": "firefox",
+      "ok": true,
       "name": "三档提示逐条出现",
       "detail": "[1, 2, 3]"
     },
@@ -143,6 +167,90 @@
     },
     {
       "engine": "firefox",
+      "ok": true,
+      "name": "无控制台异常",
+      "detail": "[]"
+    },
+    {
+      "engine": "webkit",
+      "ok": true,
+      "name": "首页有标题",
+      "detail": "第零证物局｜雾港异常档案 · 原创互动推理"
+    },
+    {
+      "engine": "webkit",
+      "ok": true,
+      "name": "首页主 CTA 可见",
+      "detail": ""
+    },
+    {
+      "engine": "webkit",
+      "ok": true,
+      "name": "头部有实色/渐变底",
+      "detail": "linear-gradient(rgba(8, 26, 36, 0.97), r"
+    },
+    {
+      "engine": "webkit",
+      "ok": true,
+      "name": "头部 sticky",
+      "detail": "sticky"
+    },
+    {
+      "engine": "webkit",
+      "ok": true,
+      "name": "滚动后头部仍吸顶",
+      "detail": "top=0.0"
+    },
+    {
+      "engine": "webkit",
+      "ok": true,
+      "name": "档案柜 6 张卡",
+      "detail": "6"
+    },
+    {
+      "engine": "webkit",
+      "ok": true,
+      "name": "单击恰好移动一格",
+      "detail": "['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']"
+    },
+    {
+      "engine": "webkit",
+      "ok": true,
+      "name": "方向键可重排",
+      "detail": "['绿票', '蓝票', '红票', '黄票'] -> ['蓝票', '绿票', '红票', '黄票']"
+    },
+    {
+      "engine": "webkit",
+      "ok": true,
+      "name": "对话框 Tab 焦点不外逃",
+      "detail": "escapes=0"
+    },
+    {
+      "engine": "webkit",
+      "ok": true,
+      "name": "Esc 关闭对话框",
+      "detail": ""
+    },
+    {
+      "engine": "webkit",
+      "ok": true,
+      "name": "三档提示逐条出现",
+      "detail": "[1, 2, 3]"
+    },
+    {
+      "engine": "webkit",
+      "ok": true,
+      "name": "NA-001 通关出结案页",
+      "detail": ""
+    },
+    {
+      "engine": "webkit",
+      "ok": true,
+      "name": "逻辑复盘 + 档案后记两段",
+      "detail": "['逻辑复盘 · 可由证据严', '档案后记 · 结案后补充']"
+    },
+    {
+      "engine": "webkit",
       "ok": true,
       "name": "无控制台异常",
       "detail": "[]"

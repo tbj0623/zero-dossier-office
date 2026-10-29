@@ -18,9 +18,17 @@ ROOT_DEFAULT = "dist"
 
 # 站内引用提取（相对路径 / 根相对；排除 external、data:、mailto:、#锚点）
 HTML_ATTR = re.compile(r"""(?:href|src)\s*=\s*["']([^"']+)["']""", re.I)
+# srcset 候选列表：一格里多个 URL
+HTML_SRCSET = re.compile(r"""srcset\s*=\s*["']([^"']+)["']""", re.I)
+# HTML 里内联的 <style> 与 style="" 也会引用资源
+HTML_STYLE_BLOCK = re.compile(r"""<style[^>]*>(.*?)</style>""", re.S | re.I)
+HTML_STYLE_ATTR = re.compile(r"""style\s*=\s*["']([^"']*)["']""", re.I)
+HTML_SCRIPT_BLOCK = re.compile(r"""<script[^>]*>(.*?)</script>""", re.S | re.I)
 CSS_URL = re.compile(r"""url\(\s*["']?([^)"']+)["']?\s*\)""", re.I)
 CSS_IMPORT = re.compile(r"""@import\s+["']([^"']+)["']""", re.I)
 JS_IMPORT = re.compile(r"""(?:import\s+[^'"]*from\s*|import\s*)["']([^"']+)["']""")
+# 动态 import("./x.mjs") —— 静态 import 正则匹配不到
+JS_DYNAMIC_IMPORT = re.compile(r"""\bimport\(\s*["']([^"']+)["']""")
 JS_FETCH = re.compile(r"""fetch\(\s*["']([^"']+)["']""")
 
 SKIP_PREFIX = ("http://", "https://", "//", "data:", "mailto:", "tel:", "javascript:")
@@ -62,10 +70,26 @@ def main() -> int:
         urls: list[str] = []
         if path.suffix.lower() == ".html":
             urls += HTML_ATTR.findall(text)
+            # srcset: 每格形如 "<url> <descriptor>"
+            for group in HTML_SRCSET.findall(text):
+                for candidate in group.split(","):
+                    piece = candidate.strip().split()
+                    if piece:
+                        urls.append(piece[0])
+            # 内联 <style> 块与 style="" 属性里的 url()/@import
+            for block in HTML_STYLE_BLOCK.findall(text):
+                urls += CSS_URL.findall(block) + CSS_IMPORT.findall(block)
+            for attr in HTML_STYLE_ATTR.findall(text):
+                urls += CSS_URL.findall(attr) + CSS_IMPORT.findall(attr)
+            # 内联 <script> 里的 import()/fetch() 同样会取文件
+            for block in HTML_SCRIPT_BLOCK.findall(text):
+                urls += (JS_IMPORT.findall(block)
+                         + JS_DYNAMIC_IMPORT.findall(block)
+                         + JS_FETCH.findall(block))
         elif path.suffix.lower() == ".css":
             urls += CSS_URL.findall(text) + CSS_IMPORT.findall(text)
         else:
-            urls += JS_IMPORT.findall(text) + JS_FETCH.findall(text)
+            urls += JS_IMPORT.findall(text) + JS_DYNAMIC_IMPORT.findall(text) + JS_FETCH.findall(text)
 
         for url in urls:
             if not is_internal(url):

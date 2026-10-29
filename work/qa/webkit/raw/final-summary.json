@@ -1,0 +1,114 @@
+{
+  "when": "2026-10-30T04:31:12+0800",
+  "suites": {
+    "journey": {
+      "returncode": 0,
+      "report": "raw/journey-webkit.json",
+      "pass": 34,
+      "fail": 0,
+      "total": 34,
+      "failures": []
+    },
+    "six_cases": {
+      "returncode": 0,
+      "report": "raw/six-cases-webkit.json",
+      "pass": 51,
+      "fail": 0,
+      "total": 51,
+      "failures": []
+    },
+    "css_risks": {
+      "returncode": 1,
+      "report": "raw/css-risks-webkit.json",
+      "pass": 37,
+      "fail": 1,
+      "total": 38,
+      "failures": [
+        {
+          "check": "R1 backdrop-filter 被 WebKit 上屏绘制",
+          "ok": false,
+          "detail": "像素均差 0.0 px, HF 23.543 vs 23.543"
+        }
+      ]
+    },
+    "tab_reach": {
+      "returncode": 0,
+      "report": "raw/tab-reach-summary.json",
+      "pass": 7,
+      "fail": 0,
+      "total": 7,
+      "failures": []
+    },
+    "ax_names": {
+      "returncode": 0,
+      "report": "raw/ax-names-summary.json",
+      "pass": 7,
+      "fail": 0,
+      "total": 7,
+      "failures": []
+    }
+  },
+  "provenance_before": {
+    "index.html": {
+      "sha256": "3f7036921052f25787759deb86d6cb1d0d36a8a308a79a3f32c0f38434b2bf2d",
+      "bytes": 23542
+    },
+    "app.mjs": {
+      "sha256": "d0676119eb030765a8e2b3658c26d835d7b29e009b0f899583cc107e80262280",
+      "bytes": 57269
+    },
+    "styles/app.css": {
+      "sha256": "2525329b941fed56c4c91fe7720d64af3174abf2610c87ba692a1bead0b4156b",
+      "bytes": 35288
+    },
+    "styles/base.css": {
+      "sha256": "b326b196d9a965540b696f6b4e795b03480d56a6979e8afef7ecdbdcda21ef96",
+      "bytes": 7032
+    },
+    "styles/tokens.css": {
+      "sha256": "9bd5a66678e9711300e46a38d77f3406be3a59178869ddce0499525e8d81e4de",
+      "bytes": 2309
+    },
+    "i18n.mjs": {
+      "sha256": "19544b5bc082568d1c72bed098bfbecf0e2aaf4f84f63b4e9475287622ec326c",
+      "bytes": 10933
+    },
+    "engine/solver.mjs": {
+      "sha256": "94e7cbb950f878987ae9c38421d6d2eac23b699682aa9e4dfb6537dd7531cedc",
+      "bytes": 7277
+    },
+    "_when": "2026-10-30T04:31:12+0800"
+  },
+  "provenance_after": {
+    "index.html": {
+      "sha256": "3f7036921052f25787759deb86d6cb1d0d36a8a308a79a3f32c0f38434b2bf2d",
+      "bytes": 23542
+    },
+    "app.mjs": {
+      "sha256": "d0676119eb030765a8e2b3658c26d835d7b29e009b0f899583cc107e80262280",
+      "bytes": 57269
+    },
+    "styles/app.css": {
+      "sha256": "2525329b941fed56c4c91fe7720d64af3174abf2610c87ba692a1bead0b4156b",
+      "bytes": 35288
+    },
+    "styles/base.css": {
+      "sha256": "b326b196d9a965540b696f6b4e795b03480d56a6979e8afef7ecdbdcda21ef96",
+      "bytes": 7032
+    },
+    "styles/tokens.css": {
+      "sha256": "9bd5a66678e9711300e46a38d77f3406be3a59178869ddce0499525e8d81e4de",
+      "bytes": 2309
+    },
+    "i18n.mjs": {
+      "sha256": "19544b5bc082568d1c72bed098bfbecf0e2aaf4f84f63b4e9475287622ec326c",
+      "bytes": 10933
+    },
+    "engine/solver.mjs": {
+      "sha256": "94e7cbb950f878987ae9c38421d6d2eac23b699682aa9e4dfb6537dd7531cedc",
+      "bytes": 7277
+    },
+    "_when": "2026-10-30T04:32:55+0800"
+  },
+  "build_changed_during_run": []
+}

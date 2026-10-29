@@ -1,0 +1,44 @@
+{
+  "home": {
+    "external_requests": [],
+    "third_party_resources": [],
+    "failed": [],
+    "errors": [],
+    "total_resources": 17
+  },
+  "cabinet": {
+    "external_requests": [],
+    "third_party_resources": [],
+    "failed": [],
+    "errors": [],
+    "total_resources": 20
+  },
+  "desk1": {
+    "external_requests": [],
+    "third_party_resources": [],
+    "failed": [],
+    "errors": [],
+    "total_resources": 14
+  },
+  "desk6": {
+    "external_requests": [],
+    "third_party_resources": [],
+    "failed": [],
+    "errors": [],
+    "total_resources": 14
+  },
+  "manual": {
+    "external_requests": [],
+    "third_party_resources": [],
+    "failed": [],
+    "errors": [],
+    "total_resources": 14
+  },
+  "about": {
+    "external_requests": [],
+    "third_party_resources": [],
+    "failed": [],
+    "errors": [],
+    "total_resources": 14
+  }
+}

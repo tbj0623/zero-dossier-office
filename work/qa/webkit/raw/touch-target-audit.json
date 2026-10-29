@@ -1,0 +1,850 @@
+{
+  "home": {
+    "total": 15,
+    "small_count": 0,
+    "small": [],
+    "min_w": 44,
+    "min_h": 44,
+    "rows": [
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "skip-link",
+        "txt": "跳到主要内容",
+        "aria": "",
+        "w": 139.1,
+        "h": 49.8,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "brand",
+        "txt": "第零证物局 The Zero Dossier Office",
+        "aria": "第零证物局 · 返回封面",
+        "w": 226.9,
+        "h": 46,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "nav-toggle",
+        "cls": "nav-toggle",
+        "txt": "",
+        "aria": "打开导航菜单",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "cta-first",
+        "cls": "btn btn--primary",
+        "txt": "打开第 001 号档案",
+        "aria": "",
+        "w": 174.8,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "btn btn--ghost",
+        "txt": "查看全部档案",
+        "aria": "",
+        "w": 141.1,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "btn btn--primary",
+        "txt": "开始整理",
+        "aria": "",
+        "w": 292,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "briefing-dismiss",
+        "cls": "btn btn--ghost",
+        "txt": "我知道了",
+        "aria": "",
+        "w": 292,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "btn btn--ghost",
+        "txt": "随时查看局内手册",
+        "aria": "",
+        "w": 292,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "btn btn--ghost",
+        "txt": "进入档案柜",
+        "aria": "",
+        "w": 125.9,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "btn btn--primary case-card__cta",
+        "txt": "立即调查",
+        "aria": "调查档案 001：末班车的四张车票",
+        "w": 292,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "btn btn--primary case-card__cta",
+        "txt": "立即调查",
+        "aria": "调查档案 002：封存室的四格抽屉",
+        "w": 292,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "btn btn--primary case-card__cta",
+        "txt": "立即调查",
+        "aria": "调查档案 003：静默分拣线上的五个包裹",
+        "w": 292,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "档案柜",
+        "aria": "",
+        "w": 45.8,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "玩法说明",
+        "aria": "",
+        "w": 58.3,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "关于与隐私",
+        "aria": "",
+        "w": 70.9,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      }
+    ]
+  },
+  "cabinet": {
+    "total": 13,
+    "small_count": 0,
+    "small": [],
+    "min_w": 44,
+    "min_h": 44,
+    "rows": [
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "skip-link",
+        "txt": "跳到主要内容",
+        "aria": "",
+        "w": 139.1,
+        "h": 49.8,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "brand",
+        "txt": "第零证物局 The Zero Dossier Office",
+        "aria": "第零证物局 · 返回封面",
+        "w": 226.9,
+        "h": 46,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "nav-toggle",
+        "cls": "nav-toggle",
+        "txt": "",
+        "aria": "打开导航菜单",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "封面",
+        "aria": "",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "btn btn--primary case-card__cta",
+        "txt": "立即调查",
+        "aria": "调查档案 001：末班车的四张车票",
+        "w": 292,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "btn btn--primary case-card__cta",
+        "txt": "立即调查",
+        "aria": "调查档案 002：封存室的四格抽屉",
+        "w": 292,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "btn btn--primary case-card__cta",
+        "txt": "立即调查",
+        "aria": "调查档案 003：静默分拣线上的五个包裹",
+        "w": 292,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "btn btn--primary case-card__cta",
+        "txt": "立即调查",
+        "aria": "调查档案 004：灯塔没有亮起的第五盏灯",
+        "w": 292,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "btn btn--primary case-card__cta",
+        "txt": "立即调查",
+        "aria": "调查档案 005：寄不到的第五封回信",
+        "w": 292,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "btn btn--primary case-card__cta",
+        "txt": "立即调查",
+        "aria": "调查档案 006：第零号空白底片",
+        "w": 292,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "档案柜",
+        "aria": "",
+        "w": 45.8,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "玩法说明",
+        "aria": "",
+        "w": 58.3,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "关于与隐私",
+        "aria": "",
+        "w": 70.9,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      }
+    ]
+  },
+  "desk": {
+    "total": 30,
+    "small_count": 0,
+    "small": [],
+    "min_w": 44,
+    "min_h": 44,
+    "rows": [
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "skip-link",
+        "txt": "跳到主要内容",
+        "aria": "",
+        "w": 139.1,
+        "h": 49.8,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "brand",
+        "txt": "第零证物局 The Zero Dossier Office",
+        "aria": "第零证物局 · 返回封面",
+        "w": 226.9,
+        "h": 46,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "nav-toggle",
+        "cls": "nav-toggle",
+        "txt": "",
+        "aria": "打开导航菜单",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "档案柜",
+        "aria": "",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "ev-btn-E01",
+        "cls": "ev-card__summary",
+        "txt": "E01一根被拧紧的铜线物证",
+        "aria": "",
+        "w": 340,
+        "h": 47,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "ev-btn-E02",
+        "cls": "ev-card__summary",
+        "txt": "E02三格间距的齿轨机器记录",
+        "aria": "",
+        "w": 340,
+        "h": 47,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "ev-btn-E03",
+        "cls": "ev-card__summary",
+        "txt": "E03剥落的第四号漆印现场记录",
+        "aria": "",
+        "w": 340,
+        "h": 47,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "ev-btn-E04",
+        "cls": "ev-card__summary",
+        "txt": "E04塔顶拾到的笔记证词",
+        "aria": "",
+        "w": 340,
+        "h": 47,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "将「玻璃罩」上移一格",
+        "w": 44,
+        "h": 44,
+        "disabled": true,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "将「玻璃罩」下移一格",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "选中「玻璃罩」以交换位置",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "将「旧透镜」上移一格",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "将「旧透镜」下移一格",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "选中「旧透镜」以交换位置",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "将「铜铃」上移一格",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "将「铜铃」下移一格",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "选中「铜铃」以交换位置",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "将「海图」上移一格",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "将「海图」下移一格",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "选中「海图」以交换位置",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "将「值班簿」上移一格",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "将「值班簿」下移一格",
+        "w": 44,
+        "h": 44,
+        "disabled": true,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "",
+        "cls": "icon-btn",
+        "txt": "",
+        "aria": "选中「值班簿」以交换位置",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "btn-submit",
+        "cls": "btn btn--primary",
+        "txt": "提交复原",
+        "aria": "",
+        "w": 308,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "btn-undo",
+        "cls": "btn",
+        "txt": "撤销一步",
+        "aria": "",
+        "w": 150,
+        "h": 44,
+        "disabled": true,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "btn-hint",
+        "cls": "btn",
+        "txt": "查看提示",
+        "aria": "",
+        "w": 150,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "btn-reset",
+        "cls": "btn btn--danger",
+        "txt": "重置此案",
+        "aria": "",
+        "w": 308,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "档案柜",
+        "aria": "",
+        "w": 45.8,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "玩法说明",
+        "aria": "",
+        "w": 58.3,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "关于与隐私",
+        "aria": "",
+        "w": 70.9,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      }
+    ]
+  },
+  "manual": {
+    "total": 8,
+    "small_count": 0,
+    "small": [],
+    "min_w": 44,
+    "min_h": 44,
+    "rows": [
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "skip-link",
+        "txt": "跳到主要内容",
+        "aria": "",
+        "w": 139.1,
+        "h": 49.8,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "brand",
+        "txt": "第零证物局 The Zero Dossier Office",
+        "aria": "第零证物局 · 返回封面",
+        "w": 226.9,
+        "h": 46,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "nav-toggle",
+        "cls": "nav-toggle",
+        "txt": "",
+        "aria": "打开导航菜单",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "封面",
+        "aria": "",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "clear-progress",
+        "cls": "btn btn--danger btn--sm",
+        "txt": "清除本机全部进度",
+        "aria": "",
+        "w": 126.7,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "档案柜",
+        "aria": "",
+        "w": 45.8,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "玩法说明",
+        "aria": "",
+        "w": 58.3,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "关于与隐私",
+        "aria": "",
+        "w": 70.9,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      }
+    ]
+  },
+  "about": {
+    "total": 7,
+    "small_count": 0,
+    "small": [],
+    "min_w": 44,
+    "min_h": 44,
+    "rows": [
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "skip-link",
+        "txt": "跳到主要内容",
+        "aria": "",
+        "w": 139.1,
+        "h": 49.8,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "brand",
+        "txt": "第零证物局 The Zero Dossier Office",
+        "aria": "第零证物局 · 返回封面",
+        "w": 226.9,
+        "h": 46,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "button",
+        "id": "nav-toggle",
+        "cls": "nav-toggle",
+        "txt": "",
+        "aria": "打开导航菜单",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "封面",
+        "aria": "",
+        "w": 44,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "档案柜",
+        "aria": "",
+        "w": 45.8,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "玩法说明",
+        "aria": "",
+        "w": 58.3,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "cls": "",
+        "txt": "关于与隐私",
+        "aria": "",
+        "w": 70.9,
+        "h": 44,
+        "disabled": false,
+        "inline": false
+      }
+    ]
+  }
+}

@@ -29,14 +29,34 @@ ALLOW = (
 )
 
 # 每条：(名称, 正则)；只捕获 URL 本身
+# 红队第二轮指出原实现漏了 srcset / poster / iframe / new Image() / XHR，
+# 这些都是能真正发起网络请求的路径，必须一并拦住。
 PATTERNS = [
+    # --- HTML 元素属性 ---
     ("script-src", re.compile(r"""<script[^>]*\bsrc\s*=\s*["']([^"']+)["']""", re.I)),
     ("link-href", re.compile(r"""<link[^>]*\bhref\s*=\s*["']([^"']+)["']""", re.I)),
     ("img-src", re.compile(r"""<img[^>]*\bsrc\s*=\s*["']([^"']+)["']""", re.I)),
+    ("iframe-src", re.compile(r"""<iframe[^>]*\bsrc\s*=\s*["']([^"']+)["']""", re.I)),
+    ("source-src", re.compile(r"""<source[^>]*\bsrc\s*=\s*["']([^"']+)["']""", re.I)),
+    ("video-poster", re.compile(r"""<video[^>]*\bposter\s*=\s*["']([^"']+)["']""", re.I)),
+    ("embed-object", re.compile(r"""<(?:embed|object)[^>]*\b(?:src|data)\s*=\s*["']([^"']+)["']""", re.I)),
+    ("form-action", re.compile(r"""<form[^>]*\baction\s*=\s*["']([^"']+)["']""", re.I)),
+    ("srcset", re.compile(r"""\bsrcset\s*=\s*["']([^"']+)["']""", re.I)),
+    # --- CSS ---
     ("css-url", re.compile(r"""url\(\s*["']?([^)"']+)["']?\s*\)""", re.I)),
-    ("css-import", re.compile(r"""@import\s+["']([^"']+)["']""", re.I)),
+    ("css-import", re.compile(r"""@import\s+(?:url\(\s*)?["']?([^)"'\s;]+)""", re.I)),
+    # --- JS 网络调用 ---
     ("js-fetch", re.compile(r"""\bfetch\(\s*["']([^"']+)["']""", re.I)),
+    ("js-xhr-open", re.compile(r"""\.open\(\s*["'][A-Za-z]+["']\s*,\s*["']([^"']+)["']""", re.I)),
+    ("js-image-src", re.compile(r"""\.src\s*=\s*["']([^"']+)["']""", re.I)),
+    ("js-import", re.compile(r"""\bimport\(\s*["']([^"']+)["']""", re.I)),
+    ("js-sendbeacon", re.compile(r"""\bsendBeacon\(\s*["']([^"']+)["']""", re.I)),
+    ("js-websocket", re.compile(r"""new\s+WebSocket\(\s*["']([^"']+)["']""", re.I)),
+    ("js-eventsource", re.compile(r"""new\s+EventSource\(\s*["']([^"']+)["']""", re.I)),
 ]
+
+# srcset 一个属性里可能有多条 URL（"a.webp 1x, b.webp 2x"）
+SRCSET_SPLIT = re.compile(r"\s*,\s*")
 
 SKIP_EXT = {".map"}
 
@@ -47,6 +67,9 @@ def is_remote(url: str) -> bool:
         return True
     if u.startswith("data:"):
         return False
+    # wss: 是 WebSocket 的外部协议，必须一并拦；ftp: 等也按外部处理
+    if u.lower().startswith(("wss://", "ws://", "ftp://")):
+        return True
     if not u.lower().startswith(("http://", "https://")):
         return False                # 相对路径，永远允许
     return not any(host in u for host in ALLOW)
@@ -62,8 +85,13 @@ def scan(root: pathlib.Path) -> list[str]:
         text = path.read_text(encoding="utf-8", errors="ignore")
         for name, pattern in PATTERNS:
             for match in pattern.finditer(text):
-                url = match.group(1)
-                if is_remote(url):
+                raw = match.group(1)
+                # srcset 是候选列表，逐条检查
+                candidates = SRCSET_SPLIT.split(raw) if name == "srcset" else [raw]
+                for candidate in candidates:
+                    url = candidate.strip().split()[0] if candidate.strip() else ""
+                    if not url or not is_remote(url):
+                        continue
                     rel = path.relative_to(root).as_posix()
                     bad.append(f"{rel}  [{name}]  {url}")
     return bad

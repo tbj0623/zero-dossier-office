@@ -1,0 +1,22 @@
+{
+  "engines": {
+    "webkit": {
+      "version": "26.5",
+      "reduceMatches": true,
+      "darkMatches": true,
+      "durVar": "0ms",
+      "slotTransition": "0.000001s",
+      "bodyBg": "rgb(8, 24, 33)",
+      "colorScheme": "dark"
+    },
+    "chromium": {
+      "version": "151.0.7922.34",
+      "reduceMatches": true,
+      "darkMatches": true,
+      "durVar": "0ms",
+      "slotTransition": "1e-06s",
+      "bodyBg": "rgb(8, 24, 33)",
+      "colorScheme": "dark"
+    }
+  }
+}

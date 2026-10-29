@@ -223,3 +223,30 @@ hr {
   .no-print, .site-header, .site-footer, .actions { display: none !important; }
   body { background: #fff; color: #000; }
 }
+
+
+/* ==========================================================================
+   iOS / WebKit 细节（WebKit QA 指出：这两项此前完全没声明）
+   ========================================================================== */
+
+/* 1) 点按时不要闪出半透明灰色高亮——本作所有可点元素都有自己的 :active / :focus 反馈 */
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* 2) 阻止滚动"传染"到背后的页面（对话框/抽屉滚动到底时尤其明显）。
+      overscroll-behavior 在 WebKit 较新版本才支持，不支持的引擎会忽略这行，无副作用。 */
+html,
+body {
+  overscroll-behavior-y: contain;
+}
+dialog.confirm {
+  overscroll-behavior: contain;
+}
+
+/* 3) 长按不要弹出系统菜单（证据卡是可选中文本，但不希望长按弹"拷贝/查询"） */
+.slot__item,
+.case-card__title {
+  -webkit-touch-callout: none;
+}

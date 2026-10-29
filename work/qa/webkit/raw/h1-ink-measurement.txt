@@ -1,0 +1,6 @@
+== webkit: box={'x': 130, 'y': 254, 'w': 720, 'h': 155} lineHeight=77.440002px fontSize=70.400002px visualLines=2
+   spans: [{'text': '这些记录，', 'x': 130, 'y': 257, 'w': 362, 'h': 71, 'display': 'inline'}, {'text': '不应该同时成立。', 'x': 130, 'y': 331, 'w': 720, 'h': 77, 'display': 'block'}]
+   range rects: [{'x': 130, 'y': 257, 'w': 362, 'h': 71}, {'x': 130, 'y': 257, 'w': 362, 'h': 71}, {'x': 130, 'y': 331, 'w': 720, 'h': 77}, {'x': 130, 'y': 334, 'w': 580, 'h': 71}]
+== chromium: box={'x': 130, 'y': 254, 'w': 720, 'h': 155} lineHeight=77.44px fontSize=70.4px visualLines=2
+   spans: [{'text': '这些记录，', 'x': 130, 'y': 257, 'w': 362, 'h': 71, 'display': 'inline'}, {'text': '不应该同时成立。', 'x': 130, 'y': 331, 'w': 720, 'h': 77, 'display': 'block'}]
+   range rects: [{'x': 130, 'y': 257, 'w': 362, 'h': 71}, {'x': 130, 'y': 257, 'w': 362, 'h': 71}, {'x': 130, 'y': 331, 'w': 720, 'h': 77}, {'x': 130, 'y': 334, 'w': 580, 'h': 71}]

@@ -1,0 +1,45 @@
+{
+  "suite": "ax_names",
+  "engine": "webkit",
+  "when": "2026-10-30T04:32:55+0800",
+  "base": "http://127.0.0.1:8140",
+  "results": [
+    {
+      "check": "A1 首页每个 link/button 都有可访问名（无空名）",
+      "ok": true,
+      "detail": "0 空名: []"
+    },
+    {
+      "check": "A2 DOM 侧重复名（观察项：跨 header/footer 导航属正常，不作失败）",
+      "ok": true,
+      "detail": "{'档案柜': 2, '玩法说明': 2, '关于与隐私': 2} —— 同 landmark 内重复=无"
+    },
+    {
+      "check": "A2b 同一个 landmark 内没有重复的可访问名（跨 header/footer 导航重复属正常）",
+      "ok": true,
+      "detail": "同 landmark 重复={}; 跨 landmark 重复={'档案柜': 2, '玩法说明': 2, '关于与隐私': 2}"
+    },
+    {
+      "check": "A2c WebKit AX 侧重复名均可由 landmark 解释（header nav vs footer nav）",
+      "ok": true,
+      "detail": "AX 重复={'档案柜': 2, '玩法说明': 2, '关于与隐私': 2}"
+    },
+    {
+      "check": "A3 DOM 里的可访问名都出现在 WebKit AX 树中",
+      "ok": true,
+      "detail": "0 个缺失: []"
+    },
+    {
+      "check": "A4 AX 交互节点没有空名",
+      "ok": true,
+      "detail": "0 个: []"
+    },
+    {
+      "check": "A5 AX 树暴露了首页主要控件（≥10 个交互节点）",
+      "ok": true,
+      "detail": "18 个"
+    }
+  ],
+  "pass": 7,
+  "fail": 0
+}

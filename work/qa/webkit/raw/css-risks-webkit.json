@@ -1,0 +1,677 @@
+{
+  "suite": "css_risks",
+  "engine": "webkit",
+  "when": "2026-10-30T04:32:29+0800",
+  "base": "http://127.0.0.1:8140",
+  "results": [
+    {
+      "check": "R1 backdrop-filter 被 WebKit 上屏绘制",
+      "ok": false,
+      "detail": "像素均差 0.0 px, HF 23.543 vs 23.543"
+    },
+    {
+      "check": "R1b 头部在模糊不生效时仍清晰可读（对比度 ≥ 4.5:1）",
+      "ok": true,
+      "detail": "最低 10.32:1; brandName=16.23, brandSub=10.32, navLink=10.32, langBtn=11.03"
+    },
+    {
+      "check": "R1c 头部保持 sticky 且有接近不透明的实色底",
+      "ok": true,
+      "detail": "position=sticky bg=linear-gradient(rgba(8, 26, 36, 0.97), rgba(5, 17,"
+    },
+    {
+      "check": "R2 <dialog> + showModal() 可用",
+      "ok": true,
+      "detail": "{'hasDialogElement': True, 'hasShowModal': True, 'openBefore': False}"
+    },
+    {
+      "check": "R2b 确认框能打开且为 :modal",
+      "ok": true,
+      "detail": "open=True modal=True rect={'x': 500, 'y': 356, 'w': 440, 'h': 188}"
+    },
+    {
+      "check": "R2c 焦点从未落到对话框之外的页面内容（页内容 inert）",
+      "ok": true,
+      "detail": "escapes=[], inert={'activeId': 'BUTTON', 'focusStolen': True, 'behindIsInert': True}"
+    },
+    {
+      "check": "R2d Esc 关闭对话框",
+      "ok": true,
+      "detail": "openAfterEsc=False display=none"
+    },
+    {
+      "check": "R2e 取消不改变排列",
+      "ok": true,
+      "detail": "cancelClosed=True"
+    },
+    {
+      "check": "R3 100dvh 被正确计算（非 0、非巨大）",
+      "ok": true,
+      "detail": "1440x900: min-height=780px height=780 expected≈780; 768x1024: min-height=780px height=780 expected≈780; 390x844: min-height=742.719971px height=742.72 expected≈742.7; 390x500: min-height=440px height=528.63 expected≈440"
+    },
+    {
+      "check": "R4 键盘 Tab 命中 :focus-visible 且有可见 outline",
+      "ok": true,
+      "detail": "tab1=A.btn btn--primary outline=solid 3px"
+    },
+    {
+      "check": "R4b 鼠标点击后不命中 :focus-visible（无 outline）",
+      "ok": true,
+      "detail": "mouse=MAIN. focusVisible=False outline=none"
+    },
+    {
+      "check": "R4c 键盘聚焦的按钮命中 :focus-visible 且有 3px outline",
+      "ok": true,
+      "detail": "{'tag': 'A', 'id': '', 'outlineStyle': 'solid', 'outlineWidth': '3px', 'matchesFocusVisible': True}"
+    },
+    {
+      "check": "R5 text-wrap: balance / pretty 均被支持",
+      "ok": true,
+      "detail": "{'balance': True, 'pretty': True, 'declBalance': True, 'declPretty': True}"
+    },
+    {
+      "check": "R5b 标题布局正常（无溢出、无零高、行数合理）",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "R5c computed text-wrap 已生效",
+      "ok": true,
+      "detail": "h1=balance p=pretty h1Lines=2"
+    },
+    {
+      "check": "R6 aspect-ratio 被支持",
+      "ok": true,
+      "detail": "True"
+    },
+    {
+      "check": "R6 390x844 卡片缩略图 = 16/9（±0.02）",
+      "ok": true,
+      "detail": "6 张, maxRatioErr=0, first={'w': 340, 'h': 191.25, 'ratio': 1.778, 'cs': '16 / 9'}, imgDeltaMax=0"
+    },
+    {
+      "check": "R6 768x1024 卡片缩略图 = 16/9（±0.02）",
+      "ok": true,
+      "detail": "6 张, maxRatioErr=0, first={'w': 350, 'h': 196.88, 'ratio': 1.778, 'cs': '16 / 9'}, imgDeltaMax=0"
+    },
+    {
+      "check": "R6 1440x900 卡片缩略图 = 16/9（±0.02）",
+      "ok": true,
+      "detail": "6 张, maxRatioErr=0, first={'w': 380.66, 'h': 214.11, 'ratio': 1.778, 'cs': '16 / 9'}, imgDeltaMax=0"
+    },
+    {
+      "check": "R7 390px clamp() 字号与 Chromium 一致（±0.75px）",
+      "ok": true,
+      "detail": "body 15.18 vs 15.18 (Δ0.0), h1 40.380001 vs 40.38 (Δ0.0)"
+    },
+    {
+      "check": "R7 768px clamp() 字号与 Chromium 一致（±0.75px）",
+      "ok": true,
+      "detail": "body 15.936 vs 15.936 (Δ0.0), h1 56.256001 vs 56.256 (Δ0.0)"
+    },
+    {
+      "check": "R7 1440px clamp() 字号与 Chromium 一致（±0.75px）",
+      "ok": true,
+      "detail": "body 16.32 vs 16.32 (Δ0.0), h1 70.400002 vs 70.4 (Δ0.0)"
+    },
+    {
+      "check": "R8 flex gap 生效（.slot__actions 相邻按钮实测间距 = 声明 4px）",
+      "ok": true,
+      "detail": "{'display': 'flex', 'gap': '4px', 'declaredPx': 4, 'count': 3, 'measuredGaps': [4, 4]}"
+    },
+    {
+      "check": "R8b flex gap 生效（.actions 同行按钮间距 = 声明值）",
+      "ok": true,
+      "detail": "{'display': 'grid', 'gap': '8px', 'declaredPx': 8, 'count': 4, 'sameRowGaps': [8, 8, 8], 'btnW': [182.97, 130.69, 130.7, 130.69], 'btnH': [60.41, 60.41, 60.41, 60.41]}"
+    },
+    {
+      "check": "R8c grid gap 生效（#slots 行距 = gap + li margin，无塌陷）",
+      "ok": true,
+      "detail": "{'display': 'grid', 'gap': '8px', 'declaredPx': 8, 'liMarginBottom': '8px', 'measuredPitch': 16, 'expectedPitch': 16, 'rowCount': 4, 'heights': [65.2, 65.2, 65.2, 65.2]}"
+    },
+    {
+      "check": "R8d 每个格位行都有非零高度（无塌陷）",
+      "ok": true,
+      "detail": "[65.2, 65.2, 65.2, 65.2]"
+    },
+    {
+      "check": "R8e place-items 居中生效（.slot__index 为正方形）",
+      "ok": true,
+      "detail": "{'display': 'grid', 'placeItems': 'center', 'w': 34, 'h': 34, 'isSquare': True}"
+    },
+    {
+      "check": "R8f 无布局塌陷（关键容器均非零尺寸）",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "R9 overscroll-behavior 支持情况（WebKit 不支持——但站点未使用，无影响）",
+      "ok": true,
+      "detail": "CSS.supports=False; 站点 CSS 中 overscroll 声明数=0"
+    },
+    {
+      "check": "R9b scroll-padding-top 生效（scrollIntoView 不被头部遮挡）",
+      "ok": true,
+      "detail": "board.top=285.05 header.bottom=65 padding=80px gap=220.05"
+    },
+    {
+      "check": "R9c skip-link 聚焦后 CSS 揭示生效（top 从 -200 进入视口）",
+      "ok": true,
+      "detail": "forcedFocus={'active': True, 'top': 16, 'height': 51.72, 'visible': True, 'outline': 'solid', 'matchesFocusVisible': True}, viaTab={'reachedByTab': True, 'top': 15.94, 'height': 51.72, 'visible': True, 'outline': 'solid'}"
+    },
+    {
+      "check": "R9d skip-link Enter 跳转到 #main 且不被头部遮挡",
+      "ok": true,
+      "detail": "{'hash': '', 'scrollY': 0, 'mainTop': 65, 'headerBottom': 65, 'mainNotHiddenByHeader': True, 'activeId': 'main'}"
+    },
+    {
+      "check": "R10 -webkit-tap-highlight-color 支持情况（WebKit 不支持该 CSS 属性）",
+      "ok": true,
+      "detail": "supports={'supportsDeclared': False, 'computedOnButton': None, 'inlineHtmlAttr': False}; 站点未声明该属性，故无缺失的规则需要修——只在真实 iOS 上可能见到系统默认灰色高亮"
+    },
+    {
+      "check": "R10 390x844 home: 所有非行内交互元素 ≥44px",
+      "ok": true,
+      "detail": "15 个元素, 0 个偏小: "
+    },
+    {
+      "check": "R10 390x844 cabinet: 所有非行内交互元素 ≥44px",
+      "ok": true,
+      "detail": "13 个元素, 0 个偏小: "
+    },
+    {
+      "check": "R10 390x844 desk-NA001: 所有非行内交互元素 ≥44px",
+      "ok": true,
+      "detail": "26 个元素, 0 个偏小: "
+    },
+    {
+      "check": "R10b 移动端导航展开后链接 ≥44px",
+      "ok": true,
+      "detail": "expanded=true links=4 small=[]"
+    },
+    {
+      "check": "R-全 风险套件无控制台错误",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "pass": 37,
+  "fail": 1,
+  "webkit_version": "26.5",
+  "backdrop": {
+    "header": {
+      "backdropFilter": "blur(12px) saturate(1.2)",
+      "backgroundImage": "linear-gradient(rgba(8, 26, 36, 0.97), rgba(5, 17, 24, 0.94))",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "position": "sticky",
+      "height": 65,
+      "top": 0
+    },
+    "blur_paints": false,
+    "blur_pixel_mean_abs_diff": 0.0,
+    "blur_hf_on": 23.543,
+    "blur_hf_off": 23.543,
+    "blur_supported_cssom": "blur(20px)",
+    "readability_contrast": {
+      "brandName": {
+        "ratio": 16.23,
+        "color": "rgb(242, 236, 224)"
+      },
+      "brandSub": {
+        "ratio": 10.32,
+        "color": "rgb(223, 185, 120)"
+      },
+      "navLink": {
+        "ratio": 10.32,
+        "color": "rgb(223, 185, 120)"
+      },
+      "langBtn": {
+        "ratio": 11.03,
+        "color": "rgb(185, 200, 197)"
+      }
+    },
+    "min_contrast": 10.32,
+    "opaque_fallback_alpha_min": 0.94
+  },
+  "dialog": {
+    "support": {
+      "hasDialogElement": true,
+      "hasShowModal": true,
+      "openBefore": false
+    },
+    "opened_before_click": false,
+    "opened_state": {
+      "open": true,
+      "modal": true,
+      "rect": {
+        "x": 500,
+        "y": 356,
+        "w": 440,
+        "h": 188
+      },
+      "activeId": "ok",
+      "backdrop": "rgba(2, 8, 12, 0.72)",
+      "visible": true
+    },
+    "focus_escapes_to_page_content": [],
+    "inert_page_control": {
+      "activeId": "BUTTON",
+      "focusStolen": true,
+      "behindIsInert": true
+    },
+    "esc_closed": {
+      "open": false,
+      "display": "none",
+      "activeId": "main"
+    },
+    "cancel_kept_order": true,
+    "cancel_closed_dialog": true,
+    "dialog_open_during_cancel_path": true
+  },
+  "dvh": {
+    "1440x900": {
+      "minHeightComputed": "780px",
+      "height": 780,
+      "innerHeight": 900,
+      "docClientHeight": 900,
+      "bodyMinHeight": "900px",
+      "expected": 780,
+      "supportsDvh": true
+    },
+    "768x1024": {
+      "minHeightComputed": "780px",
+      "height": 780,
+      "innerHeight": 1024,
+      "docClientHeight": 1024,
+      "bodyMinHeight": "1024px",
+      "expected": 780,
+      "supportsDvh": true
+    },
+    "390x844": {
+      "minHeightComputed": "742.719971px",
+      "height": 742.72,
+      "innerHeight": 844,
+      "docClientHeight": 844,
+      "bodyMinHeight": "843.999939px",
+      "expected": 742.72,
+      "supportsDvh": true
+    },
+    "390x500": {
+      "minHeightComputed": "440px",
+      "height": 528.63,
+      "innerHeight": 500,
+      "docClientHeight": 500,
+      "bodyMinHeight": "500px",
+      "expected": 440,
+      "supportsDvh": true
+    }
+  },
+  "focus_visible": {
+    "tab1": {
+      "tag": "A",
+      "cls": "btn btn--primary",
+      "id": "cta-first",
+      "text": "打开第 001 号档案",
+      "outlineStyle": "solid",
+      "outlineWidth": "3px",
+      "outlineColor": "rgb(223, 185, 120)",
+      "matchesFocusVisible": true,
+      "skippedLinkTop": -200
+    },
+    "tab2": {
+      "tag": "A",
+      "cls": "btn btn--ghost",
+      "id": "",
+      "text": "查看全部档案",
+      "outlineStyle": "solid",
+      "outlineWidth": "3px",
+      "matchesFocusVisible": true
+    },
+    "mouse": {
+      "tag": "MAIN",
+      "cls": "",
+      "id": "main",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "matchesFocusVisible": false
+    },
+    "keyboard_button": {
+      "tag": "A",
+      "id": "",
+      "outlineStyle": "solid",
+      "outlineWidth": "3px",
+      "matchesFocusVisible": true
+    }
+  },
+  "text_wrap": {
+    "supports": {
+      "balance": true,
+      "pretty": true,
+      "declBalance": true,
+      "declPretty": true
+    },
+    "computed": {
+      "h1": "balance",
+      "h2": "balance",
+      "p": "pretty",
+      "h1Lines": 2,
+      "h1Height": 154.84,
+      "h1Width": 720,
+      "h1LineHeight": "77.440002px"
+    },
+    "sanity": {
+      "problems": [],
+      "h1Right": 850,
+      "wrapWidth": 720
+    },
+    "at_widths": {
+      "390x844": {
+        "textWrap": "balance",
+        "height": 88.81,
+        "lines": 2,
+        "overflow": false,
+        "fontSize": "40.380001px"
+      },
+      "768x1024": {
+        "textWrap": "balance",
+        "height": 123.75,
+        "lines": 2,
+        "overflow": false,
+        "fontSize": "56.256001px"
+      },
+      "1440x900": {
+        "textWrap": "balance",
+        "height": 154.84,
+        "lines": 2,
+        "overflow": false,
+        "fontSize": "70.400002px"
+      }
+    }
+  },
+  "aspect_ratio": {
+    "supports": true,
+    "at_widths": {
+      "390x844": {
+        "count": 6,
+        "first": {
+          "w": 340,
+          "h": 191.25,
+          "ratio": 1.778,
+          "cs": "16 / 9"
+        },
+        "badRatio": [],
+        "maxRatioErr": 0,
+        "imgDeltaMax": 0
+      },
+      "768x1024": {
+        "count": 6,
+        "first": {
+          "w": 350,
+          "h": 196.88,
+          "ratio": 1.778,
+          "cs": "16 / 9"
+        },
+        "badRatio": [],
+        "maxRatioErr": 0,
+        "imgDeltaMax": 0
+      },
+      "1440x900": {
+        "count": 6,
+        "first": {
+          "w": 380.66,
+          "h": 214.11,
+          "ratio": 1.778,
+          "cs": "16 / 9"
+        },
+        "badRatio": [],
+        "maxRatioErr": 0,
+        "imgDeltaMax": 0
+      }
+    }
+  },
+  "clamp": {
+    "reference_chromium": {
+      "390": {
+        "body": 15.18,
+        "h1": 40.38
+      },
+      "768": {
+        "body": 15.936,
+        "h1": 56.256
+      },
+      "1440": {
+        "body": 16.32,
+        "h1": 70.4
+      }
+    },
+    "measured": {
+      "390": {
+        "body": 15.18,
+        "h1": 40.380001,
+        "bodyRaw": "15.18px",
+        "h1Raw": "40.380001px",
+        "step0": "clamp(0.94rem, 0.9rem + 0.2vw, 1.02rem)",
+        "step4": "clamp(2.2rem, 1.6rem + 3.2vw, 4rem)",
+        "h1RenderedWidth": 342,
+        "delta": {
+          "body": 0.0,
+          "h1": 0.0
+        },
+        "match": {
+          "body": true,
+          "h1": true
+        }
+      },
+      "768": {
+        "body": 15.936,
+        "h1": 56.256001,
+        "bodyRaw": "15.936px",
+        "h1Raw": "56.256001px",
+        "step0": "clamp(0.94rem, 0.9rem + 0.2vw, 1.02rem)",
+        "step4": "clamp(2.2rem, 1.6rem + 3.2vw, 4rem)",
+        "h1RenderedWidth": 720,
+        "delta": {
+          "body": 0.0,
+          "h1": 0.0
+        },
+        "match": {
+          "body": true,
+          "h1": true
+        }
+      },
+      "1440": {
+        "body": 16.32,
+        "h1": 70.400002,
+        "bodyRaw": "16.32px",
+        "h1Raw": "70.400002px",
+        "step0": "clamp(0.94rem, 0.9rem + 0.2vw, 1.02rem)",
+        "step4": "clamp(2.2rem, 1.6rem + 3.2vw, 4rem)",
+        "h1RenderedWidth": 720,
+        "delta": {
+          "body": 0.0,
+          "h1": 0.0
+        },
+        "match": {
+          "body": true,
+          "h1": true
+        }
+      }
+    },
+    "all_match": true
+  },
+  "gap_inset_placeitems": {
+    "flexGap": {
+      "display": "grid",
+      "gap": "8px",
+      "declaredPx": 8,
+      "count": 4,
+      "sameRowGaps": [
+        8,
+        8,
+        8
+      ],
+      "btnW": [
+        182.97,
+        130.69,
+        130.7,
+        130.69
+      ],
+      "btnH": [
+        60.41,
+        60.41,
+        60.41,
+        60.41
+      ]
+    },
+    "slotActionsGap": {
+      "display": "flex",
+      "gap": "4px",
+      "declaredPx": 4,
+      "count": 3,
+      "measuredGaps": [
+        4,
+        4
+      ]
+    },
+    "gridGap": {
+      "display": "grid",
+      "gap": "8px",
+      "declaredPx": 8,
+      "liMarginBottom": "8px",
+      "measuredPitch": 16,
+      "expectedPitch": 16,
+      "rowCount": 4,
+      "heights": [
+        65.2,
+        65.2,
+        65.2,
+        65.2
+      ]
+    },
+    "inset": {
+      "cardW": 633.06,
+      "cardH": 680.77,
+      "cardPositive": true,
+      "slotW": 599.06,
+      "slotH": 65.2
+    },
+    "placeItems": {
+      "display": "grid",
+      "placeItems": "center",
+      "w": 34,
+      "h": 34,
+      "isSquare": true
+    },
+    "zeroSizedContainers": []
+  },
+  "overscroll_scrollpadding": {
+    "supports": {
+      "overscroll": false,
+      "overscrollY": false,
+      "scrollPaddingTop": true,
+      "computedOnHtml": "80px",
+      "computedOverscrollBody": null,
+      "computedOverscrollHtml": null
+    },
+    "skip_link_via_tab": {
+      "reachedByTab": true,
+      "top": 15.94,
+      "height": 51.72,
+      "visible": true,
+      "outline": "solid"
+    },
+    "skip_link_forced_focus": {
+      "active": true,
+      "top": 16,
+      "height": 51.72,
+      "visible": true,
+      "outline": "solid",
+      "matchesFocusVisible": true
+    },
+    "after_skip_enter": {
+      "hash": "",
+      "scrollY": 0,
+      "mainTop": 65,
+      "headerBottom": 65,
+      "mainNotHiddenByHeader": true,
+      "activeId": "main"
+    },
+    "scroll_into_view_board": {
+      "top": 285.05,
+      "headerBottom": 65,
+      "scrollPaddingTop": "80px",
+      "clearedByScrollPadding": true,
+      "gapBelowHeader": 220.05
+    }
+  },
+  "touch": {
+    "tap_highlight_support": {
+      "supportsDeclared": false,
+      "computedOnButton": null,
+      "inlineHtmlAttr": false
+    },
+    "scenes": {
+      "home": {
+        "total": 15,
+        "tooSmall": 0,
+        "tooSmallRows": [],
+        "inlineProseLinks": 0,
+        "minW": 44,
+        "minH": 44
+      },
+      "cabinet": {
+        "total": 13,
+        "tooSmall": 0,
+        "tooSmallRows": [],
+        "inlineProseLinks": 0,
+        "minW": 44,
+        "minH": 44
+      },
+      "desk-NA001": {
+        "total": 26,
+        "tooSmall": 0,
+        "tooSmallRows": [],
+        "inlineProseLinks": 0,
+        "minW": 44,
+        "minH": 44
+      }
+    },
+    "mobile_nav": {
+      "dataOpen": "true",
+      "display": "flex",
+      "expanded": "true",
+      "links": [
+        {
+          "tag": "a",
+          "text": "档案柜",
+          "w": 342,
+          "h": 45.4,
+          "display": "flex"
+        },
+        {
+          "tag": "a",
+          "text": "玩法说明",
+          "w": 342,
+          "h": 45.4,
+          "display": "flex"
+        },
+        {
+          "tag": "a",
+          "text": "关于与隐私",
+          "w": 342,
+          "h": 45.4,
+          "display": "flex"
+        },
+        {
+          "tag": "button",
+          "text": "EN",
+          "w": 342,
+          "h": 45.4,
+          "display": "flex"
+        }
+      ],
+      "tooSmall": []
+    }
+  },
+  "touch_inventory_home_count": 15
+}

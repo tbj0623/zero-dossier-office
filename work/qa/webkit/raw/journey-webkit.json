@@ -1,0 +1,182 @@
+{
+  "suite": "journey",
+  "engine": "webkit",
+  "when": "2026-10-30T04:31:28+0800",
+  "base": "http://127.0.0.1:8140",
+  "results": [
+    {
+      "check": "1. 首页加载并有标题",
+      "ok": true,
+      "detail": "第零证物局｜雾港异常档案 · 原创互动推理"
+    },
+    {
+      "check": "1. #cta-first 可见",
+      "ok": true,
+      "detail": "打开第 001 号档案"
+    },
+    {
+      "check": "1. 首页 view 处于激活态",
+      "ok": true,
+      "detail": "true"
+    },
+    {
+      "check": "2. 头部 position: sticky",
+      "ok": true,
+      "detail": "sticky"
+    },
+    {
+      "check": "2. 滚动 600px 后头部仍 top=0",
+      "ok": true,
+      "detail": "top=0.00 scrollY=600 h=65.0"
+    },
+    {
+      "check": "2. 头部未随滚动移出（top 与滚动前一致）",
+      "ok": true,
+      "detail": "before=0.00 after=0.00"
+    },
+    {
+      "check": "3. 档案柜恰好 6 张卡",
+      "ok": true,
+      "detail": "6 张"
+    },
+    {
+      "check": "3. 六张卡各自链接到一个案件",
+      "ok": true,
+      "detail": "['#/case/NA-001', '#/case/NA-002', '#/case/NA-003', '#/case/NA-004', '#/case/NA-005', '#/case/NA-006']"
+    },
+    {
+      "check": "4. NA-001 调查桌打开",
+      "ok": true,
+      "detail": "末班车的四张车票"
+    },
+    {
+      "check": "4. NA-001 三张证据卡",
+      "ok": true,
+      "detail": "3 张"
+    },
+    {
+      "check": "4. 三张证据全部可展开",
+      "ok": true,
+      "detail": "3/3 展开"
+    },
+    {
+      "check": "4. aria-expanded 全部为 true",
+      "ok": true,
+      "detail": "['true', 'true', 'true']"
+    },
+    {
+      "check": "5. 默认排列 ≠ 答案",
+      "ok": true,
+      "detail": "初始 ['蓝票', '绿票', '红票', '黄票'] vs 答案 ['红票', '蓝票', '黄票', '绿票']"
+    },
+    {
+      "check": "6. 单击「下移」恰好移动一格（防双绑定）",
+      "ok": true,
+      "detail": "['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']，期望 ['绿票', '蓝票', '红票', '黄票']"
+    },
+    {
+      "check": "6b. 反向单击也恰好移动一格",
+      "ok": true,
+      "detail": "['绿票', '蓝票', '红票', '黄票'] -> ['蓝票', '绿票', '红票', '黄票']，期望 ['蓝票', '绿票', '红票', '黄票']"
+    },
+    {
+      "check": "6c. 点选两格仅交换一次",
+      "ok": true,
+      "detail": "selected=true ['蓝票', '绿票', '红票', '黄票'] -> ['红票', '绿票', '蓝票', '黄票'], 期望 ['红票', '绿票', '蓝票', '黄票']"
+    },
+    {
+      "check": "7. ArrowDown 重排焦点格位",
+      "ok": true,
+      "detail": "['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']"
+    },
+    {
+      "check": "7b. ArrowUp 回到原排列",
+      "ok": true,
+      "detail": "['绿票', '蓝票', '红票', '黄票'] -> ['蓝票', '绿票', '红票', '黄票']"
+    },
+    {
+      "check": "7c. 首格 ArrowUp 不环绕",
+      "ok": true,
+      "detail": "['蓝票', '绿票', '红票', '黄票']"
+    },
+    {
+      "check": "8. 三条提示逐条出现 counts==[1,2,3]",
+      "ok": true,
+      "detail": "[1, 2, 3]"
+    },
+    {
+      "check": "8b. 提示不自动排列",
+      "ok": true,
+      "detail": "['蓝票', '绿票', '红票', '黄票'] -> ['蓝票', '绿票', '红票', '黄票']"
+    },
+    {
+      "check": "8c. 三条用尽后提示按钮禁用",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "8d. 三条提示内容彼此不同",
+      "ok": true,
+      "detail": "['档案员注 01 ／ 03先把红票和蓝票当成一组不可分开的相邻票。', '档案员注 02 ／ 03绿票必须晚于黄票，而黄票不能站在第一个位置。', '档案员注 03 ／ 03把“红—蓝”放到前两个位置，再看看剩下两张该怎样放。']"
+    },
+    {
+      "check": "9. 排列达到答案",
+      "ok": true,
+      "detail": "['红票', '蓝票', '黄票', '绿票']"
+    },
+    {
+      "check": "9. 正确复原后出现结案页",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "9b. 结案标题正确",
+      "ok": true,
+      "detail": "档案归位。"
+    },
+    {
+      "check": "9c. 两个不同的复盘区块",
+      "ok": true,
+      "detail": "['逻辑复盘 · 可由证据严格证明', '档案后记 · 结案后补充记录']"
+    },
+    {
+      "check": "9d. 逻辑复盘与档案后记分离",
+      "ok": true,
+      "detail": "logic='逻辑复盘 · 可由证据严格证明\\n你的最终排列\\n红票\\n' story='档案后记 · 结案后补充记录\\n\\n结案后补充记录：夜班'"
+    },
+    {
+      "check": "9e. 逻辑复盘覆盖每条证据",
+      "ok": true,
+      "detail": "[True, True, True]"
+    },
+    {
+      "check": "9f. 复盘两段文本不同源",
+      "ok": true,
+      "detail": "336 vs 188 chars"
+    },
+    {
+      "check": "10. 无控制台错误",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "10b. 无未捕获页面异常",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "10c. 无失败请求",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "10d. 无第三方网络请求",
+      "ok": true,
+      "detail": "0: []"
+    }
+  ],
+  "pass": 34,
+  "fail": 0,
+  "webkit_version": "26.5",
+  "external_requests": []
+}

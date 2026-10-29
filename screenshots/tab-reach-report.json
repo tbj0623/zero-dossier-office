@@ -1,0 +1,52 @@
+{
+  "base": "http://127.0.0.1:8140",
+  "checks": 9,
+  "passed": 9,
+  "results": [
+    {
+      "ok": true,
+      "name": "index.html 全部 <a href> 带 tabindex",
+      "detail": "17 个链接，缺失 0"
+    },
+    {
+      "ok": true,
+      "name": "webkit home：Tab 能到达链接",
+      "detail": "12 次 Tab 中 11 次落在链接上（页面共 20 链接）"
+    },
+    {
+      "ok": true,
+      "name": "webkit cabinet：Tab 能到达链接",
+      "detail": "12 次 Tab 中 11 次落在链接上（页面共 26 链接）"
+    },
+    {
+      "ok": true,
+      "name": "webkit manual：Tab 能到达链接",
+      "detail": "12 次 Tab 中 9 次落在链接上（页面共 26 链接）"
+    },
+    {
+      "ok": true,
+      "name": "webkit about：Tab 能到达链接",
+      "detail": "12 次 Tab 中 10 次落在链接上（页面共 26 链接）"
+    },
+    {
+      "ok": true,
+      "name": "chromium home：Tab 能到达链接",
+      "detail": "12 次 Tab 中 11 次落在链接上（页面共 20 链接）"
+    },
+    {
+      "ok": true,
+      "name": "chromium cabinet：Tab 能到达链接",
+      "detail": "12 次 Tab 中 11 次落在链接上（页面共 26 链接）"
+    },
+    {
+      "ok": true,
+      "name": "chromium manual：Tab 能到达链接",
+      "detail": "12 次 Tab 中 9 次落在链接上（页面共 26 链接）"
+    },
+    {
+      "ok": true,
+      "name": "chromium about：Tab 能到达链接",
+      "detail": "12 次 Tab 中 10 次落在链接上（页面共 26 链接）"
+    }
+  ]
+}

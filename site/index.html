@@ -64,11 +64,11 @@ a{color:var(--brass)}
 <noscript><link rel="stylesheet" href="./styles/tokens.css"><link rel="stylesheet" href="./styles/base.css"><link rel="stylesheet" href="./styles/app.css"></noscript>
 </head>
 <body>
-<a class="skip-link" href="#main" data-skip data-i18n="nav.skip">跳到主要内容</a>
+<a class="skip-link" href="#main" data-skip data-i18n="nav.skip" tabindex="0">跳到主要内容</a>
 
 <header class="site-header" id="site-header">
   <div class="wrap site-header__inner">
-    <a class="brand" href="#/" data-nav="home" aria-label="第零证物局 · 返回封面">
+    <a class="brand" href="#/" data-nav="home" aria-label="第零证物局 · 返回封面" tabindex="0">
       <img class="brand__mark" src="./assets/archive-emblem.svg" alt="" width="38" height="38">
       <span class="brand__text">
         <span class="brand__name" data-i18n="brand.name">第零证物局</span>
@@ -79,9 +79,9 @@ a{color:var(--brass)}
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <nav class="site-nav" id="site-nav" aria-label="主导航">
-      <a href="#/cabinet" data-nav="cabinet" data-i18n="nav.cabinet">档案柜</a>
-      <a href="#/manual" data-nav="manual" data-i18n="nav.manual">玩法说明</a>
-      <a href="#/about" data-nav="about" data-i18n="nav.about">关于与隐私</a>
+      <a href="#/cabinet" data-nav="cabinet" data-i18n="nav.cabinet" tabindex="0">档案柜</a>
+      <a href="#/manual" data-nav="manual" data-i18n="nav.manual" tabindex="0">玩法说明</a>
+      <a href="#/about" data-nav="about" data-i18n="nav.about" tabindex="0">关于与隐私</a>
       <button class="nav-lang" id="lang-toggle" type="button"
               aria-label="切换界面语言 / Switch language" data-i18n="lang.button.en">EN</button>
     </nav>
@@ -99,8 +99,8 @@ a{color:var(--brass)}
           <h1 id="home-title" aria-label="这些记录，不应该同时成立。" data-i18n-aria-label="hero.h1"><span data-i18n="hero.h1">这些记录，</span><span class="accent" data-i18n="hero.h1.accent">不应该同时成立。</span></h1>
           <p class="hero__lede" data-i18n="hero.lede">一张车票，一封从未寄出的回信，一张什么都没拍下的底片。读完证物，恢复顺序，让「不可能」重新变得合理。</p>
           <div class="hero__actions">
-            <a class="btn btn--primary" href="#/case/NA-001" id="cta-first" data-i18n="hero.cta.primary">打开第 001 号档案</a>
-            <a class="btn btn--ghost" href="#/cabinet" data-i18n="hero.cta.secondary">查看全部档案</a>
+            <a class="btn btn--primary" href="#/case/NA-001" id="cta-first" data-i18n="hero.cta.primary" tabindex="0">打开第 001 号档案</a>
+            <a class="btn btn--ghost" href="#/cabinet" data-i18n="hero.cta.secondary" tabindex="0">查看全部档案</a>
           </div>
           <div class="hero__tags">
             <span class="pill" data-i18n="hero.tag.1">原创微型故事</span>
@@ -128,9 +128,9 @@ a{color:var(--brass)}
           再把它们放回正确的格位。卡住了就点提示——三档，不会直接把答案填给你。
         </p>
         <div class="briefing__actions">
-          <a class="btn btn--primary" href="#/case/NA-001" data-i18n="briefing.cta.start">开始整理</a>
+          <a class="btn btn--primary" href="#/case/NA-001" data-i18n="briefing.cta.start" tabindex="0">开始整理</a>
           <button class="btn btn--ghost" type="button" id="briefing-dismiss" data-i18n="briefing.cta.dismiss">我知道了</button>
-          <a class="btn btn--ghost" href="#/manual" data-i18n="briefing.cta.manual">随时查看局内手册</a>
+          <a class="btn btn--ghost" href="#/manual" data-i18n="briefing.cta.manual" tabindex="0">随时查看局内手册</a>
         </div>
       </section>
       <div class="pitch">
@@ -160,7 +160,7 @@ a{color:var(--brass)}
             <h2 data-i18n="nav.cabinet">档案柜</h2>
             <p data-i18n="home.cabinet.desc">从轻巧的检票顺序，走到灯塔、邮局与底片。每一案解决的不是「魔法」，而是对事实的误读。</p>
           </div>
-          <a class="btn btn--ghost" href="#/cabinet" data-i18n="home.cabinet.cta">进入档案柜</a>
+          <a class="btn btn--ghost" href="#/cabinet" data-i18n="home.cabinet.cta" tabindex="0">进入档案柜</a>
         </div>
         <div id="home-cabinet"></div>
       </div>
@@ -171,7 +171,7 @@ a{color:var(--brass)}
   <section class="view" id="view-cabinet" data-active="false" aria-labelledby="cabinet-title">
     <div class="section">
       <div class="wrap">
-        <div class="desk-crumbs"><a href="#/" data-i18n="cabinet.crumb.home">封面</a><span aria-hidden="true">／</span><span data-i18n="nav.cabinet">档案柜</span></div>
+        <div class="desk-crumbs"><a href="#/" data-i18n="cabinet.crumb.home" tabindex="0">封面</a><span aria-hidden="true">／</span><span data-i18n="nav.cabinet">档案柜</span></div>
         <div class="cabinet-head">
           <div>
             <span class="eyebrow" data-i18n="cabinet.eyebrow">雾港 · 第零室</span>
@@ -193,7 +193,7 @@ a{color:var(--brass)}
     <div class="section section--tight">
       <div class="wrap">
         <div class="desk-crumbs">
-          <a href="#/cabinet" data-i18n="nav.cabinet">档案柜</a><span aria-hidden="true">／</span>
+          <a href="#/cabinet" data-i18n="nav.cabinet" tabindex="0">档案柜</a><span aria-hidden="true">／</span>
           <span id="crumb-case">档案</span>
         </div>
         <div id="case-root" aria-live="off"></div>
@@ -205,7 +205,7 @@ a{color:var(--brass)}
   <section class="view" id="view-manual" data-active="false" aria-labelledby="manual-title">
     <div class="section">
       <article class="wrap doc">
-        <div class="desk-crumbs"><a href="#/" data-i18n="cabinet.crumb.home">封面</a><span aria-hidden="true">／</span><span data-i18n="nav.manual">玩法说明</span></div>
+        <div class="desk-crumbs"><a href="#/" data-i18n="cabinet.crumb.home" tabindex="0">封面</a><span aria-hidden="true">／</span><span data-i18n="nav.manual">玩法说明</span></div>
         <span class="eyebrow" data-i18n="manual.eyebrow">局内手册</span>
         <h1 id="manual-title" style="font-size:var(--step-3)" data-i18n="manual.h1">怎么玩</h1>
 
@@ -252,7 +252,7 @@ a{color:var(--brass)}
   <section class="view" id="view-about" data-active="false" aria-labelledby="about-title">
     <div class="section">
       <article class="wrap doc">
-        <div class="desk-crumbs"><a href="#/" data-i18n="cabinet.crumb.home">封面</a><span aria-hidden="true">／</span><span data-i18n="about.crumb.current">关于</span></div>
+        <div class="desk-crumbs"><a href="#/" data-i18n="cabinet.crumb.home" tabindex="0">封面</a><span aria-hidden="true">／</span><span data-i18n="about.crumb.current">关于</span></div>
         <span class="eyebrow" data-i18n="about.eyebrow">关于、隐私与许可</span>
         <h1 id="about-title" style="font-size:var(--step-3)" data-i18n="brand.name">第零证物局</h1>
 
@@ -286,9 +286,9 @@ a{color:var(--brass)}
       <div>
         <h2 class="site-footer__h" data-i18n="footer.h.documents">文献</h2>
         <ul>
-          <li><a href="#/cabinet" data-i18n="nav.cabinet">档案柜</a></li>
-          <li><a href="#/manual" data-i18n="nav.manual">玩法说明</a></li>
-          <li><a href="#/about" data-i18n="nav.about">关于与隐私</a></li>
+          <li><a href="#/cabinet" data-i18n="nav.cabinet" tabindex="0">档案柜</a></li>
+          <li><a href="#/manual" data-i18n="nav.manual" tabindex="0">玩法说明</a></li>
+          <li><a href="#/about" data-i18n="nav.about" tabindex="0">关于与隐私</a></li>
         </ul>
       </div>
       <div>

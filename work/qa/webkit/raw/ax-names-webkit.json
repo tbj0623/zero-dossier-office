@@ -1,0 +1,410 @@
+{
+  "webkit_version": "26.5",
+  "dom_rows": [
+    {
+      "i": 0,
+      "tag": "a",
+      "id": "",
+      "cls": "skip-link",
+      "name": "跳到主要内容",
+      "nameSrc": "text",
+      "href": "#main",
+      "landmark": "body",
+      "w": 145.9,
+      "h": 51.7,
+      "y": -200
+    },
+    {
+      "i": 1,
+      "tag": "a",
+      "id": "",
+      "cls": "brand",
+      "name": "第零证物局 · 返回封面",
+      "nameSrc": "aria-label",
+      "href": "#/",
+      "landmark": "header",
+      "w": 226.9,
+      "h": 46,
+      "y": 9
+    },
+    {
+      "i": 2,
+      "tag": "a",
+      "id": "",
+      "cls": "",
+      "name": "档案柜",
+      "nameSrc": "text",
+      "href": "#/cabinet",
+      "landmark": "nav[主导航]",
+      "w": 73.3,
+      "h": 47.4,
+      "y": 8
+    },
+    {
+      "i": 3,
+      "tag": "a",
+      "id": "",
+      "cls": "",
+      "name": "玩法说明",
+      "nameSrc": "text",
+      "href": "#/manual",
+      "landmark": "nav[主导航]",
+      "w": 87,
+      "h": 47.4,
+      "y": 8
+    },
+    {
+      "i": 4,
+      "tag": "a",
+      "id": "",
+      "cls": "",
+      "name": "关于与隐私",
+      "nameSrc": "text",
+      "href": "#/about",
+      "landmark": "nav[主导航]",
+      "w": 100.8,
+      "h": 47.4,
+      "y": 8
+    },
+    {
+      "i": 5,
+      "tag": "button",
+      "id": "lang-toggle",
+      "cls": "nav-lang",
+      "name": "Switch to English",
+      "nameSrc": "aria-label",
+      "href": "",
+      "landmark": "nav[主导航]",
+      "w": 53,
+      "h": 47.4,
+      "y": 8
+    },
+    {
+      "i": 6,
+      "tag": "a",
+      "id": "cta-first",
+      "cls": "btn btn--primary",
+      "name": "打开第 001 号档案",
+      "nameSrc": "text",
+      "href": "#/case/NA-001",
+      "landmark": "main",
+      "w": 184.2,
+      "h": 44,
+      "y": 530
+    },
+    {
+      "i": 7,
+      "tag": "a",
+      "id": "",
+      "cls": "btn btn--ghost",
+      "name": "查看全部档案",
+      "nameSrc": "text",
+      "href": "#/cabinet",
+      "landmark": "main",
+      "w": 147.9,
+      "h": 44,
+      "y": 530
+    },
+    {
+      "i": 8,
+      "tag": "a",
+      "id": "",
+      "cls": "btn btn--primary",
+      "name": "开始整理",
+      "nameSrc": "text",
+      "href": "#/case/NA-001",
+      "landmark": "main",
+      "w": 115.3,
+      "h": 44,
+      "y": 972
+    },
+    {
+      "i": 9,
+      "tag": "button",
+      "id": "briefing-dismiss",
+      "cls": "btn btn--ghost",
+      "name": "我知道了",
+      "nameSrc": "text",
+      "href": "",
+      "landmark": "main",
+      "w": 115.3,
+      "h": 44,
+      "y": 972
+    },
+    {
+      "i": 10,
+      "tag": "a",
+      "id": "",
+      "cls": "btn btn--ghost",
+      "name": "随时查看局内手册",
+      "nameSrc": "text",
+      "href": "#/manual",
+      "landmark": "main",
+      "w": 180.6,
+      "h": 44,
+      "y": 972
+    },
+    {
+      "i": 11,
+      "tag": "a",
+      "id": "",
+      "cls": "btn btn--ghost",
+      "name": "进入档案柜",
+      "nameSrc": "text",
+      "href": "#/cabinet",
+      "landmark": "main",
+      "w": 131.6,
+      "h": 44,
+      "y": 1382
+    },
+    {
+      "i": 12,
+      "tag": "a",
+      "id": "",
+      "cls": "btn btn--primary case-card__cta",
+      "name": "调查档案 001：末班车的四张车票",
+      "nameSrc": "aria-label",
+      "href": "#/case/NA-001",
+      "landmark": "main",
+      "w": 332.7,
+      "h": 44,
+      "y": 1905
+    },
+    {
+      "i": 13,
+      "tag": "a",
+      "id": "",
+      "cls": "btn btn--primary case-card__cta",
+      "name": "调查档案 002：封存室的四格抽屉",
+      "nameSrc": "aria-label",
+      "href": "#/case/NA-002",
+      "landmark": "main",
+      "w": 332.7,
+      "h": 44,
+      "y": 1905
+    },
+    {
+      "i": 14,
+      "tag": "a",
+      "id": "",
+      "cls": "btn btn--primary case-card__cta",
+      "name": "调查档案 003：静默分拣线上的五个包裹",
+      "nameSrc": "aria-label",
+      "href": "#/case/NA-003",
+      "landmark": "main",
+      "w": 332.7,
+      "h": 44,
+      "y": 1905
+    },
+    {
+      "i": 15,
+      "tag": "a",
+      "id": "",
+      "cls": "",
+      "name": "档案柜",
+      "nameSrc": "text",
+      "href": "#/cabinet",
+      "landmark": "footer",
+      "w": 49.3,
+      "h": 44,
+      "y": 2199
+    },
+    {
+      "i": 16,
+      "tag": "a",
+      "id": "",
+      "cls": "",
+      "name": "玩法说明",
+      "nameSrc": "text",
+      "href": "#/manual",
+      "landmark": "footer",
+      "w": 63,
+      "h": 44,
+      "y": 2243
+    },
+    {
+      "i": 17,
+      "tag": "a",
+      "id": "",
+      "cls": "",
+      "name": "关于与隐私",
+      "nameSrc": "text",
+      "href": "#/about",
+      "landmark": "footer",
+      "w": 76.8,
+      "h": 44,
+      "y": 2287
+    }
+  ],
+  "dom_total": 18,
+  "ax_interactive_rows": [
+    {
+      "depth": 0,
+      "role": "link",
+      "name": "跳到主要内容",
+      "rest": "",
+      "path": "link[跳到主要内容]",
+      "line": "- link \"跳到主要内容\":"
+    },
+    {
+      "depth": 1,
+      "role": "link",
+      "name": "第零证物局 · 返回封面",
+      "rest": "",
+      "path": "banner[] > link[第零证物局 · 返回封面]",
+      "line": "  - link \"第零证物局 · 返回封面\":"
+    },
+    {
+      "depth": 2,
+      "role": "link",
+      "name": "档案柜",
+      "rest": "",
+      "path": "banner[] > navigation[主导航] > link[档案柜]",
+      "line": "    - link \"档案柜\":"
+    },
+    {
+      "depth": 2,
+      "role": "link",
+      "name": "玩法说明",
+      "rest": "",
+      "path": "banner[] > navigation[主导航] > link[玩法说明]",
+      "line": "    - link \"玩法说明\":"
+    },
+    {
+      "depth": 2,
+      "role": "link",
+      "name": "关于与隐私",
+      "rest": "",
+      "path": "banner[] > navigation[主导航] > link[关于与隐私]",
+      "line": "    - link \"关于与隐私\":"
+    },
+    {
+      "depth": 2,
+      "role": "button",
+      "name": "Switch to English",
+      "rest": "EN",
+      "path": "banner[] > navigation[主导航] > button[Switch to English]",
+      "line": "    - button \"Switch to English\": EN"
+    },
+    {
+      "depth": 2,
+      "role": "link",
+      "name": "打开第 001 号档案",
+      "rest": "",
+      "path": "main[] > region[这些记录，不应该同时成立。] > link[打开第 001 号档案]",
+      "line": "    - link \"打开第 001 号档案\":"
+    },
+    {
+      "depth": 2,
+      "role": "link",
+      "name": "查看全部档案",
+      "rest": "",
+      "path": "main[] > region[这些记录，不应该同时成立。] > link[查看全部档案]",
+      "line": "    - link \"查看全部档案\":"
+    },
+    {
+      "depth": 3,
+      "role": "link",
+      "name": "开始整理",
+      "rest": "",
+      "path": "main[] > region[这些记录，不应该同时成立。] > region[第一条局规：所有正式证物都说出了可核实的] > link[开始整理]",
+      "line": "      - link \"开始整理\":"
+    },
+    {
+      "depth": 3,
+      "role": "button",
+      "name": "我知道了",
+      "rest": "",
+      "path": "main[] > region[这些记录，不应该同时成立。] > region[第一条局规：所有正式证物都说出了可核实的] > button[我知道了]",
+      "line": "      - button \"我知道了\""
+    },
+    {
+      "depth": 3,
+      "role": "link",
+      "name": "随时查看局内手册",
+      "rest": "",
+      "path": "main[] > region[这些记录，不应该同时成立。] > region[第一条局规：所有正式证物都说出了可核实的] > link[随时查看局内手册]",
+      "line": "      - link \"随时查看局内手册\":"
+    },
+    {
+      "depth": 2,
+      "role": "link",
+      "name": "进入档案柜",
+      "rest": "",
+      "path": "main[] > region[这些记录，不应该同时成立。] > link[进入档案柜]",
+      "line": "    - link \"进入档案柜\":"
+    },
+    {
+      "depth": 3,
+      "role": "link",
+      "name": "调查档案 001：末班车的四张车票",
+      "rest": "",
+      "path": "main[] > region[这些记录，不应该同时成立。] > article[] > link[调查档案 001：末班车的四张车票]",
+      "line": "      - link \"调查档案 001：末班车的四张车票\":"
+    },
+    {
+      "depth": 3,
+      "role": "link",
+      "name": "调查档案 002：封存室的四格抽屉",
+      "rest": "",
+      "path": "main[] > region[这些记录，不应该同时成立。] > article[] > link[调查档案 002：封存室的四格抽屉]",
+      "line": "      - link \"调查档案 002：封存室的四格抽屉\":"
+    },
+    {
+      "depth": 3,
+      "role": "link",
+      "name": "调查档案 003：静默分拣线上的五个包裹",
+      "rest": "",
+      "path": "main[] > region[这些记录，不应该同时成立。] > article[] > link[调查档案 003：静默分拣线上的五个包裹]",
+      "line": "      - link \"调查档案 003：静默分拣线上的五个包裹\":"
+    },
+    {
+      "depth": 3,
+      "role": "link",
+      "name": "档案柜",
+      "rest": "",
+      "path": "contentinfo[] > list[] > listitem[] > link[档案柜]",
+      "line": "      - link \"档案柜\":"
+    },
+    {
+      "depth": 3,
+      "role": "link",
+      "name": "玩法说明",
+      "rest": "",
+      "path": "contentinfo[] > list[] > listitem[] > link[玩法说明]",
+      "line": "      - link \"玩法说明\":"
+    },
+    {
+      "depth": 3,
+      "role": "link",
+      "name": "关于与隐私",
+      "rest": "",
+      "path": "contentinfo[] > list[] > listitem[] > link[关于与隐私]",
+      "line": "      - link \"关于与隐私\":"
+    }
+  ],
+  "ax_interactive_total": 18,
+  "ax_all_nodes": 86,
+  "aria_snapshot_text": "- link \"跳到主要内容\":\n  - /url: \"#main\"\n- banner:\n  - link \"第零证物局 · 返回封面\":\n    - /url: \"#/\"\n    - text: 第零证物局 The Zero Dossier Office\n  - navigation \"主导航\":\n    - link \"档案柜\":\n      - /url: \"#/cabinet\"\n    - link \"玩法说明\":\n      - /url: \"#/manual\"\n    - link \"关于与隐私\":\n      - /url: \"#/about\"\n    - button \"Switch to English\": EN\n- main:\n  - region \"这些记录，不应该同时成立。\":\n    - text: 雾港 · 第零室 ／ 收到一份无法归档的记录\n    - heading \"这些记录，不应该同时成立。\" [level=1]: 这些记录， 不应该同时成立。\n    - paragraph: 一张车票，一封从未寄出的回信，一张什么都没拍下的底片。读完证物，恢复顺序，让「不可能」重新变得合理。\n    - link \"打开第 001 号档案\":\n      - /url: \"#/case/NA-001\"\n    - link \"查看全部档案\":\n      - /url: \"#/cabinet\"\n    - text: 原创微型故事 离线规则求解 无需账户\n    - paragraph: 本作人物、地点与事件均为虚构；不对真实人物或事件作任何调查判断。\n    - region \"第一条局规：所有正式证物都说出了可核实的事实。\":\n      - text: 传档员 · 祁灯\n      - heading \"第一条局规：所有正式证物都说出了可核实的事实。\" [level=2]\n      - paragraph: 你的工作不是猜作者藏起来的答案。请阅读证据里明确写出的先后、相邻、间距和位置关系， 再把它们放回正确的格位。卡住了就点提示——三档，不会直接把答案填给你。\n      - link \"开始整理\":\n        - /url: \"#/case/NA-001\"\n      - button \"我知道了\"\n      - link \"随时查看局内手册\":\n        - /url: \"#/manual\"\n    - article:\n      - text: 01 ／ 阅读\n      - heading \"正式证物都说出了可核实的事实\" [level=2]\n      - paragraph: 每张卡片都写明了先后、相邻、间距或位置关系。你不是在猜作者藏起来的答案，而是在读懂记录本身。\n    - article:\n      - text: 02 ／ 复原\n      - heading \"用按钮就能完成全部排列\" [level=2]\n      - paragraph: 点击卡片选中，再点目标格位交换；也可以用上移／下移。拖放在支持的设备上是额外便利，而不是唯一方式。\n    - article:\n      - text: 03 ／ 结案\n      - heading \"看清你究竟靠什么得出的结论\" [level=2]\n      - paragraph: 结案页把逻辑复盘与档案后记分开呈现：哪些是从证据严格推出来的，哪些是之后补写的叙述，一目了然。\n    - text: 三幕 · 六案\n    - heading \"档案柜\" [level=2]\n    - paragraph: 从轻巧的检票顺序，走到灯塔、邮局与底片。每一案解决的不是「魔法」，而是对事实的误读。\n    - link \"进入档案柜\":\n      - /url: \"#/cabinet\"\n    - text: I\n    - heading \"第 I 幕 · 错位的开端\" [level=2]\n    - paragraph: 每件东西都还在。问题是，人们把它们放进了错误的顺序。\n    - article:\n      - text: \"档案 #001\"\n      - heading \"末班车的四张车票\" [level=3]\n      - paragraph: 同一台打票机，半小时里打出四张互相错位的存根。\n      - text: 新手 设计预计 3–5 分钟 可调查\n      - link \"调查档案 001：末班车的四张车票\":\n        - /url: \"#/case/NA-001\"\n        - text: 立即调查\n    - article:\n      - text: \"档案 #002\"\n      - heading \"封存室的四格抽屉\" [level=3]\n      - paragraph: 四格抽屉都被上锁，清点记录却对不上任何一件东西。\n      - text: 进阶 设计预计 4–7 分钟 可调查\n      - link \"调查档案 002：封存室的四格抽屉\":\n        - /url: \"#/case/NA-002\"\n        - text: 立即调查\n    - article:\n      - text: \"档案 #003\"\n      - heading \"静默分拣线上的五个包裹\" [level=3]\n      - paragraph: 五个包裹经过同一条分拣线，三份日志各自只说了一半。\n      - text: 挑战 设计预计 6–10 分钟 可调查\n      - link \"调查档案 003：静默分拣线上的五个包裹\":\n        - /url: \"#/case/NA-003\"\n        - text: 立即调查\n- contentinfo:\n  - heading \"文献\" [level=2]\n  - list:\n    - listitem:\n      - link \"档案柜\":\n        - /url: \"#/cabinet\"\n    - listitem:\n      - link \"玩法说明\":\n        - /url: \"#/manual\"\n    - listitem:\n      - link \"关于与隐私\":\n        - /url: \"#/about\"\n  - heading \"技术\" [level=2]\n  - list:\n    - listitem: 纯静态 · 无后端\n    - listitem: 确定性规则求解\n    - listitem: 无跟踪 · 无第三方 CDN\n  - heading \"声明\" [level=2]\n  - list:\n    - listitem: 人物与事件均为虚构\n    - listitem: 进度仅存本机浏览器\n    - listitem: 不需要账户或注册\n  - text: © 2026 第零证物局 · 独立创作 雾港 · THE ZERO DOSSIER OFFICE\n- status",
+  "summary": {
+    "dom_total": 18,
+    "ax_interactive_total": 18,
+    "empty_names": [],
+    "empty_count": 0,
+    "duplicate_names_dom": {
+      "档案柜": 2,
+      "玩法说明": 2,
+      "关于与隐私": 2
+    },
+    "duplicate_names_same_landmark": {},
+    "duplicate_names_ax": {
+      "档案柜": 2,
+      "玩法说明": 2,
+      "关于与隐私": 2
+    },
+    "missing_in_ax": [],
+    "missing_in_ax_count": 0,
+    "ax_interactive_unnamed": [],
+    "ax_interactive_unnamed_count": 0
+  }
+}

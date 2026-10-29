@@ -1,0 +1,524 @@
+{
+  "suite": "six_cases",
+  "engine": "webkit",
+  "when": "2026-10-30T04:31:55+0800",
+  "base": "http://127.0.0.1:8140",
+  "results": [
+    {
+      "check": "NA-001 作者答案 == 独立求解器",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "NA-001 格位数与案件一致",
+      "ok": true,
+      "detail": "4 vs 4"
+    },
+    {
+      "check": "NA-001 初始排列 ≠ 答案",
+      "ok": true,
+      "detail": "['蓝票', '绿票', '红票', '黄票']"
+    },
+    {
+      "check": "NA-001 证据卡数量",
+      "ok": true,
+      "detail": "3 vs 3"
+    },
+    {
+      "check": "NA-001 单击恰好移动一格",
+      "ok": true,
+      "detail": "['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']"
+    },
+    {
+      "check": "NA-001 可通过 UI 排到答案",
+      "ok": true,
+      "detail": "['红票', '蓝票', '黄票', '绿票']"
+    },
+    {
+      "check": "NA-001 通关出结案页",
+      "ok": true,
+      "detail": "档案归位。"
+    },
+    {
+      "check": "NA-001 结案页有两段不同复盘",
+      "ok": true,
+      "detail": "['逻辑复盘 · 可由证据严格证明', '档案后记 · 结案后补充记录']"
+    },
+    {
+      "check": "NA-002 作者答案 == 独立求解器",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "NA-002 格位数与案件一致",
+      "ok": true,
+      "detail": "4 vs 4"
+    },
+    {
+      "check": "NA-002 初始排列 ≠ 答案",
+      "ok": true,
+      "detail": "['银徽章', '航海图', '玻璃球', '铜钥匙']"
+    },
+    {
+      "check": "NA-002 证据卡数量",
+      "ok": true,
+      "detail": "3 vs 3"
+    },
+    {
+      "check": "NA-002 单击恰好移动一格",
+      "ok": true,
+      "detail": "['银徽章', '航海图', '玻璃球', '铜钥匙'] -> ['航海图', '银徽章', '玻璃球', '铜钥匙']"
+    },
+    {
+      "check": "NA-002 可通过 UI 排到答案",
+      "ok": true,
+      "detail": "['航海图', '银徽章', '铜钥匙', '玻璃球']"
+    },
+    {
+      "check": "NA-002 通关出结案页",
+      "ok": true,
+      "detail": "档案归位。"
+    },
+    {
+      "check": "NA-002 结案页有两段不同复盘",
+      "ok": true,
+      "detail": "['逻辑复盘 · 可由证据严格证明', '档案后记 · 结案后补充记录']"
+    },
+    {
+      "check": "NA-003 作者答案 == 独立求解器",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "NA-003 格位数与案件一致",
+      "ok": true,
+      "detail": "5 vs 5"
+    },
+    {
+      "check": "NA-003 初始排列 ≠ 答案",
+      "ok": true,
+      "detail": "['红盒', '纸鹤', '星图', '铜铃', '蓝灯']"
+    },
+    {
+      "check": "NA-003 证据卡数量",
+      "ok": true,
+      "detail": "4 vs 4"
+    },
+    {
+      "check": "NA-003 单击恰好移动一格",
+      "ok": true,
+      "detail": "['红盒', '纸鹤', '星图', '铜铃', '蓝灯'] -> ['纸鹤', '红盒', '星图', '铜铃', '蓝灯']"
+    },
+    {
+      "check": "NA-003 可通过 UI 排到答案",
+      "ok": true,
+      "detail": "['红盒', '纸鹤', '铜铃', '星图', '蓝灯']"
+    },
+    {
+      "check": "NA-003 通关出结案页",
+      "ok": true,
+      "detail": "档案归位。"
+    },
+    {
+      "check": "NA-003 结案页有两段不同复盘",
+      "ok": true,
+      "detail": "['逻辑复盘 · 可由证据严格证明', '档案后记 · 结案后补充记录']"
+    },
+    {
+      "check": "NA-004 作者答案 == 独立求解器",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "NA-004 格位数与案件一致",
+      "ok": true,
+      "detail": "5 vs 5"
+    },
+    {
+      "check": "NA-004 初始排列 ≠ 答案",
+      "ok": true,
+      "detail": "['玻璃罩', '旧透镜', '铜铃', '海图', '值班簿']"
+    },
+    {
+      "check": "NA-004 证据卡数量",
+      "ok": true,
+      "detail": "4 vs 4"
+    },
+    {
+      "check": "NA-004 单击恰好移动一格",
+      "ok": true,
+      "detail": "['玻璃罩', '旧透镜', '铜铃', '海图', '值班簿'] -> ['旧透镜', '玻璃罩', '铜铃', '海图', '值班簿']"
+    },
+    {
+      "check": "NA-004 可通过 UI 排到答案",
+      "ok": true,
+      "detail": "['铜铃', '值班簿', '玻璃罩', '旧透镜', '海图']"
+    },
+    {
+      "check": "NA-004 通关出结案页",
+      "ok": true,
+      "detail": "档案归位。"
+    },
+    {
+      "check": "NA-004 结案页有两段不同复盘",
+      "ok": true,
+      "detail": "['逻辑复盘 · 可由证据严格证明', '档案后记 · 结案后补充记录']"
+    },
+    {
+      "check": "NA-005 作者答案 == 独立求解器",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "NA-005 格位数与案件一致",
+      "ok": true,
+      "detail": "5 vs 5"
+    },
+    {
+      "check": "NA-005 初始排列 ≠ 答案",
+      "ok": true,
+      "detail": "['夜航申请', '红蜡封信', '晨雾邮笺', '空白回邮', '港口便条']"
+    },
+    {
+      "check": "NA-005 证据卡数量",
+      "ok": true,
+      "detail": "4 vs 4"
+    },
+    {
+      "check": "NA-005 单击恰好移动一格",
+      "ok": true,
+      "detail": "['夜航申请', '红蜡封信', '晨雾邮笺', '空白回邮', '港口便条'] -> ['红蜡封信', '夜航申请', '晨雾邮笺', '空白回邮', '港口便条']"
+    },
+    {
+      "check": "NA-005 可通过 UI 排到答案",
+      "ok": true,
+      "detail": "['晨雾邮笺', '港口便条', '红蜡封信', '夜航申请', '空白回邮']"
+    },
+    {
+      "check": "NA-005 通关出结案页",
+      "ok": true,
+      "detail": "档案归位。"
+    },
+    {
+      "check": "NA-005 结案页有两段不同复盘",
+      "ok": true,
+      "detail": "['逻辑复盘 · 可由证据严格证明', '档案后记 · 结案后补充记录']"
+    },
+    {
+      "check": "NA-006 作者答案 == 独立求解器",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "NA-006 格位数与案件一致",
+      "ok": true,
+      "detail": "6 vs 6"
+    },
+    {
+      "check": "NA-006 初始排列 ≠ 答案",
+      "ok": true,
+      "detail": "['空白底片', '钟楼影', '玻璃影', '雨幕影', '灯塔影', '纸船影']"
+    },
+    {
+      "check": "NA-006 证据卡数量",
+      "ok": true,
+      "detail": "4 vs 4"
+    },
+    {
+      "check": "NA-006 单击恰好移动一格",
+      "ok": true,
+      "detail": "['空白底片', '钟楼影', '玻璃影', '雨幕影', '灯塔影', '纸船影'] -> ['钟楼影', '空白底片', '玻璃影', '雨幕影', '灯塔影', '纸船影']"
+    },
+    {
+      "check": "NA-006 可通过 UI 排到答案",
+      "ok": true,
+      "detail": "['钟楼影', '纸船影', '玻璃影', '雨幕影', '灯塔影', '空白底片']"
+    },
+    {
+      "check": "NA-006 通关出结案页",
+      "ok": true,
+      "detail": "档案归位。"
+    },
+    {
+      "check": "NA-006 结案页有两段不同复盘",
+      "ok": true,
+      "detail": "['逻辑复盘 · 可由证据严格证明', '档案后记 · 结案后补充记录', '终章 · 第零号 ／ 结案后补充记录']"
+    },
+    {
+      "check": "全部通关后归档进度 6 / 6",
+      "ok": true,
+      "detail": "已归档 6 / 6"
+    },
+    {
+      "check": "六案全程无控制台错误",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "六案全程无页面异常",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "pass": 51,
+  "fail": 0,
+  "webkit_version": "26.5",
+  "cases": [
+    {
+      "case": "NA-001",
+      "author_solution": [
+        "红票",
+        "蓝票",
+        "黄票",
+        "绿票"
+      ],
+      "solver_solution": [
+        "红票",
+        "蓝票",
+        "黄票",
+        "绿票"
+      ],
+      "author_equals_solver": true,
+      "deadline_open": true,
+      "slots": 4,
+      "start": [
+        "蓝票",
+        "绿票",
+        "红票",
+        "黄票"
+      ],
+      "evidence_cards": 3,
+      "final": [
+        "红票",
+        "蓝票",
+        "黄票",
+        "绿票"
+      ],
+      "solved": true,
+      "verdict_title": "档案归位。",
+      "recap_labels": [
+        "逻辑复盘 · 可由证据严格证明",
+        "档案后记 · 结案后补充记录"
+      ],
+      "recap_blocks": 2,
+      "progress_badge": "已归档 0 / 6"
+    },
+    {
+      "case": "NA-002",
+      "author_solution": [
+        "航海图",
+        "银徽章",
+        "铜钥匙",
+        "玻璃球"
+      ],
+      "solver_solution": [
+        "航海图",
+        "银徽章",
+        "铜钥匙",
+        "玻璃球"
+      ],
+      "author_equals_solver": true,
+      "deadline_open": true,
+      "slots": 4,
+      "start": [
+        "银徽章",
+        "航海图",
+        "玻璃球",
+        "铜钥匙"
+      ],
+      "evidence_cards": 3,
+      "final": [
+        "航海图",
+        "银徽章",
+        "铜钥匙",
+        "玻璃球"
+      ],
+      "solved": true,
+      "verdict_title": "档案归位。",
+      "recap_labels": [
+        "逻辑复盘 · 可由证据严格证明",
+        "档案后记 · 结案后补充记录"
+      ],
+      "recap_blocks": 2,
+      "progress_badge": "已归档 0 / 6"
+    },
+    {
+      "case": "NA-003",
+      "author_solution": [
+        "红盒",
+        "纸鹤",
+        "铜铃",
+        "星图",
+        "蓝灯"
+      ],
+      "solver_solution": [
+        "红盒",
+        "纸鹤",
+        "铜铃",
+        "星图",
+        "蓝灯"
+      ],
+      "author_equals_solver": true,
+      "deadline_open": true,
+      "slots": 5,
+      "start": [
+        "红盒",
+        "纸鹤",
+        "星图",
+        "铜铃",
+        "蓝灯"
+      ],
+      "evidence_cards": 4,
+      "final": [
+        "红盒",
+        "纸鹤",
+        "铜铃",
+        "星图",
+        "蓝灯"
+      ],
+      "solved": true,
+      "verdict_title": "档案归位。",
+      "recap_labels": [
+        "逻辑复盘 · 可由证据严格证明",
+        "档案后记 · 结案后补充记录"
+      ],
+      "recap_blocks": 2,
+      "progress_badge": "已归档 0 / 6"
+    },
+    {
+      "case": "NA-004",
+      "author_solution": [
+        "铜铃",
+        "值班簿",
+        "玻璃罩",
+        "旧透镜",
+        "海图"
+      ],
+      "solver_solution": [
+        "铜铃",
+        "值班簿",
+        "玻璃罩",
+        "旧透镜",
+        "海图"
+      ],
+      "author_equals_solver": true,
+      "deadline_open": true,
+      "slots": 5,
+      "start": [
+        "玻璃罩",
+        "旧透镜",
+        "铜铃",
+        "海图",
+        "值班簿"
+      ],
+      "evidence_cards": 4,
+      "final": [
+        "铜铃",
+        "值班簿",
+        "玻璃罩",
+        "旧透镜",
+        "海图"
+      ],
+      "solved": true,
+      "verdict_title": "档案归位。",
+      "recap_labels": [
+        "逻辑复盘 · 可由证据严格证明",
+        "档案后记 · 结案后补充记录"
+      ],
+      "recap_blocks": 2,
+      "progress_badge": "已归档 0 / 6"
+    },
+    {
+      "case": "NA-005",
+      "author_solution": [
+        "晨雾邮笺",
+        "港口便条",
+        "红蜡封信",
+        "夜航申请",
+        "空白回邮"
+      ],
+      "solver_solution": [
+        "晨雾邮笺",
+        "港口便条",
+        "红蜡封信",
+        "夜航申请",
+        "空白回邮"
+      ],
+      "author_equals_solver": true,
+      "deadline_open": true,
+      "slots": 5,
+      "start": [
+        "夜航申请",
+        "红蜡封信",
+        "晨雾邮笺",
+        "空白回邮",
+        "港口便条"
+      ],
+      "evidence_cards": 4,
+      "final": [
+        "晨雾邮笺",
+        "港口便条",
+        "红蜡封信",
+        "夜航申请",
+        "空白回邮"
+      ],
+      "solved": true,
+      "verdict_title": "档案归位。",
+      "recap_labels": [
+        "逻辑复盘 · 可由证据严格证明",
+        "档案后记 · 结案后补充记录"
+      ],
+      "recap_blocks": 2,
+      "progress_badge": "已归档 0 / 6"
+    },
+    {
+      "case": "NA-006",
+      "author_solution": [
+        "钟楼影",
+        "纸船影",
+        "玻璃影",
+        "雨幕影",
+        "灯塔影",
+        "空白底片"
+      ],
+      "solver_solution": [
+        "钟楼影",
+        "纸船影",
+        "玻璃影",
+        "雨幕影",
+        "灯塔影",
+        "空白底片"
+      ],
+      "author_equals_solver": true,
+      "deadline_open": true,
+      "slots": 6,
+      "start": [
+        "空白底片",
+        "钟楼影",
+        "玻璃影",
+        "雨幕影",
+        "灯塔影",
+        "纸船影"
+      ],
+      "evidence_cards": 4,
+      "final": [
+        "钟楼影",
+        "纸船影",
+        "玻璃影",
+        "雨幕影",
+        "灯塔影",
+        "空白底片"
+      ],
+      "solved": true,
+      "verdict_title": "档案归位。",
+      "recap_labels": [
+        "逻辑复盘 · 可由证据严格证明",
+        "档案后记 · 结案后补充记录",
+        "终章 · 第零号 ／ 结案后补充记录"
+      ],
+      "recap_blocks": 3,
+      "progress_badge": "已归档 0 / 6"
+    }
+  ],
+  "solved_count": 6
+}

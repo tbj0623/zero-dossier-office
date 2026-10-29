@@ -42,6 +42,14 @@ jobs:
       - name: 生成发布状态仪表盘
         run: python tools/build_dashboard.py
 
+      - name: Safari 键盘可达性（index.html <a> 必须带 tabindex）
+        run: python tools/add_tabindex.py --check
+
+      - name: 门禁自证（植入坏输入必须失败）
+        run: |
+          python tests/logic/test_gate_no_remote.py
+          python tests/logic/test_gate_links.py
+
       - name: 封面图泄题检查（tools/check_cover_art.py）
         run: python tools/check_cover_art.py
 
