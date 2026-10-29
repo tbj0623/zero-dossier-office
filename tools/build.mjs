@@ -194,7 +194,12 @@ indexHtml = indexHtml.replace(
   (match, name) => {
     const cssPath = join(outDir, 'styles', `${name}.css`);
     if (!existsSync(cssPath)) return match; // 文件不在就保留原标签，不静默丢样式
-    const css = readFileSync(cssPath, 'utf8');
+    let css = readFileSync(cssPath, 'utf8');
+    // 关键：CSS 一旦内联进 index.html，url() 的解析基准就从
+    // "/styles/app.css" 变成文档本身。原本正确的 "../assets/x" 会变成域名根的
+    // "/assets/x"，在 GitHub Pages 项目站点（挂在 /zero-dossier-office/ 下）直接 404。
+    // 这是 Lighthouse 实测抓到的真实 bug（errors-in-console 扣分 + 首屏背景丢失）。
+    css = css.replace(/url\((['"]?)\.\.\/assets\//g, 'url($1./assets/');
     inlinedCount += 1;
     return `<style data-inlined="${name}">\n${css}\n</style>`;
   },
