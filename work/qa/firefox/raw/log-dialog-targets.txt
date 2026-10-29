@@ -1,0 +1,60 @@
+$ python probe_dialog_targets.py
+exit=0 duration=52.5s
+
+--- stdout ---
+dialog probe: chromium
+touch audit: chromium
+dialog probe: firefox
+touch audit: firefox
+==================================================================
+chromium DIALOG FOCUS
+   open     -> button id='' confirm='ok' inDialog=True
+   tab1     -> body id='' confirm='' inDialog=False
+   tab2     -> button id='' confirm='cancel' inDialog=True
+   tab3     -> button id='' confirm='ok' inDialog=True
+   tab4     -> body id='' confirm='' inDialog=False
+   tab5     -> button id='' confirm='cancel' inDialog=True
+   tab6     -> button id='' confirm='ok' inDialog=True
+   backward: ['cancel', '', 'ok', 'cancel']
+   open state: {'open': True, 'returnValue': ''} after esc: {'open': False, 'returnValue': ''}
+
+chromium TOUCH TARGETS @390
+   home     n= 15 minW=44 minH=44 undersized=0
+        nav_open: n=18 undersized=0
+   cabinet  n= 13 minW=44 minH=44 undersized=0
+        nav_open: n=16 undersized=0
+   desk     n= 26 minW=44 minH=44 undersized=0
+        nav_open: n=29 undersized=0
+   manual   n=  8 minW=44 minH=44 undersized=0
+        nav_open: n=11 undersized=0
+   about    n=  7 minW=44 minH=44 undersized=0
+        nav_open: n=10 undersized=0
+   verdict  n= 10 minW=44 minH=44 undersized=0
+==================================================================
+firefox DIALOG FOCUS
+   open     -> button id='' confirm='ok' inDialog=True
+   tab1     -> button id='' confirm='ok' inDialog=True
+   tab2     -> button id='' confirm='ok' inDialog=True
+   tab3     -> button id='' confirm='ok' inDialog=True
+   tab4     -> button id='' confirm='ok' inDialog=True
+   tab5     -> button id='' confirm='ok' inDialog=True
+   tab6     -> button id='' confirm='ok' inDialog=True
+   backward: ['cancel', 'confirm-dialog', 'confirm-dialog', 'confirm-dialog']
+   open state: {'open': True, 'returnValue': ''} after esc: {'open': False, 'returnValue': ''}
+
+firefox TOUCH TARGETS @390
+   home     n= 15 minW=44 minH=44 undersized=0
+        nav_open: n=18 undersized=0
+   cabinet  n= 13 minW=44 minH=44 undersized=0
+        nav_open: n=16 undersized=0
+   desk     n= 26 minW=44 minH=44 undersized=0
+        nav_open: n=29 undersized=0
+   manual   n=  8 minW=44 minH=44 undersized=0
+        nav_open: n=11 undersized=0
+   about    n=  7 minW=44 minH=44 undersized=0
+        nav_open: n=10 undersized=0
+   verdict  n= 10 minW=44 minH=44 undersized=0
+-> raw/dialog-and-targets.json
+
+--- stderr ---
+

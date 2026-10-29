@@ -1,0 +1,87 @@
+========================================================================
+The Zero Dossier Office — EN localization validation
+========================================================================
+
+[1] Case set
+  ok    cases present: NA-001, NA-002, NA-003, NA-004, NA-005, NA-006
+
+[2] Per-case field and array parity (a: evidence ids, b: hints, c: slots)
+
+  NA-001  “末班车的四张车票”
+  ok    NA-001: all 12 text fields present and non-empty
+  ok    NA-001: (a) 3 evidence ids match exactly [E01, E02, E03]
+  ok    NA-001: (b) 3 hints, same count, none empty
+  ok    NA-001: (c) 4 slots, same count → [22:00 | 22:10 | 22:20 | 22:30]
+  ok    NA-001: 4 items, all unique → [Blue Ticket | Green Ticket | Red Ticket | Yellow Ticket]
+  ok    NA-001: 3 constraints, ids/ops identical to source, each with English text
+  ok    NA-001: no CJK left in English prose
+
+  NA-002  “封存室的四格抽屉”
+  ok    NA-002: all 12 text fields present and non-empty
+  ok    NA-002: (a) 3 evidence ids match exactly [E01, E02, E03]
+  ok    NA-002: (b) 3 hints, same count, none empty
+  ok    NA-002: (c) 4 slots, same count → [Drawer 1 | Drawer 2 | Drawer 3 | Drawer 4]
+  ok    NA-002: 4 items, all unique → [Silver Badge | Sea Chart | Glass Sphere | Brass Key]
+  ok    NA-002: 3 constraints, ids/ops identical to source, each with English text
+  ok    NA-002: no CJK left in English prose
+
+  NA-003  “静默分拣线上的五个包裹”
+  ok    NA-003: all 12 text fields present and non-empty
+  ok    NA-003: (a) 4 evidence ids match exactly [E01, E02, E03, E04]
+  ok    NA-003: (b) 3 hints, same count, none empty
+  ok    NA-003: (c) 5 slots, same count → [Slot 1 | Slot 2 | Slot 3 | Slot 4 | Slot 5]
+  ok    NA-003: 5 items, all unique → [Red Box | Paper Crane | Star Chart | Brass Bell | Blue Lamp]
+  ok    NA-003: 4 constraints, ids/ops identical to source, each with English text
+  ok    NA-003: no CJK left in English prose
+
+  NA-004  “灯塔没有亮起的第五盏灯”
+  ok    NA-004: all 12 text fields present and non-empty
+  ok    NA-004: (a) 4 evidence ids match exactly [E01, E02, E03, E04]
+  ok    NA-004: (b) 3 hints, same count, none empty
+  ok    NA-004: (c) 5 slots, same count → [Slot 1 | Slot 2 | Slot 3 | Slot 4 | Slot 5]
+  ok    NA-004: 5 items, all unique → [Glass Shade | Old Lens | Brass Bell | Marine Chart | Duty Log]
+  ok    NA-004: 4 constraints, ids/ops identical to source, each with English text
+  ok    NA-004: no CJK left in English prose
+
+  NA-005  “寄不到的第五封回信”
+  ok    NA-005: all 12 text fields present and non-empty
+  ok    NA-005: (a) 4 evidence ids match exactly [E01, E02, E03, E04]
+  ok    NA-005: (b) 3 hints, same count, none empty
+  ok    NA-005: (c) 5 slots, same count → [Mailbag slot 1 | Mailbag slot 2 | Mailbag slot 3 | Mailbag slot 4 | Mailbag slot 5]
+  ok    NA-005: 5 items, all unique → [Night Flight Application | Red Wax Letter | Morning Mist Note | Blank Return Envelope | Harbor Slip]
+  ok    NA-005: 4 constraints, ids/ops identical to source, each with English text
+  ok    NA-005: no CJK left in English prose
+
+  NA-006  “第零号空白底片”
+  ok    NA-006: all 12 text fields present and non-empty
+  ok    NA-006: (a) 4 evidence ids match exactly [E01, E02, E03, E04]
+  ok    NA-006: (b) 3 hints, same count, none empty
+  ok    NA-006: (c) 6 slots, same count → [Exposure 1 | Exposure 2 | Exposure 3 | Exposure 4 | Exposure 5 | Exposure 6]
+  ok    NA-006: 6 items, all unique → [Blank Negative | Bell Tower Image | Glass Image | Rain Curtain Image | Lighthouse Image | Paper Boat Image]
+  ok    NA-006: 4 constraints, ids/ops identical to source, each with English text
+  ok    NA-006: no CJK left in English prose
+
+[3] Item glossary consistency across cases (same zh item ⇒ same en name)
+  ok    28 distinct source item names, every one rendered with a single consistent English name
+  ok    28 English item names are all distinct from one another
+
+[4] Logic audit — (i) both items of every constraint are named, (ii) the relation word survives
+  ok    all 22 evidence→constraint links name both items and keep their op marker
+
+[5] ui.json
+  → 265 UI entries; 0 placeholder mismatches, 0 empties, 0 with stray CJK
+  ok    265 UI strings: every entry has zh+en and identical placeholder sets
+  ok    all 25 distinct placeholders are documented in _meta.placeholder_glossary
+
+[6] Glossary: 32 entries in cases.json _meta.glossary
+
+========================================================================
+RESULT: PASS — 0 failures, 0 warnings
+  cases                 : 6
+  UI strings            : 265
+  glossary entries      : 32
+  evidence-id checks    : 22
+  hint-count checks     : 6
+  slot-length checks    : 6
+  logic-marker checks   : 22
+========================================================================

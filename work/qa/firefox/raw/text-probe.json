@@ -1,0 +1,197 @@
+{
+  "when": "2026-10-30T03:15:01+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "chromium": {
+    "version": "151.0.7922.34",
+    "bodyFamily": "\"Noto Sans SC\", \"Source Han Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", \"Hiragino Sans GB\", system-ui, -apple-system, sans-serif",
+    "h1Family": "\"Songti SC\", SimSun, \"Noto Serif SC\", \"Source Han Serif SC\", Georgia, serif",
+    "h1Size": "70.4px",
+    "bodySize": "16.32px",
+    "available": {
+      "Noto Sans SC": true,
+      "Source Han Sans SC": true,
+      "PingFang SC": true,
+      "Microsoft YaHei": true,
+      "Songti SC": true,
+      "SimSun": true,
+      "Noto Serif SC": true,
+      "Georgia": true,
+      "system-ui": true,
+      "sans-serif": true,
+      "serif": true
+    },
+    "canvasMeasured": {
+      "bodyStack": {
+        "cjk": 208,
+        "latin": 170.9
+      },
+      "h1Stack": {
+        "cjk": 915.2,
+        "latin": 809.6
+      },
+      "genericSerif": {
+        "cjk": 624,
+        "latin": 552
+      },
+      "genericSans": {
+        "cjk": 208,
+        "latin": 179.47
+      },
+      "simsun": {
+        "cjk": 624,
+        "latin": 552
+      },
+      "songti": {
+        "cjk": 624,
+        "latin": 538.41
+      },
+      "yahei": {
+        "cjk": 208,
+        "latin": 179.47
+      }
+    },
+    "h1Lines": {
+      "count": 3,
+      "lines": [
+        {
+          "top": 257,
+          "left": 130,
+          "right": 492
+        },
+        {
+          "top": 331,
+          "left": 130,
+          "right": 850
+        },
+        {
+          "top": 334,
+          "left": 130,
+          "right": 710
+        }
+      ]
+    },
+    "ledeLines": {
+      "count": 2,
+      "lines": [
+        {
+          "top": 434,
+          "left": 130,
+          "right": 744
+        },
+        {
+          "top": 467,
+          "left": 130,
+          "right": 476
+        }
+      ]
+    },
+    "eyebrowLines": {
+      "count": 1,
+      "lines": [
+        {
+          "top": 219,
+          "left": 130,
+          "right": 457
+        }
+      ]
+    },
+    "ledeWidth": "618.047px",
+    "ledeTextWrap": "pretty",
+    "h1TextWrap": "balance",
+    "pTextWrap": "pretty"
+  },
+  "firefox": {
+    "version": "153.0",
+    "bodyFamily": "\"Noto Sans SC\", \"Source Han Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", \"Hiragino Sans GB\", system-ui, -apple-system, sans-serif",
+    "h1Family": "\"Songti SC\", \"SimSun\", \"Noto Serif SC\", \"Source Han Serif SC\", Georgia, serif",
+    "h1Size": "70.4px",
+    "bodySize": "16.32px",
+    "available": {
+      "Noto Sans SC": true,
+      "Source Han Sans SC": true,
+      "PingFang SC": true,
+      "Microsoft YaHei": true,
+      "Songti SC": true,
+      "SimSun": true,
+      "Noto Serif SC": true,
+      "Georgia": true,
+      "system-ui": true,
+      "sans-serif": true,
+      "serif": true
+    },
+    "canvasMeasured": {
+      "bodyStack": {
+        "cjk": 208,
+        "latin": 170.88
+      },
+      "h1Stack": {
+        "cjk": 910,
+        "latin": 805
+      },
+      "genericSerif": {
+        "cjk": 624,
+        "latin": 552
+      },
+      "genericSans": {
+        "cjk": 208,
+        "latin": 179.45
+      },
+      "simsun": {
+        "cjk": 624,
+        "latin": 552
+      },
+      "songti": {
+        "cjk": 624,
+        "latin": 538.37
+      },
+      "yahei": {
+        "cjk": 208,
+        "latin": 179.45
+      }
+    },
+    "h1Lines": {
+      "count": 2,
+      "lines": [
+        {
+          "top": 255,
+          "left": 130,
+          "right": 492
+        },
+        {
+          "top": 331,
+          "left": 130,
+          "right": 850
+        }
+      ]
+    },
+    "ledeLines": {
+      "count": 2,
+      "lines": [
+        {
+          "top": 435,
+          "left": 130,
+          "right": 744
+        },
+        {
+          "top": 467,
+          "left": 130,
+          "right": 476
+        }
+      ]
+    },
+    "eyebrowLines": {
+      "count": 1,
+      "lines": [
+        {
+          "top": 220,
+          "left": 130,
+          "right": 457
+        }
+      ]
+    },
+    "ledeWidth": "617.7px",
+    "ledeTextWrap": "wrap",
+    "h1TextWrap": "balance",
+    "pTextWrap": "wrap"
+  }
+}

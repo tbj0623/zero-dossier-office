@@ -1,0 +1,705 @@
+{
+  "_meta": {
+    "locale": "en",
+    "source_locale": "zh-CN",
+    "note": "English localization of all six dossiers (NA-001 … NA-006) of The Zero Dossier Office. Source: cases/public/*.json. Puzzle-bearing sentences were translated by preserving the exact rule each one encodes, and every translated body was re-checked against its constraint after translation. No clue was added, removed, softened, or strengthened.",
+    "structural_note": "Beyond the fields requested (title, subtitle, setting, objective, slots, evidence[].title/.body, hints, resolution, twist, motif, director_note, logic_recap, epilogue) this file also carries difficulty, chapter, theme, play_minutes, and evidence[].type, because all of them are rendered on screen. They are copies of the source values, not new content. Constraint objects, item order, and ids are deliberately NOT translated: they are the engine's data and must match the Chinese source byte for byte.",
+    "items_note": "cases[ID].items is included (English item names in the same order as the source arrays) so the Lead can map engine item strings to display names without re-deriving them. The engine's constraint strings remain Chinese; translation must happen at display time.",
+    "slots_note": "Slot labels are translated position by position and keep their order. Clock-time labels (22:00–22:30, NA-001) are left numeric.",
+    "punctuation_note": "Chinese full-width punctuation is replaced by English punctuation. Curly quotes “ ” stand in for 「」 and 「」-style quotation. The half-stamp glyph “0” is kept as a glyph, not spelled out.",
+    "type_glossary": {
+      "物证": "Physical evidence",
+      "记录": "Record",
+      "证词": "Testimony",
+      "设备记录": "Equipment record",
+      "影像记录": "Image record",
+      "机器记录": "Machine record",
+      "现场记录": "Scene record",
+      "文字记录": "Written record"
+    },
+    "glossary": {
+      "第零证物局": {
+        "zh": "第零证物局",
+        "en": "The Zero Dossier Office"
+      },
+      "雾港": {
+        "zh": "雾港",
+        "en": "Fog Harbor"
+      },
+      "局长·陆柏": {
+        "zh": "局长·陆柏",
+        "en": "Director Lu Bo"
+      },
+      "传档员·祁灯": {
+        "zh": "传档员·祁灯",
+        "en": "Registrar Qi Deng"
+      },
+      "红票": {
+        "zh": "红票",
+        "en": "Red Ticket"
+      },
+      "蓝票": {
+        "zh": "蓝票",
+        "en": "Blue Ticket"
+      },
+      "黄票": {
+        "zh": "黄票",
+        "en": "Yellow Ticket"
+      },
+      "绿票": {
+        "zh": "绿票",
+        "en": "Green Ticket"
+      },
+      "铜钥匙": {
+        "zh": "铜钥匙",
+        "en": "Brass Key"
+      },
+      "银徽章": {
+        "zh": "银徽章",
+        "en": "Silver Badge"
+      },
+      "航海图": {
+        "zh": "航海图",
+        "en": "Sea Chart"
+      },
+      "玻璃球": {
+        "zh": "玻璃球",
+        "en": "Glass Sphere"
+      },
+      "红盒": {
+        "zh": "红盒",
+        "en": "Red Box"
+      },
+      "纸鹤": {
+        "zh": "纸鹤",
+        "en": "Paper Crane"
+      },
+      "铜铃": {
+        "zh": "铜铃",
+        "en": "Brass Bell"
+      },
+      "星图": {
+        "zh": "星图",
+        "en": "Star Chart"
+      },
+      "蓝灯": {
+        "zh": "蓝灯",
+        "en": "Blue Lamp"
+      },
+      "玻璃罩": {
+        "zh": "玻璃罩",
+        "en": "Glass Shade"
+      },
+      "旧透镜": {
+        "zh": "旧透镜",
+        "en": "Old Lens"
+      },
+      "海图": {
+        "zh": "海图",
+        "en": "Marine Chart"
+      },
+      "值班簿": {
+        "zh": "值班簿",
+        "en": "Duty Log"
+      },
+      "晨雾邮笺": {
+        "zh": "晨雾邮笺",
+        "en": "Morning Mist Note"
+      },
+      "港口便条": {
+        "zh": "港口便条",
+        "en": "Harbor Slip"
+      },
+      "红蜡封信": {
+        "zh": "红蜡封信",
+        "en": "Red Wax Letter"
+      },
+      "夜航申请": {
+        "zh": "夜航申请",
+        "en": "Night Flight Application"
+      },
+      "空白回邮": {
+        "zh": "空白回邮",
+        "en": "Blank Return Envelope"
+      },
+      "空白底片": {
+        "zh": "空白底片",
+        "en": "Blank Negative"
+      },
+      "钟楼影": {
+        "zh": "钟楼影",
+        "en": "Bell Tower Image"
+      },
+      "纸船影": {
+        "zh": "纸船影",
+        "en": "Paper Boat Image"
+      },
+      "玻璃影": {
+        "zh": "玻璃影",
+        "en": "Glass Image"
+      },
+      "雨幕影": {
+        "zh": "雨幕影",
+        "en": "Rain Curtain Image"
+      },
+      "灯塔影": {
+        "zh": "灯塔影",
+        "en": "Lighthouse Image"
+      }
+    },
+    "glossary_notes": {
+      "航海图 vs 海图": "Two distinct Chinese item names in two different cases. 航海图 (NA-002) is rendered “Sea Chart”; 海图 (NA-004) is rendered “Marine Chart”, so no two items inside any single case share an English name.",
+      "空白底片": "Rendered “Blank Negative” everywhere. The related but distinct 空白回邮 (NA-005) is “Blank Return Envelope”.",
+      "底片系列": "The five exposed negatives follow one pattern — X影 becomes “X Image” — so the family reads as a set: Bell Tower Image, Paper Boat Image, Glass Image, Rain Curtain Image, Lighthouse Image.",
+      "铜铃": "Appears in both NA-003 and NA-004; always “Brass Bell”.",
+      "半枚「0」章": "Kept as the glyph “0” in running prose. It is a stamped mark, never a number, and must not be replaced with the word “zero”."
+    },
+    "glossary_shape": "key = canonical Chinese item id (what the engine stores), value = { zh, en }. The runtime reads glossary[canonical].en to display item names, so the nested shape is required; a flat string map silently falls back to Chinese.",
+    "constraints_note": "cases[ID].constraints[] mirrors the Chinese source constraints exactly (same ids, ops, and canonical item ids — these are engine data and must not be translated). The extra \"text\" field is the English sentence shown in the verdict table, generated from the ui.json rules.* templates plus the translated item names and slot labels, so the table and the evidence card always word a relation identically.",
+    "type_note": "each evidence entry carries `type` (the card's small label: Physical evidence / Record / Testimony / …), translated from _meta.type_glossary so the runtime never has to look it up separately."
+  },
+  "cases": {
+    "NA-001": {
+      "title": "The Four Tickets of the Last Tram",
+      "subtitle": "One tram's ticket punch left four stubs that no longer line up, all within half an hour.",
+      "difficulty": "Beginner",
+      "chapter": 1,
+      "theme": "Opening: the displaced records of Fog Harbor",
+      "play_minutes": [
+        3,
+        5
+      ],
+      "setting": "Fog Harbor, the old loop-line station, 22:00–22:30. Four ticket stubs in different colors were torn off, and the original order of entry was lost. The stationmaster believes only one arrangement agrees with every record.",
+      "objective": "Put the Red Ticket, Blue Ticket, Yellow Ticket, and Green Ticket back into the four punch times, from earliest to latest.",
+      "slots": [
+        "22:00",
+        "22:10",
+        "22:20",
+        "22:30"
+      ],
+      "items": [
+        "Blue Ticket",
+        "Green Ticket",
+        "Red Ticket",
+        "Yellow Ticket"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "title": "Stubs Stuck Together",
+          "type": "Physical evidence",
+          "body": "Two stubs share the same crease along their edges. The register sheet shows that the Red Ticket's time comes immediately before the Blue Ticket's, with no other ticket in between."
+        },
+        {
+          "id": "E02",
+          "title": "Receipt from the Lighthouse Station",
+          "type": "Record",
+          "body": "The clerk at the Lighthouse Station wrote in his notes: “The Green Ticket was entered after the Yellow Ticket.”"
+        },
+        {
+          "id": "E03",
+          "title": "The Maintenance Bell",
+          "type": "Testimony",
+          "body": "The ticket inspector confirms: when the bell first rang at 22:00, the machine did not print the Yellow Ticket."
+        }
+      ],
+      "hints": [
+        "First treat the Red Ticket and the Blue Ticket as one pair that cannot be separated.",
+        "The Green Ticket must come after the Yellow Ticket, and the Yellow Ticket cannot take the first position.",
+        "Put the Red–Blue pair in the first two positions, then see where the remaining two can go."
+      ],
+      "resolution": "The four stubs were not a machine fault. The night shift put the torn stubs back into the wrong pages of the ticket book, so they were entered in the order they were found rather than the order they were punched. According to the shift log, the four intervals match the timetable.",
+      "twist": "The stubs were filed into the wrong pages of the ticket book — what went wrong was the filing order, not the punch.",
+      "motif": "After the crowd had gone, the inspector found on the back of a stub a “0” stamped only on its left half — as if someone had been called away mid-stamp.",
+      "logic_recap": "The Red Ticket comes immediately before the Blue Ticket; the Green Ticket comes after the Yellow Ticket; the Yellow Ticket cannot take the first slot. Applied together to the four punch times, these leave only: Red → Blue → Yellow → Green.",
+      "epilogue": "Record added after closing: when the night manager filed the four stubs back into the ticket book, he had no idea what he had disordered. He remembered that the fog was heavy that night, and that the last tram ran seven minutes late. The next day he closed the book, and the half “0” showed through from the inside of the cover, like a full stop left unfinished.",
+      "director_note": "Tickets don't misplace themselves. People do.",
+      "constraints": [
+        {
+          "id": "C01",
+          "op": "immediately_before",
+          "a": "红票",
+          "b": "蓝票",
+          "text": "Red Ticket comes immediately before Blue Ticket, with nothing in between."
+        },
+        {
+          "id": "C02",
+          "op": "before",
+          "a": "黄票",
+          "b": "绿票",
+          "text": "Yellow Ticket is before Green Ticket (not required to be adjacent)."
+        },
+        {
+          "id": "C03",
+          "op": "not_at",
+          "a": "黄票",
+          "slot": 0,
+          "text": "Yellow Ticket is not in slot 1 (22:00)."
+        }
+      ]
+    },
+    "NA-002": {
+      "title": "The Four Drawers of the Sealed Room",
+      "subtitle": "Overnight, four exhibits had their numbers swapped in the inventory book.",
+      "difficulty": "Advanced",
+      "chapter": 1,
+      "theme": "Opening: the displaced records of Fog Harbor",
+      "play_minutes": [
+        4,
+        7
+      ],
+      "setting": "The four-drawer storage wall in the old building of the Fog Harbor evidence office. The drawers are numbered 1 to 4, left to right. A brass key, a silver badge, a sea chart, and a glass sphere each occupy one drawer.",
+      "objective": "Using the traces left at the scene, restore the slot each of the four exhibits should hold in the inventory book.",
+      "slots": [
+        "Drawer 1",
+        "Drawer 2",
+        "Drawer 3",
+        "Drawer 4"
+      ],
+      "items": [
+        "Silver Badge",
+        "Sea Chart",
+        "Glass Sphere",
+        "Brass Key"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "title": "Scratches on the Wall",
+          "type": "Physical evidence",
+          "body": "The Silver Badge's drawer is immediately to the left of the Brass Key's, with no other drawer in between."
+        },
+        {
+          "id": "E02",
+          "title": "The Drawer Locked Last",
+          "type": "Record",
+          "body": "The rightmost drawer held the Glass Sphere the whole time."
+        },
+        {
+          "id": "E03",
+          "title": "Note from the Previous Custodian",
+          "type": "Testimony",
+          "body": "The Sea Chart's drawer is to the left of the Silver Badge's."
+        }
+      ],
+      "hints": [
+        "Start by fixing the Glass Sphere at the far right.",
+        "The Silver Badge must sit immediately to the left of the Brass Key.",
+        "The Sea Chart must in turn be left of the Silver Badge, so this chain can only occupy the first three positions."
+      ],
+      "resolution": "Nothing was stolen. While the drawer panels were being replaced, the “slot” column of the inventory book was copied a row out of step — the number from row 4 was written into row 2. The exhibits never moved; the book was what went wrong.",
+      "twist": "What had been exchanged was neither the exhibits nor the name plates, but a whole column of slot numbers in the inventory book.",
+      "motif": "On the old card lining a drawer there was a faint ring, dark on its left half and almost invisible on its right.",
+      "logic_recap": "The Glass Sphere is fixed in the fourth slot; the Silver Badge sits immediately left of the Brass Key; the Sea Chart is in turn left of the Silver Badge. So the first three slots are, in order: Sea Chart, Silver Badge, Brass Key.",
+      "epilogue": "Record added after closing: the apprentice replacing the panels was copying the old book into a new one when, at the third row, he was called away to carry something; when he came back he picked up a row too low. The four objects never moved, but that page has never matched since.",
+      "director_note": "Read the dust before the label.",
+      "constraints": [
+        {
+          "id": "C01",
+          "op": "immediately_before",
+          "a": "银徽章",
+          "b": "铜钥匙",
+          "text": "Silver Badge comes immediately before Brass Key, with nothing in between."
+        },
+        {
+          "id": "C02",
+          "op": "at",
+          "a": "玻璃球",
+          "slot": 3,
+          "text": "Glass Sphere is fixed in slot 4 (Drawer 4)."
+        },
+        {
+          "id": "C03",
+          "op": "before",
+          "a": "航海图",
+          "b": "银徽章",
+          "text": "Sea Chart is before Silver Badge (not required to be adjacent)."
+        }
+      ]
+    },
+    "NA-003": {
+      "title": "Five Parcels on the Silent Sorting Line",
+      "subtitle": "The belt never stopped, yet in the records the five items survive only as fragments that do not overlap.",
+      "difficulty": "Challenge",
+      "chapter": 1,
+      "theme": "Opening: the displaced records of Fog Harbor",
+      "play_minutes": [
+        6,
+        10
+      ],
+      "setting": "After maintenance, the midnight sorting line at the Fog Harbor post office had lost the color marks on its five slots. All that remained were a few partial observations from different sensors.",
+      "objective": "Restore the Red Box, Paper Crane, Brass Bell, Star Chart, and Blue Lamp to their correct order, from slot 1 to slot 5.",
+      "slots": [
+        "Slot 1",
+        "Slot 2",
+        "Slot 3",
+        "Slot 4",
+        "Slot 5"
+      ],
+      "items": [
+        "Red Box",
+        "Paper Crane",
+        "Star Chart",
+        "Brass Bell",
+        "Blue Lamp"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "title": "Belt Vibration Log",
+          "type": "Equipment record",
+          "body": "The Brass Bell's slot comes immediately before the Star Chart's; the two are adjacent."
+        },
+        {
+          "id": "E02",
+          "title": "Door-Camera Footage",
+          "type": "Image record",
+          "body": "The belt runs in order from slot 1 to slot 5; the higher the number, the later the item passed the sensor. The Red Box passed the sensor before the Brass Bell."
+        },
+        {
+          "id": "E03",
+          "title": "Scan of the Final Slot",
+          "type": "Equipment record",
+          "body": "The last slot, the fifth, did not hold the Star Chart."
+        },
+        {
+          "id": "E04",
+          "title": "The Creased Wing of the Paper Crane",
+          "type": "Physical evidence",
+          "body": "The Paper Crane comes immediately after the Red Box; the two occupy adjacent slots."
+        }
+      ],
+      "hints": [
+        "First find the two adjacent pairs: Red Box–Paper Crane and Brass Bell–Star Chart.",
+        "The Red Box comes before the Brass Bell, so the order of the two pairs is already settled.",
+        "The Star Chart cannot appear in the last slot, so the remaining item, the Blue Lamp, can only take the last slot."
+      ],
+      "resolution": "There was no ghost on the sorting line, and no parcel went missing. Each of the three sensors covered only a short stretch of the belt: one saw the Red Box and the Paper Crane, one saw the Brass Bell and the Star Chart, and the third caught only the last two slots. Only by joining the three end to end does a complete timeline appear.",
+      "twist": "The logs that seemed impossible to join came, in fact, from three observation windows that never overlapped.",
+      "motif": "Across the seam of the equipment log was an incomplete round stamp: the right half torn away, leaving only the left half of a “0”.",
+      "logic_recap": "The Red Box comes immediately before the Paper Crane, the Brass Bell immediately before the Star Chart, and the Red Box before the Brass Bell; the Star Chart cannot be fifth. The five slots can only be, in order: Red Box, Paper Crane, Brass Bell, Star Chart, Blue Lamp.",
+      "epilogue": "Record added after closing: the three clips had been filed in three separate envelopes, and no one had written that they showed the same belt. The maintenance man laid the three sheets side by side and compared them for a long while before he saw that what had been missing was never the parcels — it was the seams between the three stretches of time.",
+      "director_note": "Three strips, one line.",
+      "constraints": [
+        {
+          "id": "C01",
+          "op": "immediately_before",
+          "a": "铜铃",
+          "b": "星图",
+          "text": "Brass Bell comes immediately before Star Chart, with nothing in between."
+        },
+        {
+          "id": "C02",
+          "op": "before",
+          "a": "红盒",
+          "b": "铜铃",
+          "text": "Red Box is before Brass Bell (not required to be adjacent)."
+        },
+        {
+          "id": "C03",
+          "op": "not_at",
+          "a": "星图",
+          "slot": 4,
+          "text": "Star Chart is not in slot 5 (Slot 5)."
+        },
+        {
+          "id": "C04",
+          "op": "immediately_before",
+          "a": "红盒",
+          "b": "纸鹤",
+          "text": "Red Box comes immediately before Paper Crane, with nothing in between."
+        }
+      ]
+    },
+    "NA-004": {
+      "title": "The Fifth Lamp the Lighthouse Never Lit",
+      "subtitle": "Five maintenance items were listed on a manifest belonging to no shift at all.",
+      "difficulty": "Advanced",
+      "chapter": 2,
+      "theme": "Undercurrent: the lighthouse and the post office",
+      "play_minutes": [
+        5,
+        9
+      ],
+      "setting": "The old lighthouse off Fog Harbor has a five-slot maintenance rack that runs from bottom to top. After the stormy night the cards for the five items were soaked and mixed up, but four records survived that can be checked against one another.",
+      "objective": "Arrange the Brass Bell, Duty Log, Glass Shade, Old Lens, and Marine Chart from rack slot 1 to slot 5.",
+      "slots": [
+        "Slot 1",
+        "Slot 2",
+        "Slot 3",
+        "Slot 4",
+        "Slot 5"
+      ],
+      "items": [
+        "Glass Shade",
+        "Old Lens",
+        "Brass Bell",
+        "Marine Chart",
+        "Duty Log"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "title": "A Tightened Copper Wire",
+          "type": "Physical evidence",
+          "body": "The Brass Bell and the Duty Log sat next to each other; the maintenance worker did not record which of the two was higher."
+        },
+        {
+          "id": "E02",
+          "title": "Rack Teeth Three Slots Apart",
+          "type": "Machine record",
+          "body": "The slot numbers of the Brass Bell and the Old Lens differ by exactly three."
+        },
+        {
+          "id": "E03",
+          "title": "Peeling Paint Mark No. 4",
+          "type": "Scene record",
+          "body": "The Old Lens belongs to the fourth slot, counting from the bottom."
+        },
+        {
+          "id": "E04",
+          "title": "Notes Found at the Top of the Tower",
+          "type": "Testimony",
+          "body": "The Old Lens stands between the Brass Bell and the Marine Chart — and not in the sense of being equidistant from them."
+        }
+      ],
+      "hints": [
+        "Start with the only item whose slot is fixed: the Old Lens is in the fourth slot.",
+        "The Brass Bell is three slots from the Old Lens, so the Brass Bell can only be in the first slot; the Marine Chart must be on the Lens's other side.",
+        "The Brass Bell is adjacent to the Duty Log; fill the remaining slots and the arrangement is complete."
+      ],
+      "resolution": "The order on the maintenance cards was never the order in which the lamps lit and went out; it was the position of the maintenance items on the rack. What actually kept the lighthouse dark all night was that the maintenance bench took an old circuit diagram for that night's new one.",
+      "twist": "An older circuit diagram was taken for that night's new one: the wiring was done to the previous revision, and the main lamp had no power all night. The “fifth lamp” is not a lamp at all; it is a diagram number copied into the wrong place.",
+      "motif": "On the back of a maintenance card was a half-ring “0” pressed very faintly, its edge still carrying the blue lines of the previous revision.",
+      "logic_recap": "The Old Lens is fixed in the fourth slot; the Brass Bell is three slot numbers from the Lens, so the Brass Bell can only be first; the Duty Log sits right beside the Brass Bell, the Marine Chart is on the Lens's other side, and the Glass Shade falls into the third slot.",
+      "epilogue": "Record added after closing: that manifest was an appendix to the previous revision of the diagram. The maintenance man finished the last connection by the old drawing, looked up, saw the main lamp dark, and put it down to heavy fog. The fifth lamp drawn on the old sheet had been abolished at the revision, but its number survived — and so everyone believed a lamp was missing.",
+      "director_note": "The lamp died one revision back.",
+      "constraints": [
+        {
+          "id": "C01",
+          "op": "adjacent",
+          "a": "铜铃",
+          "b": "值班簿",
+          "text": "Brass Bell is adjacent to Duty Log, but the record does not say which comes first."
+        },
+        {
+          "id": "C02",
+          "op": "distance",
+          "a": "铜铃",
+          "b": "旧透镜",
+          "gap": 3,
+          "text": "Brass Bell and Old Lens differ by 3 in slot number (2 items between them)."
+        },
+        {
+          "id": "C03",
+          "op": "at",
+          "a": "旧透镜",
+          "slot": 3,
+          "text": "Old Lens is fixed in slot 4 (Slot 4)."
+        },
+        {
+          "id": "C04",
+          "op": "between",
+          "a": "旧透镜",
+          "b": "铜铃",
+          "c": "海图",
+          "text": "Old Lens lies strictly between Brass Bell and Marine Chart; it need not sit in the middle."
+        }
+      ]
+    },
+    "NA-005": {
+      "title": "The Fifth Reply That Never Arrived",
+      "subtitle": "The post office received five letters and yet claims to have delivered only four.",
+      "difficulty": "Advanced",
+      "chapter": 2,
+      "theme": "Undercurrent: the lighthouse and the post office",
+      "play_minutes": [
+        6,
+        10
+      ],
+      "setting": "At the Fog Harbor post office before dawn, five mailing records were taken out of the transfer clip. The archivist kept only the relative positions of the envelopes, and asks you to restore the order in which they were bagged, left to right, on the delivery cart.",
+      "objective": "Arrange the Morning Mist Note, Harbor Slip, Red Wax Letter, Night Flight Application, and Blank Return Envelope into mailbag slots 1–5.",
+      "slots": [
+        "Mailbag slot 1",
+        "Mailbag slot 2",
+        "Mailbag slot 3",
+        "Mailbag slot 4",
+        "Mailbag slot 5"
+      ],
+      "items": [
+        "Night Flight Application",
+        "Red Wax Letter",
+        "Morning Mist Note",
+        "Blank Return Envelope",
+        "Harbor Slip"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "title": "The Courier's Memory",
+          "type": "Testimony",
+          "body": "In the corner of a sorting receipt someone had written: the Blank Return Envelope did not take the first slot, the one furthest left."
+        },
+        {
+          "id": "E02",
+          "title": "The Old Red Thread at Both Ends",
+          "type": "Physical evidence",
+          "body": "The Night Flight Application's slot lies between the Morning Mist Note and the Blank Return Envelope."
+        },
+        {
+          "id": "E03",
+          "title": "The Number on the Clip",
+          "type": "Equipment record",
+          "body": "The slot numbers of the Morning Mist Note and the Night Flight Application differ by three (two slots lie between them)."
+        },
+        {
+          "id": "E04",
+          "title": "Envelopes with Overlapping Creases",
+          "type": "Physical evidence",
+          "body": "The Red Wax Letter and the Night Flight Application were placed in adjacent slots, but no record was left of which of them came first."
+        }
+      ],
+      "hints": [
+        "Be clear on this first: “between” means the interval between positions, not sitting exactly in the middle.",
+        "The Night Flight Application is three slots from the Morning Mist Note, and it must also lie between the Morning Mist Note and the Blank Return.",
+        "The Red Wax Letter sits against the Night Flight Application, and the Blank Return cannot be at the far left."
+      ],
+      "resolution": "Once the five records were in order, the post office found that the “fifth letter” was a blank return envelope that was never delivered: it had been entered as the fifth formal reply awaiting delivery, which is how the books came to say five received and only four delivered. What went wrong was not the route but the category of the document.",
+      "twist": "A category error: the Blank Return Envelope was entered as the fifth reply awaiting delivery, and so the books read five received, four delivered.",
+      "motif": "On the back of the Blank Return Envelope was the same half-ring stamp found on the old lighthouse maintenance card — two places half a harbor apart.",
+      "logic_recap": "The Morning Mist Note and the Night Flight Application are three slots apart; the Night Flight Application lies between the Morning Mist Note and the Blank Return, and the Blank Return cannot take the first slot. Add the fact that the Red Wax Letter sits right beside the Night Flight Application, and the only lawful order is: Morning Mist, Harbor, Red Wax, Night Flight, Blank.",
+      "epilogue": "Record added after closing: when the old postman slipped the blank return envelope into the awaiting-delivery slot, he only thought the paper felt oddly light. He gave it no more thought — the fog was thick that day, and the boat back was two hours late. The blank return envelope stayed in the bag the whole time and never once left the post office.",
+      "director_note": "Does a blank envelope count as a letter?",
+      "constraints": [
+        {
+          "id": "C01",
+          "op": "not_at",
+          "a": "空白回邮",
+          "slot": 0,
+          "text": "Blank Return Envelope is not in slot 1 (Mailbag slot 1)."
+        },
+        {
+          "id": "C02",
+          "op": "between",
+          "a": "夜航申请",
+          "b": "晨雾邮笺",
+          "c": "空白回邮",
+          "text": "Night Flight Application lies strictly between Morning Mist Note and Blank Return Envelope; it need not sit in the middle."
+        },
+        {
+          "id": "C03",
+          "op": "distance",
+          "a": "晨雾邮笺",
+          "b": "夜航申请",
+          "gap": 3,
+          "text": "Morning Mist Note and Night Flight Application differ by 3 in slot number (2 items between them)."
+        },
+        {
+          "id": "C04",
+          "op": "adjacent",
+          "a": "红蜡封信",
+          "b": "夜航申请",
+          "text": "Red Wax Letter is adjacent to Night Flight Application, but the record does not say which comes first."
+        }
+      ]
+    },
+    "NA-006": {
+      "title": "The Blank Negative No. 0",
+      "subtitle": "Six negatives, only five moments — what does the sixth one record?",
+      "difficulty": "Challenge",
+      "chapter": 3,
+      "theme": "Finale: the record left blank",
+      "play_minutes": [
+        8,
+        12
+      ],
+      "setting": "The Director has left you one last metal box. Inside are the numbers of six exposed negatives; the photographs themselves are damaged, but the bell tower, the harbor, and the post office have left a set of checks on the order in which they were taken.",
+      "objective": "From exposure 1 to exposure 6, restore the order of the Bell Tower Image, Paper Boat Image, Glass Image, Rain Curtain Image, Lighthouse Image, and Blank Negative.",
+      "slots": [
+        "Exposure 1",
+        "Exposure 2",
+        "Exposure 3",
+        "Exposure 4",
+        "Exposure 5",
+        "Exposure 6"
+      ],
+      "items": [
+        "Blank Negative",
+        "Bell Tower Image",
+        "Glass Image",
+        "Rain Curtain Image",
+        "Lighthouse Image",
+        "Paper Boat Image"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "title": "The Old Glass Timer",
+          "type": "Equipment record",
+          "body": "The exposure numbers of the Glass Image and the Blank Negative differ by three; two exposures lie between them."
+        },
+        {
+          "id": "E02",
+          "title": "Continuous Wear on the Film Sprockets",
+          "type": "Physical evidence",
+          "body": "The Rain Curtain Image's exposure comes immediately before the Lighthouse Image's, with no other negative in between."
+        },
+        {
+          "id": "E03",
+          "title": "A Pencil Note Beside the Blank Space",
+          "type": "Written record",
+          "body": "The Lighthouse Image's exposure falls between the Bell Tower Image and the Blank Negative."
+        },
+        {
+          "id": "E04",
+          "title": "The Mask on Slot 2",
+          "type": "Scene record",
+          "body": "The Paper Boat Image's correct slot is the second exposure."
+        }
+      ],
+      "hints": [
+        "The second exposure is already fixed; first form the Rain Curtain and the Lighthouse into one continuous pair.",
+        "The Glass Image and the Blank Negative are three exposure numbers apart; the Lighthouse Image lies between the Bell Tower and the Blank Negative.",
+        "Once those conditions hold, the Blank Negative can only be last, and the Rain Curtain and the Lighthouse fall into the fourth and fifth slots."
+      ],
+      "resolution": "Once the six records were back in order, the Blank Negative was no longer an uncanny sixth photograph: it was a shadowless exposure the photographer made in order to calibrate the aperture; the archivist had wrongly counted the calibration step as evidence alongside real scenes.",
+      "twist": "The so-called “Exhibit No. 0” is not a hidden photograph but a blank record that should have been marked as a calibration and was written down as an event.",
+      "motif": "Inside the covers of all five older dossiers was the same half “0” stamp; beside it the Director had written a single line: the index column was filled in wrong.",
+      "logic_recap": "The Paper Boat Image is the second exposure; the Rain Curtain Image comes immediately before the Lighthouse Image; the Glass Image and the Blank Negative are three exposure numbers apart (two exposures between them); the Lighthouse Image lies between the Bell Tower Image and the Blank Negative. Apply all of this to the six slots at once, and only one order remains: Bell Tower, Paper Boat, Glass, Rain Curtain, Lighthouse, Blank.",
+      "epilogue": "Record added after closing: once the six records were in order, the Blank Negative was no longer an uncanny sixth photograph: it was a shadowless exposure the photographer made in order to calibrate the aperture; the archivist had wrongly counted the calibration step as evidence alongside real scenes.",
+      "director_note": "The index column, not the evidence column.",
+      "constraints": [
+        {
+          "id": "C01",
+          "op": "distance",
+          "a": "玻璃影",
+          "b": "空白底片",
+          "gap": 3,
+          "text": "Glass Image and Blank Negative differ by 3 in slot number (2 items between them)."
+        },
+        {
+          "id": "C02",
+          "op": "immediately_before",
+          "a": "雨幕影",
+          "b": "灯塔影",
+          "text": "Rain Curtain Image comes immediately before Lighthouse Image, with nothing in between."
+        },
+        {
+          "id": "C03",
+          "op": "between",
+          "a": "灯塔影",
+          "b": "钟楼影",
+          "c": "空白底片",
+          "text": "Lighthouse Image lies strictly between Bell Tower Image and Blank Negative; it need not sit in the middle."
+        },
+        {
+          "id": "C04",
+          "op": "at",
+          "a": "纸船影",
+          "slot": 1,
+          "text": "Paper Boat Image is fixed in slot 2 (Exposure 2)."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "base": "http://127.0.0.1:8140",
+  "checks": 12,
+  "passed": 12,
+  "results": [
+    {
+      "ok": true,
+      "name": "html lang=en",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "英文标题",
+      "detail": "These records, \nshould not all be true a"
+    },
+    {
+      "ok": true,
+      "name": "首页无中文残留",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "档案柜 6 张卡",
+      "detail": "6 张"
+    },
+    {
+      "ok": true,
+      "name": "档案柜无中文残留",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "manual 页无中文残留",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "about 页无中文残留",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "英文模式六案通关",
+      "detail": "6/6 ['NA-001', 'NA-002', 'NA-003', 'NA-004', 'NA-005', 'NA-006']"
+    },
+    {
+      "ok": true,
+      "name": "切换前为中文默认",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "点按钮切到英文",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "再点切回中文",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "无控制台错误",
+      "detail": "[]"
+    }
+  ]
+}

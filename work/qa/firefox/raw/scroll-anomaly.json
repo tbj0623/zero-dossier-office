@@ -1,0 +1,375 @@
+{
+  "when": "2026-10-30T03:32:14+0800",
+  "results": {
+    "chromium": {
+      "version": "151.0.7922.34",
+      "runs": [
+        {
+          "trial": 0,
+          "pre": "fresh",
+          "target": "#slots",
+          "scrollY": 346,
+          "stableFrames": 5,
+          "top": 84.53,
+          "headerBottom": 65,
+          "gap": 19.53
+        },
+        {
+          "trial": 0,
+          "pre": "fresh",
+          "target": ".board",
+          "scrollY": 202,
+          "stableFrames": 5,
+          "top": 84,
+          "headerBottom": 65,
+          "gap": 19
+        },
+        {
+          "trial": 0,
+          "pre": "fresh",
+          "target": "#case-title",
+          "scrollY": 112,
+          "stableFrames": 5,
+          "top": 80.39,
+          "headerBottom": 65,
+          "gap": 15.39
+        },
+        {
+          "trial": 0,
+          "pre": "prescrolled",
+          "target": "#slots",
+          "scrollY": 351,
+          "stableFrames": 5,
+          "top": 79.53,
+          "headerBottom": 65,
+          "gap": 14.53
+        },
+        {
+          "trial": 0,
+          "pre": "prescrolled",
+          "target": ".board",
+          "scrollY": 206,
+          "stableFrames": 5,
+          "top": 80.36,
+          "headerBottom": 65,
+          "gap": 15.36
+        },
+        {
+          "trial": 0,
+          "pre": "prescrolled",
+          "target": "#case-title",
+          "scrollY": 112,
+          "stableFrames": 5,
+          "top": 80.39,
+          "headerBottom": 65,
+          "gap": 15.39
+        },
+        {
+          "trial": 1,
+          "pre": "fresh",
+          "target": "#slots",
+          "scrollY": 346,
+          "stableFrames": 5,
+          "top": 84.53,
+          "headerBottom": 65,
+          "gap": 19.53
+        },
+        {
+          "trial": 1,
+          "pre": "fresh",
+          "target": ".board",
+          "scrollY": 202,
+          "stableFrames": 5,
+          "top": 84,
+          "headerBottom": 65,
+          "gap": 19
+        },
+        {
+          "trial": 1,
+          "pre": "fresh",
+          "target": "#case-title",
+          "scrollY": 112,
+          "stableFrames": 5,
+          "top": 80.39,
+          "headerBottom": 65,
+          "gap": 15.39
+        },
+        {
+          "trial": 1,
+          "pre": "prescrolled",
+          "target": "#slots",
+          "scrollY": 351,
+          "stableFrames": 5,
+          "top": 79.53,
+          "headerBottom": 65,
+          "gap": 14.53
+        },
+        {
+          "trial": 1,
+          "pre": "prescrolled",
+          "target": ".board",
+          "scrollY": 206,
+          "stableFrames": 5,
+          "top": 80.36,
+          "headerBottom": 65,
+          "gap": 15.36
+        },
+        {
+          "trial": 1,
+          "pre": "prescrolled",
+          "target": "#case-title",
+          "scrollY": 112,
+          "stableFrames": 5,
+          "top": 80.39,
+          "headerBottom": 65,
+          "gap": 15.39
+        },
+        {
+          "trial": 2,
+          "pre": "fresh",
+          "target": "#slots",
+          "scrollY": 346,
+          "stableFrames": 5,
+          "top": 84.53,
+          "headerBottom": 65,
+          "gap": 19.53
+        },
+        {
+          "trial": 2,
+          "pre": "fresh",
+          "target": ".board",
+          "scrollY": 202,
+          "stableFrames": 5,
+          "top": 84,
+          "headerBottom": 65,
+          "gap": 19
+        },
+        {
+          "trial": 2,
+          "pre": "fresh",
+          "target": "#case-title",
+          "scrollY": 112,
+          "stableFrames": 5,
+          "top": 80.39,
+          "headerBottom": 65,
+          "gap": 15.39
+        },
+        {
+          "trial": 2,
+          "pre": "prescrolled",
+          "target": "#slots",
+          "scrollY": 351,
+          "stableFrames": 5,
+          "top": 79.53,
+          "headerBottom": 65,
+          "gap": 14.53
+        },
+        {
+          "trial": 2,
+          "pre": "prescrolled",
+          "target": ".board",
+          "scrollY": 206,
+          "stableFrames": 5,
+          "top": 80.36,
+          "headerBottom": 65,
+          "gap": 15.36
+        },
+        {
+          "trial": 2,
+          "pre": "prescrolled",
+          "target": "#case-title",
+          "scrollY": 112,
+          "stableFrames": 5,
+          "top": 80.39,
+          "headerBottom": 65,
+          "gap": 15.39
+        }
+      ]
+    },
+    "firefox": {
+      "version": "153.0",
+      "runs": [
+        {
+          "trial": 0,
+          "pre": "fresh",
+          "target": "#slots",
+          "scrollY": 346,
+          "stableFrames": 5,
+          "top": 84.28,
+          "headerBottom": 65,
+          "gap": 19.28
+        },
+        {
+          "trial": 0,
+          "pre": "fresh",
+          "target": ".board",
+          "scrollY": 286,
+          "stableFrames": 5,
+          "top": 0.48,
+          "headerBottom": 65,
+          "gap": -64.52
+        },
+        {
+          "trial": 0,
+          "pre": "fresh",
+          "target": "#case-title",
+          "scrollY": 112,
+          "stableFrames": 5,
+          "top": 80.4,
+          "headerBottom": 65,
+          "gap": 15.4
+        },
+        {
+          "trial": 0,
+          "pre": "prescrolled",
+          "target": "#slots",
+          "scrollY": 387,
+          "stableFrames": 5,
+          "top": 43.28,
+          "headerBottom": 65,
+          "gap": -21.72
+        },
+        {
+          "trial": 0,
+          "pre": "prescrolled",
+          "target": ".board",
+          "scrollY": 286,
+          "stableFrames": 5,
+          "top": 0.48,
+          "headerBottom": 65,
+          "gap": -64.52
+        },
+        {
+          "trial": 0,
+          "pre": "prescrolled",
+          "target": "#case-title",
+          "scrollY": 112,
+          "stableFrames": 5,
+          "top": 80.4,
+          "headerBottom": 65,
+          "gap": 15.4
+        },
+        {
+          "trial": 1,
+          "pre": "fresh",
+          "target": "#slots",
+          "scrollY": 346,
+          "stableFrames": 5,
+          "top": 84.28,
+          "headerBottom": 65,
+          "gap": 19.28
+        },
+        {
+          "trial": 1,
+          "pre": "fresh",
+          "target": ".board",
+          "scrollY": 286,
+          "stableFrames": 5,
+          "top": 0.48,
+          "headerBottom": 65,
+          "gap": -64.52
+        },
+        {
+          "trial": 1,
+          "pre": "fresh",
+          "target": "#case-title",
+          "scrollY": 112,
+          "stableFrames": 5,
+          "top": 80.4,
+          "headerBottom": 65,
+          "gap": 15.4
+        },
+        {
+          "trial": 1,
+          "pre": "prescrolled",
+          "target": "#slots",
+          "scrollY": 387,
+          "stableFrames": 5,
+          "top": 43.28,
+          "headerBottom": 65,
+          "gap": -21.72
+        },
+        {
+          "trial": 1,
+          "pre": "prescrolled",
+          "target": ".board",
+          "scrollY": 286,
+          "stableFrames": 5,
+          "top": 0.48,
+          "headerBottom": 65,
+          "gap": -64.52
+        },
+        {
+          "trial": 1,
+          "pre": "prescrolled",
+          "target": "#case-title",
+          "scrollY": 112,
+          "stableFrames": 5,
+          "top": 80.4,
+          "headerBottom": 65,
+          "gap": 15.4
+        },
+        {
+          "trial": 2,
+          "pre": "fresh",
+          "target": "#slots",
+          "scrollY": 346,
+          "stableFrames": 5,
+          "top": 84.28,
+          "headerBottom": 65,
+          "gap": 19.28
+        },
+        {
+          "trial": 2,
+          "pre": "fresh",
+          "target": ".board",
+          "scrollY": 286,
+          "stableFrames": 5,
+          "top": 0.48,
+          "headerBottom": 65,
+          "gap": -64.52
+        },
+        {
+          "trial": 2,
+          "pre": "fresh",
+          "target": "#case-title",
+          "scrollY": 112,
+          "stableFrames": 5,
+          "top": 80.4,
+          "headerBottom": 65,
+          "gap": 15.4
+        },
+        {
+          "trial": 2,
+          "pre": "prescrolled",
+          "target": "#slots",
+          "scrollY": 387,
+          "stableFrames": 5,
+          "top": 43.28,
+          "headerBottom": 65,
+          "gap": -21.72
+        },
+        {
+          "trial": 2,
+          "pre": "prescrolled",
+          "target": ".board",
+          "scrollY": 286,
+          "stableFrames": 5,
+          "top": 0.48,
+          "headerBottom": 65,
+          "gap": -64.52
+        },
+        {
+          "trial": 2,
+          "pre": "prescrolled",
+          "target": "#case-title",
+          "scrollY": 112,
+          "stableFrames": 5,
+          "top": 80.4,
+          "headerBottom": 65,
+          "gap": 15.4
+        }
+      ]
+    }
+  }
+}

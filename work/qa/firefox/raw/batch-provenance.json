@@ -1,0 +1,88 @@
+{
+  "started": "2026-10-30T03:35:37+0800",
+  "finished": "2026-10-30T03:39:27+0800",
+  "pre": {
+    "app.mjs": "6ee1e4ef8fa316d6565fea0669c36aa942f2751a0fe148a7da84467896995932",
+    "index.html": "061ba534e0aef203d8e7fcaa16c0df464d5fc8aea9a0061aef891c9c88afb88d",
+    "styles/app.css": "c0df93a8a8f872f00021fedddb86a025a0d58851c58685bf3326406147eba721",
+    "styles/base.css": "c258ba1bcb20e4532d6f7106f0e5b56830f599699f9d34c3573e808f4038b58c",
+    "styles/tokens.css": "9bd5a66678e9711300e46a38d77f3406be3a59178869ddce0499525e8d81e4de"
+  },
+  "post": {
+    "app.mjs": "6ee1e4ef8fa316d6565fea0669c36aa942f2751a0fe148a7da84467896995932",
+    "index.html": "061ba534e0aef203d8e7fcaa16c0df464d5fc8aea9a0061aef891c9c88afb88d",
+    "styles/app.css": "c0df93a8a8f872f00021fedddb86a025a0d58851c58685bf3326406147eba721",
+    "styles/base.css": "c258ba1bcb20e4532d6f7106f0e5b56830f599699f9d34c3573e808f4038b58c",
+    "styles/tokens.css": "9bd5a66678e9711300e46a38d77f3406be3a59178869ddce0499525e8d81e4de"
+  },
+  "changed_during_batch": [],
+  "stable_build": true,
+  "suites": [
+    {
+      "suite": "journey",
+      "exit": 0,
+      "seconds": 22.4,
+      "tail": [
+        "[PASS] 10c. No console errors / page errors (mobile 390)",
+        "[PASS] 10d. No third-party network requests (mobile 390) — 0: []",
+        "journey/firefox: 43 PASS / 0 FAIL -> C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\raw\\journey-firefox.json"
+      ]
+    },
+    {
+      "suite": "six-cases",
+      "exit": 0,
+      "seconds": 17.5,
+      "tail": [
+        "[PASS] No console errors during six-case run",
+        "[PASS] No third-party requests during six-case run — 0",
+        "six-cases/firefox: 10 PASS / 0 FAIL -> C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\raw\\six-cases-firefox.json"
+      ]
+    },
+    {
+      "suite": "firefox-specific",
+      "exit": 0,
+      "seconds": 31.4,
+      "tail": [
+        "[PASS] D4. Wide-but-touch (1440px, coarse pointer): grip hidden — display=none hover:none=True",
+        "[PASS] D5. Narrow hover desktop (900px): grip hidden by min-width rule — display=none width=[900, 900]",
+        "firefox-specific/firefox: 30 PASS / 0 FAIL -> C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\raw\\firefox-specific.json"
+      ]
+    },
+    {
+      "suite": "layout-parity",
+      "exit": 0,
+      "seconds": 74.4,
+      "tail": [
+        "case-NA004-390: maxAbsDelta=0.29px worst=board pixelDiff=6.5383%",
+        "cabinet-390: maxAbsDelta=0.09px worst=brand pixelDiff=None%",
+        "-> raw/layout-parity.json"
+      ]
+    },
+    {
+      "suite": "css-risks",
+      "exit": 1,
+      "seconds": 16.1,
+      "tail": []
+    },
+    {
+      "suite": "scroll-isolated",
+      "exit": 0,
+      "seconds": 12.0,
+      "tail": [
+        "  chromium 151.0.7922.34: {\"scrollY\": 351, \"stableFrames\": 5, \"slotsTop\": 79.53, \"headerBottom\": 65, \"hiddenPx\": -14.53, \"hiddenShareOfBoardHeading\": 112.64, \"boardHeadingTop\": -47.64, \"firstButtonTop\": 90.13, \"firstButtonCoveredByHeader\": false, \"hitAtFirstButtonCentre\": \"icon-btn\", \"scrollPadding\": \"80px\", \"mainScrollMargin\": \"80px\"}",
+        "  firefox 153.0: {\"scrollY\": 387, \"stableFrames\": 5, \"slotsTop\": 43.28, \"headerBottom\": 65, \"hiddenPx\": 21.72, \"hiddenShareOfBoardHeading\": 148.52, \"boardHeadingTop\": -83.52, \"firstButtonTop\": 53.9, \"firstButtonCoveredByHeader\": true, \"hitAtFirstButtonCentre\": \"icon-btn\", \"scrollPadding\": \"80px\", \"mainScrollMargin\": \"80px\"}",
+        "-> raw/scroll-into-view-isolated.json"
+      ]
+    },
+    {
+      "suite": "dialog-targets",
+      "exit": 0,
+      "seconds": 52.5,
+      "tail": [
+        "        nav_open: n=10 undersized=0",
+        "   verdict  n= 10 minW=44 minH=44 undersized=0",
+        "-> raw/dialog-and-targets.json"
+      ]
+    }
+  ]
+}

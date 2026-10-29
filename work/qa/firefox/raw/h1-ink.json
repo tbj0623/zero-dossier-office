@@ -1,0 +1,208 @@
+{
+  "when": "2026-10-30T03:42:38+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "engines": {
+    "chromium": {
+      "version": "151.0.7922.34",
+      "views": {
+        "w390": {
+          "box": {
+            "x": 24,
+            "y": 253,
+            "w": 342,
+            "h": 89,
+            "textWrap": "balance",
+            "fontSize": "40.38px"
+          },
+          "ink_lines": [
+            {
+              "y": [
+                4,
+                39
+              ],
+              "x0": 1,
+              "x1": 178,
+              "ink_width": 178
+            },
+            {
+              "y": [
+                48,
+                84
+              ],
+              "x0": 2,
+              "x1": 306,
+              "ink_width": 305
+            }
+          ],
+          "ink_line_count": 2,
+          "shot": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\h1-chromium-w390.png"
+        },
+        "w768": {
+          "box": {
+            "x": 24,
+            "y": 268,
+            "w": 720,
+            "h": 124,
+            "textWrap": "balance",
+            "fontSize": "56.256px"
+          },
+          "ink_lines": [
+            {
+              "y": [
+                3,
+                54
+              ],
+              "x0": 2,
+              "x1": 249,
+              "ink_width": 248
+            },
+            {
+              "y": [
+                64,
+                116
+              ],
+              "x0": 3,
+              "x1": 427,
+              "ink_width": 425
+            }
+          ],
+          "ink_line_count": 2,
+          "shot": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\h1-chromium-w768.png"
+        },
+        "w1440": {
+          "box": {
+            "x": 130,
+            "y": 254,
+            "w": 720,
+            "h": 155,
+            "textWrap": "balance",
+            "fontSize": "70.4px"
+          },
+          "ink_lines": [
+            {
+              "y": [
+                6,
+                69
+              ],
+              "x0": 3,
+              "x1": 311,
+              "ink_width": 309
+            },
+            {
+              "y": [
+                82,
+                146
+              ],
+              "x0": 4,
+              "x1": 534,
+              "ink_width": 531
+            }
+          ],
+          "ink_line_count": 2,
+          "shot": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\h1-chromium-w1440.png"
+        }
+      }
+    },
+    "firefox": {
+      "version": "153.0",
+      "views": {
+        "w390": {
+          "box": {
+            "x": 24,
+            "y": 253,
+            "w": 342,
+            "h": 89,
+            "textWrap": "balance",
+            "fontSize": "40.3667px"
+          },
+          "ink_lines": [
+            {
+              "y": [
+                4,
+                39
+              ],
+              "x0": 1,
+              "x1": 178,
+              "ink_width": 178
+            },
+            {
+              "y": [
+                47,
+                83
+              ],
+              "x0": 2,
+              "x1": 305,
+              "ink_width": 304
+            }
+          ],
+          "ink_line_count": 2,
+          "shot": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\h1-firefox-w390.png"
+        },
+        "w768": {
+          "box": {
+            "x": 24,
+            "y": 268,
+            "w": 720,
+            "h": 124,
+            "textWrap": "balance",
+            "fontSize": "56.25px"
+          },
+          "ink_lines": [
+            {
+              "y": [
+                3,
+                54
+              ],
+              "x0": 2,
+              "x1": 249,
+              "ink_width": 248
+            },
+            {
+              "y": [
+                64,
+                116
+              ],
+              "x0": 3,
+              "x1": 427,
+              "ink_width": 425
+            }
+          ],
+          "ink_line_count": 2,
+          "shot": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\h1-firefox-w768.png"
+        },
+        "w1440": {
+          "box": {
+            "x": 130,
+            "y": 254,
+            "w": 720,
+            "h": 155,
+            "textWrap": "balance",
+            "fontSize": "70.4px"
+          },
+          "ink_lines": [
+            {
+              "y": [
+                4,
+                67
+              ],
+              "x0": 3,
+              "x1": 311,
+              "ink_width": 309
+            },
+            {
+              "y": [
+                81,
+                145
+              ],
+              "x0": 4,
+              "x1": 534,
+              "ink_width": 531
+            }
+          ],
+          "ink_line_count": 2,
+          "shot": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\h1-firefox-w1440.png"
+        }
+      }
+    }
+  }
+}

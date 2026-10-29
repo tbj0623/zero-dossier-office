@@ -1,0 +1,758 @@
+{
+  "when": "2026-10-30T03:14:01+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "chromium": {
+    "version": "151.0.7922.34",
+    "scenes": {
+      "home-1440": {
+        "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "heroBefore": {
+          "backgroundImage": "url(\"https://tbj0623.github.io/zero-dossier-office/assets/harbor-archive-background.webp\")",
+          "backgroundSize": "cover",
+          "backgroundPosition": "50% 38%",
+          "opacity": "0.72",
+          "zIndex": "-2",
+          "inset": "0px"
+        },
+        "heroAfter": {
+          "backgroundImage": "linear-gradient(100deg, rgba(5, 16, 23, 0.96) 8%, rgba(5, 16, 23, 0.78) 45%, rgba(5, 16, 23, 0.42) 78%, rgba(5, 16, 23, 0.72) 100%), radial-gradient(70% 60% at ",
+          "opacity": "1"
+        },
+        "header": {
+          "background": "rgba(6, 20, 28, 0.84)",
+          "backdropFilter": "blur(12px) saturate(1.2)",
+          "webkitBackdropFilter": null,
+          "position": "sticky",
+          "zIndex": "50"
+        },
+        "bodyBg": "rgb(8, 24, 33)",
+        "htmlBg": "rgba(0, 0, 0, 0)",
+        "colorScheme": "dark",
+        "images": [
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+            "complete": true,
+            "nw": 150,
+            "nh": 150,
+            "cw": 38,
+            "ch": 38,
+            "loading": "auto"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+            "complete": true,
+            "nw": 150,
+            "nh": 150,
+            "cw": 40,
+            "ch": 40,
+            "loading": "auto"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-001.webp",
+            "complete": true,
+            "nw": 1150,
+            "nh": 700,
+            "cw": 381,
+            "ch": 214,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-002.webp",
+            "complete": true,
+            "nw": 1150,
+            "nh": 700,
+            "cw": 381,
+            "ch": 214,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-003.webp",
+            "complete": true,
+            "nw": 1150,
+            "nh": 700,
+            "cw": 381,
+            "ch": 214,
+            "loading": "lazy"
+          }
+        ],
+        "supports": {
+          "backdropFilter": true,
+          "webkitBackdropFilter": false,
+          "textWrapBalance": true,
+          "textWrapPretty": true,
+          "aspectRatio": true,
+          "clamp": true,
+          "focusVisible": true,
+          "scrollPaddingTop": true,
+          "dialog": true,
+          "dvh": true,
+          "hoverMedia": true
+        },
+        "heroRect": {
+          "x": 0,
+          "y": 65,
+          "w": 1440,
+          "h": 780
+        },
+        "heroBgDelay": [
+          {
+            "name": "harbor-archive-background.webp",
+            "duration": 711,
+            "size": 183812,
+            "status": 200
+          },
+          {
+            "name": "evidence-case-001.webp",
+            "duration": 318,
+            "size": 21988,
+            "status": 200
+          },
+          {
+            "name": "evidence-case-002.webp",
+            "duration": 332,
+            "size": 15626,
+            "status": 200
+          },
+          {
+            "name": "evidence-case-003.webp",
+            "duration": 338,
+            "size": 26060,
+            "status": 200
+          }
+        ],
+        "shot": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\probe-chromium-home-1440.png",
+        "probes": {
+          "header_bg": {
+            "xy": [
+              720,
+              10
+            ],
+            "rgb": [
+              6,
+              22,
+              30
+            ]
+          },
+          "header_right_empty": {
+            "xy": [
+              1400,
+              32
+            ],
+            "rgb": [
+              5,
+              21,
+              28
+            ]
+          },
+          "below_header": {
+            "xy": [
+              720,
+              75
+            ],
+            "rgb": [
+              5,
+              15,
+              22
+            ]
+          },
+          "hero_mid_left": {
+            "xy": [
+              30,
+              300
+            ],
+            "rgb": [
+              4,
+              15,
+              22
+            ]
+          },
+          "hero_center": {
+            "xy": [
+              720,
+              350
+            ],
+            "rgb": [
+              7,
+              20,
+              27
+            ]
+          },
+          "page_bottom": {
+            "xy": [
+              720,
+              880
+            ],
+            "rgb": [
+              23,
+              49,
+              61
+            ]
+          }
+        }
+      },
+      "home-390": {
+        "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "heroBefore": {
+          "backgroundImage": "url(\"https://tbj0623.github.io/zero-dossier-office/assets/harbor-archive-background.webp\")",
+          "backgroundSize": "cover",
+          "backgroundPosition": "50% 38%",
+          "opacity": "0.72",
+          "zIndex": "-2",
+          "inset": "0px"
+        },
+        "heroAfter": {
+          "backgroundImage": "linear-gradient(100deg, rgba(5, 16, 23, 0.96) 8%, rgba(5, 16, 23, 0.78) 45%, rgba(5, 16, 23, 0.42) 78%, rgba(5, 16, 23, 0.72) 100%), radial-gradient(70% 60% at ",
+          "opacity": "1"
+        },
+        "header": {
+          "background": "rgba(6, 20, 28, 0.84)",
+          "backdropFilter": "blur(12px) saturate(1.2)",
+          "webkitBackdropFilter": null,
+          "position": "sticky",
+          "zIndex": "50"
+        },
+        "bodyBg": "rgb(8, 24, 33)",
+        "htmlBg": "rgba(0, 0, 0, 0)",
+        "colorScheme": "dark",
+        "images": [
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+            "complete": true,
+            "nw": 150,
+            "nh": 150,
+            "cw": 38,
+            "ch": 38,
+            "loading": "auto"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+            "complete": true,
+            "nw": 150,
+            "nh": 150,
+            "cw": 40,
+            "ch": 40,
+            "loading": "auto"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-001.webp",
+            "complete": true,
+            "nw": 1150,
+            "nh": 700,
+            "cw": 340,
+            "ch": 191,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-002.webp",
+            "complete": true,
+            "nw": 1150,
+            "nh": 700,
+            "cw": 340,
+            "ch": 191,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-003.webp",
+            "complete": true,
+            "nw": 1150,
+            "nh": 700,
+            "cw": 340,
+            "ch": 191,
+            "loading": "lazy"
+          }
+        ],
+        "supports": {
+          "backdropFilter": true,
+          "webkitBackdropFilter": false,
+          "textWrapBalance": true,
+          "textWrapPretty": true,
+          "aspectRatio": true,
+          "clamp": true,
+          "focusVisible": true,
+          "scrollPaddingTop": true,
+          "dialog": true,
+          "dvh": true,
+          "hoverMedia": true
+        },
+        "heroRect": {
+          "x": 0,
+          "y": 65,
+          "w": 390,
+          "h": 742.71875
+        },
+        "heroBgDelay": [
+          {
+            "name": "harbor-archive-background.webp",
+            "duration": 316,
+            "size": 183812,
+            "status": 200
+          },
+          {
+            "name": "evidence-case-001.webp",
+            "duration": 92,
+            "size": 21988,
+            "status": 200
+          },
+          {
+            "name": "evidence-case-002.webp",
+            "duration": 88,
+            "size": 15626,
+            "status": 200
+          },
+          {
+            "name": "evidence-case-003.webp",
+            "duration": 96,
+            "size": 26060,
+            "status": 200
+          }
+        ],
+        "shot": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\probe-chromium-home-390.png",
+        "probes": {
+          "header_bg": {
+            "xy": [
+              195,
+              10
+            ],
+            "rgb": [
+              5,
+              21,
+              28
+            ]
+          },
+          "header_right_empty": {
+            "xy": [
+              350,
+              32
+            ],
+            "rgb": [
+              178,
+              178,
+              171
+            ]
+          },
+          "below_header": {
+            "xy": [
+              195,
+              75
+            ],
+            "rgb": [
+              4,
+              15,
+              22
+            ]
+          },
+          "hero_mid_left": {
+            "xy": [
+              30,
+              300
+            ],
+            "rgb": [
+              5,
+              14,
+              20
+            ]
+          },
+          "hero_center": {
+            "xy": [
+              195,
+              350
+            ],
+            "rgb": [
+              5,
+              18,
+              24
+            ]
+          },
+          "page_bottom": {
+            "xy": [
+              195,
+              824
+            ],
+            "rgb": [
+              80,
+              81,
+              68
+            ]
+          }
+        }
+      }
+    }
+  },
+  "firefox": {
+    "version": "153.0",
+    "scenes": {
+      "home-1440": {
+        "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+        "heroBefore": {
+          "backgroundImage": "url(\"https://tbj0623.github.io/zero-dossier-office/assets/harbor-archive-background.webp\")",
+          "backgroundSize": "cover",
+          "backgroundPosition": "50% 38%",
+          "opacity": "0.72",
+          "zIndex": "-2",
+          "inset": "0px"
+        },
+        "heroAfter": {
+          "backgroundImage": "linear-gradient(100deg, rgba(5, 16, 23, 0.96) 8%, rgba(5, 16, 23, 0.78) 45%, rgba(5, 16, 23, 0.42) 78%, rgba(5, 16, 23, 0.72) 100%), radial-gradient(70% 60% at ",
+          "opacity": "1"
+        },
+        "header": {
+          "background": "rgba(6, 20, 28, 0.84)",
+          "backdropFilter": "blur(12px) saturate(1.2)",
+          "webkitBackdropFilter": null,
+          "position": "sticky",
+          "zIndex": "50"
+        },
+        "bodyBg": "rgb(8, 24, 33)",
+        "htmlBg": "rgba(0, 0, 0, 0)",
+        "colorScheme": "dark",
+        "images": [
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+            "complete": true,
+            "nw": 300,
+            "nh": 300,
+            "cw": 38,
+            "ch": 38,
+            "loading": "eager"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+            "complete": true,
+            "nw": 300,
+            "nh": 300,
+            "cw": 40,
+            "ch": 40,
+            "loading": "eager"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-001.webp",
+            "complete": true,
+            "nw": 1150,
+            "nh": 700,
+            "cw": 381,
+            "ch": 214,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-002.webp",
+            "complete": true,
+            "nw": 1150,
+            "nh": 700,
+            "cw": 381,
+            "ch": 214,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-003.webp",
+            "complete": true,
+            "nw": 1150,
+            "nh": 700,
+            "cw": 381,
+            "ch": 214,
+            "loading": "lazy"
+          }
+        ],
+        "supports": {
+          "backdropFilter": true,
+          "webkitBackdropFilter": false,
+          "textWrapBalance": true,
+          "textWrapPretty": false,
+          "aspectRatio": true,
+          "clamp": true,
+          "focusVisible": true,
+          "scrollPaddingTop": true,
+          "dialog": true,
+          "dvh": true,
+          "hoverMedia": true
+        },
+        "heroRect": {
+          "x": 0,
+          "y": 65,
+          "w": 1440,
+          "h": 780
+        },
+        "heroBgDelay": [
+          {
+            "name": "harbor-archive-background.webp",
+            "duration": 536,
+            "size": 183812,
+            "status": 200
+          },
+          {
+            "name": "evidence-case-001.webp",
+            "duration": 106,
+            "size": 21988,
+            "status": 200
+          },
+          {
+            "name": "evidence-case-003.webp",
+            "duration": 115,
+            "size": 26060,
+            "status": 200
+          },
+          {
+            "name": "evidence-case-002.webp",
+            "duration": 115,
+            "size": 15626,
+            "status": 200
+          }
+        ],
+        "shot": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\probe-firefox-home-1440.png",
+        "probes": {
+          "header_bg": {
+            "xy": [
+              720,
+              10
+            ],
+            "rgb": [
+              7,
+              22,
+              30
+            ]
+          },
+          "header_right_empty": {
+            "xy": [
+              1400,
+              32
+            ],
+            "rgb": [
+              6,
+              20,
+              28
+            ]
+          },
+          "below_header": {
+            "xy": [
+              720,
+              75
+            ],
+            "rgb": [
+              6,
+              15,
+              22
+            ]
+          },
+          "hero_mid_left": {
+            "xy": [
+              30,
+              300
+            ],
+            "rgb": [
+              6,
+              16,
+              23
+            ]
+          },
+          "hero_center": {
+            "xy": [
+              720,
+              350
+            ],
+            "rgb": [
+              9,
+              22,
+              28
+            ]
+          },
+          "page_bottom": {
+            "xy": [
+              720,
+              880
+            ],
+            "rgb": [
+              23,
+              49,
+              61
+            ]
+          }
+        }
+      },
+      "home-390": {
+        "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+        "heroBefore": {
+          "backgroundImage": "url(\"https://tbj0623.github.io/zero-dossier-office/assets/harbor-archive-background.webp\")",
+          "backgroundSize": "cover",
+          "backgroundPosition": "50% 38%",
+          "opacity": "0.72",
+          "zIndex": "-2",
+          "inset": "0px"
+        },
+        "heroAfter": {
+          "backgroundImage": "linear-gradient(100deg, rgba(5, 16, 23, 0.96) 8%, rgba(5, 16, 23, 0.78) 45%, rgba(5, 16, 23, 0.42) 78%, rgba(5, 16, 23, 0.72) 100%), radial-gradient(70% 60% at ",
+          "opacity": "1"
+        },
+        "header": {
+          "background": "rgba(6, 20, 28, 0.84)",
+          "backdropFilter": "blur(12px) saturate(1.2)",
+          "webkitBackdropFilter": null,
+          "position": "sticky",
+          "zIndex": "50"
+        },
+        "bodyBg": "rgb(8, 24, 33)",
+        "htmlBg": "rgba(0, 0, 0, 0)",
+        "colorScheme": "dark",
+        "images": [
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+            "complete": true,
+            "nw": 300,
+            "nh": 300,
+            "cw": 38,
+            "ch": 38,
+            "loading": "eager"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/archive-emblem.svg",
+            "complete": true,
+            "nw": 300,
+            "nh": 300,
+            "cw": 40,
+            "ch": 40,
+            "loading": "eager"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-001.webp",
+            "complete": true,
+            "nw": 1150,
+            "nh": 700,
+            "cw": 340,
+            "ch": 191,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-002.webp",
+            "complete": true,
+            "nw": 1150,
+            "nh": 700,
+            "cw": 340,
+            "ch": 191,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://tbj0623.github.io/zero-dossier-office/assets/evidence-case-003.webp",
+            "complete": true,
+            "nw": 1150,
+            "nh": 700,
+            "cw": 340,
+            "ch": 191,
+            "loading": "lazy"
+          }
+        ],
+        "supports": {
+          "backdropFilter": true,
+          "webkitBackdropFilter": false,
+          "textWrapBalance": true,
+          "textWrapPretty": false,
+          "aspectRatio": true,
+          "clamp": true,
+          "focusVisible": true,
+          "scrollPaddingTop": true,
+          "dialog": true,
+          "dvh": true,
+          "hoverMedia": true
+        },
+        "heroRect": {
+          "x": 0,
+          "y": 65,
+          "w": 390,
+          "h": 742.7166748046875
+        },
+        "heroBgDelay": [
+          {
+            "name": "harbor-archive-background.webp",
+            "duration": 368,
+            "size": 183812,
+            "status": 200
+          },
+          {
+            "name": "evidence-case-001.webp",
+            "duration": 119,
+            "size": 21988,
+            "status": 200
+          },
+          {
+            "name": "evidence-case-002.webp",
+            "duration": 130,
+            "size": 15626,
+            "status": 200
+          },
+          {
+            "name": "evidence-case-003.webp",
+            "duration": 130,
+            "size": 26060,
+            "status": 200
+          }
+        ],
+        "shot": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\probe-firefox-home-390.png",
+        "probes": {
+          "header_bg": {
+            "xy": [
+              195,
+              10
+            ],
+            "rgb": [
+              6,
+              20,
+              28
+            ]
+          },
+          "header_right_empty": {
+            "xy": [
+              350,
+              32
+            ],
+            "rgb": [
+              178,
+              178,
+              171
+            ]
+          },
+          "below_header": {
+            "xy": [
+              195,
+              75
+            ],
+            "rgb": [
+              5,
+              16,
+              22
+            ]
+          },
+          "hero_mid_left": {
+            "xy": [
+              30,
+              300
+            ],
+            "rgb": [
+              8,
+              17,
+              22
+            ]
+          },
+          "hero_center": {
+            "xy": [
+              195,
+              350
+            ],
+            "rgb": [
+              8,
+              20,
+              26
+            ]
+          },
+          "page_bottom": {
+            "xy": [
+              195,
+              824
+            ],
+            "rgb": [
+              81,
+              82,
+              69
+            ]
+          }
+        }
+      }
+    }
+  }
+}

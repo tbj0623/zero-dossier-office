@@ -1,0 +1,129 @@
+{
+  "when": "2026-10-30T03:30:15+0800",
+  "backdrop_by_mode": {
+    "firefox-headless": {
+      "version": "153.0",
+      "energy_pane_with_backdrop_filter": 6224.065,
+      "energy_pane_without": 6224.065,
+      "ratio": 1.0,
+      "blur_painted": false
+    },
+    "chromium-headless": {
+      "version": "151.0.7922.34",
+      "energy_pane_with_backdrop_filter": 0.128,
+      "energy_pane_without": 6224.065,
+      "ratio": 0.0,
+      "blur_painted": true
+    },
+    "firefox-headed": {
+      "version": "153.0",
+      "energy_pane_with_backdrop_filter": 6224.065,
+      "energy_pane_without": 6224.065,
+      "ratio": 1.0,
+      "blur_painted": false
+    },
+    "chromium-headed": {
+      "version": "151.0.7922.34",
+      "energy_pane_with_backdrop_filter": 0.252,
+      "energy_pane_without": 6224.065,
+      "ratio": 0.0,
+      "blur_painted": true
+    }
+  },
+  "dialog_tab": {
+    "chromium": {
+      "version": "151.0.7922.34",
+      "steps": [
+        {
+          "step": "open",
+          "id": "cancel",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "step": "Tab1",
+          "id": "ok",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "step": "Tab2",
+          "id": "body",
+          "hasFocus": false,
+          "inDialog": false
+        },
+        {
+          "step": "Tab3",
+          "id": "cancel",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "step": "Tab4",
+          "id": "ok",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "step": "Tab5",
+          "id": "body",
+          "hasFocus": false,
+          "inDialog": false
+        },
+        {
+          "step": "Tab6",
+          "id": "cancel",
+          "hasFocus": true,
+          "inDialog": true
+        }
+      ]
+    },
+    "firefox": {
+      "version": "153.0",
+      "steps": [
+        {
+          "step": "open",
+          "id": "cancel",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "step": "Tab1",
+          "id": "ok",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "step": "Tab2",
+          "id": "ok",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "step": "Tab3",
+          "id": "ok",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "step": "Tab4",
+          "id": "ok",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "step": "Tab5",
+          "id": "ok",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "step": "Tab6",
+          "id": "ok",
+          "hasFocus": true,
+          "inDialog": true
+        }
+      ]
+    }
+  }
+}

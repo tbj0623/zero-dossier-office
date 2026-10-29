@@ -1,0 +1,48 @@
+{
+  "when": "2026-10-30T03:44:47+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "engines": {
+    "chromium": {
+      "version": "151.0.7922.34",
+      "verdict": {
+        "scrollY": 77,
+        "titleTop": 167.34,
+        "headerBottom": 65,
+        "titleVisibleBelowHeader": true,
+        "hiddenPx": -102.34,
+        "activeElement": "verdict-title",
+        "viewportH": 900
+      },
+      "hint": {
+        "scrollY": 1180,
+        "found": true,
+        "hintTop": 652.64,
+        "hintBottom": 740.08,
+        "headerBottom": 65,
+        "fullyInViewport": true,
+        "viewportH": 844
+      }
+    },
+    "firefox": {
+      "version": "153.0",
+      "verdict": {
+        "scrollY": 77,
+        "titleTop": 167.37,
+        "headerBottom": 65,
+        "titleVisibleBelowHeader": true,
+        "hiddenPx": -102.37,
+        "activeElement": "verdict-title",
+        "viewportH": 900
+      },
+      "hint": {
+        "scrollY": 1180,
+        "found": true,
+        "hintTop": 652.82,
+        "hintBottom": 740.3,
+        "headerBottom": 65,
+        "fullyInViewport": true,
+        "viewportH": 844
+      }
+    }
+  }
+}

@@ -1,0 +1,344 @@
+{
+  "suite": "six-cases",
+  "engine": "firefox",
+  "when": "2026-10-30T03:36:17+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "results": [
+    {
+      "check": "NA-001 solved in Firefox (4 items)",
+      "ok": true,
+      "detail": "title=末班车的四张车票 | default!=answer=True | verdict=档案归位。"
+    },
+    {
+      "check": "NA-002 solved in Firefox (4 items)",
+      "ok": true,
+      "detail": "title=封存室的四格抽屉 | default!=answer=True | verdict=档案归位。"
+    },
+    {
+      "check": "NA-003 solved in Firefox (5 items)",
+      "ok": true,
+      "detail": "title=静默分拣线上的五个包裹 | default!=answer=True | verdict=档案归位。"
+    },
+    {
+      "check": "NA-004 solved in Firefox (5 items)",
+      "ok": true,
+      "detail": "title=灯塔没有亮起的第五盏灯 | default!=answer=True | verdict=档案归位。"
+    },
+    {
+      "check": "NA-005 solved in Firefox (5 items)",
+      "ok": true,
+      "detail": "title=寄不到的第五封回信 | default!=answer=True | verdict=档案归位。"
+    },
+    {
+      "check": "NA-006 solved in Firefox (6 items)",
+      "ok": true,
+      "detail": "title=第零号空白底片 | default!=answer=True | verdict=档案归位。"
+    },
+    {
+      "check": "All six archived: progress badge shows 6 / 6",
+      "ok": true,
+      "detail": "已归档 6 / 6"
+    },
+    {
+      "check": "All six cabinet cards marked 已归档",
+      "ok": true,
+      "detail": "6/6"
+    },
+    {
+      "check": "No console errors during six-case run",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "No third-party requests during six-case run",
+      "ok": true,
+      "detail": "0"
+    }
+  ],
+  "pass": 10,
+  "fail": 0,
+  "cases": [
+    {
+      "case": "NA-001",
+      "oracle": [
+        "红票",
+        "蓝票",
+        "黄票",
+        "绿票"
+      ],
+      "solver": [
+        "红票",
+        "蓝票",
+        "黄票",
+        "绿票"
+      ],
+      "oracle_matches_solver": true,
+      "items_n": 4,
+      "title": "末班车的四张车票",
+      "evidence_n": 3,
+      "default_order": [
+        "蓝票",
+        "绿票",
+        "红票",
+        "黄票"
+      ],
+      "default_is_answer": false,
+      "reached_order": [
+        "红票",
+        "蓝票",
+        "黄票",
+        "绿票"
+      ],
+      "reached_oracle": true,
+      "verdict": true,
+      "verdict_title": "档案归位。",
+      "logic_len": 336,
+      "story_len": 188,
+      "has_logic": true,
+      "has_story": true,
+      "recaps_differ": true,
+      "msg_shown": null,
+      "verdict_replaced_desk": true,
+      "ok": true
+    },
+    {
+      "case": "NA-002",
+      "oracle": [
+        "航海图",
+        "银徽章",
+        "铜钥匙",
+        "玻璃球"
+      ],
+      "solver": [
+        "航海图",
+        "银徽章",
+        "铜钥匙",
+        "玻璃球"
+      ],
+      "oracle_matches_solver": true,
+      "items_n": 4,
+      "title": "封存室的四格抽屉",
+      "evidence_n": 3,
+      "default_order": [
+        "银徽章",
+        "航海图",
+        "玻璃球",
+        "铜钥匙"
+      ],
+      "default_is_answer": false,
+      "reached_order": [
+        "航海图",
+        "银徽章",
+        "铜钥匙",
+        "玻璃球"
+      ],
+      "reached_oracle": true,
+      "verdict": true,
+      "verdict_title": "档案归位。",
+      "logic_len": 345,
+      "story_len": 166,
+      "has_logic": true,
+      "has_story": true,
+      "recaps_differ": true,
+      "msg_shown": null,
+      "verdict_replaced_desk": true,
+      "ok": true
+    },
+    {
+      "case": "NA-003",
+      "oracle": [
+        "红盒",
+        "纸鹤",
+        "铜铃",
+        "星图",
+        "蓝灯"
+      ],
+      "solver": [
+        "红盒",
+        "纸鹤",
+        "铜铃",
+        "星图",
+        "蓝灯"
+      ],
+      "oracle_matches_solver": true,
+      "items_n": 5,
+      "title": "静默分拣线上的五个包裹",
+      "evidence_n": 4,
+      "default_order": [
+        "红盒",
+        "纸鹤",
+        "星图",
+        "铜铃",
+        "蓝灯"
+      ],
+      "default_is_answer": false,
+      "reached_order": [
+        "红盒",
+        "纸鹤",
+        "铜铃",
+        "星图",
+        "蓝灯"
+      ],
+      "reached_oracle": true,
+      "verdict": true,
+      "verdict_title": "档案归位。",
+      "logic_len": 412,
+      "story_len": 176,
+      "has_logic": true,
+      "has_story": true,
+      "recaps_differ": true,
+      "msg_shown": null,
+      "verdict_replaced_desk": true,
+      "ok": true
+    },
+    {
+      "case": "NA-004",
+      "oracle": [
+        "铜铃",
+        "值班簿",
+        "玻璃罩",
+        "旧透镜",
+        "海图"
+      ],
+      "solver": [
+        "铜铃",
+        "值班簿",
+        "玻璃罩",
+        "旧透镜",
+        "海图"
+      ],
+      "oracle_matches_solver": true,
+      "items_n": 5,
+      "title": "灯塔没有亮起的第五盏灯",
+      "evidence_n": 4,
+      "default_order": [
+        "玻璃罩",
+        "旧透镜",
+        "铜铃",
+        "海图",
+        "值班簿"
+      ],
+      "default_is_answer": false,
+      "reached_order": [
+        "铜铃",
+        "值班簿",
+        "玻璃罩",
+        "旧透镜",
+        "海图"
+      ],
+      "reached_oracle": true,
+      "verdict": true,
+      "verdict_title": "档案归位。",
+      "logic_len": 428,
+      "story_len": 211,
+      "has_logic": true,
+      "has_story": true,
+      "recaps_differ": true,
+      "msg_shown": null,
+      "verdict_replaced_desk": true,
+      "ok": true
+    },
+    {
+      "case": "NA-005",
+      "oracle": [
+        "晨雾邮笺",
+        "港口便条",
+        "红蜡封信",
+        "夜航申请",
+        "空白回邮"
+      ],
+      "solver": [
+        "晨雾邮笺",
+        "港口便条",
+        "红蜡封信",
+        "夜航申请",
+        "空白回邮"
+      ],
+      "oracle_matches_solver": true,
+      "items_n": 5,
+      "title": "寄不到的第五封回信",
+      "evidence_n": 4,
+      "default_order": [
+        "夜航申请",
+        "红蜡封信",
+        "晨雾邮笺",
+        "空白回邮",
+        "港口便条"
+      ],
+      "default_is_answer": false,
+      "reached_order": [
+        "晨雾邮笺",
+        "港口便条",
+        "红蜡封信",
+        "夜航申请",
+        "空白回邮"
+      ],
+      "reached_oracle": true,
+      "verdict": true,
+      "verdict_title": "档案归位。",
+      "logic_len": 454,
+      "story_len": 183,
+      "has_logic": true,
+      "has_story": true,
+      "recaps_differ": true,
+      "msg_shown": null,
+      "verdict_replaced_desk": true,
+      "ok": true
+    },
+    {
+      "case": "NA-006",
+      "oracle": [
+        "钟楼影",
+        "纸船影",
+        "玻璃影",
+        "雨幕影",
+        "灯塔影",
+        "空白底片"
+      ],
+      "solver": [
+        "钟楼影",
+        "纸船影",
+        "玻璃影",
+        "雨幕影",
+        "灯塔影",
+        "空白底片"
+      ],
+      "oracle_matches_solver": true,
+      "items_n": 6,
+      "title": "第零号空白底片",
+      "evidence_n": 4,
+      "default_order": [
+        "空白底片",
+        "钟楼影",
+        "玻璃影",
+        "雨幕影",
+        "灯塔影",
+        "纸船影"
+      ],
+      "default_is_answer": false,
+      "reached_order": [
+        "钟楼影",
+        "纸船影",
+        "玻璃影",
+        "雨幕影",
+        "灯塔影",
+        "空白底片"
+      ],
+      "reached_oracle": true,
+      "verdict": true,
+      "verdict_title": "档案归位。",
+      "logic_len": 445,
+      "story_len": 192,
+      "has_logic": true,
+      "has_story": true,
+      "recaps_differ": true,
+      "msg_shown": null,
+      "verdict_replaced_desk": true,
+      "ok": true
+    }
+  ],
+  "solved": 6,
+  "console": [],
+  "external": [],
+  "progress_badge": "已归档 6 / 6"
+}

@@ -1,0 +1,504 @@
+{
+  "suite": "firefox-specific",
+  "engine": "firefox",
+  "when": "2026-10-30T03:36:49+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "results": [
+    {
+      "check": "A1. <dialog> element exists in DOM",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "check": "A2. Dialog is closed before the reset button is used",
+      "ok": true,
+      "detail": "open=False"
+    },
+    {
+      "check": "A3. showModal() actually shows the dialog",
+      "ok": true,
+      "detail": "open=True display=block 440x188 @500,356"
+    },
+    {
+      "check": "A4. Dialog is rendered on top (hit-testable centre)",
+      "ok": true,
+      "detail": "elementFromPoint -> confirm-dialog"
+    },
+    {
+      "check": "A5. Modal backdrop intercepts clicks outside the dialog",
+      "ok": true,
+      "detail": "topElement@out=confirm-dialog"
+    },
+    {
+      "check": "A6. Dialog has focusable controls",
+      "ok": true,
+      "detail": "{'count': 2, 'labels': ['cancel', 'ok']}"
+    },
+    {
+      "check": "A7. Focus stays trapped inside the dialog while tabbing",
+      "ok": true,
+      "detail": "10/10 stops inside; ids=['ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok']"
+    },
+    {
+      "check": "A8. Focus stays trapped on Shift+Tab too",
+      "ok": true,
+      "detail": "6/6 stops inside"
+    },
+    {
+      "check": "A9. Escape closes the dialog",
+      "ok": true,
+      "detail": "open=False"
+    },
+    {
+      "check": "A10. Esc = cancel: the board was NOT reset",
+      "ok": true,
+      "detail": "['绿票', '蓝票', '红票', '黄票'] vs ['绿票', '蓝票', '红票', '黄票']"
+    },
+    {
+      "check": "A11. Clicking 确认重置 closes the dialog",
+      "ok": true,
+      "detail": "open=False"
+    },
+    {
+      "check": "A12. Confirming actually resets the board",
+      "ok": true,
+      "detail": "['绿票', '蓝票', '红票', '黄票'] -> ['蓝票', '绿票', '红票', '黄票']"
+    },
+    {
+      "check": "A13. Cancel button closes the dialog without resetting",
+      "ok": true,
+      "detail": "open=False, order kept=True"
+    },
+    {
+      "check": "A14. Page behind the modal is inert (header not clickable)",
+      "ok": true,
+      "detail": "headerClickable=False, zIndex=auto"
+    },
+    {
+      "check": "A15. No console errors around dialog use",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "B1. prefers-reduced-motion is actually reported by Firefox",
+      "ok": true,
+      "detail": "reduce=True, no-preference=False"
+    },
+    {
+      "check": "B2. Under reduce, transitions collapse to ~0",
+      "ok": true,
+      "detail": "max transitionDuration=1e-06s (raw slot=0.000001s)"
+    },
+    {
+      "check": "B3. Under no-preference, transitions are non-zero (control)",
+      "ok": true,
+      "detail": "max transitionDuration=0.22s"
+    },
+    {
+      "check": "B4. --dur token is 0ms under reduce",
+      "ok": true,
+      "detail": "--dur='0ms'"
+    },
+    {
+      "check": "B5. html scroll-behavior is auto under reduce",
+      "ok": true,
+      "detail": "reduce=auto / normal=smooth"
+    },
+    {
+      "check": "C1. localStorage is written by the app",
+      "ok": true,
+      "detail": "keys=['zd:v1:order:NA-003', 'zd:v1:progress']"
+    },
+    {
+      "check": "C2. Arrangement survives a real reload",
+      "ok": true,
+      "detail": "['纸鹤', '星图', '红盒', '铜铃', '蓝灯'] -> ['纸鹤', '星图', '红盒', '铜铃', '蓝灯']"
+    },
+    {
+      "check": "C3. Hint progress survives a real reload",
+      "ok": true,
+      "detail": "1 -> 1"
+    },
+    {
+      "check": "C4. Persistence is shared with a second tab of the same context",
+      "ok": true,
+      "detail": "['纸鹤', '星图', '红盒', '铜铃', '蓝灯']"
+    },
+    {
+      "check": "C5. A fresh profile starts clean (no cross-profile leakage)",
+      "ok": true,
+      "detail": "fresh=['红盒', '纸鹤', '星图', '铜铃', '蓝灯'] vs first-run=['红盒', '纸鹤', '星图', '铜铃', '蓝灯']"
+    },
+    {
+      "check": "D1. Desktop hover-capable: drag-grip is visible",
+      "ok": true,
+      "detail": "display=block 20x44 hover:hover=True"
+    },
+    {
+      "check": "D2. Touch/coarse 390px: drag-grip is hidden",
+      "ok": true,
+      "detail": "display=none hover:none=True pointer:coarse=True"
+    },
+    {
+      "check": "D3. Touch hidden grip takes no layout space",
+      "ok": true,
+      "detail": "0x0"
+    },
+    {
+      "check": "D4. Wide-but-touch (1440px, coarse pointer): grip hidden",
+      "ok": true,
+      "detail": "display=none hover:none=True"
+    },
+    {
+      "check": "D5. Narrow hover desktop (900px): grip hidden by min-width rule",
+      "ok": true,
+      "detail": "display=none width=[900, 900]"
+    }
+  ],
+  "pass": 30,
+  "fail": 0,
+  "browser_version": "153.0",
+  "dialog_initial": {
+    "exists": true,
+    "open": false,
+    "openAttr": false,
+    "display": "none",
+    "position": "absolute",
+    "top": 0,
+    "left": 0,
+    "w": 0,
+    "h": 0,
+    "zIndex": "auto",
+    "returnValue": "",
+    "hitTestCentre": "site-header",
+    "activeId": "BODY"
+  },
+  "dialog_open": {
+    "exists": true,
+    "open": true,
+    "openAttr": true,
+    "display": "block",
+    "position": "fixed",
+    "top": 356,
+    "left": 500,
+    "w": 440,
+    "h": 188,
+    "zIndex": "auto",
+    "returnValue": "",
+    "hitTestCentre": "confirm-dialog",
+    "activeId": "ok"
+  },
+  "backdrop": {
+    "samplePoint": [
+      250,
+      450
+    ],
+    "topElement": "confirm-dialog",
+    "backdropSupported": true
+  },
+  "dialog_focusables": {
+    "count": 2,
+    "labels": [
+      "cancel",
+      "ok"
+    ]
+  },
+  "dialog_tab_cycle": [
+    {
+      "inDialog": true,
+      "id": "ok"
+    },
+    {
+      "inDialog": true,
+      "id": "ok"
+    },
+    {
+      "inDialog": true,
+      "id": "ok"
+    },
+    {
+      "inDialog": true,
+      "id": "ok"
+    },
+    {
+      "inDialog": true,
+      "id": "ok"
+    },
+    {
+      "inDialog": true,
+      "id": "ok"
+    },
+    {
+      "inDialog": true,
+      "id": "ok"
+    },
+    {
+      "inDialog": true,
+      "id": "ok"
+    },
+    {
+      "inDialog": true,
+      "id": "ok"
+    },
+    {
+      "inDialog": true,
+      "id": "ok"
+    }
+  ],
+  "dialog_shift_tab_cycle": [
+    {
+      "inDialog": true,
+      "id": "cancel"
+    },
+    {
+      "inDialog": true,
+      "id": "confirm-dialog"
+    },
+    {
+      "inDialog": true,
+      "id": "confirm-dialog"
+    },
+    {
+      "inDialog": true,
+      "id": "confirm-dialog"
+    },
+    {
+      "inDialog": true,
+      "id": "confirm-dialog"
+    },
+    {
+      "inDialog": true,
+      "id": "confirm-dialog"
+    }
+  ],
+  "dialog_after_esc": {
+    "exists": true,
+    "open": false,
+    "openAttr": false,
+    "display": "none",
+    "position": "absolute",
+    "top": 0,
+    "left": 0,
+    "w": 0,
+    "h": 0,
+    "zIndex": "auto",
+    "returnValue": "",
+    "hitTestCentre": "site-header",
+    "activeId": "btn-reset"
+  },
+  "dialog_after_ok": {
+    "exists": true,
+    "open": false,
+    "openAttr": false,
+    "display": "none",
+    "position": "absolute",
+    "top": 0,
+    "left": 0,
+    "w": 0,
+    "h": 0,
+    "zIndex": "auto",
+    "returnValue": "ok",
+    "hitTestCentre": "site-header",
+    "activeId": "btn-reset"
+  },
+  "order_after_confirm_reset": [
+    "蓝票",
+    "绿票",
+    "红票",
+    "黄票"
+  ],
+  "dialog_top_layer": {
+    "hasOpenAttr": true,
+    "computedZIndex": "auto",
+    "headerClickable": false
+  },
+  "dialog_console": [],
+  "reduced_motion_reduce": {
+    "prefersReduce": true,
+    "rootDurVar": "0ms",
+    "slot": {
+      "selector": ".slot",
+      "transitionDuration": "0.000001s",
+      "transitionProperty": "border-color, background, box-shadow",
+      "animationDuration": "0.000001s",
+      "animationName": "none",
+      "scrollBehavior": "auto"
+    },
+    "btn": {
+      "selector": ".btn",
+      "transitionDuration": "0.000001s",
+      "transitionProperty": "background, border-color, transform, color",
+      "animationDuration": "0.000001s",
+      "animationName": "none",
+      "scrollBehavior": "auto"
+    },
+    "header": {
+      "selector": ".site-header",
+      "transitionDuration": "0.000001s",
+      "transitionProperty": "all",
+      "animationDuration": "0.000001s",
+      "animationName": "none",
+      "scrollBehavior": "auto"
+    },
+    "stamp": null,
+    "html": {
+      "selector": "html",
+      "transitionDuration": "0.000001s",
+      "transitionProperty": "all",
+      "animationDuration": "0.000001s",
+      "animationName": "none",
+      "scrollBehavior": "auto"
+    }
+  },
+  "reduced_motion_normal": {
+    "prefersReduce": false,
+    "rootDurVar": "220ms",
+    "slot": {
+      "selector": ".slot",
+      "transitionDuration": "0.22s, 0.22s, 0.22s",
+      "transitionProperty": "border-color, background, box-shadow",
+      "animationDuration": "0s",
+      "animationName": "none",
+      "scrollBehavior": "smooth"
+    },
+    "btn": {
+      "selector": ".btn",
+      "transitionDuration": "0.22s, 0.22s, 0.22s, 0.22s",
+      "transitionProperty": "background, border-color, transform, color",
+      "animationDuration": "0s",
+      "animationName": "none",
+      "scrollBehavior": "smooth"
+    },
+    "header": {
+      "selector": ".site-header",
+      "transitionDuration": "0s",
+      "transitionProperty": "all",
+      "animationDuration": "0s",
+      "animationName": "none",
+      "scrollBehavior": "smooth"
+    },
+    "stamp": null,
+    "html": {
+      "selector": "html",
+      "transitionDuration": "0s",
+      "transitionProperty": "all",
+      "animationDuration": "0s",
+      "animationName": "none",
+      "scrollBehavior": "smooth"
+    }
+  },
+  "storage_keys_before": [
+    "zd:v1:order:NA-003",
+    "zd:v1:progress"
+  ],
+  "storage_raw": {
+    "zd:v1:order:NA-003": "{\"order\":[\"纸鹤\",\"星图\",\"红盒\",\"铜铃\",\"蓝灯\"],\"hintIndex\":1,\"at\":1793302596650}",
+    "zd:v1:progress": "{\"NA-003\":{\"usedHints\":true}}"
+  },
+  "storage": {
+    "initial_order": [
+      "红盒",
+      "纸鹤",
+      "星图",
+      "铜铃",
+      "蓝灯"
+    ],
+    "moved_order": [
+      "纸鹤",
+      "星图",
+      "红盒",
+      "铜铃",
+      "蓝灯"
+    ],
+    "after_reload_order": [
+      "纸鹤",
+      "星图",
+      "红盒",
+      "铜铃",
+      "蓝灯"
+    ],
+    "hints_before": 1,
+    "hints_after_reload": 1,
+    "keys_initial": [],
+    "keys_after_moves": [
+      "zd:v1:order:NA-003",
+      "zd:v1:progress"
+    ],
+    "after_new_tab_order": [
+      "纸鹤",
+      "星图",
+      "红盒",
+      "铜铃",
+      "蓝灯"
+    ],
+    "after_fresh_context_order": [
+      "红盒",
+      "纸鹤",
+      "星图",
+      "铜铃",
+      "蓝灯"
+    ]
+  },
+  "grip": {
+    "desktop": {
+      "exists": true,
+      "display": "block",
+      "visibility": "visible",
+      "width": 20,
+      "height": 44,
+      "raisable": true,
+      "hoverHover": true,
+      "hoverNone": false,
+      "pointerCoarse": false,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    "narrow": {
+      "exists": true,
+      "display": "none",
+      "visibility": "visible",
+      "width": 0,
+      "height": 0,
+      "raisable": false,
+      "hoverHover": true,
+      "hoverNone": false,
+      "pointerCoarse": false,
+      "viewport": [
+        900,
+        900
+      ]
+    },
+    "touch_390": {
+      "exists": true,
+      "display": "none",
+      "visibility": "visible",
+      "width": 0,
+      "height": 0,
+      "raisable": false,
+      "hoverHover": false,
+      "hoverNone": true,
+      "pointerCoarse": true,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    "touch_1440": {
+      "exists": true,
+      "display": "none",
+      "visibility": "visible",
+      "width": 0,
+      "height": 0,
+      "raisable": false,
+      "hoverHover": false,
+      "hoverNone": true,
+      "pointerCoarse": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    }
+  }
+}

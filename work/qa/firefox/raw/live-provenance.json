@@ -1,0 +1,71 @@
+{
+  "rows": [
+    {
+      "file": "index.html",
+      "sha256_start": "061ba534e0aef203d8e7fcaa16c0df464d5fc8aea9a0061aef891c9c88afb88d",
+      "sha256_end": "061ba534e0aef203d8e7fcaa16c0df464d5fc8aea9a0061aef891c9c88afb88d",
+      "identical": true,
+      "bytes_start": 19704,
+      "bytes_end": 19704
+    },
+    {
+      "file": "app.mjs",
+      "sha256_start": "68f4853fbca95aac3ca5838965c993a8697089a69de6e7af593aa6e190da4a5d",
+      "sha256_end": "6ee1e4ef8fa316d6565fea0669c36aa942f2751a0fe148a7da84467896995932",
+      "identical": false,
+      "bytes_start": 50081,
+      "bytes_end": 50081
+    },
+    {
+      "file": "styles/app.css",
+      "sha256_start": "c0df93a8a8f872f00021fedddb86a025a0d58851c58685bf3326406147eba721",
+      "sha256_end": "c0df93a8a8f872f00021fedddb86a025a0d58851c58685bf3326406147eba721",
+      "identical": true,
+      "bytes_start": 34817,
+      "bytes_end": 34817
+    },
+    {
+      "file": "styles/base.css",
+      "sha256_start": "c258ba1bcb20e4532d6f7106f0e5b56830f599699f9d34c3573e808f4038b58c",
+      "sha256_end": "c258ba1bcb20e4532d6f7106f0e5b56830f599699f9d34c3573e808f4038b58c",
+      "identical": true,
+      "bytes_start": 5839,
+      "bytes_end": 5839
+    },
+    {
+      "file": "styles/tokens.css",
+      "sha256_start": "9bd5a66678e9711300e46a38d77f3406be3a59178869ddce0499525e8d81e4de",
+      "sha256_end": "9bd5a66678e9711300e46a38d77f3406be3a59178869ddce0499525e8d81e4de",
+      "identical": true,
+      "bytes_start": 2309,
+      "bytes_end": 2309
+    },
+    {
+      "file": "engine/solver.mjs",
+      "sha256_start": "94e7cbb950f878987ae9c38421d6d2eac23b699682aa9e4dfb6537dd7531cedc",
+      "sha256_end": "94e7cbb950f878987ae9c38421d6d2eac23b699682aa9e4dfb6537dd7531cedc",
+      "identical": true,
+      "bytes_start": 7277,
+      "bytes_end": 7277
+    },
+    {
+      "file": "cases/NA-001.json",
+      "sha256_start": "f31f78703976b5aed6a0295e23631373df4fbef95153d7ebdc61b405dff29f06",
+      "sha256_end": "f31f78703976b5aed6a0295e23631373df4fbef95153d7ebdc61b405dff29f06",
+      "identical": true,
+      "bytes_start": 3434,
+      "bytes_end": 3434
+    },
+    {
+      "file": "cases/NA-006.json",
+      "sha256_start": "355f435de636d1270351f8fa37b4863699c285da8f8aa46c5f79acbefc901c5e",
+      "sha256_end": "355f435de636d1270351f8fa37b4863699c285da8f8aa46c5f79acbefc901c5e",
+      "identical": true,
+      "bytes_start": 3900,
+      "bytes_end": 3900
+    }
+  ],
+  "live_build": "b29f5d61bf2e41fb5e75d917e537d22c30725af3",
+  "all_identical": false,
+  "local_app_mjs_bytes": 55653
+}

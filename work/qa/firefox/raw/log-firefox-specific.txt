@@ -1,0 +1,39 @@
+$ python run_firefox_specific.py
+exit=0 duration=31.4s
+
+--- stdout ---
+[PASS] A1. <dialog> element exists in DOM — none
+[PASS] A2. Dialog is closed before the reset button is used — open=False
+[PASS] A3. showModal() actually shows the dialog — open=True display=block 440x188 @500,356
+[PASS] A4. Dialog is rendered on top (hit-testable centre) — elementFromPoint -> confirm-dialog
+[PASS] A5. Modal backdrop intercepts clicks outside the dialog — topElement@out=confirm-dialog
+[PASS] A6. Dialog has focusable controls — {'count': 2, 'labels': ['cancel', 'ok']}
+[PASS] A7. Focus stays trapped inside the dialog while tabbing — 10/10 stops inside; ids=['ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok']
+[PASS] A8. Focus stays trapped on Shift+Tab too — 6/6 stops inside
+[PASS] A9. Escape closes the dialog — open=False
+[PASS] A10. Esc = cancel: the board was NOT reset — ['绿票', '蓝票', '红票', '黄票'] vs ['绿票', '蓝票', '红票', '黄票']
+[PASS] A11. Clicking 确认重置 closes the dialog — open=False
+[PASS] A12. Confirming actually resets the board — ['绿票', '蓝票', '红票', '黄票'] -> ['蓝票', '绿票', '红票', '黄票']
+[PASS] A13. Cancel button closes the dialog without resetting — open=False, order kept=True
+[PASS] A14. Page behind the modal is inert (header not clickable) — headerClickable=False, zIndex=auto
+[PASS] A15. No console errors around dialog use
+[PASS] B1. prefers-reduced-motion is actually reported by Firefox — reduce=True, no-preference=False
+[PASS] B2. Under reduce, transitions collapse to ~0 — max transitionDuration=1e-06s (raw slot=0.000001s)
+[PASS] B3. Under no-preference, transitions are non-zero (control) — max transitionDuration=0.22s
+[PASS] B4. --dur token is 0ms under reduce — --dur='0ms'
+[PASS] B5. html scroll-behavior is auto under reduce — reduce=auto / normal=smooth
+[PASS] C1. localStorage is written by the app — keys=['zd:v1:order:NA-003', 'zd:v1:progress']
+[PASS] C2. Arrangement survives a real reload — ['纸鹤', '星图', '红盒', '铜铃', '蓝灯'] -> ['纸鹤', '星图', '红盒', '铜铃', '蓝灯']
+[PASS] C3. Hint progress survives a real reload — 1 -> 1
+[PASS] C4. Persistence is shared with a second tab of the same context — ['纸鹤', '星图', '红盒', '铜铃', '蓝灯']
+[PASS] C5. A fresh profile starts clean (no cross-profile leakage) — fresh=['红盒', '纸鹤', '星图', '铜铃', '蓝灯'] vs first-run=['红盒', '纸鹤', '星图', '铜铃', '蓝灯']
+[PASS] D1. Desktop hover-capable: drag-grip is visible — display=block 20x44 hover:hover=True
+[PASS] D2. Touch/coarse 390px: drag-grip is hidden — display=none hover:none=True pointer:coarse=True
+[PASS] D3. Touch hidden grip takes no layout space — 0x0
+[PASS] D4. Wide-but-touch (1440px, coarse pointer): grip hidden — display=none hover:none=True
+[PASS] D5. Narrow hover desktop (900px): grip hidden by min-width rule — display=none width=[900, 900]
+
+firefox-specific/firefox: 30 PASS / 0 FAIL -> C:\Users\11930\Desktop\第零号证物局\zero-dossier-office\work\qa\firefox\raw\firefox-specific.json
+
+--- stderr ---
+

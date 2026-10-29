@@ -1,0 +1,155 @@
+{
+  "when": "2026-10-30T02:58:43+0800",
+  "check": "author.expected_solution == independent solver, and is a permutation of items",
+  "rows": [
+    {
+      "case": "NA-001",
+      "ok": true,
+      "author_expected_solution": [
+        "红票",
+        "蓝票",
+        "黄票",
+        "绿票"
+      ],
+      "solver_solution": [
+        "红票",
+        "蓝票",
+        "黄票",
+        "绿票"
+      ],
+      "same": true,
+      "is_permutation_of_items": true,
+      "items_n": 4,
+      "constraints_n": 3,
+      "hints_n": 3,
+      "evidence_n": 3,
+      "author_has_expected_solution": true
+    },
+    {
+      "case": "NA-002",
+      "ok": true,
+      "author_expected_solution": [
+        "航海图",
+        "银徽章",
+        "铜钥匙",
+        "玻璃球"
+      ],
+      "solver_solution": [
+        "航海图",
+        "银徽章",
+        "铜钥匙",
+        "玻璃球"
+      ],
+      "same": true,
+      "is_permutation_of_items": true,
+      "items_n": 4,
+      "constraints_n": 3,
+      "hints_n": 3,
+      "evidence_n": 3,
+      "author_has_expected_solution": true
+    },
+    {
+      "case": "NA-003",
+      "ok": true,
+      "author_expected_solution": [
+        "红盒",
+        "纸鹤",
+        "铜铃",
+        "星图",
+        "蓝灯"
+      ],
+      "solver_solution": [
+        "红盒",
+        "纸鹤",
+        "铜铃",
+        "星图",
+        "蓝灯"
+      ],
+      "same": true,
+      "is_permutation_of_items": true,
+      "items_n": 5,
+      "constraints_n": 4,
+      "hints_n": 3,
+      "evidence_n": 4,
+      "author_has_expected_solution": true
+    },
+    {
+      "case": "NA-004",
+      "ok": true,
+      "author_expected_solution": [
+        "铜铃",
+        "值班簿",
+        "玻璃罩",
+        "旧透镜",
+        "海图"
+      ],
+      "solver_solution": [
+        "铜铃",
+        "值班簿",
+        "玻璃罩",
+        "旧透镜",
+        "海图"
+      ],
+      "same": true,
+      "is_permutation_of_items": true,
+      "items_n": 5,
+      "constraints_n": 4,
+      "hints_n": 3,
+      "evidence_n": 4,
+      "author_has_expected_solution": true
+    },
+    {
+      "case": "NA-005",
+      "ok": true,
+      "author_expected_solution": [
+        "晨雾邮笺",
+        "港口便条",
+        "红蜡封信",
+        "夜航申请",
+        "空白回邮"
+      ],
+      "solver_solution": [
+        "晨雾邮笺",
+        "港口便条",
+        "红蜡封信",
+        "夜航申请",
+        "空白回邮"
+      ],
+      "same": true,
+      "is_permutation_of_items": true,
+      "items_n": 5,
+      "constraints_n": 4,
+      "hints_n": 3,
+      "evidence_n": 4,
+      "author_has_expected_solution": true
+    },
+    {
+      "case": "NA-006",
+      "ok": true,
+      "author_expected_solution": [
+        "钟楼影",
+        "纸船影",
+        "玻璃影",
+        "雨幕影",
+        "灯塔影",
+        "空白底片"
+      ],
+      "solver_solution": [
+        "钟楼影",
+        "纸船影",
+        "玻璃影",
+        "雨幕影",
+        "灯塔影",
+        "空白底片"
+      ],
+      "same": true,
+      "is_permutation_of_items": true,
+      "items_n": 6,
+      "constraints_n": 4,
+      "hints_n": 3,
+      "evidence_n": 4,
+      "author_has_expected_solution": true
+    }
+  ],
+  "all_ok": true
+}

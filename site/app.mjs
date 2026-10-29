@@ -12,11 +12,33 @@ import {
   verifyOrder,
   assertCaseShape,
 } from './engine/solver.mjs';
+import {
+  detectLocale,
+  setLocale,
+  currentLocale,
+  availableLocales,
+  localizeCase,
+  itemLabel,
+  describeRuleI18n,
+  ruleText,
+  explainWhyI18n,
+  t,
+  tf,
+  onLocaleChange,
+  applyToDocument,
+} from './i18n.mjs';
 
 /* ------------------------------------------------------------------ */
 /* 常量与状态                                                          */
 /* ------------------------------------------------------------------ */
 const STORAGE_PREFIX = 'zd:v1:';
+
+/** 有英文重绘版的封面；其余（氛围插画、不含文字）沿用原图。 */
+const EN_COVER = {
+  'evidence-case-001.webp': 'evidence-case-001-en.webp',
+  'evidence-case-002.webp': 'evidence-case-002-en.webp',
+  'evidence-case-003.webp': 'evidence-case-003-en.webp',
+};
 const BUILD = '__BUILD_VERSION__';
 
 /** 只有四项审查全部 PASS 的案件才出现在正式档案柜。 */
@@ -25,18 +47,21 @@ const RELEASED = new Set(['NA-001', 'NA-002', 'NA-003', 'NA-004', 'NA-005', 'NA-
 const ACTS = [
   {
     roman: 'I',
+    n: 1,
     title: '错位的开端',
     desc: '每件东西都还在。问题是，人们把它们放进了错误的顺序。',
     cases: ['NA-001', 'NA-002', 'NA-003'],
   },
   {
     roman: 'II',
+    n: 2,
     title: '灯塔与回信',
     desc: '两套登记系统，在同一个夜晚留下不同版本的事实。',
     cases: ['NA-004', 'NA-005'],
   },
   {
     roman: 'III',
+    n: 3,
     title: '第零张底片',
     desc: '你终于找到那个从未被拍下的瞬间。',
     cases: ['NA-006'],
@@ -378,8 +403,23 @@ async function loadCase(id) {
     }),
   }));
 
-  state.cases.set(id, data);
-  return data;
+  // 本地化必须在 assertCaseShape / countSolutions 之后：
+  // items 是求解器的规范 ID，翻译只改"显示给人看"的字段。
+  const localized = localizeCase(data);
+  localized.items = data.items;          // 规范 ID 绝不翻译
+  localized.constraints = data.constraints;
+  localized.evidence = localized.evidence.map((e, i) => ({
+    ...e,
+    readableRules: data.evidence[i].readableRules,
+  }));
+
+  state.cases.set(id, localized);
+  return localized;
+}
+
+/** 语言切换后清空案件缓存（保留 necessity / rulesMeta，它们与语言无关）。 */
+function clearCaseCache() {
+  state.cases.clear();
 }
 
 /* ------------------------------------------------------------------ */
@@ -395,7 +435,7 @@ function caseCard(id, { compact = false } = {}) {
   const meta = CASE_META[id] || {};
   const st = statusOf(id);
   const title = c?.title || id;
-  const hook = meta.hook || '';
+  const hook = t(`case.hook.${id}`, meta.hook || '');
   const chapter = c?.chapter;
 
   const card = el('article', { class: `case-card${st === 'locked' ? ' case-card--locked' : ''}` });
@@ -403,7 +443,8 @@ function caseCard(id, { compact = false } = {}) {
   const thumb = el('div', { class: 'case-card__thumb' });
   if (meta.img) {
     const img = el('img', {
-      src: `./assets/${meta.img}`,
+      // 封面图里有烘死的中文，英文模式下换用 -en 版本（若无则回退中文版）
+      src: `./assets/${currentLocale() === 'en' && EN_COVER[meta.img] ? EN_COVER[meta.img] : meta.img}`,
       alt: '',
       loading: 'lazy',
       decoding: 'async',
@@ -412,7 +453,7 @@ function caseCard(id, { compact = false } = {}) {
     });
     thumb.append(img);
   }
-  thumb.append(el('span', { class: 'case-card__no', text: `档案 #${id.slice(3)}` }));
+  thumb.append(el('span', { class: 'case-card__no', text: tf('case.card.no', { num: id.slice(3) }, `档案 #${id.slice(3)}`) }));
   card.append(thumb);
 
   const body = el('div', { class: 'case-card__body' });
@@ -422,9 +463,13 @@ function caseCard(id, { compact = false } = {}) {
   const metaRow = el('div', { class: 'case-card__meta' });
   if (c) {
     metaRow.append(el('span', { text: c.difficulty || '—' }));
-    metaRow.append(el('span', { text: `设计预计 ${c.play_minutes?.[0] ?? '3'}–${c.play_minutes?.[1] ?? '5'} 分钟` }));
+    metaRow.append(el('span', { text: tf('case.card.minutes', { min: c.play_minutes?.[0] ?? '3', max: c.play_minutes?.[1] ?? '5' }, `设计预计 ${c.play_minutes?.[0] ?? '3'}–${c.play_minutes?.[1] ?? '5'} 分钟`) }));
   }
-  const badgeText = st === 'done' ? '已归档 · 可重看' : st === 'ready' ? '可调查' : '修复中 · 暂不可调查';
+  const badgeText = st === 'done'
+    ? t('case.card.status.done', '已归档 · 可重看')
+    : st === 'ready'
+      ? t('case.card.status.ready', '可调查')
+      : t('case.card.status.locked', '修复中 · 暂不可调查');
   const badgeCls = st === 'done' ? 'case-card__status--done' : st === 'ready' ? 'case-card__status--ready' : 'case-card__status--locked';
   metaRow.append(el('span', { class: `case-card__status ${badgeCls}`, text: badgeText }));
   body.append(metaRow);
@@ -437,9 +482,13 @@ function caseCard(id, { compact = false } = {}) {
     body.append(el('a', {
       class: 'btn btn--primary case-card__cta',
       href: `#/case/${id}`,
-      aria: { label: `${st === 'done' ? '重看' : '调查'}档案 ${id.slice(3)}：${title}` },
+      aria: {
+        label: st === 'done'
+          ? tf('case.card.aria.review', { num: id.slice(3), title }, `重看档案 ${id.slice(3)}：${title}`)
+          : tf('case.card.aria.investigate', { num: id.slice(3), title }, `调查档案 ${id.slice(3)}：${title}`),
+      },
     }, [
-      el('span', { text: st === 'done' ? '重看此案' : '立即调查' }),
+      el('span', { text: st === 'done' ? t('case.card.cta.review', '重看此案') : t('case.card.cta.investigate', '立即调查') }),
       ICON.arrow(),
     ]));
   }
@@ -456,8 +505,8 @@ function renderActBlocks(host, { compact = false } = {}) {
     const head = el('div', { class: 'act__head' });
     head.append(el('span', { class: 'act__roman', text: act.roman }));
     const headText = el('div');
-    headText.append(el('h2', { class: 'act__title', text: `第 ${act.roman} 幕 · ${act.title}` }));
-    headText.append(el('p', { class: 'act__desc', text: act.desc }));
+    headText.append(el('h2', { class: 'act__title', text: tf('act.label', { roman: act.roman, title: t(`act.${act.n}.title`, act.title) }, `第 ${act.roman} 幕 · ${act.title}`) }));
+    headText.append(el('p', { class: 'act__desc', text: t(`act.${act.n}.desc`, act.desc) }));
     head.append(headText);
     section.append(head);
     const grid = el('div', { class: 'case-grid' });
@@ -465,6 +514,11 @@ function renderActBlocks(host, { compact = false } = {}) {
     section.append(grid);
     host.append(section);
   }
+}
+
+/** 取幕的本地化标题/描述，中文模式返回原文。 */
+function t_act(act, field) {
+  return t(`act.${act.n}.${field}`, field === 'title' ? act.title : act.desc);
 }
 
 function renderHomeCabinet() {
@@ -477,8 +531,11 @@ function renderHomeCabinet() {
   const head = el('div', { class: 'act__head' });
   head.append(el('span', { class: 'act__roman', text: act.roman }));
   const t = el('div');
-  t.append(el('h2', { class: 'act__title', text: `第 ${act.roman} 幕 · ${act.title}` }));
-  t.append(el('p', { class: 'act__desc', text: act.desc }));
+  t.append(el('h2', {
+    class: 'act__title',
+    text: tf('act.label', { roman: act.roman, title: t_act(act, 'title') }, `第 ${act.roman} 幕 · ${act.title}`),
+  }));
+  t.append(el('p', { class: 'act__desc', text: t_act(act, 'desc') }));
   head.append(t);
   section.append(head);
   const grid = el('div', { class: 'case-grid' });
@@ -493,7 +550,7 @@ function renderCabinet() {
   renderActBlocks(host);
   const done = progress.solvedCount();
   const badge = $('#progress-badge');
-  if (badge) badge.textContent = `已归档 ${done} / ${RELEASED.size}`;
+  if (badge) badge.textContent = tf('cabinet.progress', { done, total: RELEASED.size }, `已归档 ${done} / ${RELEASED.size}`);
 }
 
 /* ------------------------------------------------------------------ */
@@ -514,7 +571,7 @@ async function openCase(id) {
     root.replaceChildren(el('div', { class: 'empty-state' }, [
       el('h2', { text: '这份档案尚未完整送达' }),
       el('p', { text: err.message || '请刷新，或回到档案柜。' }),
-      el('p', {}, [el('a', { class: 'btn btn--ghost', href: '#/cabinet', text: '返回档案柜' })]),
+      el('p', {}, [el('a', { class: 'btn btn--ghost', href: '#/cabinet', text: t('verdict.cta.cabinet', '返回档案柜') })]),
     ]));
     return;
   }
@@ -553,7 +610,7 @@ async function openCase(id) {
 
   document.title = `${c.title}｜第零证物局`;
   const crumb = $('#crumb-case');
-  if (crumb) crumb.textContent = `档案 #${id.slice(3)} · ${c.title}`;
+  if (crumb) crumb.textContent = tf('desk.crumb', { num: id.slice(3), title: c.title }, `档案 #${id.slice(3)} · ${c.title}`);
   if (solvedBefore) toast('这份档案已在本地归档，你可以重看或重新调查。');
 
   try {
@@ -564,7 +621,7 @@ async function openCase(id) {
     root.replaceChildren(el('div', { class: 'empty-state' }, [
       el('h2', { text: '这份档案暂时无法展开' }),
       el('p', { text: err.message || '请刷新，或回到档案柜。' }),
-      el('p', {}, [el('a', { class: 'btn btn--ghost', href: '#/cabinet', text: '返回档案柜' })]),
+      el('p', {}, [el('a', { class: 'btn btn--ghost', href: '#/cabinet', text: t('verdict.cta.cabinet', '返回档案柜') })]),
     ]));
   }
 }
@@ -575,14 +632,20 @@ function renderDesk(c) {
 
   const head = el('div', { class: 'desk-head' });
   const headText = el('div');
-  headText.append(el('span', { class: 'eyebrow', text: `第 ${c.chapter || '?'} 幕 · ${c.theme || '雾港档案'}` }));
+  headText.append(el('span', {
+    class: 'eyebrow',
+    text: tf('desk.eyebrow', {
+      chapter: c.chapter || '?',
+      theme: c.theme || t('desk.eyebrow.fallbackTheme', '雾港档案'),
+    }, `第 ${c.chapter || '?'} 幕 · ${c.theme || '雾港档案'}`),
+  }));
   headText.append(el('h1', { class: 'desk-head__title', id: 'case-title', text: c.title }));
   headText.append(el('p', { class: 'desk-head__sub', text: c.subtitle || '' }));
   head.append(headText);
 
   const meta = el('div', { style: 'display:flex;flex-wrap:wrap;gap:.5rem;align-items:center' });
   meta.append(el('span', { class: 'pill', text: c.difficulty || '—' }));
-  meta.append(el('span', { class: 'pill pill--mist', text: `档案 #${c.id.slice(3)}` }));
+  meta.append(el('span', { class: 'pill pill--mist', text: tf('case.card.no', { num: c.id.slice(3) }, `档案 #${c.id.slice(3)}`) }));
   if (progress.of(c.id)?.solved) meta.append(el('span', { class: 'pill pill--ok', text: '已在本地归档' }));
   head.append(meta);
   root.append(head);
@@ -592,13 +655,13 @@ function renderDesk(c) {
   /* ---------- 左：证据 ---------- */
   const evCol = el('section', { class: 'evidence-col', aria: { labelledby: 'ev-heading' } });
   const evHead = el('div', { class: 'col-head' });
-  evHead.append(el('h2', { class: 'h3', id: 'ev-heading', text: '已采集证物', style: 'font-size:var(--step-1);margin:0' }));
-  evHead.append(el('p', { class: 'hint', text: `${c.evidence.length} 份 · 可逐张展开` }));
+  evHead.append(el('h2', { class: 'h3', id: 'ev-heading', text: t('desk.evidence.heading', '已采集证物'), style: 'font-size:var(--step-1);margin:0' }));
+  evHead.append(el('p', { class: 'hint', text: tf('desk.evidence.count', { n: c.evidence.length }, `${c.evidence.length} 份 · 可逐张展开`) }));
   evCol.append(evHead);
 
   const setup = el('div', { class: 'recap-block', style: 'margin-bottom:var(--sp-4);padding:var(--sp-4)' });
   setup.append(el('p', { style: 'margin-bottom:.5rem;font-size:var(--step--1);color:var(--text-dim)', text: c.setting || '' }));
-  setup.append(el('p', { style: 'margin:0;color:var(--paper);font-weight:600;font-size:var(--step--1)', text: `目标：${c.objective || ''}` }));
+  setup.append(el('p', { style: 'margin:0;color:var(--paper);font-weight:600;font-size:var(--step--1)', text: tf('desk.objective', { objective: c.objective || '' }, `目标：${c.objective || ''}`) }));
   evCol.append(setup);
 
   const list = el('div', { class: 'evidence-list' });
@@ -621,8 +684,14 @@ function renderDesk(c) {
     body.append(el('p', { text: ev.body }));
     if (ev.readableRules?.length) {
       const rule = el('span', { class: 'ev-card__rule' });
-      rule.append(el('strong', { text: '可核对的关系：' }));
-      rule.append(document.createTextNode(ev.readableRules.join(' ')));
+      rule.append(el('strong', { text: t('desk.rule.label', '可核对的关系：') }));
+      const readable = currentLocale() === 'zh'
+        ? ev.readableRules
+        : ev.constraint_ids
+            .map((cid) => state.rulesMeta.get(c.id)?.get(cid))
+            .filter(Boolean)
+            .map((r) => ruleText(c.id, r.id, r, c.slots, describeRule(r, c.slots)));
+      rule.append(document.createTextNode(readable.join(' ')));
       body.append(rule);
     }
     card.append(summary, body);
@@ -634,13 +703,13 @@ function renderDesk(c) {
   const afterword = el('div', { class: 'case-afterword' });
   if (c.motif) {
     afterword.append(el('p', { class: 'case-afterword__motif' }, [
-      el('span', { class: 'case-afterword__tag', text: '案卷边注' }),
+      el('span', { class: 'case-afterword__tag', text: t('desk.afterword.motifTag', '案卷边注') }),
       document.createTextNode(c.motif),
     ]));
   }
   if (c.director_note) {
     afterword.append(el('p', { class: 'case-afterword__note' }, [
-      el('span', { class: 'case-afterword__who', text: '局长 · 陆柏：' }),
+      el('span', { class: 'case-afterword__who', text: t('desk.afterword.director', '局长 · 陆柏：') }),
       document.createTextNode(`「${c.director_note}」`),
     ]));
   }
@@ -653,29 +722,29 @@ function renderDesk(c) {
   const board = el('div', { class: 'board' });
 
   const bHead = el('div', { class: 'col-head' });
-  bHead.append(el('h2', { id: 'board-heading', text: '复原格位', style: 'font-size:var(--step-1);margin:0' }));
-  bHead.append(el('p', { class: 'hint', text: `共 ${c.slots.length} 格` }));
+  bHead.append(el('h2', { id: 'board-heading', text: t('desk.board.heading', '复原格位'), style: 'font-size:var(--step-1);margin:0' }));
+  bHead.append(el('p', { class: 'hint', text: tf('desk.board.count', { n: c.slots.length }, `共 ${c.slots.length} 格`) }));
   board.append(bHead);
 
   const goal = el('div', { class: 'board__goal' });
   goal.append(ICON.info());
-  goal.append(el('span', { text: '点击卡片选中，再点目标格位交换；也可以用 ↑ ↓ 按钮。键盘可用 Tab 与上下方向键。' }));
+  goal.append(el('span', { text: t('desk.board.goal', '点击卡片选中，再点目标格位交换；也可以用 ↑ ↓ 按钮。键盘可用 Tab 与上下方向键。') }));
   board.append(goal);
 
-  const slots = el('ol', { class: 'slots', id: 'slots', aria: { label: '复原格位列表' } });
+  const slots = el('ol', { class: 'slots', id: 'slots', aria: { label: t('desk.slots.aria', '复原格位列表') } });
   board.append(slots);
   orderCol.append(board);
 
   const actions = el('div', { class: 'actions' });
-  actions.append(el('button', { class: 'btn btn--primary', type: 'button', id: 'btn-submit', text: '提交复原' }));
-  actions.append(el('button', { class: 'btn', type: 'button', id: 'btn-undo', text: '撤销一步' }));
-  actions.append(el('button', { class: 'btn', type: 'button', id: 'btn-hint', text: '查看提示' }));
-  actions.append(el('button', { class: 'btn btn--danger', type: 'button', id: 'btn-reset', text: '重置此案' }));
+  actions.append(el('button', { class: 'btn btn--primary', type: 'button', id: 'btn-submit', text: t('desk.btn.submit', '提交复原') }));
+  actions.append(el('button', { class: 'btn', type: 'button', id: 'btn-undo', text: t('desk.btn.undo', '撤销一步') }));
+  actions.append(el('button', { class: 'btn', type: 'button', id: 'btn-hint', text: t('desk.btn.hint', '查看提示') }));
+  actions.append(el('button', { class: 'btn btn--danger', type: 'button', id: 'btn-reset', text: t('desk.btn.reset', '重置此案') }));
   board.append(actions);
 
   const status = el('div', { class: 'status-bar' });
   status.append(el('span', { class: 'status-dot', id: 'status-dot', dataset: { state: 'idle' }, aria: { hidden: 'true' } }));
-  status.append(el('span', { id: 'status-text', text: '准备核对' }));
+  status.append(el('span', { id: 'status-text', text: t('desk.status.idle', '准备核对') }));
   board.append(status);
 
   const msg = el('div', { class: 'message', id: 'message', role: 'status', aria: { live: 'polite' } });
@@ -715,24 +784,24 @@ function drawSlots(focus = null) {
 
     const main = el('div', { class: 'slot__main' });
     main.append(el('span', { class: 'slot__label', text: c.slots[i] || `第${i + 1}格` }));
-    main.append(el('span', { class: 'slot__item', text: item }));
+    main.append(el('span', { class: 'slot__item', text: itemLabel(item) }));
     li.append(main);
 
     const acts = el('div', { class: 'slot__actions' });
 
-    const grip = el('span', { class: 'slot__grip', title: '拖动此卡到其它格位', aria: { hidden: 'true' } }, [ICON.grip()]);
+    const grip = el('span', { class: 'slot__grip', title: t('desk.slot.dragTitle', '拖动此卡到其它格位'), aria: { hidden: 'true' } }, [ICON.grip()]);
     acts.append(grip);
 
     const up = el('button', {
       class: 'icon-btn', type: 'button',
       dataset: { act: 'up' },
-      aria: { label: `将「${item}」上移一格`, disabled: String(i === 0) },
+      aria: { label: tf('desk.slot.aria.up', { item: itemLabel(item) }, `将「${item}」上移一格`), disabled: String(i === 0) },
       disabled: i === 0,
     }, [ICON.up()]);
     const down = el('button', {
       class: 'icon-btn', type: 'button',
       dataset: { act: 'down' },
-      aria: { label: `将「${item}」下移一格`, disabled: String(i === state.order.length - 1) },
+      aria: { label: tf('desk.slot.aria.down', { item: itemLabel(item) }, `将「${item}」下移一格`), disabled: String(i === state.order.length - 1) },
       disabled: i === state.order.length - 1,
     }, [ICON.down()]);
     const pick = el('button', {
@@ -771,7 +840,7 @@ function drawHints() {
   const shown = c.hints.slice(0, state.hintIndex);
   shown.forEach((text, i) => {
     const card = el('div', { class: 'hint-card' });
-    card.append(el('span', { class: 'hint-card__no', text: `档案员注 ${String(i + 1).padStart(2, '0')} ／ ${String(c.hints.length).padStart(2, '0')}` }));
+    card.append(el('span', { class: 'hint-card__no', text: tf('desk.hint.card', { index: String(i + 1).padStart(2, '0'), total: String(c.hints.length).padStart(2, '0') }, `档案员注 ${String(i + 1).padStart(2, '0')} ／ ${String(c.hints.length).padStart(2, '0')}`) }));
     card.append(document.createTextNode(text));
     host.append(card);
   });
@@ -784,7 +853,12 @@ function syncButtons() {
   if (hintBtn) {
     const exhausted = state.hintIndex >= c.hints.length;
     hintBtn.disabled = exhausted;
-    hintBtn.textContent = exhausted ? '提示已全部解封' : (state.hintIndex === 0 ? '查看提示' : `查看提示（${state.hintIndex}/${c.hints.length}）`);
+    hintBtn.textContent = exhausted
+      ? t('desk.btn.hint.exhausted', '提示已全部解封')
+      : (state.hintIndex === 0
+        ? t('desk.btn.hint', '查看提示')
+        : tf('desk.btn.hint.count', { used: state.hintIndex, total: c.hints.length },
+             `查看提示（${state.hintIndex}/${c.hints.length}）`));
   }
   const undo = $('#btn-undo');
   if (undo) undo.disabled = state.history.length === 0;
@@ -836,7 +910,7 @@ function onPick(i) {
   if (state.selected === i) {
     state.selected = null;
     drawSlots({ index: i, act: 'pick' });
-    setStatus('idle', '准备核对');
+    setStatus('idle', t('desk.status.idle', '准备核对'));
     return;
   }
   swap(state.selected, i);
@@ -962,38 +1036,42 @@ function renderVerdict(c, checks) {
 
   const box = el('section', { class: 'verdict', aria: { labelledby: 'verdict-title' } });
 
-  box.append(el('div', { class: 'stamp', text: '档案归位' }));
-  box.append(el('h1', { id: 'verdict-title', class: 'verdict__h1', tabindex: '-1', text: '档案归位。' }));
-  box.append(el('p', { class: 'verdict__lede', text: '没有凭空消失的证物，只有尚未排列好的事实。' }));
+  box.append(el('div', { class: 'stamp', text: t('verdict.stamp', '档案归位') }));
+  box.append(el('h1', { id: 'verdict-title', class: 'verdict__h1', tabindex: '-1', text: t('verdict.h1', '档案归位。') }));
+  box.append(el('p', { class: 'verdict__lede', text: t('verdict.lede', '没有凭空消失的证物，只有尚未排列好的事实。') }));
 
   /* --- 第一部分：逻辑复盘（严格可证明） --- */
   const logic = el('div', { class: 'recap-block' });
-  logic.append(el('span', { class: 'recap-block__label' }, [ICON.check(), document.createTextNode(' 逻辑复盘 · 可由证据严格证明')]));
+  logic.append(el('span', { class: 'recap-block__label' }, [ICON.check(), document.createTextNode(' ' + t('verdict.logicLabel', '逻辑复盘 · 可由证据严格证明'))]));
 
-  const strip = el('ol', { class: 'solution-strip', aria: { label: '最终排列' } });
+  const strip = el('ol', { class: 'solution-strip', aria: { label: t('verdict.finalOrder.aria', '最终排列') } });
   state.order.forEach((item, i) => {
     strip.append(el('li', {}, [
-      el('span', { text: item }),
+      el('span', { text: itemLabel(item) }),
       el('small', { text: ` ${c.slots[i] || `第${i + 1}格`}`, style: 'color:var(--brass);font-family:var(--font-ui);font-weight:600' }),
     ]));
   });
-  logic.append(el('h2', { class: 'recap-h', text: '你的最终排列' }));
+  logic.append(el('h2', { class: 'recap-h', text: t('verdict.finalOrder.heading', '你的最终排列') }));
   logic.append(strip);
 
-  logic.append(el('h2', { class: 'recap-h', style: 'margin-top:var(--sp-5)', text: '每条证据如何锁死一个位置' }));
+  logic.append(el('h2', { class: 'recap-h', style: 'margin-top:var(--sp-5)', text: t('verdict.chain.heading', '每条证据如何锁死一个位置') }));
   const scroll = el('div', { class: 'table-scroll' });
   const table = el('table', { class: 'chain-table' });
   table.append(el('thead', {}, [el('tr', {}, [
-    el('th', { text: '证据' }),
-    el('th', { text: '这条关系说的是' }),
-    el('th', { text: '为什么必须' }),
+    el('th', { text: t('verdict.table.evidence', '证据') }),
+    el('th', { text: t('verdict.table.relation', '这条关系说的是') }),
+    el('th', { text: t('verdict.table.why', '为什么必须') }),
   ])]));
   const tbody = el('tbody');
 
   c.evidence.forEach((ev) => {
     const rules = ev.constraint_ids.map((cid) => state.rulesMeta.get(c.id)?.get(cid)).filter(Boolean);
-    const desc = rules.map((r) => describeRule(r, c.slots)).join(' ');
-    const why = rules.map((r) => explainWhy(necessity.get(r.id))).filter(Boolean).join(' ');
+    const desc = rules
+      .map((r) => ruleText(c.id, r.id, r, c.slots, describeRule(r, c.slots)))
+      .join(' ');
+    const why = rules
+      .map((r) => explainWhyI18n(necessity.get(r.id), explainWhy(necessity.get(r.id))))
+      .filter(Boolean).join(' ');
     tbody.append(el('tr', {}, [
       el('td', {}, [el('span', { text: ev.id }), el('br', {}), el('span', { text: ev.title, style: 'font-family:var(--font-ui);color:var(--text);font-size:.8rem' })]),
       el('td', { text: desc }),
@@ -1005,22 +1083,22 @@ function renderVerdict(c, checks) {
   logic.append(scroll);
   logic.append(el('p', {
     style: 'margin-top:var(--sp-4);font-size:var(--step--1);color:var(--mist);margin-bottom:0',
-    text: `形式化核对：${checks.length} 条关系全部满足；在 ${c.items.length} 件物件的全部排列中，这一组证据只允许 1 种排法。上述内容只陈述可由证据推出的顺序事实。`,
+    text: tf('verdict.formalCheck', { n: checks.length, m: c.items.length }, `形式化核对：${checks.length} 条关系全部满足；在 ${c.items.length} 件物件的全部排列中，这一组证据只允许 1 种排法。上述内容只陈述可由证据推出的顺序事实。`),
   }));
   box.append(logic);
 
   /* --- 第二部分：档案后记（叙事，不是形式化结论） --- */
   const story = el('div', { class: 'recap-block recap-block--story' });
-  story.append(el('span', { class: 'recap-block__label' }, [ICON.info(), document.createTextNode(' 档案后记 · 结案后补充记录')]));
+  story.append(el('span', { class: 'recap-block__label' }, [ICON.info(), document.createTextNode(' ' + t('verdict.storyLabel', '档案后记 · 结案后补充记录'))]));
   story.append(el('p', { style: 'color:var(--paper);font-size:var(--step-1);line-height:1.75', text: c.epilogue || c.resolution || '' }));
   if (c.twist) {
     story.append(el('p', { style: 'margin-bottom:0;color:var(--text-dim);font-size:var(--step--1)' }, [
-      el('strong', { text: '本案的记录机制：' }), document.createTextNode(c.twist),
+      el('strong', { text: t('verdict.mechanism', '本案的记录机制：') }), document.createTextNode(c.twist),
     ]));
   }
   story.append(el('p', {
     style: 'margin-top:var(--sp-4);margin-bottom:0;font-size:0.76rem;color:var(--mist);border-top:1px dashed rgb(158 183 180/.25);padding-top:.6rem',
-    text: '以上后记为调查人员事后补写的虚构叙述，用于交代人物与背景；它不构成刚才排序推理的证明。',
+    text: t('verdict.disclaimer', '以上后记为调查人员事后补写的虚构叙述，用于交代人物与背景；它不构成刚才排序推理的证明。'),
   }));
   box.append(story);
 
@@ -1028,19 +1106,19 @@ function renderVerdict(c, checks) {
   const actions = el('div', { class: 'verdict__actions' });
   const nextId = nextReleasedCase(c.id);
   if (nextId) {
-    actions.append(el('a', { class: 'btn btn--primary', href: `#/case/${nextId}`, text: c.id === 'NA-006' ? '查看终章' : `继续下一案 #${nextId.slice(3)}` }));
+    actions.append(el('a', { class: 'btn btn--primary', href: `#/case/${nextId}`, text: c.id === 'NA-006' ? t('verdict.cta.finale', '查看终章') : tf('verdict.cta.next', { num: nextId.slice(3) }, `继续下一案 #${nextId.slice(3)}`) }));
   }
-  actions.append(el('a', { class: 'btn', href: '#/cabinet', text: '返回档案柜' }));
-  actions.append(el('button', { class: 'btn btn--ghost', type: 'button', id: 'btn-replay', text: '重新调查此案' }));
+  actions.append(el('a', { class: 'btn', href: '#/cabinet', text: t('verdict.cta.cabinet', '返回档案柜') }));
+  actions.append(el('button', { class: 'btn btn--ghost', type: 'button', id: 'btn-replay', text: t('verdict.cta.replay', '重新调查此案') }));
   box.append(actions);
 
   if (c.id === 'NA-006') {
     const finale = el('div', { class: 'recap-block', style: 'margin-top:var(--sp-6);border:1px solid rgb(223 185 120/.35)' });
-    finale.append(el('span', { class: 'recap-block__label', text: '终章 · 第零号 ／ 结案后补充记录' }));
-    finale.append(el('p', { style: 'font-family:var(--font-serif);font-size:var(--step-2);line-height:1.5;color:var(--paper)', text: '第零号，不是第一张之前的照片。' }));
-    finale.append(el('p', { style: 'color:var(--text-dim)', text: '它是一条不该被当成事件的记录。底片没有骗人——错的是那一栏「拍摄内容」：一次校准光圈的动作，被登记成了第六次真实曝光，六张底片于是看起来比五个瞬间多出一张。' }));
-    finale.append(el('p', { style: 'color:var(--text-dim);font-weight:600', text: '所以「第零号证物」不是超自然物件，而是一次分类错误：把「校准」写进了「事件」的类目。' }));
-    finale.append(el('p', { style: 'color:var(--text-dim)', text: '局长把半圈「0」章盖在每一份分类不确定的档案上，从来不是为了隐藏真相，而是为了提醒下一位读档者：先问「它是什么」，再问「它发生了什么」。' }));
+    finale.append(el('span', { class: 'recap-block__label', text: t('verdict.finale.label', '终章 · 第零号 ／ 结案后补充记录') }));
+    finale.append(el('p', { style: 'font-family:var(--font-serif);font-size:var(--step-2);line-height:1.5;color:var(--paper)', text: t('verdict.finale.p1', '第零号，不是第一张之前的照片。') }));
+    finale.append(el('p', { style: 'color:var(--text-dim)', text: t('verdict.finale.p2', '它是一条不该被当成事件的记录。底片没有骗人——错的是那一栏「拍摄内容」：一次校准光圈的动作，被登记成了第六次真实曝光，六张底片于是看起来比五个瞬间多出一张。') }));
+    finale.append(el('p', { style: 'color:var(--text-dim);font-weight:600', text: t('verdict.finale.p3', '所以「第零号证物」不是超自然物件，而是一次分类错误：把「校准」写进了「事件」的类目。') }));
+    finale.append(el('p', { style: 'color:var(--text-dim)', text: t('verdict.finale.p4', '局长把半圈「0」章盖在每一份分类不确定的档案上，从来不是为了隐藏真相，而是为了提醒下一位读档者：先问「它是什么」，再问「它发生了什么」。') }));
     box.append(finale);
   }
 
@@ -1139,7 +1217,7 @@ function bindDeskEvents(c) {
     state.hintIndex = 0;
     progress.dropOrder(c.id);
     clearMessage();
-    setStatus('idle', '准备核对');
+    setStatus('idle', t('desk.status.idle', '准备核对'));
     drawSlots();
     drawHints();
     syncButtons();
@@ -1220,6 +1298,27 @@ function bindGlobal() {
     renderCabinet();
   });
 
+  // ---- 语言切换 ----
+  const langBtn = $('#lang-toggle');
+  const syncLangBtn = () => {
+    if (!langBtn) return;
+    const en = currentLocale() === 'en';
+    langBtn.textContent = en ? '中文' : 'EN';
+    langBtn.setAttribute('aria-label', en ? 'Switch to 中文' : 'Switch to English');
+  };
+  syncLangBtn();
+  langBtn?.addEventListener('click', async () => {
+    const next = currentLocale() === 'en' ? 'zh' : 'en';
+    const ok = await setLocale(next);
+    if (!ok) {
+      toast(next === 'en' ? '英文语言包未能载入，继续使用中文。' : '无法切换语言。');
+      return;
+    }
+    syncLangBtn();
+    clearCaseCache();
+    await router();
+  });
+
   const briefing = $('#briefing-card');
   const dismiss = $('#briefing-dismiss');
   if (briefing && store.get('briefing_dismissed', false)) briefing.hidden = true;
@@ -1231,10 +1330,28 @@ function bindGlobal() {
   });
 
   const ver = $('#build-version');
+  // 版本行带 <code>，单独渲染；英文模式下用 {version} 模板
+  const versionLine = $('#version-line');
+  if (versionLine) {
+    if (currentLocale() === 'en') {
+      versionLine.textContent = tf('about.version.p', { version: BUILD }, `站点版本 ${BUILD} · 求解核心为确定性穷举，无网络推理。`);
+    } else {
+      versionLine.replaceChildren(
+        document.createTextNode('站点版本 '),
+        el('code', { id: 'build-version', text: BUILD }),
+        document.createTextNode(' · 求解核心为确定性穷举，无网络推理。'),
+      );
+    }
+  }
   if (ver && BUILD && !BUILD.startsWith('__')) ver.textContent = BUILD;
 }
 
 async function boot() {
+  const initial = detectLocale();
+  if (initial !== 'zh') {
+    const ok = await setLocale(initial);
+    if (!ok) await setLocale('zh');   // 语言包坏了也别卡住启动
+  }
   bindGlobal();
   // 预加载全部已发布案件元数据，供档案柜显示标题
   await Promise.all([...RELEASED].map(async (id) => {

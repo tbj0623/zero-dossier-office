@@ -1,0 +1,1807 @@
+{
+  "_meta": {
+    "locale": "en",
+    "source_locale": "zh-CN",
+    "strings": {
+      "locale": "en",
+      "source_locale": "zh-CN",
+      "note": "English localization of every player-visible and screen-reader-announced string in The Zero Dossier Office (第零证物局). Source of truth: site/index.html and site/app.mjs at the time of translation; the live site was verified byte-identical to that source except for the build hash. Strings are flat keys; each entry carries the Chinese source (zh) beside the English text (en). Nothing here is code — wire by key.",
+      "placeholders": "Templated strings use {name} placeholders. Every entry's English text uses exactly the same placeholder set as its Chinese source, so a single formatter can fill both. Values that originate in case data (item names, case titles, slot labels, evidence ids) must be substituted with the corresponding values from cases.json so that names stay consistent.",
+      "placeholder_glossary": {
+        "{item}": "translated item name from cases.json cases[ID].items",
+        "{title}": "translated case title from cases.json",
+        "{num}": "zero-padded dossier number, e.g. 001",
+        "{n}": "a count",
+        "{total}": "a total count",
+        "{done}": "number of cases filed",
+        "{used}": "number of hints already revealed",
+        "{index}": "2-digit hint number, e.g. 01",
+        "{chapter}": "act number as a roman numeral (I, II, III)",
+        "{theme}": "translated case theme from cases.json",
+        "{objective}": "translated objective from cases.json",
+        "{slot}": "translated slot label from cases.json",
+        "{id}": "evidence id, e.g. E01",
+        "{version}": "build version string",
+        "{roman}": "act numeral, I / II / III",
+        "{min}": "shortest designed play time, in minutes",
+        "{max}": "longest designed play time, in minutes",
+        "{m}": "number of items in the case (the source's c.items.length)",
+        "{a}": "first item name in a rule",
+        "{b}": "second item name in a rule",
+        "{c}": "third item name in a rule (between only)",
+        "{gap}": "slot-number difference in a distance rule",
+        "{between}": "items lying between two others; always gap − 1",
+        "{label}": "the case's own slot label for slot {n}, e.g. “Drawer 3”",
+        "{status}": "HTTP status code from a failed case-file fetch"
+      },
+      "quoting": "English uses typographic curly quotes “ ” where the Chinese uses 「」. These are display characters, not syntax; keep them out of logic comparisons.",
+      "text_only": "Several source strings are bolded/highlighted in markup (see per-entry notes). The English text here is plain; re-apply emphasis in the template if desired.",
+      "untranslated_by_design": [
+        "brand.sub — the source already reads “The Zero Dossier Office” in English",
+        "Slot labels that are clock times (22:00–22:30 in NA-001) stay numeric",
+        "Keyboard key names (Tab, Shift+Tab, Enter, Space, Esc, ↑, ↓) stay as-is",
+        "The dossier ids (NA-001…NA-006), evidence ids (E01…), and the localStorage prefix zd:v1: are identifiers, not prose",
+        "The distinctive half-stamp glyph “0” is kept as a glyph in running text"
+      ],
+      "count": 265,
+      "keep_chinese": {
+        "reason": "The language switcher must name the Chinese language in Chinese; key names and identifiers are not prose.",
+        "keys": [
+          "brand.sub",
+          "lang.switchToZh",
+          "lang.button.zh",
+          "lang.toggle.aria",
+          "manual.keys.row3.key",
+          "manual.keys.row4.key"
+        ]
+      }
+    },
+    "glossary": {
+      "第零证物局": {
+        "zh": "第零证物局",
+        "en": "The Zero Dossier Office"
+      },
+      "雾港": {
+        "zh": "雾港",
+        "en": "Fog Harbor"
+      },
+      "局长·陆柏": {
+        "zh": "局长·陆柏",
+        "en": "Director Lu Bo"
+      },
+      "传档员·祁灯": {
+        "zh": "传档员·祁灯",
+        "en": "Registrar Qi Deng"
+      },
+      "红票": {
+        "zh": "红票",
+        "en": "Red Ticket"
+      },
+      "蓝票": {
+        "zh": "蓝票",
+        "en": "Blue Ticket"
+      },
+      "黄票": {
+        "zh": "黄票",
+        "en": "Yellow Ticket"
+      },
+      "绿票": {
+        "zh": "绿票",
+        "en": "Green Ticket"
+      },
+      "铜钥匙": {
+        "zh": "铜钥匙",
+        "en": "Brass Key"
+      },
+      "银徽章": {
+        "zh": "银徽章",
+        "en": "Silver Badge"
+      },
+      "航海图": {
+        "zh": "航海图",
+        "en": "Sea Chart"
+      },
+      "玻璃球": {
+        "zh": "玻璃球",
+        "en": "Glass Sphere"
+      },
+      "红盒": {
+        "zh": "红盒",
+        "en": "Red Box"
+      },
+      "纸鹤": {
+        "zh": "纸鹤",
+        "en": "Paper Crane"
+      },
+      "铜铃": {
+        "zh": "铜铃",
+        "en": "Brass Bell"
+      },
+      "星图": {
+        "zh": "星图",
+        "en": "Star Chart"
+      },
+      "蓝灯": {
+        "zh": "蓝灯",
+        "en": "Blue Lamp"
+      },
+      "玻璃罩": {
+        "zh": "玻璃罩",
+        "en": "Glass Shade"
+      },
+      "旧透镜": {
+        "zh": "旧透镜",
+        "en": "Old Lens"
+      },
+      "海图": {
+        "zh": "海图",
+        "en": "Marine Chart"
+      },
+      "值班簿": {
+        "zh": "值班簿",
+        "en": "Duty Log"
+      },
+      "晨雾邮笺": {
+        "zh": "晨雾邮笺",
+        "en": "Morning Mist Note"
+      },
+      "港口便条": {
+        "zh": "港口便条",
+        "en": "Harbor Slip"
+      },
+      "红蜡封信": {
+        "zh": "红蜡封信",
+        "en": "Red Wax Letter"
+      },
+      "夜航申请": {
+        "zh": "夜航申请",
+        "en": "Night Flight Application"
+      },
+      "空白回邮": {
+        "zh": "空白回邮",
+        "en": "Blank Return Envelope"
+      },
+      "空白底片": {
+        "zh": "空白底片",
+        "en": "Blank Negative"
+      },
+      "钟楼影": {
+        "zh": "钟楼影",
+        "en": "Bell Tower Image"
+      },
+      "纸船影": {
+        "zh": "纸船影",
+        "en": "Paper Boat Image"
+      },
+      "玻璃影": {
+        "zh": "玻璃影",
+        "en": "Glass Image"
+      },
+      "雨幕影": {
+        "zh": "雨幕影",
+        "en": "Rain Curtain Image"
+      },
+      "灯塔影": {
+        "zh": "灯塔影",
+        "en": "Lighthouse Image"
+      }
+    }
+  },
+  "strings": {
+    "brand.name": {
+      "zh": "第零证物局",
+      "en": "The Zero Dossier Office"
+    },
+    "brand.sub": {
+      "zh": "The Zero Dossier Office",
+      "en": "The Zero Dossier Office"
+    },
+    "brand.aria": {
+      "zh": "第零证物局 · 返回封面",
+      "en": "The Zero Dossier Office · back to cover"
+    },
+    "nav.cabinet": {
+      "zh": "档案柜",
+      "en": "Case Files"
+    },
+    "nav.manual": {
+      "zh": "玩法说明",
+      "en": "How to Play"
+    },
+    "nav.about": {
+      "zh": "关于与隐私",
+      "en": "About & Privacy"
+    },
+    "nav.aria": {
+      "zh": "主导航",
+      "en": "Main navigation"
+    },
+    "nav.toggle.open": {
+      "zh": "打开导航菜单",
+      "en": "Open navigation menu"
+    },
+    "nav.toggle.close": {
+      "zh": "关闭导航菜单",
+      "en": "Close navigation menu"
+    },
+    "nav.skip": {
+      "zh": "跳到主要内容",
+      "en": "Skip to main content"
+    },
+    "hero.eyebrow": {
+      "zh": "雾港 · 第零室 ／ 收到一份无法归档的记录",
+      "en": "Fog Harbor · Room Zero — one record has come in that cannot be filed"
+    },
+    "hero.h1": {
+      "zh": "这些记录，",
+      "en": "These records, ",
+      "note": "Ends with a non-breaking space so the English comma does not collapse against the accent span that follows it in the H1."
+    },
+    "hero.h1.accent": {
+      "zh": "不应该同时成立。",
+      "en": "should not all be true at once."
+    },
+    "hero.lede": {
+      "zh": "一张车票，一封从未寄出的回信，一张什么都没拍下的底片。读完证物，恢复顺序，让「不可能」重新变得合理。",
+      "en": "A tram ticket. A reply that was never sent. A negative that caught nothing at all. Read the evidence, restore the order, and let the impossible settle back into reason."
+    },
+    "hero.cta.primary": {
+      "zh": "打开第 001 号档案",
+      "en": "Open Dossier No. 001"
+    },
+    "hero.cta.secondary": {
+      "zh": "查看全部档案",
+      "en": "View all dossiers"
+    },
+    "hero.tag.1": {
+      "zh": "原创微型故事",
+      "en": "Original short-form fiction"
+    },
+    "hero.tag.2": {
+      "zh": "离线规则求解",
+      "en": "Offline rule solving"
+    },
+    "hero.tag.3": {
+      "zh": "无需账户",
+      "en": "No account needed"
+    },
+    "hero.disclaimer": {
+      "zh": "本作人物、地点与事件均为虚构；不对真实人物或事件作任何调查判断。",
+      "en": "All characters, places, and events are fictional. Nothing here makes any investigative claim about real people or events."
+    },
+    "hero.scroll": {
+      "zh": "向下",
+      "en": "Scroll"
+    },
+    "briefing.role": {
+      "zh": "传档员 · 祁灯",
+      "en": "Registrar Qi Deng"
+    },
+    "briefing.title": {
+      "zh": "第一条局规：所有正式证物都说出了可核实的事实。",
+      "en": "House rule one: every piece of formal evidence states a fact you can check."
+    },
+    "briefing.body": {
+      "zh": "你的工作不是猜作者藏起来的答案。请阅读证据里明确写出的先后、相邻、间距和位置关系，再把它们放回正确的格位。卡住了就点提示——三档，不会直接把答案填给你。",
+      "en": "Your job is not to guess an answer the author has hidden. Read the order, adjacency, spacing, and position relations the evidence actually states, and put them back into the right slots. If you stall, open a hint — there are three tiers, and none of them fills in the answer for you."
+    },
+    "briefing.cta.start": {
+      "zh": "开始整理",
+      "en": "Start sorting"
+    },
+    "briefing.cta.dismiss": {
+      "zh": "我知道了",
+      "en": "Understood"
+    },
+    "briefing.cta.manual": {
+      "zh": "随时查看局内手册",
+      "en": "Read the house manual anytime"
+    },
+    "pitch.1.label": {
+      "zh": "01 ／ 阅读",
+      "en": "01 / Read"
+    },
+    "pitch.1.title": {
+      "zh": "正式证物都说出了可核实的事实",
+      "en": "Formal evidence states facts you can check"
+    },
+    "pitch.1.body": {
+      "zh": "每张卡片都写明了先后、相邻、间距或位置关系。你不是在猜作者藏起来的答案，而是在读懂记录本身。",
+      "en": "Every card states an order, an adjacency, a distance, or a position. You are not guessing at a hidden answer; you are reading the record itself."
+    },
+    "pitch.2.label": {
+      "zh": "02 ／ 复原",
+      "en": "02 / Restore"
+    },
+    "pitch.2.title": {
+      "zh": "用按钮就能完成全部排列",
+      "en": "Every arrangement can be made with buttons"
+    },
+    "pitch.2.body": {
+      "zh": "点击卡片选中，再点目标格位交换；也可以用上移／下移。拖放在支持的设备上是额外便利，而不是唯一方式。",
+      "en": "Select a card, then choose a target slot to swap; the up/down buttons work too. Dragging is an extra convenience where it is supported, never the only way."
+    },
+    "pitch.3.label": {
+      "zh": "03 ／ 结案",
+      "en": "03 / Close"
+    },
+    "pitch.3.title": {
+      "zh": "看清你究竟靠什么得出的结论",
+      "en": "See exactly what your conclusion rests on"
+    },
+    "pitch.3.body": {
+      "zh": "结案页把逻辑复盘与档案后记分开呈现：哪些是从证据严格推出来的，哪些是之后补写的叙述，一目了然。",
+      "en": "The closing page keeps the logical reconstruction apart from the dossier afterword: what follows strictly from the evidence, and what was written afterwards as narrative, are never mixed."
+    },
+    "home.cabinet.eyebrow": {
+      "zh": "三幕 · 六案",
+      "en": "Three acts · six cases"
+    },
+    "home.cabinet.title": {
+      "zh": "档案柜",
+      "en": "Case Files"
+    },
+    "home.cabinet.desc": {
+      "zh": "从轻巧的检票顺序，走到灯塔、邮局与底片。每一案解决的不是「魔法」，而是对事实的误读。",
+      "en": "From the small matter of ticket order to the lighthouse, the post office, and the negatives. What each case resolves is never magic — it is a misreading of fact."
+    },
+    "home.cabinet.cta": {
+      "zh": "进入档案柜",
+      "en": "Enter the Case Files"
+    },
+    "cabinet.crumb.home": {
+      "zh": "封面",
+      "en": "Cover"
+    },
+    "cabinet.crumb.current": {
+      "zh": "档案柜",
+      "en": "Case Files"
+    },
+    "cabinet.eyebrow": {
+      "zh": "雾港 · 第零室",
+      "en": "Fog Harbor · Room Zero"
+    },
+    "cabinet.title": {
+      "zh": "档案柜",
+      "en": "Case Files"
+    },
+    "cabinet.desc": {
+      "zh": "六份候选档案按三幕排列。只有通过全部四项审查（形式化、语义、盲审、真实浏览器）的案卷才会开放调查。",
+      "en": "Six candidate dossiers are arranged in three acts. A case opens for investigation only after it has passed all four reviews: formal, semantic, blind, and real-browser."
+    },
+    "cabinet.progress": {
+      "zh": "已归档 {done} / {total}",
+      "en": "Filed {done} / {total}"
+    },
+    "cabinet.footnote": {
+      "zh": "进度仅保存在你自己的浏览器里，可随时在「玩法说明」页清除。",
+      "en": "Progress is stored only in your own browser, and can be cleared at any time on the How to Play page."
+    },
+    "act.label": {
+      "zh": "第 {roman} 幕 · {title}",
+      "en": "Act {roman} · {title}"
+    },
+    "act.1.title": {
+      "zh": "错位的开端",
+      "en": "The Displaced Beginning"
+    },
+    "act.1.desc": {
+      "zh": "每件东西都还在。问题是，人们把它们放进了错误的顺序。",
+      "en": "Everything is still here. The trouble is that it was put away in the wrong order."
+    },
+    "act.2.title": {
+      "zh": "灯塔与回信",
+      "en": "The Lighthouse and the Reply"
+    },
+    "act.2.desc": {
+      "zh": "两套登记系统，在同一个夜晚留下不同版本的事实。",
+      "en": "Two registry systems left different versions of the same night."
+    },
+    "act.3.title": {
+      "zh": "第零张底片",
+      "en": "The Number-Zero Negative"
+    },
+    "act.3.desc": {
+      "zh": "你终于找到那个从未被拍下的瞬间。",
+      "en": "At last you reach the moment that was never photographed."
+    },
+    "case.card.no": {
+      "zh": "档案 #{num}",
+      "en": "Dossier #{num}"
+    },
+    "case.card.minutes": {
+      "zh": "设计预计 {min}–{max} 分钟",
+      "en": "Designed for {min}–{max} min"
+    },
+    "case.card.status.done": {
+      "zh": "已归档 · 可重看",
+      "en": "Filed · open to review"
+    },
+    "case.card.status.ready": {
+      "zh": "可调查",
+      "en": "Open for investigation"
+    },
+    "case.card.status.locked": {
+      "zh": "修复中 · 暂不可调查",
+      "en": "Under repair · not yet open"
+    },
+    "case.card.locked": {
+      "zh": "待开放",
+      "en": "Not yet open"
+    },
+    "case.card.cta.investigate": {
+      "zh": "立即调查",
+      "en": "Investigate now"
+    },
+    "case.card.cta.review": {
+      "zh": "重看此案",
+      "en": "Review this case"
+    },
+    "case.card.aria.investigate": {
+      "zh": "调查档案 {num}：{title}",
+      "en": "Investigate dossier {num}: {title}"
+    },
+    "case.card.aria.review": {
+      "zh": "重看档案 {num}：{title}",
+      "en": "Review dossier {num}: {title}"
+    },
+    "case.hook.NA-001": {
+      "zh": "同一台打票机，半小时里打出四张互相错位的存根。",
+      "en": "One ticket punch, half an hour, four stubs that no longer line up."
+    },
+    "case.hook.NA-002": {
+      "zh": "四格抽屉都被上锁，清点记录却对不上任何一件东西。",
+      "en": "All four drawers were locked, and the inventory matches nothing inside them."
+    },
+    "case.hook.NA-003": {
+      "zh": "五个包裹经过同一条分拣线，三份日志各自只说了一半。",
+      "en": "Five parcels crossed one sorting line, and three logs each tell half of it."
+    },
+    "case.hook.NA-004": {
+      "zh": "第五盏灯整夜没亮，检修记录却坚持它从未熄灭。",
+      "en": "The fifth lamp stayed dark all night; the maintenance log insists it never went out."
+    },
+    "case.hook.NA-005": {
+      "zh": "一封回信被签收，但邮袋里没有人记得把它寄出去。",
+      "en": "A reply was signed for, though no one in the mailbag remembers sending it."
+    },
+    "case.hook.NA-006": {
+      "zh": "第零号底片上什么都没有，却占据了编号最靠前的一格。",
+      "en": "Negative No. 0 holds nothing at all, yet carries the earliest number in the set."
+    },
+    "desk.loading": {
+      "zh": "正在取阅档案…",
+      "en": "Retrieving the dossier…"
+    },
+    "desk.error.title": {
+      "zh": "这份档案尚未完整送达",
+      "en": "This dossier has not arrived in full"
+    },
+    "desk.error.title.render": {
+      "zh": "这份档案暂时无法展开",
+      "en": "This dossier cannot be opened right now"
+    },
+    "desk.error.body.fallback": {
+      "zh": "请刷新，或回到档案柜。",
+      "en": "Please refresh, or return to the Case Files."
+    },
+    "desk.error.cta": {
+      "zh": "返回档案柜",
+      "en": "Back to the Case Files"
+    },
+    "desk.crumb": {
+      "zh": "档案 #{num} · {title}",
+      "en": "Dossier #{num} · {title}"
+    },
+    "desk.eyebrow": {
+      "zh": "第 {chapter} 幕 · {theme}",
+      "en": "Act {chapter} · {theme}"
+    },
+    "desk.eyebrow.fallbackTheme": {
+      "zh": "雾港档案",
+      "en": "Fog Harbor dossier"
+    },
+    "desk.pill.filed": {
+      "zh": "已在本地归档",
+      "en": "Filed locally"
+    },
+    "desk.evidence.heading": {
+      "zh": "已采集证物",
+      "en": "Evidence Collected"
+    },
+    "desk.evidence.count": {
+      "zh": "{n} 份 · 可逐张展开",
+      "en": "{n} items · expand one at a time"
+    },
+    "desk.objective": {
+      "zh": "目标：{objective}",
+      "en": "Objective: {objective}"
+    },
+    "desk.rule.label": {
+      "zh": "可核对的关系：",
+      "en": "Checkable relations: "
+    },
+    "desk.afterword.motifTag": {
+      "zh": "案卷边注",
+      "en": "Marginal note"
+    },
+    "desk.afterword.director": {
+      "zh": "局长 · 陆柏：",
+      "en": "Director Lu Bo: "
+    },
+    "desk.board.heading": {
+      "zh": "复原格位",
+      "en": "Restore the Slots"
+    },
+    "desk.board.count": {
+      "zh": "共 {n} 格",
+      "en": "{n} slots"
+    },
+    "desk.board.goal": {
+      "zh": "点击卡片选中，再点目标格位交换；也可以用 ↑ ↓ 按钮。键盘可用 Tab 与上下方向键。",
+      "en": "Select a card, then choose the target slot to swap. The ↑ ↓ buttons work too. On a keyboard, use Tab and the up/down arrows."
+    },
+    "desk.slots.aria": {
+      "zh": "复原格位列表",
+      "en": "Restore slot list"
+    },
+    "desk.btn.submit": {
+      "zh": "提交复原",
+      "en": "Submit Arrangement"
+    },
+    "desk.btn.undo": {
+      "zh": "撤销一步",
+      "en": "Undo One Step"
+    },
+    "desk.btn.hint": {
+      "zh": "查看提示",
+      "en": "Show a Hint"
+    },
+    "desk.btn.hint.count": {
+      "zh": "查看提示（{used}/{total}）",
+      "en": "Show a Hint ({used}/{total})"
+    },
+    "desk.btn.hint.exhausted": {
+      "zh": "提示已全部解封",
+      "en": "All hints revealed"
+    },
+    "desk.btn.reset": {
+      "zh": "重置此案",
+      "en": "Reset This Case"
+    },
+    "desk.status.idle": {
+      "zh": "准备核对",
+      "en": "Ready to check"
+    },
+    "desk.slot.fallback": {
+      "zh": "第{n}格",
+      "en": "Slot {n}"
+    },
+    "desk.slot.dragTitle": {
+      "zh": "拖动此卡到其它格位",
+      "en": "Drag this card to another slot"
+    },
+    "desk.slot.aria.up": {
+      "zh": "将「{item}」上移一格",
+      "en": "Move “{item}” up one slot"
+    },
+    "desk.slot.aria.down": {
+      "zh": "将「{item}」下移一格",
+      "en": "Move “{item}” down one slot"
+    },
+    "desk.slot.aria.pick": {
+      "zh": "选中「{item}」以交换位置",
+      "en": "Select “{item}” to swap its position"
+    },
+    "desk.slot.aria.unpick": {
+      "zh": "取消选中「{item}」",
+      "en": "Deselect “{item}”"
+    },
+    "desk.hints.region": {
+      "zh": "已揭开的提示",
+      "en": "Revealed hints"
+    },
+    "desk.hint.card": {
+      "zh": "档案员注 {index} ／ {total}",
+      "en": "Archivist's note {index} / {total}"
+    },
+    "status.selected": {
+      "zh": "已选中「{item}」，请点目标格位",
+      "en": "Selected “{item}”. Now choose a target slot."
+    },
+    "status.swapped": {
+      "zh": "已调整排列，等待核对",
+      "en": "Arrangement changed, awaiting check"
+    },
+    "status.undone": {
+      "zh": "已撤销一步",
+      "en": "One step undone"
+    },
+    "status.deselected": {
+      "zh": "已取消选中",
+      "en": "Selection cleared"
+    },
+    "status.bad": {
+      "zh": "存在 {n} 处与证据不符的关系",
+      "en": "Relations conflicting with the evidence: {n}"
+    },
+    "status.ok": {
+      "zh": "全部关系均已满足 · 可以归档",
+      "en": "All relations satisfied · ready to file"
+    },
+    "msg.selected.toast": {
+      "zh": "已选中「{item}」，再点一个格位即可交换",
+      "en": "Selected “{item}”. Choose one more slot to swap."
+    },
+    "msg.hint.exhausted": {
+      "zh": "提示已全部解封，你仍可继续自由尝试。",
+      "en": "Every hint is now revealed; you are still free to keep trying."
+    },
+    "msg.hint.revealed": {
+      "zh": "提示只是帮你推进，不会自动完成排列。",
+      "en": "A hint only moves you along. It will not finish the arrangement for you."
+    },
+    "msg.submit.fail.head": {
+      "zh": "档案仍有不一致：{n} 条关系未满足。",
+      "en": "The dossier still conflicts: {n} relations unmet."
+    },
+    "msg.submit.fail.body": {
+      "zh": "你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。",
+      "en": "Your arrangement has been kept. Keep checking the wording on order, distance, and “between”."
+    },
+    "msg.submit.fail.item": {
+      "zh": "{id}「{title}」中描述的关系与你的排列不一致。",
+      "en": "The relation stated in {id}, “{title}”, does not match your arrangement."
+    },
+    "msg.submit.ok": {
+      "zh": "档案归位。你用了 {n} 条提示。正在生成结案页…",
+      "en": "Dossier restored. Hints used: {n}. Preparing the closing page…",
+      "note": "Phrased as a labelled count so English needs no plural inflection."
+    },
+    "toast.caseFiled": {
+      "zh": "这份档案已在本地归档，你可以重看或重新调查。",
+      "en": "This dossier is already filed locally. You can review it or investigate it again."
+    },
+    "toast.invalidRoute": {
+      "zh": "这个地址没有对应的档案，已回到封面。",
+      "en": "No dossier at this address. Returning to the cover."
+    },
+    "toast.reset": {
+      "zh": "已重置本案排列与提示进度",
+      "en": "This case's arrangement and hints have been reset"
+    },
+    "toast.cleared": {
+      "zh": "已清除本机全部进度",
+      "en": "All progress on this device has been cleared"
+    },
+    "toast.briefingDismissed": {
+      "zh": "随时可以在「玩法说明」里重看局规。",
+      "en": "You can reread the house rules under How to Play at any time."
+    },
+    "verdict.stamp": {
+      "zh": "档案归位",
+      "en": "Filed"
+    },
+    "verdict.h1": {
+      "zh": "档案归位。",
+      "en": "Dossier restored."
+    },
+    "verdict.lede": {
+      "zh": "没有凭空消失的证物，只有尚未排列好的事实。",
+      "en": "No evidence vanished into thin air. Some facts had simply not been put in order."
+    },
+    "verdict.logicLabel": {
+      "zh": "逻辑复盘 · 可由证据严格证明",
+      "en": "Logical reconstruction · strictly provable from the evidence"
+    },
+    "verdict.finalOrder.aria": {
+      "zh": "最终排列",
+      "en": "Final arrangement"
+    },
+    "verdict.finalOrder.heading": {
+      "zh": "你的最终排列",
+      "en": "Your final arrangement"
+    },
+    "verdict.chain.heading": {
+      "zh": "每条证据如何锁死一个位置",
+      "en": "How each piece of evidence pins a position"
+    },
+    "verdict.table.evidence": {
+      "zh": "证据",
+      "en": "Evidence"
+    },
+    "verdict.table.relation": {
+      "zh": "这条关系说的是",
+      "en": "What the relation states"
+    },
+    "verdict.table.why": {
+      "zh": "为什么必须",
+      "en": "Why it is necessary"
+    },
+    "verdict.formalCheck": {
+      "zh": "形式化核对：{n} 条关系全部满足；在 {m} 件物件的全部排列中，这一组证据只允许 1 种排法。上述内容只陈述可由证据推出的顺序事实。",
+      "en": "Formal check: all {n} relations hold. Across every arrangement of {m} items, this body of evidence admits exactly one. Everything above states only order facts derivable from the evidence."
+    },
+    "verdict.storyLabel": {
+      "zh": "档案后记 · 结案后补充记录",
+      "en": "Dossier afterword · record added after closing"
+    },
+    "verdict.mechanism": {
+      "zh": "本案的记录机制：",
+      "en": "What went wrong in this case's record: "
+    },
+    "verdict.disclaimer": {
+      "zh": "以上后记为调查人员事后补写的虚构叙述，用于交代人物与背景；它不构成刚才排序推理的证明。",
+      "en": "The afterword above is a fictional account written by the investigator after the fact to supply characters and background. It is not part of the proof for the ordering you have just made."
+    },
+    "verdict.cta.next": {
+      "zh": "继续下一案 #{num}",
+      "en": "Continue to case #{num}"
+    },
+    "verdict.cta.finale": {
+      "zh": "查看终章",
+      "en": "View the finale"
+    },
+    "verdict.cta.cabinet": {
+      "zh": "返回档案柜",
+      "en": "Back to the Case Files"
+    },
+    "verdict.cta.replay": {
+      "zh": "重新调查此案",
+      "en": "Investigate this case again"
+    },
+    "verdict.finale.label": {
+      "zh": "终章 · 第零号 ／ 结案后补充记录",
+      "en": "Finale · No. 0 / record added after closing"
+    },
+    "verdict.finale.p1": {
+      "zh": "第零号，不是第一张之前的照片。",
+      "en": "No. 0 is not the photograph that came before the first."
+    },
+    "verdict.finale.p2": {
+      "zh": "它是一条不该被当成事件的记录。底片没有骗人——错的是那一栏「拍摄内容」：一次校准光圈的动作，被登记成了第六次真实曝光，六张底片于是看起来比五个瞬间多出一张。",
+      "en": "It is a record that should never have been counted as an event. The negative did not lie — the “subject” column did. A single act of calibrating the aperture was entered as a sixth real exposure, and so six negatives came to look like one more than five moments."
+    },
+    "verdict.finale.p3": {
+      "zh": "所以「第零号证物」不是超自然物件，而是一次分类错误：把「校准」写进了「事件」的类目。",
+      "en": "So “Exhibit No. 0” is no supernatural object. It is a filing error: a calibration written into the category of events."
+    },
+    "verdict.finale.p4": {
+      "zh": "局长把半圈「0」章盖在每一份分类不确定的档案上，从来不是为了隐藏真相，而是为了提醒下一位读档者：先问「它是什么」，再问「它发生了什么」。",
+      "en": "The Director pressed that half-ring “0” onto every dossier whose classification was in doubt, never to hide the truth, but to remind the next reader of the files: ask first what a thing is, and only then ask what happened to it."
+    },
+    "dialog.confirm.default": {
+      "zh": "确认",
+      "en": "Confirm"
+    },
+    "dialog.cancel": {
+      "zh": "取消",
+      "en": "Cancel"
+    },
+    "dialog.reset.title": {
+      "zh": "重置这份档案？",
+      "en": "Reset this dossier?"
+    },
+    "dialog.reset.body": {
+      "zh": "重置会清空这份档案的本地排列进度。确定吗？",
+      "en": "Resetting clears this dossier's saved arrangement. Are you sure?"
+    },
+    "dialog.reset.ok": {
+      "zh": "确认重置",
+      "en": "Confirm reset"
+    },
+    "dialog.resetCase.title": {
+      "zh": "重置此案？",
+      "en": "Reset this case?"
+    },
+    "dialog.resetCase.body": {
+      "zh": "重置会清空这份档案的本地排列进度。确定吗？",
+      "en": "Resetting clears this dossier's saved arrangement. Are you sure?"
+    },
+    "dialog.resetCase.ok": {
+      "zh": "确认重置",
+      "en": "Confirm reset"
+    },
+    "dialog.replay.title": {
+      "zh": "重新调查此案？",
+      "en": "Investigate this case again?"
+    },
+    "dialog.replay.body": {
+      "zh": "会清空本案的本地排列进度（归档标记保留）。",
+      "en": "This clears this case's saved arrangement. The filed mark is kept."
+    },
+    "dialog.replay.ok": {
+      "zh": "重新开始",
+      "en": "Start over"
+    },
+    "dialog.clear.title": {
+      "zh": "清除本机全部进度？",
+      "en": "Clear all progress on this device?"
+    },
+    "dialog.clear.body": {
+      "zh": "这会删除本站在你浏览器中保存的全部归档状态与排列进度，且不可撤销。",
+      "en": "This deletes every filed status and saved arrangement this site has stored in your browser. It cannot be undone."
+    },
+    "dialog.clear.ok": {
+      "zh": "全部清除",
+      "en": "Clear everything"
+    },
+    "rules.at": {
+      "zh": "{a} 固定在{slot}。",
+      "en": "{a} is fixed in {slot}."
+    },
+    "rules.not_at": {
+      "zh": "{a} 不在{slot}。",
+      "en": "{a} is not in {slot}."
+    },
+    "rules.before": {
+      "zh": "{a} 在 {b} 之前（不要求相邻）。",
+      "en": "{a} is before {b} (not required to be adjacent)."
+    },
+    "rules.after": {
+      "zh": "{a} 在 {b} 之后（不要求相邻）。",
+      "en": "{a} is after {b} (not required to be adjacent)."
+    },
+    "rules.immediately_before": {
+      "zh": "{a} 紧接在 {b} 之前，中间没有其它物件。",
+      "en": "{a} comes immediately before {b}, with nothing in between."
+    },
+    "rules.immediately_after": {
+      "zh": "{a} 紧接在 {b} 之后，中间没有其它物件。",
+      "en": "{a} comes immediately after {b}, with nothing in between."
+    },
+    "rules.adjacent": {
+      "zh": "{a} 与 {b} 相邻，但记录没有写明谁在前。",
+      "en": "{a} is adjacent to {b}, but the record does not say which comes first."
+    },
+    "rules.distance": {
+      "zh": "{a} 与 {b} 的格位编号相差 {gap}（中间隔着 {between} 件）。",
+      "en": "{a} and {b} differ by {gap} in slot number ({between} items between them).",
+      "note": "{between} is always gap − 1; the Source computes it inline as rule.gap - 1."
+    },
+    "rules.between": {
+      "zh": "{a} 夹在 {b} 与 {c} 之间，不要求正好居中。",
+      "en": "{a} lies strictly between {b} and {c}; it need not sit in the middle."
+    },
+    "rules.slot.plain": {
+      "zh": "第{n}格",
+      "en": "slot {n}"
+    },
+    "rules.slot.labeled": {
+      "zh": "第{n}格（{label}）",
+      "en": "slot {n} ({label})"
+    },
+    "rules.unknown": {
+      "zh": "未知关系。",
+      "en": "Unknown relation."
+    },
+    "rules.why.essential": {
+      "zh": "删去它，其余证据仍允许 {n} 种排列——它是唯一解的必要一环。",
+      "en": "Remove it and the remaining evidence still allows {n} arrangements — it is a necessary link in the unique solution."
+    },
+    "rules.why.redundant": {
+      "zh": "删去它，其余证据仍只剩一种排列：它与其它线索互相印证。",
+      "en": "Remove it and the remaining evidence still leaves a single arrangement: it corroborates the other clues."
+    },
+    "manual.crumb.home": {
+      "zh": "封面",
+      "en": "Cover"
+    },
+    "manual.crumb.current": {
+      "zh": "玩法说明",
+      "en": "How to Play"
+    },
+    "manual.eyebrow": {
+      "zh": "局内手册",
+      "en": "House Manual"
+    },
+    "manual.h1": {
+      "zh": "怎么玩",
+      "en": "How to Play"
+    },
+    "manual.steps.h2": {
+      "zh": "三步走",
+      "en": "Three Steps"
+    },
+    "manual.steps.1": {
+      "zh": "读证物：左侧（手机上是上方）每一张证物都能展开。里面写的是可核实的先后、相邻、间距或格位关系。",
+      "en": "Read the evidence. Each card on the left — above, on a phone — expands. What it states is a checkable relation of order, adjacency, distance, or slot.",
+      "note": "Source bolds “读证物”."
+    },
+    "manual.steps.2": {
+      "zh": "排格位：右侧（手机上是下方）每一格放一件东西。点击卡片选中，再点另一格即交换；也可以用「上移／下移」按钮。",
+      "en": "Arrange the slots. Each slot on the right — below, on a phone — holds one item. Select a card, then click another slot to swap them; the up/down buttons work too.",
+      "note": "Source bolds “排格位”."
+    },
+    "manual.steps.3": {
+      "zh": "提交复原：系统会逐条核对，只告诉你「哪些关系和不符」，不会替你排好。",
+      "en": "Submit the arrangement. The system checks relation by relation and tells you only which relations fail. It will not arrange anything for you.",
+      "note": "Source bolds “提交复原”."
+    },
+    "manual.keys.h2": {
+      "zh": "键盘操作",
+      "en": "Keyboard"
+    },
+    "manual.keys.col.key": {
+      "zh": "按键",
+      "en": "Key"
+    },
+    "manual.keys.col.action": {
+      "zh": "作用",
+      "en": "Action"
+    },
+    "manual.keys.row1.key": {
+      "zh": "Tab / Shift+Tab",
+      "en": "Tab / Shift+Tab"
+    },
+    "manual.keys.row1.action": {
+      "zh": "在证物、格位、按钮之间移动焦点",
+      "en": "Move focus between evidence, slots, and buttons"
+    },
+    "manual.keys.row2.key": {
+      "zh": "Enter / Space",
+      "en": "Enter / Space"
+    },
+    "manual.keys.row2.action": {
+      "zh": "展开证物、选中格位、触发按钮",
+      "en": "Expand evidence, select a slot, activate a button"
+    },
+    "manual.keys.row3.key": {
+      "zh": "↑ / ↓",
+      "en": "↑ / ↓"
+    },
+    "manual.keys.row3.action": {
+      "zh": "焦点在格位上时，直接上移／下移该物件",
+      "en": "With focus on a slot, move that item up or down directly"
+    },
+    "manual.keys.row4.key": {
+      "zh": "Esc",
+      "en": "Esc"
+    },
+    "manual.keys.row4.action": {
+      "zh": "取消当前选中",
+      "en": "Clear the current selection"
+    },
+    "manual.hints.h2": {
+      "zh": "三档提示",
+      "en": "Three Tiers of Hints"
+    },
+    "manual.hints.body": {
+      "zh": "每案都有三段提示：先给方法，再点出关键组合，最后给出较直接的推导。提示不会自动替你排列，也不会扣分或羞辱你。使用过提示只会在本地记录一个「用过提示」的标记。",
+      "en": "Every case has three hints: first a method, then the key pairing, then a more direct deduction. A hint never arranges anything for you, and it neither costs points nor scolds you. Using one only sets a local “hints used” flag."
+    },
+    "manual.storage.h2": {
+      "zh": "你的进度存在哪里",
+      "en": "Where Your Progress Lives"
+    },
+    "manual.storage.p1": {
+      "zh": "进度只写在<strong>你当前浏览器的 localStorage</strong> 里，键名前缀 <code>zd:v1:</code>。不会上传、不会同步、没有账号。清除浏览器站点数据、或点击下方按钮，就会全部消失。",
+      "en": "Progress is written only to your current browser's localStorage, under the key prefix zd:v1:. Nothing is uploaded, nothing is synced, and there is no account. Clearing your browser's site data, or pressing the button below, removes all of it.",
+      "note": "Source bolds “你当前浏览器的 localStorage” and marks zd:v1: as code."
+    },
+    "manual.storage.button": {
+      "zh": "清除本机全部进度",
+      "en": "Clear all progress on this device"
+    },
+    "manual.a11y.h2": {
+      "zh": "可访问性",
+      "en": "Accessibility"
+    },
+    "manual.a11y.1": {
+      "zh": "所有拖放操作都有等价的按钮操作，不依赖指针拖拽。",
+      "en": "Every drag-and-drop action has an equivalent button action; nothing depends on pointer dragging."
+    },
+    "manual.a11y.2": {
+      "zh": "交互目标按 44 px 设计；键盘焦点始终可见。",
+      "en": "Interactive targets are designed at 44 px, and keyboard focus is always visible."
+    },
+    "manual.a11y.3": {
+      "zh": "解谜所需的区别都用文字与编号表达，不单靠颜色。",
+      "en": "Every distinction the puzzle requires is carried by words and numbers, never by color alone."
+    },
+    "manual.a11y.4": {
+      "zh": "尊重系统的「减少动态效果」设置，纸张动画会自动关闭。",
+      "en": "The system's reduce-motion setting is respected; the paper animations switch themselves off."
+    },
+    "manual.a11y.5": {
+      "zh": "默认无声音；本版本不包含音频资源。",
+      "en": "Silent by default; this version contains no audio assets."
+    },
+    "about.crumb.home": {
+      "zh": "封面",
+      "en": "Cover"
+    },
+    "about.crumb.current": {
+      "zh": "关于",
+      "en": "About"
+    },
+    "about.eyebrow": {
+      "zh": "关于、隐私与许可",
+      "en": "About, Privacy & Licensing"
+    },
+    "about.h1": {
+      "zh": "第零证物局",
+      "en": "The Zero Dossier Office"
+    },
+    "about.intro": {
+      "zh": "第零证物局是一个独立创作的微型互动谜题实验：把「记录如何构成事实、又怎样误导人」做成可以亲手排列的证物。",
+      "en": "The Zero Dossier Office is an independent, small-scale interactive puzzle experiment: it turns the question of how records make facts, and how they mislead, into evidence you arrange by hand."
+    },
+    "about.privacy.h2": {
+      "zh": "隐私",
+      "en": "Privacy"
+    },
+    "about.privacy.p1": {
+      "zh": "本作<strong>不需要创建账户</strong>，也<strong>不会把你的答案发送给任何在线 AI 或服务器</strong>。页面内的一切规则判定都在你的浏览器里完成。",
+      "en": "This work needs no account, and it never sends your answers to any online AI or server. Every rule check on the page runs inside your browser.",
+      "note": "Source bolds “不需要创建账户” and “不会把你的答案发送给任何在线 AI 或服务器”."
+    },
+    "about.privacy.p2": {
+      "zh": "如果你同意本机保存进度，记录只写在你当前浏览器的 localStorage 中，你可以随时清除。网站托管方（例如 GitHub Pages）仍可能按平台政策保留常规访问日志，这不在本项目的控制范围内。",
+      "en": "If you allow progress to be saved on this device, the record is written only to your current browser's localStorage, and you may clear it at any time. The hosting provider — GitHub Pages, for instance — may still keep ordinary access logs under its own platform policies; that lies outside this project's control."
+    },
+    "about.privacy.p3": {
+      "zh": "本站不包含广告 SDK、跟踪脚本、第三方 CDN 或远程字体。页面加载时不发起任何第三方网络请求。",
+      "en": "This site contains no ad SDKs, tracking scripts, third-party CDNs, or remote fonts. Loading a page makes no third-party network requests."
+    },
+    "about.ethics.h2": {
+      "zh": "内容伦理",
+      "en": "Content Ethics"
+    },
+    "about.ethics.p": {
+      "zh": "全部人物、地点、机构与事件均为虚构的架空世界「雾港」。本作不影射真实死者、真实机构或现存个人，也不以伪造的历史文书冒充真实档案。",
+      "en": "Every character, place, institution, and event belongs to Fog Harbor, a fictional world. This work does not allude to real deceased persons, real institutions, or living individuals, and it does not pass forged historical documents off as genuine records."
+    },
+    "about.license.h2": {
+      "zh": "许可",
+      "en": "Licensing"
+    },
+    "about.license.p": {
+      "zh": "程序代码与叙事、插图等创作材料分别许可，具体条款见仓库中的 <code>LICENSE</code> 与 <code>ASSETS_LICENSE.md</code>。",
+      "en": "The program code is licensed separately from the narrative, illustrations, and other creative material. See LICENSE and ASSETS_LICENSE.md in the repository for the exact terms.",
+      "note": "Source marks LICENSE and ASSETS_LICENSE.md as code."
+    },
+    "about.feedback.h2": {
+      "zh": "反馈",
+      "en": "Feedback"
+    },
+    "about.feedback.p": {
+      "zh": "发现某条证物有两种读法？欢迎提供具体证物编号与你的另一种理解方式，这会直接帮助我们修复档案的公平性。",
+      "en": "Found an evidence card that can be read two ways? Send us the evidence number and your alternative reading. It directly helps us make the dossiers fair."
+    },
+    "about.version.h2": {
+      "zh": "版本",
+      "en": "Version"
+    },
+    "about.version.p": {
+      "zh": "站点版本 {version} · 求解核心为确定性穷举，无网络推理。",
+      "en": "Site version {version} · the solver is a deterministic exhaustive search; no inference happens over the network."
+    },
+    "footer.h.documents": {
+      "zh": "文献",
+      "en": "Documents"
+    },
+    "footer.h.technical": {
+      "zh": "技术",
+      "en": "Technical"
+    },
+    "footer.h.statements": {
+      "zh": "声明",
+      "en": "Statements"
+    },
+    "footer.doc.1": {
+      "zh": "档案柜",
+      "en": "Case Files"
+    },
+    "footer.doc.2": {
+      "zh": "玩法说明",
+      "en": "How to Play"
+    },
+    "footer.doc.3": {
+      "zh": "关于与隐私",
+      "en": "About & Privacy"
+    },
+    "footer.tech.1": {
+      "zh": "纯静态 · 无后端",
+      "en": "Pure static · no backend"
+    },
+    "footer.tech.2": {
+      "zh": "确定性规则求解",
+      "en": "Deterministic rule solving"
+    },
+    "footer.tech.3": {
+      "zh": "无跟踪 · 无第三方 CDN",
+      "en": "No tracking · no third-party CDN"
+    },
+    "footer.stmt.1": {
+      "zh": "人物与事件均为虚构",
+      "en": "Characters and events are fictional"
+    },
+    "footer.stmt.2": {
+      "zh": "进度仅存本机浏览器",
+      "en": "Progress stays in this browser"
+    },
+    "footer.stmt.3": {
+      "zh": "不需要账户或注册",
+      "en": "No account or sign-up needed"
+    },
+    "footer.legal.copy": {
+      "zh": "© 2026 第零证物局 · 独立创作",
+      "en": "© 2026 The Zero Dossier Office · Independent production"
+    },
+    "footer.legal.tag": {
+      "zh": "雾港 · THE ZERO DOSSIER OFFICE",
+      "en": "Fog Harbor · THE ZERO DOSSIER OFFICE"
+    },
+    "noscript.body": {
+      "zh": "需要启用 JavaScript 才能在浏览器中进行排序验证。",
+      "en": "JavaScript must be enabled to verify arrangements in the browser."
+    },
+    "meta.title": {
+      "zh": "第零证物局｜雾港异常档案 · 原创互动推理",
+      "en": "The Zero Dossier Office | Fog Harbor Anomaly Dossiers · An Original Interactive Mystery"
+    },
+    "meta.description": {
+      "zh": "六份原创微型推理档案：重排线索，找出看似不可能成立的记录究竟怎样产生。免费、免注册，支持手机与键盘。",
+      "en": "Six original miniature mystery dossiers: rearrange the clues and find out how a record that could not possibly be true came to exist. Free, no sign-up, works with touch and keyboard."
+    },
+    "meta.og.title": {
+      "zh": "第零证物局 · 第零号档案正在解封",
+      "en": "The Zero Dossier Office · Dossier No. 0 is being unsealed"
+    },
+    "meta.og.description": {
+      "zh": "一张票据可以说真话，六张记录也可能让人误会。你能还原雾港的真相吗？",
+      "en": "One ticket stub can tell the truth; six records together can still mislead. Can you reconstruct what happened in Fog Harbor?"
+    },
+    "route.title.home": {
+      "zh": "第零证物局｜雾港异常档案 · 原创互动推理",
+      "en": "The Zero Dossier Office | Fog Harbor Anomaly Dossiers · An Original Interactive Mystery"
+    },
+    "route.title.cabinet": {
+      "zh": "档案柜｜第零证物局",
+      "en": "Case Files | The Zero Dossier Office"
+    },
+    "route.title.manual": {
+      "zh": "玩法说明｜第零证物局",
+      "en": "How to Play | The Zero Dossier Office"
+    },
+    "route.title.about": {
+      "zh": "关于与隐私｜第零证物局",
+      "en": "About & Privacy | The Zero Dossier Office"
+    },
+    "route.title.case": {
+      "zh": "{title}｜第零证物局",
+      "en": "{title} | The Zero Dossier Office"
+    },
+    "route.title.fallback": {
+      "zh": "第零证物局",
+      "en": "The Zero Dossier Office"
+    },
+    "difficulty.beginner": {
+      "zh": "新手",
+      "en": "Beginner"
+    },
+    "difficulty.advanced": {
+      "zh": "进阶",
+      "en": "Advanced"
+    },
+    "difficulty.challenge": {
+      "zh": "挑战",
+      "en": "Challenge"
+    },
+    "lang.toggle.aria": {
+      "zh": "切换界面语言 / Switch language",
+      "en": "Switch interface language / Switch language"
+    },
+    "lang.switchToEn": {
+      "zh": "Switch to English",
+      "en": "Switch to English",
+      "note": "Identical by design: this string names English, so it reads the same in either locale."
+    },
+    "lang.switchToZh": {
+      "zh": "Switch to 中文",
+      "en": "Switch to 中文"
+    },
+    "lang.button.zh": {
+      "zh": "中文",
+      "en": "中文"
+    },
+    "lang.button.en": {
+      "zh": "EN",
+      "en": "EN",
+      "note": "Identical by design: the button shows the target locale's own name."
+    },
+    "lang.error.load": {
+      "zh": "英文语言包未能载入，继续使用中文。",
+      "en": "The English pack could not be loaded; continuing in Chinese."
+    },
+    "lang.error.switch": {
+      "zh": "无法切换语言。",
+      "en": "The language could not be changed."
+    },
+    "title.home": {
+      "zh": "第零证物局｜雾港异常档案 · 原创互动推理",
+      "en": "The Zero Dossier Office | Fog Harbor Anomaly Dossiers · An Original Interactive Mystery"
+    },
+    "title.cabinet": {
+      "zh": "档案柜｜第零证物局",
+      "en": "Case Files | The Zero Dossier Office"
+    },
+    "title.manual": {
+      "zh": "玩法说明｜第零证物局",
+      "en": "How to Play | The Zero Dossier Office"
+    },
+    "title.about": {
+      "zh": "关于与隐私｜第零证物局",
+      "en": "About & Privacy | The Zero Dossier Office"
+    },
+    "title.home.fallback": {
+      "zh": "第零证物局",
+      "en": "The Zero Dossier Office"
+    },
+    "error.notReleased": {
+      "zh": "该案尚未通过全部门禁",
+      "en": "This case has not yet passed all review gates"
+    },
+    "error.caseFileHttp": {
+      "zh": "案件文件不可用（HTTP {status}）",
+      "en": "The case file is unavailable (HTTP {status})"
+    },
+    "error.idMismatch": {
+      "zh": "案件编号与文件名不一致",
+      "en": "The case number does not match the file name"
+    },
+    "error.notUnique": {
+      "zh": "该案未通过唯一解校验，已暂停展示",
+      "en": "This case failed the unique-solution check and has been withdrawn from display"
+    },
+    "error.loadFallback": {
+      "zh": "请刷新，或回到档案柜。",
+      "en": "Please refresh, or return to the Case Files."
+    }
+  },
+  "cases": {
+    "NA-001": {
+      "title": "The Four Tickets of the Last Tram",
+      "subtitle": "One tram's ticket punch left four stubs that no longer line up, all within half an hour.",
+      "difficulty": "Beginner",
+      "chapter": 1,
+      "theme": "Opening: the displaced records of Fog Harbor",
+      "play_minutes": [
+        3,
+        5
+      ],
+      "setting": "Fog Harbor, the old loop-line station, 22:00–22:30. Four ticket stubs in different colors were torn off, and the original order of entry was lost. The stationmaster believes only one arrangement agrees with every record.",
+      "objective": "Put the Red Ticket, Blue Ticket, Yellow Ticket, and Green Ticket back into the four punch times, from earliest to latest.",
+      "slots": [
+        "22:00",
+        "22:10",
+        "22:20",
+        "22:30"
+      ],
+      "items": [
+        "Blue Ticket",
+        "Green Ticket",
+        "Red Ticket",
+        "Yellow Ticket"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "title": "Stubs Stuck Together",
+          "type": "Physical evidence",
+          "body": "Two stubs share the same crease along their edges. The register sheet shows that the Red Ticket's time comes immediately before the Blue Ticket's, with no other ticket in between."
+        },
+        {
+          "id": "E02",
+          "title": "Receipt from the Lighthouse Station",
+          "type": "Record",
+          "body": "The clerk at the Lighthouse Station wrote in his notes: “The Green Ticket was entered after the Yellow Ticket.”"
+        },
+        {
+          "id": "E03",
+          "title": "The Maintenance Bell",
+          "type": "Testimony",
+          "body": "The ticket inspector confirms: when the bell first rang at 22:00, the machine did not print the Yellow Ticket."
+        }
+      ],
+      "hints": [
+        "First treat the Red Ticket and the Blue Ticket as one pair that cannot be separated.",
+        "The Green Ticket must come after the Yellow Ticket, and the Yellow Ticket cannot take the first position.",
+        "Put the Red–Blue pair in the first two positions, then see where the remaining two can go."
+      ],
+      "resolution": "The four stubs were not a machine fault. The night shift put the torn stubs back into the wrong pages of the ticket book, so they were entered in the order they were found rather than the order they were punched. According to the shift log, the four intervals match the timetable.",
+      "twist": "The stubs were filed into the wrong pages of the ticket book — what went wrong was the filing order, not the punch.",
+      "motif": "After the crowd had gone, the inspector found on the back of a stub a “0” stamped only on its left half — as if someone had been called away mid-stamp.",
+      "logic_recap": "The Red Ticket comes immediately before the Blue Ticket; the Green Ticket comes after the Yellow Ticket; the Yellow Ticket cannot take the first slot. Applied together to the four punch times, these leave only: Red → Blue → Yellow → Green.",
+      "epilogue": "Record added after closing: when the night manager filed the four stubs back into the ticket book, he had no idea what he had disordered. He remembered that the fog was heavy that night, and that the last tram ran seven minutes late. The next day he closed the book, and the half “0” showed through from the inside of the cover, like a full stop left unfinished.",
+      "director_note": "Tickets don't misplace themselves. People do.",
+      "constraints": [
+        {
+          "id": "C01",
+          "op": "immediately_before",
+          "a": "红票",
+          "b": "蓝票",
+          "text": "Red Ticket comes immediately before Blue Ticket, with nothing in between."
+        },
+        {
+          "id": "C02",
+          "op": "before",
+          "a": "黄票",
+          "b": "绿票",
+          "text": "Yellow Ticket is before Green Ticket (not required to be adjacent)."
+        },
+        {
+          "id": "C03",
+          "op": "not_at",
+          "a": "黄票",
+          "slot": 0,
+          "text": "Yellow Ticket is not in slot 1 (22:00)."
+        }
+      ]
+    },
+    "NA-002": {
+      "title": "The Four Drawers of the Sealed Room",
+      "subtitle": "Overnight, four exhibits had their numbers swapped in the inventory book.",
+      "difficulty": "Advanced",
+      "chapter": 1,
+      "theme": "Opening: the displaced records of Fog Harbor",
+      "play_minutes": [
+        4,
+        7
+      ],
+      "setting": "The four-drawer storage wall in the old building of the Fog Harbor evidence office. The drawers are numbered 1 to 4, left to right. A brass key, a silver badge, a sea chart, and a glass sphere each occupy one drawer.",
+      "objective": "Using the traces left at the scene, restore the slot each of the four exhibits should hold in the inventory book.",
+      "slots": [
+        "Drawer 1",
+        "Drawer 2",
+        "Drawer 3",
+        "Drawer 4"
+      ],
+      "items": [
+        "Silver Badge",
+        "Sea Chart",
+        "Glass Sphere",
+        "Brass Key"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "title": "Scratches on the Wall",
+          "type": "Physical evidence",
+          "body": "The Silver Badge's drawer is immediately to the left of the Brass Key's, with no other drawer in between."
+        },
+        {
+          "id": "E02",
+          "title": "The Drawer Locked Last",
+          "type": "Record",
+          "body": "The rightmost drawer held the Glass Sphere the whole time."
+        },
+        {
+          "id": "E03",
+          "title": "Note from the Previous Custodian",
+          "type": "Testimony",
+          "body": "The Sea Chart's drawer is to the left of the Silver Badge's."
+        }
+      ],
+      "hints": [
+        "Start by fixing the Glass Sphere at the far right.",
+        "The Silver Badge must sit immediately to the left of the Brass Key.",
+        "The Sea Chart must in turn be left of the Silver Badge, so this chain can only occupy the first three positions."
+      ],
+      "resolution": "Nothing was stolen. While the drawer panels were being replaced, the “slot” column of the inventory book was copied a row out of step — the number from row 4 was written into row 2. The exhibits never moved; the book was what went wrong.",
+      "twist": "What had been exchanged was neither the exhibits nor the name plates, but a whole column of slot numbers in the inventory book.",
+      "motif": "On the old card lining a drawer there was a faint ring, dark on its left half and almost invisible on its right.",
+      "logic_recap": "The Glass Sphere is fixed in the fourth slot; the Silver Badge sits immediately left of the Brass Key; the Sea Chart is in turn left of the Silver Badge. So the first three slots are, in order: Sea Chart, Silver Badge, Brass Key.",
+      "epilogue": "Record added after closing: the apprentice replacing the panels was copying the old book into a new one when, at the third row, he was called away to carry something; when he came back he picked up a row too low. The four objects never moved, but that page has never matched since.",
+      "director_note": "Read the dust before the label.",
+      "constraints": [
+        {
+          "id": "C01",
+          "op": "immediately_before",
+          "a": "银徽章",
+          "b": "铜钥匙",
+          "text": "Silver Badge comes immediately before Brass Key, with nothing in between."
+        },
+        {
+          "id": "C02",
+          "op": "at",
+          "a": "玻璃球",
+          "slot": 3,
+          "text": "Glass Sphere is fixed in slot 4 (Drawer 4)."
+        },
+        {
+          "id": "C03",
+          "op": "before",
+          "a": "航海图",
+          "b": "银徽章",
+          "text": "Sea Chart is before Silver Badge (not required to be adjacent)."
+        }
+      ]
+    },
+    "NA-003": {
+      "title": "Five Parcels on the Silent Sorting Line",
+      "subtitle": "The belt never stopped, yet in the records the five items survive only as fragments that do not overlap.",
+      "difficulty": "Challenge",
+      "chapter": 1,
+      "theme": "Opening: the displaced records of Fog Harbor",
+      "play_minutes": [
+        6,
+        10
+      ],
+      "setting": "After maintenance, the midnight sorting line at the Fog Harbor post office had lost the color marks on its five slots. All that remained were a few partial observations from different sensors.",
+      "objective": "Restore the Red Box, Paper Crane, Brass Bell, Star Chart, and Blue Lamp to their correct order, from slot 1 to slot 5.",
+      "slots": [
+        "Slot 1",
+        "Slot 2",
+        "Slot 3",
+        "Slot 4",
+        "Slot 5"
+      ],
+      "items": [
+        "Red Box",
+        "Paper Crane",
+        "Star Chart",
+        "Brass Bell",
+        "Blue Lamp"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "title": "Belt Vibration Log",
+          "type": "Equipment record",
+          "body": "The Brass Bell's slot comes immediately before the Star Chart's; the two are adjacent."
+        },
+        {
+          "id": "E02",
+          "title": "Door-Camera Footage",
+          "type": "Image record",
+          "body": "The belt runs in order from slot 1 to slot 5; the higher the number, the later the item passed the sensor. The Red Box passed the sensor before the Brass Bell."
+        },
+        {
+          "id": "E03",
+          "title": "Scan of the Final Slot",
+          "type": "Equipment record",
+          "body": "The last slot, the fifth, did not hold the Star Chart."
+        },
+        {
+          "id": "E04",
+          "title": "The Creased Wing of the Paper Crane",
+          "type": "Physical evidence",
+          "body": "The Paper Crane comes immediately after the Red Box; the two occupy adjacent slots."
+        }
+      ],
+      "hints": [
+        "First find the two adjacent pairs: Red Box–Paper Crane and Brass Bell–Star Chart.",
+        "The Red Box comes before the Brass Bell, so the order of the two pairs is already settled.",
+        "The Star Chart cannot appear in the last slot, so the remaining item, the Blue Lamp, can only take the last slot."
+      ],
+      "resolution": "There was no ghost on the sorting line, and no parcel went missing. Each of the three sensors covered only a short stretch of the belt: one saw the Red Box and the Paper Crane, one saw the Brass Bell and the Star Chart, and the third caught only the last two slots. Only by joining the three end to end does a complete timeline appear.",
+      "twist": "The logs that seemed impossible to join came, in fact, from three observation windows that never overlapped.",
+      "motif": "Across the seam of the equipment log was an incomplete round stamp: the right half torn away, leaving only the left half of a “0”.",
+      "logic_recap": "The Red Box comes immediately before the Paper Crane, the Brass Bell immediately before the Star Chart, and the Red Box before the Brass Bell; the Star Chart cannot be fifth. The five slots can only be, in order: Red Box, Paper Crane, Brass Bell, Star Chart, Blue Lamp.",
+      "epilogue": "Record added after closing: the three clips had been filed in three separate envelopes, and no one had written that they showed the same belt. The maintenance man laid the three sheets side by side and compared them for a long while before he saw that what had been missing was never the parcels — it was the seams between the three stretches of time.",
+      "director_note": "Three strips, one line.",
+      "constraints": [
+        {
+          "id": "C01",
+          "op": "immediately_before",
+          "a": "铜铃",
+          "b": "星图",
+          "text": "Brass Bell comes immediately before Star Chart, with nothing in between."
+        },
+        {
+          "id": "C02",
+          "op": "before",
+          "a": "红盒",
+          "b": "铜铃",
+          "text": "Red Box is before Brass Bell (not required to be adjacent)."
+        },
+        {
+          "id": "C03",
+          "op": "not_at",
+          "a": "星图",
+          "slot": 4,
+          "text": "Star Chart is not in slot 5 (Slot 5)."
+        },
+        {
+          "id": "C04",
+          "op": "immediately_before",
+          "a": "红盒",
+          "b": "纸鹤",
+          "text": "Red Box comes immediately before Paper Crane, with nothing in between."
+        }
+      ]
+    },
+    "NA-004": {
+      "title": "The Fifth Lamp the Lighthouse Never Lit",
+      "subtitle": "Five maintenance items were listed on a manifest belonging to no shift at all.",
+      "difficulty": "Advanced",
+      "chapter": 2,
+      "theme": "Undercurrent: the lighthouse and the post office",
+      "play_minutes": [
+        5,
+        9
+      ],
+      "setting": "The old lighthouse off Fog Harbor has a five-slot maintenance rack that runs from bottom to top. After the stormy night the cards for the five items were soaked and mixed up, but four records survived that can be checked against one another.",
+      "objective": "Arrange the Brass Bell, Duty Log, Glass Shade, Old Lens, and Marine Chart from rack slot 1 to slot 5.",
+      "slots": [
+        "Slot 1",
+        "Slot 2",
+        "Slot 3",
+        "Slot 4",
+        "Slot 5"
+      ],
+      "items": [
+        "Glass Shade",
+        "Old Lens",
+        "Brass Bell",
+        "Marine Chart",
+        "Duty Log"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "title": "A Tightened Copper Wire",
+          "type": "Physical evidence",
+          "body": "The Brass Bell and the Duty Log sat next to each other; the maintenance worker did not record which of the two was higher."
+        },
+        {
+          "id": "E02",
+          "title": "Rack Teeth Three Slots Apart",
+          "type": "Machine record",
+          "body": "The slot numbers of the Brass Bell and the Old Lens differ by exactly three."
+        },
+        {
+          "id": "E03",
+          "title": "Peeling Paint Mark No. 4",
+          "type": "Scene record",
+          "body": "The Old Lens belongs to the fourth slot, counting from the bottom."
+        },
+        {
+          "id": "E04",
+          "title": "Notes Found at the Top of the Tower",
+          "type": "Testimony",
+          "body": "The Old Lens stands between the Brass Bell and the Marine Chart — and not in the sense of being equidistant from them."
+        }
+      ],
+      "hints": [
+        "Start with the only item whose slot is fixed: the Old Lens is in the fourth slot.",
+        "The Brass Bell is three slots from the Old Lens, so the Brass Bell can only be in the first slot; the Marine Chart must be on the Lens's other side.",
+        "The Brass Bell is adjacent to the Duty Log; fill the remaining slots and the arrangement is complete."
+      ],
+      "resolution": "The order on the maintenance cards was never the order in which the lamps lit and went out; it was the position of the maintenance items on the rack. What actually kept the lighthouse dark all night was that the maintenance bench took an old circuit diagram for that night's new one.",
+      "twist": "An older circuit diagram was taken for that night's new one: the wiring was done to the previous revision, and the main lamp had no power all night. The “fifth lamp” is not a lamp at all; it is a diagram number copied into the wrong place.",
+      "motif": "On the back of a maintenance card was a half-ring “0” pressed very faintly, its edge still carrying the blue lines of the previous revision.",
+      "logic_recap": "The Old Lens is fixed in the fourth slot; the Brass Bell is three slot numbers from the Lens, so the Brass Bell can only be first; the Duty Log sits right beside the Brass Bell, the Marine Chart is on the Lens's other side, and the Glass Shade falls into the third slot.",
+      "epilogue": "Record added after closing: that manifest was an appendix to the previous revision of the diagram. The maintenance man finished the last connection by the old drawing, looked up, saw the main lamp dark, and put it down to heavy fog. The fifth lamp drawn on the old sheet had been abolished at the revision, but its number survived — and so everyone believed a lamp was missing.",
+      "director_note": "The lamp died one revision back.",
+      "constraints": [
+        {
+          "id": "C01",
+          "op": "adjacent",
+          "a": "铜铃",
+          "b": "值班簿",
+          "text": "Brass Bell is adjacent to Duty Log, but the record does not say which comes first."
+        },
+        {
+          "id": "C02",
+          "op": "distance",
+          "a": "铜铃",
+          "b": "旧透镜",
+          "gap": 3,
+          "text": "Brass Bell and Old Lens differ by 3 in slot number (2 items between them)."
+        },
+        {
+          "id": "C03",
+          "op": "at",
+          "a": "旧透镜",
+          "slot": 3,
+          "text": "Old Lens is fixed in slot 4 (Slot 4)."
+        },
+        {
+          "id": "C04",
+          "op": "between",
+          "a": "旧透镜",
+          "b": "铜铃",
+          "c": "海图",
+          "text": "Old Lens lies strictly between Brass Bell and Marine Chart; it need not sit in the middle."
+        }
+      ]
+    },
+    "NA-005": {
+      "title": "The Fifth Reply That Never Arrived",
+      "subtitle": "The post office received five letters and yet claims to have delivered only four.",
+      "difficulty": "Advanced",
+      "chapter": 2,
+      "theme": "Undercurrent: the lighthouse and the post office",
+      "play_minutes": [
+        6,
+        10
+      ],
+      "setting": "At the Fog Harbor post office before dawn, five mailing records were taken out of the transfer clip. The archivist kept only the relative positions of the envelopes, and asks you to restore the order in which they were bagged, left to right, on the delivery cart.",
+      "objective": "Arrange the Morning Mist Note, Harbor Slip, Red Wax Letter, Night Flight Application, and Blank Return Envelope into mailbag slots 1–5.",
+      "slots": [
+        "Mailbag slot 1",
+        "Mailbag slot 2",
+        "Mailbag slot 3",
+        "Mailbag slot 4",
+        "Mailbag slot 5"
+      ],
+      "items": [
+        "Night Flight Application",
+        "Red Wax Letter",
+        "Morning Mist Note",
+        "Blank Return Envelope",
+        "Harbor Slip"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "title": "The Courier's Memory",
+          "type": "Testimony",
+          "body": "In the corner of a sorting receipt someone had written: the Blank Return Envelope did not take the first slot, the one furthest left."
+        },
+        {
+          "id": "E02",
+          "title": "The Old Red Thread at Both Ends",
+          "type": "Physical evidence",
+          "body": "The Night Flight Application's slot lies between the Morning Mist Note and the Blank Return Envelope."
+        },
+        {
+          "id": "E03",
+          "title": "The Number on the Clip",
+          "type": "Equipment record",
+          "body": "The slot numbers of the Morning Mist Note and the Night Flight Application differ by three (two slots lie between them)."
+        },
+        {
+          "id": "E04",
+          "title": "Envelopes with Overlapping Creases",
+          "type": "Physical evidence",
+          "body": "The Red Wax Letter and the Night Flight Application were placed in adjacent slots, but no record was left of which of them came first."
+        }
+      ],
+      "hints": [
+        "Be clear on this first: “between” means the interval between positions, not sitting exactly in the middle.",
+        "The Night Flight Application is three slots from the Morning Mist Note, and it must also lie between the Morning Mist Note and the Blank Return.",
+        "The Red Wax Letter sits against the Night Flight Application, and the Blank Return cannot be at the far left."
+      ],
+      "resolution": "Once the five records were in order, the post office found that the “fifth letter” was a blank return envelope that was never delivered: it had been entered as the fifth formal reply awaiting delivery, which is how the books came to say five received and only four delivered. What went wrong was not the route but the category of the document.",
+      "twist": "A category error: the Blank Return Envelope was entered as the fifth reply awaiting delivery, and so the books read five received, four delivered.",
+      "motif": "On the back of the Blank Return Envelope was the same half-ring stamp found on the old lighthouse maintenance card — two places half a harbor apart.",
+      "logic_recap": "The Morning Mist Note and the Night Flight Application are three slots apart; the Night Flight Application lies between the Morning Mist Note and the Blank Return, and the Blank Return cannot take the first slot. Add the fact that the Red Wax Letter sits right beside the Night Flight Application, and the only lawful order is: Morning Mist, Harbor, Red Wax, Night Flight, Blank.",
+      "epilogue": "Record added after closing: when the old postman slipped the blank return envelope into the awaiting-delivery slot, he only thought the paper felt oddly light. He gave it no more thought — the fog was thick that day, and the boat back was two hours late. The blank return envelope stayed in the bag the whole time and never once left the post office.",
+      "director_note": "Does a blank envelope count as a letter?",
+      "constraints": [
+        {
+          "id": "C01",
+          "op": "not_at",
+          "a": "空白回邮",
+          "slot": 0,
+          "text": "Blank Return Envelope is not in slot 1 (Mailbag slot 1)."
+        },
+        {
+          "id": "C02",
+          "op": "between",
+          "a": "夜航申请",
+          "b": "晨雾邮笺",
+          "c": "空白回邮",
+          "text": "Night Flight Application lies strictly between Morning Mist Note and Blank Return Envelope; it need not sit in the middle."
+        },
+        {
+          "id": "C03",
+          "op": "distance",
+          "a": "晨雾邮笺",
+          "b": "夜航申请",
+          "gap": 3,
+          "text": "Morning Mist Note and Night Flight Application differ by 3 in slot number (2 items between them)."
+        },
+        {
+          "id": "C04",
+          "op": "adjacent",
+          "a": "红蜡封信",
+          "b": "夜航申请",
+          "text": "Red Wax Letter is adjacent to Night Flight Application, but the record does not say which comes first."
+        }
+      ]
+    },
+    "NA-006": {
+      "title": "The Blank Negative No. 0",
+      "subtitle": "Six negatives, only five moments — what does the sixth one record?",
+      "difficulty": "Challenge",
+      "chapter": 3,
+      "theme": "Finale: the record left blank",
+      "play_minutes": [
+        8,
+        12
+      ],
+      "setting": "The Director has left you one last metal box. Inside are the numbers of six exposed negatives; the photographs themselves are damaged, but the bell tower, the harbor, and the post office have left a set of checks on the order in which they were taken.",
+      "objective": "From exposure 1 to exposure 6, restore the order of the Bell Tower Image, Paper Boat Image, Glass Image, Rain Curtain Image, Lighthouse Image, and Blank Negative.",
+      "slots": [
+        "Exposure 1",
+        "Exposure 2",
+        "Exposure 3",
+        "Exposure 4",
+        "Exposure 5",
+        "Exposure 6"
+      ],
+      "items": [
+        "Blank Negative",
+        "Bell Tower Image",
+        "Glass Image",
+        "Rain Curtain Image",
+        "Lighthouse Image",
+        "Paper Boat Image"
+      ],
+      "evidence": [
+        {
+          "id": "E01",
+          "title": "The Old Glass Timer",
+          "type": "Equipment record",
+          "body": "The exposure numbers of the Glass Image and the Blank Negative differ by three; two exposures lie between them."
+        },
+        {
+          "id": "E02",
+          "title": "Continuous Wear on the Film Sprockets",
+          "type": "Physical evidence",
+          "body": "The Rain Curtain Image's exposure comes immediately before the Lighthouse Image's, with no other negative in between."
+        },
+        {
+          "id": "E03",
+          "title": "A Pencil Note Beside the Blank Space",
+          "type": "Written record",
+          "body": "The Lighthouse Image's exposure falls between the Bell Tower Image and the Blank Negative."
+        },
+        {
+          "id": "E04",
+          "title": "The Mask on Slot 2",
+          "type": "Scene record",
+          "body": "The Paper Boat Image's correct slot is the second exposure."
+        }
+      ],
+      "hints": [
+        "The second exposure is already fixed; first form the Rain Curtain and the Lighthouse into one continuous pair.",
+        "The Glass Image and the Blank Negative are three exposure numbers apart; the Lighthouse Image lies between the Bell Tower and the Blank Negative.",
+        "Once those conditions hold, the Blank Negative can only be last, and the Rain Curtain and the Lighthouse fall into the fourth and fifth slots."
+      ],
+      "resolution": "Once the six records were back in order, the Blank Negative was no longer an uncanny sixth photograph: it was a shadowless exposure the photographer made in order to calibrate the aperture; the archivist had wrongly counted the calibration step as evidence alongside real scenes.",
+      "twist": "The so-called “Exhibit No. 0” is not a hidden photograph but a blank record that should have been marked as a calibration and was written down as an event.",
+      "motif": "Inside the covers of all five older dossiers was the same half “0” stamp; beside it the Director had written a single line: the index column was filled in wrong.",
+      "logic_recap": "The Paper Boat Image is the second exposure; the Rain Curtain Image comes immediately before the Lighthouse Image; the Glass Image and the Blank Negative are three exposure numbers apart (two exposures between them); the Lighthouse Image lies between the Bell Tower Image and the Blank Negative. Apply all of this to the six slots at once, and only one order remains: Bell Tower, Paper Boat, Glass, Rain Curtain, Lighthouse, Blank.",
+      "epilogue": "Record added after closing: once the six records were in order, the Blank Negative was no longer an uncanny sixth photograph: it was a shadowless exposure the photographer made in order to calibrate the aperture; the archivist had wrongly counted the calibration step as evidence alongside real scenes.",
+      "director_note": "The index column, not the evidence column.",
+      "constraints": [
+        {
+          "id": "C01",
+          "op": "distance",
+          "a": "玻璃影",
+          "b": "空白底片",
+          "gap": 3,
+          "text": "Glass Image and Blank Negative differ by 3 in slot number (2 items between them)."
+        },
+        {
+          "id": "C02",
+          "op": "immediately_before",
+          "a": "雨幕影",
+          "b": "灯塔影",
+          "text": "Rain Curtain Image comes immediately before Lighthouse Image, with nothing in between."
+        },
+        {
+          "id": "C03",
+          "op": "between",
+          "a": "灯塔影",
+          "b": "钟楼影",
+          "c": "空白底片",
+          "text": "Lighthouse Image lies strictly between Bell Tower Image and Blank Negative; it need not sit in the middle."
+        },
+        {
+          "id": "C04",
+          "op": "at",
+          "a": "纸船影",
+          "slot": 1,
+          "text": "Paper Boat Image is fixed in slot 2 (Exposure 2)."
+        }
+      ]
+    }
+  }
+}

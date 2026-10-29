@@ -1,0 +1,310 @@
+{
+  "suite": "journey",
+  "engine": "firefox",
+  "when": "2026-10-30T03:36:00+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "results": [
+    {
+      "check": "1. Home loads, title starts 第零证物局",
+      "ok": true,
+      "detail": "第零证物局｜雾港异常档案 · 原创互动推理",
+      "area": 1
+    },
+    {
+      "check": "1. #cta-first exists and is visible",
+      "ok": true,
+      "detail": "打开第 001 号档案",
+      "area": 1
+    },
+    {
+      "check": "2. Cabinet shows exactly 6 case cards",
+      "ok": true,
+      "detail": "6 cards",
+      "area": 2
+    },
+    {
+      "check": "3. NA-001 desk opens",
+      "ok": true,
+      "detail": "末班车的四张车票",
+      "area": 3
+    },
+    {
+      "check": "3. Exactly 3 evidence cards",
+      "ok": true,
+      "detail": "3 cards",
+      "area": 3
+    },
+    {
+      "check": "3b. One click moves exactly one slot (no double binding)",
+      "ok": true,
+      "detail": "['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']",
+      "area": 3
+    },
+    {
+      "check": "3c. Click-to-select can be toggled off",
+      "ok": true,
+      "detail": "true -> false",
+      "area": 3
+    },
+    {
+      "check": "3d. All evidence cards expand (3/3)",
+      "ok": true,
+      "detail": "3/3 open, aria-expanded=['true', 'true', 'true']",
+      "area": 3
+    },
+    {
+      "check": "4. Default arrangement is NOT the answer",
+      "ok": true,
+      "detail": "start=['绿票', '蓝票', '红票', '黄票'] vs answer=['红票', '蓝票', '黄票', '绿票']",
+      "area": 4
+    },
+    {
+      "check": "4b. Default arrangement does not satisfy all constraints",
+      "ok": true,
+      "detail": "implied by 4",
+      "area": 4
+    },
+    {
+      "check": "5. Wrong submit gives non-spoiler feedback",
+      "ok": true,
+      "detail": "档案仍有不一致：2 条关系未满足。 |  | 你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。 |  | E01「粘连的票根」中描述的关系与你的排列不一致。 | E02「灯塔站的回执」中描述的关系与你的排列不一致。",
+      "area": 5
+    },
+    {
+      "check": "5b. Wrong submit preserves the arrangement",
+      "ok": true,
+      "detail": "['绿票', '黄票', '蓝票', '红票']",
+      "area": 5
+    },
+    {
+      "check": "6. Three hints appear one at a time",
+      "ok": true,
+      "detail": "[1, 2, 3]",
+      "area": 6
+    },
+    {
+      "check": "6b. Hints never auto-arrange the board",
+      "ok": true,
+      "detail": "order unchanged across all 3 hints",
+      "area": 6
+    },
+    {
+      "check": "6c. Hint button disables once exhausted",
+      "ok": true,
+      "detail": "disabled=True, label=提示已全部解封",
+      "area": 6
+    },
+    {
+      "check": "7. Correct solve reaches the verdict page",
+      "ok": true,
+      "detail": "档案归位。",
+      "area": 7
+    },
+    {
+      "check": "7b. Logic recap block present",
+      "ok": true,
+      "detail": "逻辑复盘 · 可由证据严格证明",
+      "area": 7
+    },
+    {
+      "check": "7c. Story recap block present",
+      "ok": true,
+      "detail": "档案后记 · 结案后补充记录",
+      "area": 7
+    },
+    {
+      "check": "7d. Recaps are NOT duplicates",
+      "ok": true,
+      "detail": "logic 336 ch / story 188 ch",
+      "area": 7
+    },
+    {
+      "check": "7e. Logic recap cites E01/E02/E03",
+      "ok": true,
+      "detail": "missing=[]",
+      "area": 7
+    },
+    {
+      "check": "7f. Two distinct .recap-block nodes exist",
+      "ok": true,
+      "detail": "[{'cls': 'recap-block', 'len': 336, 'first': '逻辑复盘 · 可由证据严格证明'}, {'cls': 'recap-block recap-block--story', 'len': 188, 'first': '档案后记 · 结案后补充记录'}]",
+      "area": 7
+    },
+    {
+      "check": "7g. Archive progress persisted after solve (1 / 6)",
+      "ok": true,
+      "detail": "已归档 1 / 6",
+      "area": 7
+    },
+    {
+      "check": "7h. Arrangement restored after reload",
+      "ok": true,
+      "detail": "before=['银徽章', '航海图', '玻璃球', '铜钥匙'] moved=['航海图', '银徽章', '玻璃球', '铜钥匙'] after=['航海图', '银徽章', '玻璃球', '铜钥匙']",
+      "area": 7
+    },
+    {
+      "check": "8. Tab reaches a focusable control from page top",
+      "ok": true,
+      "detail": "{'tag': 'A', 'cls': 'skip-link', 'id': ''}",
+      "area": 8
+    },
+    {
+      "check": "8b. Tab order reaches slot controls",
+      "ok": true,
+      "detail": "10 stops inside #slots; first={'tag': 'button', 'id': '', 'cls': 'icon-btn', 'text': '', 'act': 'down', 'slot': '0', 'href': ''}",
+      "area": 8
+    },
+    {
+      "check": "8c. Tab order reaches action buttons (submit/hint/reset)",
+      "ok": true,
+      "detail": "ids seen: ['ev-btn-E01', 'ev-btn-E02', 'ev-btn-E03', 'btn-submit', 'btn-hint', 'btn-reset']",
+      "area": 8
+    },
+    {
+      "check": "8d. Enter on a move button reorders",
+      "ok": true,
+      "detail": "['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']",
+      "area": 8
+    },
+    {
+      "check": "8e. Enter moved exactly one position",
+      "ok": true,
+      "detail": "['绿票', '蓝票', '红票', '黄票']",
+      "area": 8
+    },
+    {
+      "check": "8f. ArrowUp on a slot reorders",
+      "ok": true,
+      "detail": "['绿票', '蓝票', '红票', '黄票'] -> ['蓝票', '绿票', '红票', '黄票']",
+      "area": 8
+    },
+    {
+      "check": "8g. ArrowDown on a slot reorders",
+      "ok": true,
+      "detail": "['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']",
+      "area": 8
+    },
+    {
+      "check": "8h. ArrowDown reverses ArrowUp",
+      "ok": true,
+      "detail": "['绿票', '蓝票', '红票', '黄票'] == ['绿票', '蓝票', '红票', '黄票']",
+      "area": 8
+    },
+    {
+      "check": "8i. ArrowUp on the top row is a no-op",
+      "ok": true,
+      "detail": "order unchanged at index 0",
+      "area": 8
+    },
+    {
+      "check": "8j. Focus ring visible on keyboard focus",
+      "ok": true,
+      "detail": "outline=solid 3px fv=True",
+      "area": 8
+    },
+    {
+      "check": "8k. Focus retained after keyboard reorder",
+      "ok": true,
+      "detail": "{'act': 'pick', 'slot': '0'}",
+      "area": 8
+    },
+    {
+      "check": "9. Mobile 390x844 has no horizontal overflow",
+      "ok": true,
+      "detail": "scrollWidth=390 clientWidth=390",
+      "area": 9
+    },
+    {
+      "check": "9b. Mobile 390x844: every interactive target >= 44px",
+      "ok": true,
+      "detail": "0 undersized: []",
+      "area": 9
+    },
+    {
+      "check": "9c. 360x800 no overflow + 44px targets",
+      "ok": true,
+      "detail": "scrollW=360/360 undersized=0",
+      "area": 9
+    },
+    {
+      "check": "9c. 768x1024 no overflow + 44px targets",
+      "ok": true,
+      "detail": "scrollW=768/768 undersized=0",
+      "area": 9
+    },
+    {
+      "check": "9d. Mobile 390x844 touch tap reorders",
+      "ok": true,
+      "detail": "tap on down button",
+      "area": 9
+    },
+    {
+      "check": "10. No third-party network requests",
+      "ok": true,
+      "detail": "0: []",
+      "area": 10
+    },
+    {
+      "check": "10b. No console errors / page errors (desktop)",
+      "ok": true,
+      "detail": "",
+      "area": 10
+    },
+    {
+      "check": "10c. No console errors / page errors (mobile 390)",
+      "ok": true,
+      "detail": "",
+      "area": 10
+    },
+    {
+      "check": "10d. No third-party network requests (mobile 390)",
+      "ok": true,
+      "detail": "0: []",
+      "area": 10
+    }
+  ],
+  "pass": 43,
+  "fail": 0,
+  "browser_version": "153.0",
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+  "mobile_extra": {
+    "360": {
+      "overflow": {
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "bodyScrollWidth": 360,
+        "ok": true
+      },
+      "undersized": [],
+      "ok": true
+    },
+    "768": {
+      "overflow": {
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "bodyScrollWidth": 768,
+        "ok": true
+      },
+      "undersized": [],
+      "ok": true
+    }
+  },
+  "console_desktop": [],
+  "console_mobile": [],
+  "external_desktop": [],
+  "external_mobile": [],
+  "request_failures_desktop": [],
+  "area_titles": {
+    "1": "Home / title / CTA",
+    "2": "Cabinet 6 cards",
+    "3": "NA-001 desk + 3 evidence + expand",
+    "4": "Default != answer",
+    "5": "Wrong submit non-spoiler + preserved",
+    "6": "Three hints, no auto-arrange",
+    "7": "Verdict logic + story recap",
+    "8": "Keyboard reorder + focus ring",
+    "9": "Mobile 390x844 overflow + 44px",
+    "10": "Console errors + third-party"
+  },
+  "areas_passed": []
+}

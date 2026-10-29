@@ -1,0 +1,290 @@
+{
+  "when": "2026-10-30T03:18:01+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "engines": {
+    "chromium": {
+      "version": "151.0.7922.34",
+      "backdrop_filter": {
+        "energy_on": 1808.181,
+        "energy_off": 1851.279,
+        "energy_delta_pct": -2.33,
+        "mean_abs_rgb_delta_on_vs_off": 1.4326,
+        "pct_pixels_differ_gt2": 12.263,
+        "shots": {
+          "on": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\bf-chromium-header-on.png",
+          "off": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\bf-chromium-header-off.png"
+        }
+      },
+      "header_sticky": {
+        "position": "sticky",
+        "top": 0,
+        "scrollY": 900,
+        "height": 65
+      },
+      "scenes": {
+        "w390": {
+          "h1": {
+            "textWrap": "balance",
+            "fontSize": "40.38px",
+            "lineHeight": "44.418px",
+            "width": 0,
+            "height": 0,
+            "approxLines": 0,
+            "scrollWidth": 0,
+            "clientWidth": 0,
+            "overflows": false
+          },
+          "thumb": {
+            "width": 340,
+            "height": 191.25,
+            "ratio": 1.7778,
+            "target1666": 1.7778,
+            "computedAspectRatio": "16 / 9"
+          },
+          "fonts": {
+            "body": "15.18px",
+            "h1": "40.38px",
+            "lede": "16.155px",
+            "cardTitle": "18.165px",
+            "navLink": "12.585px"
+          },
+          "docScrollWidth": 390,
+          "docClientWidth": 390
+        },
+        "w768": {
+          "h1": {
+            "textWrap": "balance",
+            "fontSize": "56.256px",
+            "lineHeight": "61.8816px",
+            "width": 0,
+            "height": 0,
+            "approxLines": 0,
+            "scrollWidth": 0,
+            "clientWidth": 0,
+            "overflows": false
+          },
+          "thumb": {
+            "width": 350,
+            "height": 196.88,
+            "ratio": 1.7778,
+            "target1666": 1.7778,
+            "computedAspectRatio": "16 / 9"
+          },
+          "fonts": {
+            "body": "15.936px",
+            "h1": "56.256px",
+            "lede": "17.856px",
+            "cardTitle": "19.488px",
+            "navLink": "13.152px"
+          },
+          "docScrollWidth": 768,
+          "docClientWidth": 768
+        },
+        "w1440": {
+          "h1": {
+            "textWrap": "balance",
+            "fontSize": "70.4px",
+            "lineHeight": "77.44px",
+            "width": 0,
+            "height": 0,
+            "approxLines": 0,
+            "scrollWidth": 0,
+            "clientWidth": 0,
+            "overflows": false
+          },
+          "thumb": {
+            "width": 380.66,
+            "height": 214.11,
+            "ratio": 1.7779,
+            "target1666": 1.7778,
+            "computedAspectRatio": "16 / 9"
+          },
+          "fonts": {
+            "body": "16.32px",
+            "h1": "70.4px",
+            "lede": "19.2px",
+            "cardTitle": "20.8px",
+            "navLink": "13.76px"
+          },
+          "docScrollWidth": 1440,
+          "docClientWidth": 1440
+        }
+      },
+      "focus_visible": {
+        "keyboard": {
+          "matchesFocusVisible": true,
+          "outlineStyle": "solid",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(223, 185, 120)",
+          "id": "brand"
+        },
+        "mouse": {
+          "matchesFocusVisible": false,
+          "outlineStyle": "none",
+          "outlineWidth": "3px",
+          "id": "btn-submit"
+        }
+      },
+      "scroll_padding": {
+        "htmlScrollPaddingTop": "80px",
+        "supports": true,
+        "mainScrollMargin": "80px",
+        "scrollIntoView": {
+          "slotsTop": 79.53,
+          "headerBottom": 65,
+          "scrollY": 351,
+          "clearOfHeader": true,
+          "gap": 14.53
+        }
+      },
+      "anchor_nav": {
+        "titleTop": 192,
+        "headerBottom": 65,
+        "hiddenUnderHeader": false,
+        "scrollY": 0
+      }
+    },
+    "firefox": {
+      "version": "153.0",
+      "backdrop_filter": {
+        "energy_on": 2669.055,
+        "energy_off": 2669.055,
+        "energy_delta_pct": 0.0,
+        "mean_abs_rgb_delta_on_vs_off": 0.0,
+        "pct_pixels_differ_gt2": 0.0,
+        "shots": {
+          "on": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\bf-firefox-header-on.png",
+          "off": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\bf-firefox-header-off.png"
+        }
+      },
+      "header_sticky": {
+        "position": "sticky",
+        "top": 0,
+        "scrollY": 900,
+        "height": 65
+      },
+      "scenes": {
+        "w390": {
+          "h1": {
+            "textWrap": "balance",
+            "fontSize": "40.3667px",
+            "lineHeight": "44.4px",
+            "width": 0,
+            "height": 0,
+            "approxLines": 0,
+            "scrollWidth": 0,
+            "clientWidth": 0,
+            "overflows": false
+          },
+          "thumb": {
+            "width": 340,
+            "height": 191.25,
+            "ratio": 1.7778,
+            "target1666": 1.7778,
+            "computedAspectRatio": "16 / 9"
+          },
+          "fonts": {
+            "body": "15.1667px",
+            "h1": "40.3667px",
+            "lede": "16.15px",
+            "cardTitle": "18.15px",
+            "navLink": "12.5833px"
+          },
+          "docScrollWidth": 390,
+          "docClientWidth": 390
+        },
+        "w768": {
+          "h1": {
+            "textWrap": "balance",
+            "fontSize": "56.25px",
+            "lineHeight": "61.8833px",
+            "width": 0,
+            "height": 0,
+            "approxLines": 0,
+            "scrollWidth": 0,
+            "clientWidth": 0,
+            "overflows": false
+          },
+          "thumb": {
+            "width": 350,
+            "height": 196.88,
+            "ratio": 1.7777,
+            "target1666": 1.7778,
+            "computedAspectRatio": "16 / 9"
+          },
+          "fonts": {
+            "body": "15.9333px",
+            "h1": "56.25px",
+            "lede": "17.85px",
+            "cardTitle": "19.4833px",
+            "navLink": "13.15px"
+          },
+          "docScrollWidth": 768,
+          "docClientWidth": 768
+        },
+        "w1440": {
+          "h1": {
+            "textWrap": "balance",
+            "fontSize": "70.4px",
+            "lineHeight": "77.4333px",
+            "width": 0,
+            "height": 0,
+            "approxLines": 0,
+            "scrollWidth": 0,
+            "clientWidth": 0,
+            "overflows": false
+          },
+          "thumb": {
+            "width": 380.67,
+            "height": 214.13,
+            "ratio": 1.7777,
+            "target1666": 1.7778,
+            "computedAspectRatio": "16 / 9"
+          },
+          "fonts": {
+            "body": "16.32px",
+            "h1": "70.4px",
+            "lede": "19.2px",
+            "cardTitle": "20.8px",
+            "navLink": "13.76px"
+          },
+          "docScrollWidth": 1440,
+          "docClientWidth": 1440
+        }
+      },
+      "focus_visible": {
+        "keyboard": {
+          "matchesFocusVisible": true,
+          "outlineStyle": "solid",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(223, 185, 120)",
+          "id": ""
+        },
+        "mouse": {
+          "matchesFocusVisible": false,
+          "outlineStyle": "none",
+          "outlineWidth": "3px",
+          "id": "btn-submit"
+        }
+      },
+      "scroll_padding": {
+        "htmlScrollPaddingTop": "80px",
+        "supports": true,
+        "mainScrollMargin": "80px",
+        "scrollIntoView": {
+          "slotsTop": 43.28,
+          "headerBottom": 65,
+          "scrollY": 387,
+          "clearOfHeader": false,
+          "gap": -21.72
+        }
+      },
+      "anchor_nav": {
+        "titleTop": 192,
+        "headerBottom": 65,
+        "hiddenUnderHeader": false,
+        "scrollY": 0
+      }
+    }
+  }
+}

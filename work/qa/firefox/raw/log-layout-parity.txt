@@ -1,0 +1,34 @@
+$ python run_layout_parity.py
+exit=0 duration=74.4s
+
+--- stdout ---
+capturing chromium ...
+  chromium home-1440: 1440x1440
+  chromium cabinet-1440: 1440x1440
+  chromium case-NA001-1440: 1440x1440
+  chromium home-768: 768x768
+  chromium case-NA004-768: 768x768
+  chromium home-390: 390x390
+  chromium case-NA004-390: 390x390
+  chromium cabinet-390: 390x390
+capturing firefox ...
+  firefox home-1440: 1440x1440
+  firefox cabinet-1440: 1440x1440
+  firefox case-NA001-1440: 1440x1440
+  firefox home-768: 768x768
+  firefox case-NA004-768: 768x768
+  firefox home-390: 390x390
+  firefox case-NA004-390: 390x390
+  firefox cabinet-390: 390x390
+home-1440: maxAbsDelta=0.35px worst=heroLede pixelDiff=6.1648%
+cabinet-1440: maxAbsDelta=0.09px worst=brand pixelDiff=5.5056%
+case-NA001-1440: maxAbsDelta=0.35px worst=slots pixelDiff=3.8956%
+home-768: maxAbsDelta=0.38px worst=heroLede pixelDiff=7.159%
+case-NA004-768: maxAbsDelta=1.85px worst=slots pixelDiff=None%
+home-390: maxAbsDelta=0.23px worst=caseGrid pixelDiff=10.2205%
+case-NA004-390: maxAbsDelta=0.29px worst=board pixelDiff=6.5383%
+cabinet-390: maxAbsDelta=0.09px worst=brand pixelDiff=None%
+-> raw/layout-parity.json
+
+--- stderr ---
+

@@ -1,0 +1,240 @@
+{
+  "when": "2026-10-30T03:28:43+0800",
+  "chromium": {
+    "version": "151.0.7922.34",
+    "steps": [
+      {
+        "step": "open",
+        "tag": "button",
+        "id": "ok",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab1",
+        "tag": "body",
+        "id": "",
+        "inDialog": false,
+        "isBody": true,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab2",
+        "tag": "button",
+        "id": "cancel",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab3",
+        "tag": "button",
+        "id": "ok",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab4",
+        "tag": "body",
+        "id": "",
+        "inDialog": false,
+        "isBody": true,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab5",
+        "tag": "button",
+        "id": "cancel",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab6",
+        "tag": "button",
+        "id": "ok",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab7",
+        "tag": "body",
+        "id": "",
+        "inDialog": false,
+        "isBody": true,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab8",
+        "tag": "button",
+        "id": "cancel",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "shift1",
+        "tag": "body",
+        "id": "",
+        "inDialog": false,
+        "isBody": true,
+        "isDialogEl": false
+      },
+      {
+        "step": "shift2",
+        "tag": "button",
+        "id": "ok",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "shift3",
+        "tag": "button",
+        "id": "cancel",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "shift4",
+        "tag": "body",
+        "id": "",
+        "inDialog": false,
+        "isBody": true,
+        "isDialogEl": false
+      }
+    ],
+    "focusin_events": [
+      "focusin:opener",
+      "focusin:cancel",
+      "focusin:ok",
+      "focusin:cancel",
+      "focusin:ok",
+      "focusin:cancel",
+      "focusin:ok",
+      "focusin:cancel",
+      "focusin:ok",
+      "focusin:cancel"
+    ]
+  },
+  "firefox": {
+    "version": "153.0",
+    "steps": [
+      {
+        "step": "open",
+        "tag": "button",
+        "id": "ok",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab1",
+        "tag": "button",
+        "id": "ok",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab2",
+        "tag": "button",
+        "id": "ok",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab3",
+        "tag": "button",
+        "id": "ok",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab4",
+        "tag": "button",
+        "id": "ok",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab5",
+        "tag": "button",
+        "id": "ok",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab6",
+        "tag": "button",
+        "id": "ok",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab7",
+        "tag": "button",
+        "id": "ok",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "tab8",
+        "tag": "button",
+        "id": "ok",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "shift1",
+        "tag": "button",
+        "id": "cancel",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": false
+      },
+      {
+        "step": "shift2",
+        "tag": "dialog",
+        "id": "d",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": true
+      },
+      {
+        "step": "shift3",
+        "tag": "dialog",
+        "id": "d",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": true
+      },
+      {
+        "step": "shift4",
+        "tag": "dialog",
+        "id": "d",
+        "inDialog": true,
+        "isBody": false,
+        "isDialogEl": true
+      }
+    ],
+    "focusin_events": [
+      "focusin:opener",
+      "focusin:cancel",
+      "focusin:ok",
+      "focusin:cancel",
+      "focusin:d"
+    ]
+  }
+}

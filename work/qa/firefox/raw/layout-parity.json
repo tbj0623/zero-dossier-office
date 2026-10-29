@@ -1,0 +1,3978 @@
+{
+  "when": "2026-10-30T03:38:03+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "engines": {
+    "chromium": "151.0.7922.34",
+    "firefox": "153.0"
+  },
+  "elements": {
+    "header": ".site-header",
+    "headerInner": ".site-header__inner",
+    "brand": ".brand",
+    "hero": ".hero",
+    "heroH1": ".hero h1",
+    "heroLede": ".hero__lede",
+    "heroCta": "#cta-first",
+    "caseGrid": ".case-grid",
+    "caseCard1": ".case-card",
+    "caseThumb1": ".case-card__thumb",
+    "evidenceCol": ".evidence-col",
+    "evidenceCard1": ".ev-card",
+    "desk": ".desk",
+    "board": ".board",
+    "slots": "#slots",
+    "slot1": "#slots .slot",
+    "actions": ".actions",
+    "btnSubmit": "#btn-submit",
+    "btnUndo": "#btn-undo",
+    "btnHint": "#btn-hint",
+    "btnReset": "#btn-reset",
+    "statusBar": ".status-bar"
+  },
+  "scenes": {
+    "home-1440": {
+      "route": "#/",
+      "viewport": [
+        1440,
+        900
+      ],
+      "elements": {
+        "header": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 1440,
+            "h": 65,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 1440,
+            "h": 65,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0
+        },
+        "headerInner": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 0,
+            "w": 1180,
+            "h": 64,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 0,
+            "w": 1180,
+            "h": 64,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0
+        },
+        "brand": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 9,
+            "w": 226.91,
+            "h": 46,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 9,
+            "w": 226.82,
+            "h": 46,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": -0.09,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.09
+        },
+        "hero": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 65,
+            "w": 1440,
+            "h": 780,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 65,
+            "w": 1440,
+            "h": 780,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0
+        },
+        "heroH1": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 253.53,
+            "w": 720,
+            "h": 154.88,
+            "fontSize": "70.4px",
+            "lineHeight": "77.44px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 253.53,
+            "w": 720,
+            "h": 154.87,
+            "fontSize": "70.4px",
+            "lineHeight": "77.4333px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.0,
+            "w": 0,
+            "h": -0.01
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0.01
+        },
+        "heroLede": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 432.41,
+            "w": 618.05,
+            "h": 65.28,
+            "fontSize": "19.2px",
+            "lineHeight": "32.64px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 432.4,
+            "w": 617.7,
+            "h": 65.27,
+            "fontSize": "19.2px",
+            "lineHeight": "32.6333px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.01,
+            "w": -0.35,
+            "h": -0.01
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0.35
+        },
+        "heroCta": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 529.69,
+            "w": 184.22,
+            "h": 44,
+            "fontSize": "16.32px",
+            "lineHeight": "21.216px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 529.67,
+            "w": 184.2,
+            "h": 44,
+            "fontSize": "16.32px",
+            "lineHeight": "21.2167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.02,
+            "w": -0.02,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.0,
+          "maxAbsDelta": 0.02
+        },
+        "caseGrid": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 1541.53,
+            "w": 1180,
+            "h": 433,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 1541.65,
+            "w": 1180,
+            "h": 433.07,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.12,
+            "w": 0,
+            "h": 0.07
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.12
+        },
+        "caseCard1": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 1541.53,
+            "w": 382.66,
+            "h": 433,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 1541.65,
+            "w": 382.67,
+            "h": 433.07,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.12,
+            "w": 0.01,
+            "h": 0.07
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.12
+        },
+        "caseThumb1": {
+          "present": true,
+          "chromium": {
+            "x": 131,
+            "y": 1542.53,
+            "w": 380.66,
+            "h": 214.11,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 131,
+            "y": 1542.65,
+            "w": 380.67,
+            "h": 214.13,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.12,
+            "w": 0.01,
+            "h": 0.02
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.12
+        },
+        "evidenceCol": {
+          "present": false
+        },
+        "evidenceCard1": {
+          "present": false
+        },
+        "desk": {
+          "present": false
+        },
+        "board": {
+          "present": false
+        },
+        "slots": {
+          "present": false
+        },
+        "slot1": {
+          "present": false
+        },
+        "actions": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0
+        },
+        "btnSubmit": {
+          "present": false
+        },
+        "btnUndo": {
+          "present": false
+        },
+        "btnHint": {
+          "present": false
+        },
+        "btnReset": {
+          "present": false
+        },
+        "statusBar": {
+          "present": false
+        }
+      },
+      "doc": {
+        "chromium": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440,
+          "scrollHeight": 2444,
+          "dpr": 1,
+          "innerWidth": 1440,
+          "innerHeight": 900
+        },
+        "firefox": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440,
+          "scrollHeight": 2444,
+          "dpr": 1,
+          "innerWidth": 1440,
+          "innerHeight": 900
+        }
+      },
+      "maxAbsDelta": 0.35,
+      "worstElement": "heroLede",
+      "screenshot": {
+        "chromium": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\chromium-home-1440.png",
+        "firefox": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\firefox-home-1440.png"
+      },
+      "image": {
+        "chromium_size": [
+          1440,
+          2444
+        ],
+        "same_size": true,
+        "pixels_diff_gt2_pct": 6.1648,
+        "diff_bbox": [
+          0,
+          0,
+          1440,
+          2392
+        ]
+      },
+      "console": {
+        "chromium": [],
+        "firefox": []
+      }
+    },
+    "cabinet-1440": {
+      "route": "#/cabinet",
+      "viewport": [
+        1440,
+        900
+      ],
+      "elements": {
+        "header": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 1440,
+            "h": 65,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 1440,
+            "h": 65,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0
+        },
+        "headerInner": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 0,
+            "w": 1180,
+            "h": 64,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 0,
+            "w": 1180,
+            "h": 64,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0
+        },
+        "brand": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 9,
+            "w": 226.91,
+            "h": 46,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 9,
+            "w": 226.82,
+            "h": 46,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": -0.09,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.09
+        },
+        "hero": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0
+        },
+        "heroH1": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "70.4px",
+            "lineHeight": "77.44px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "70.4px",
+            "lineHeight": "77.4333px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0
+        },
+        "heroLede": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "19.2px",
+            "lineHeight": "32.64px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "19.2px",
+            "lineHeight": "32.6333px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0
+        },
+        "heroCta": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.32px",
+            "lineHeight": "21.216px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.32px",
+            "lineHeight": "21.2167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.0,
+          "maxAbsDelta": 0
+        },
+        "caseGrid": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 441.25,
+            "w": 1180,
+            "h": 433,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 441.33,
+            "w": 1180,
+            "h": 433.07,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.08,
+            "w": 0,
+            "h": 0.07
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.08
+        },
+        "caseCard1": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 441.25,
+            "w": 382.66,
+            "h": 433,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 441.33,
+            "w": 382.67,
+            "h": 433.07,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.08,
+            "w": 0.01,
+            "h": 0.07
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.08
+        },
+        "caseThumb1": {
+          "present": true,
+          "chromium": {
+            "x": 131,
+            "y": 442.25,
+            "w": 380.66,
+            "h": 214.11,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 131,
+            "y": 442.33,
+            "w": 380.67,
+            "h": 214.13,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.08,
+            "w": 0.01,
+            "h": 0.02
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.08
+        },
+        "evidenceCol": {
+          "present": false
+        },
+        "evidenceCard1": {
+          "present": false
+        },
+        "desk": {
+          "present": false
+        },
+        "board": {
+          "present": false
+        },
+        "slots": {
+          "present": false
+        },
+        "slot1": {
+          "present": false
+        },
+        "actions": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0
+        },
+        "btnSubmit": {
+          "present": false
+        },
+        "btnUndo": {
+          "present": false
+        },
+        "btnHint": {
+          "present": false
+        },
+        "btnReset": {
+          "present": false
+        },
+        "statusBar": {
+          "present": false
+        }
+      },
+      "doc": {
+        "chromium": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440,
+          "scrollHeight": 2472,
+          "dpr": 1,
+          "innerWidth": 1440,
+          "innerHeight": 900
+        },
+        "firefox": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440,
+          "scrollHeight": 2472,
+          "dpr": 1,
+          "innerWidth": 1440,
+          "innerHeight": 900
+        }
+      },
+      "maxAbsDelta": 0.09,
+      "worstElement": "brand",
+      "screenshot": {
+        "chromium": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\chromium-cabinet-1440.png",
+        "firefox": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\firefox-cabinet-1440.png"
+      },
+      "image": {
+        "chromium_size": [
+          1440,
+          2472
+        ],
+        "same_size": true,
+        "pixels_diff_gt2_pct": 5.5056,
+        "diff_bbox": [
+          0,
+          0,
+          1440,
+          2421
+        ]
+      },
+      "console": {
+        "chromium": [],
+        "firefox": []
+      }
+    },
+    "case-NA001-1440": {
+      "route": "#/case/NA-001",
+      "viewport": [
+        1440,
+        900
+      ],
+      "elements": {
+        "header": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 1440,
+            "h": 65,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 1440,
+            "h": 65,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0
+        },
+        "headerInner": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 0,
+            "w": 1180,
+            "h": 64,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 0,
+            "w": 1180,
+            "h": 64,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0
+        },
+        "brand": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 9,
+            "w": 226.91,
+            "h": 46,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 9,
+            "w": 226.82,
+            "h": 46,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": -0.09,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.09
+        },
+        "hero": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0
+        },
+        "heroH1": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "70.4px",
+            "lineHeight": "77.44px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "70.4px",
+            "lineHeight": "77.4333px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0
+        },
+        "heroLede": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "19.2px",
+            "lineHeight": "32.64px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "19.2px",
+            "lineHeight": "32.6333px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0
+        },
+        "heroCta": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.32px",
+            "lineHeight": "21.216px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.32px",
+            "lineHeight": "21.2167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.0,
+          "maxAbsDelta": 0
+        },
+        "caseGrid": {
+          "present": false
+        },
+        "caseCard1": {
+          "present": false
+        },
+        "caseThumb1": {
+          "present": false
+        },
+        "evidenceCol": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 281.78,
+            "w": 522.94,
+            "h": 600.56,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 281.8,
+            "w": 522.95,
+            "h": 600.48,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.02,
+            "w": 0.01,
+            "h": -0.08
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.08
+        },
+        "evidenceCard1": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 448.34,
+            "w": 522.94,
+            "h": 161.06,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 448,
+            "w": 522.95,
+            "h": 161.07,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.34,
+            "w": 0.01,
+            "h": 0.01
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.34
+        },
+        "desk": {
+          "present": true,
+          "chromium": {
+            "x": 130,
+            "y": 281.78,
+            "w": 1180,
+            "h": 600.56,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 130,
+            "y": 281.8,
+            "w": 1180,
+            "h": 600.48,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.02,
+            "w": 0,
+            "h": -0.08
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.08
+        },
+        "board": {
+          "present": true,
+          "chromium": {
+            "x": 676.94,
+            "y": 281.78,
+            "w": 633.06,
+            "h": 595.98,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 676.95,
+            "y": 281.8,
+            "w": 633.05,
+            "h": 595.8,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0.01,
+            "y": 0.02,
+            "w": -0.01,
+            "h": -0.18
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.18
+        },
+        "slots": {
+          "present": true,
+          "chromium": {
+            "x": 693.94,
+            "y": 425.95,
+            "w": 599.06,
+            "h": 316.81,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 693.95,
+            "y": 425.6,
+            "w": 599.05,
+            "h": 317,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0.01,
+            "y": -0.35,
+            "w": -0.01,
+            "h": 0.19
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.35
+        },
+        "slot1": {
+          "present": true,
+          "chromium": {
+            "x": 693.94,
+            "y": 425.95,
+            "w": 599.06,
+            "h": 65.2,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 693.95,
+            "y": 425.6,
+            "w": 599.05,
+            "h": 65.25,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0.01,
+            "y": -0.35,
+            "w": -0.01,
+            "h": 0.05
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.35
+        },
+        "actions": {
+          "present": true,
+          "chromium": {
+            "x": 693.94,
+            "y": 758.77,
+            "w": 599.06,
+            "h": 44,
+            "fontSize": "16.32px",
+            "lineHeight": "27.744px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 693.95,
+            "y": 758.6,
+            "w": 599.05,
+            "h": 44,
+            "fontSize": "16.32px",
+            "lineHeight": "27.75px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0.01,
+            "y": -0.17,
+            "w": -0.01,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.17
+        },
+        "btnSubmit": {
+          "present": true,
+          "chromium": {
+            "x": 693.94,
+            "y": 758.77,
+            "w": 182.97,
+            "h": 44,
+            "fontSize": "16.32px",
+            "lineHeight": "21.216px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 693.95,
+            "y": 758.6,
+            "w": 182.97,
+            "h": 44,
+            "fontSize": "16.32px",
+            "lineHeight": "21.2167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0.01,
+            "y": -0.17,
+            "w": 0.0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.0,
+          "maxAbsDelta": 0.17
+        },
+        "btnUndo": {
+          "present": true,
+          "chromium": {
+            "x": 884.91,
+            "y": 758.77,
+            "w": 130.69,
+            "h": 44,
+            "fontSize": "16.32px",
+            "lineHeight": "21.216px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 884.92,
+            "y": 758.6,
+            "w": 130.7,
+            "h": 44,
+            "fontSize": "16.32px",
+            "lineHeight": "21.2167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0.01,
+            "y": -0.17,
+            "w": 0.01,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.0,
+          "maxAbsDelta": 0.17
+        },
+        "btnHint": {
+          "present": true,
+          "chromium": {
+            "x": 1023.59,
+            "y": 758.77,
+            "w": 130.7,
+            "h": 44,
+            "fontSize": "16.32px",
+            "lineHeight": "21.216px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 1023.62,
+            "y": 758.6,
+            "w": 130.7,
+            "h": 44,
+            "fontSize": "16.32px",
+            "lineHeight": "21.2167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0.03,
+            "y": -0.17,
+            "w": 0.0,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.0,
+          "maxAbsDelta": 0.17
+        },
+        "btnReset": {
+          "present": true,
+          "chromium": {
+            "x": 1162.3,
+            "y": 758.77,
+            "w": 130.69,
+            "h": 44,
+            "fontSize": "16.32px",
+            "lineHeight": "21.216px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 1162.32,
+            "y": 758.6,
+            "w": 130.7,
+            "h": 44,
+            "fontSize": "16.32px",
+            "lineHeight": "21.2167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0.02,
+            "y": -0.17,
+            "w": 0.01,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.0,
+          "maxAbsDelta": 0.17
+        },
+        "statusBar": {
+          "present": true,
+          "chromium": {
+            "x": 693.94,
+            "y": 818.77,
+            "w": 599.06,
+            "h": 26,
+            "fontSize": "13.76px",
+            "lineHeight": "23.392px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 693.95,
+            "y": 818.6,
+            "w": 599.05,
+            "h": 26,
+            "fontSize": "13.76px",
+            "lineHeight": "23.4px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0.01,
+            "y": -0.17,
+            "w": -0.01,
+            "h": 0
+          },
+          "fontSizeDelta": 0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.17
+        }
+      },
+      "doc": {
+        "chromium": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440,
+          "scrollHeight": 1287,
+          "dpr": 1,
+          "innerWidth": 1440,
+          "innerHeight": 900
+        },
+        "firefox": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440,
+          "scrollHeight": 1287,
+          "dpr": 1,
+          "innerWidth": 1440,
+          "innerHeight": 900
+        }
+      },
+      "maxAbsDelta": 0.35,
+      "worstElement": "slots",
+      "screenshot": {
+        "chromium": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\chromium-case-NA001-1440.png",
+        "firefox": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\firefox-case-NA001-1440.png"
+      },
+      "image": {
+        "chromium_size": [
+          1440,
+          1287
+        ],
+        "same_size": true,
+        "pixels_diff_gt2_pct": 3.8956,
+        "diff_bbox": [
+          0,
+          0,
+          1440,
+          1236
+        ]
+      },
+      "console": {
+        "chromium": [],
+        "firefox": []
+      }
+    },
+    "home-768": {
+      "route": "#/",
+      "viewport": [
+        768,
+        1024
+      ],
+      "elements": {
+        "header": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 768,
+            "h": 65,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 768,
+            "h": 65,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0
+        },
+        "headerInner": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 0,
+            "w": 720,
+            "h": 64,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 0,
+            "w": 720,
+            "h": 64,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0
+        },
+        "brand": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 9,
+            "w": 226.91,
+            "h": 46,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 9,
+            "w": 226.82,
+            "h": 46,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": -0.09,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0.09
+        },
+        "hero": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 65,
+            "w": 768,
+            "h": 780,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 65,
+            "w": 768,
+            "h": 780,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0
+        },
+        "heroH1": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 268.23,
+            "w": 720,
+            "h": 123.75,
+            "fontSize": "56.256px",
+            "lineHeight": "61.8816px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 268.25,
+            "w": 720,
+            "h": 123.77,
+            "fontSize": "56.25px",
+            "lineHeight": "61.8833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.02,
+            "w": 0,
+            "h": 0.02
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": 0.0,
+          "maxAbsDelta": 0.02
+        },
+        "heroLede": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 415.98,
+            "w": 574.58,
+            "h": 60.72,
+            "fontSize": "17.856px",
+            "lineHeight": "30.3552px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 416.02,
+            "w": 574.2,
+            "h": 60.7,
+            "fontSize": "17.85px",
+            "lineHeight": "30.35px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.04,
+            "w": -0.38,
+            "h": -0.02
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0.38
+        },
+        "heroCta": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 508.7,
+            "w": 181.02,
+            "h": 44,
+            "fontSize": "15.936px",
+            "lineHeight": "20.7168px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 508.72,
+            "w": 181.03,
+            "h": 44,
+            "fontSize": "15.9333px",
+            "lineHeight": "20.7167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.02,
+            "w": 0.01,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.0,
+          "maxAbsDelta": 0.02
+        },
+        "caseGrid": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 1714,
+            "w": 720,
+            "h": 840.13,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 1713.98,
+            "w": 720,
+            "h": 840.13,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.02,
+            "w": 0,
+            "h": 0.0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0.02
+        },
+        "caseCard1": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 1714,
+            "w": 352,
+            "h": 412.06,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 1713.98,
+            "w": 352,
+            "h": 412.07,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.02,
+            "w": 0,
+            "h": 0.01
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0.02
+        },
+        "caseThumb1": {
+          "present": true,
+          "chromium": {
+            "x": 25,
+            "y": 1715,
+            "w": 350,
+            "h": 196.88,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 25,
+            "y": 1714.98,
+            "w": 350,
+            "h": 196.88,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.02,
+            "w": 0,
+            "h": 0.0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0.02
+        },
+        "evidenceCol": {
+          "present": false
+        },
+        "evidenceCard1": {
+          "present": false
+        },
+        "desk": {
+          "present": false
+        },
+        "board": {
+          "present": false
+        },
+        "slots": {
+          "present": false
+        },
+        "slot1": {
+          "present": false
+        },
+        "actions": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0
+        },
+        "btnSubmit": {
+          "present": false
+        },
+        "btnUndo": {
+          "present": false
+        },
+        "btnHint": {
+          "present": false
+        },
+        "btnReset": {
+          "present": false
+        },
+        "statusBar": {
+          "present": false
+        }
+      },
+      "doc": {
+        "chromium": {
+          "scrollWidth": 768,
+          "clientWidth": 768,
+          "scrollHeight": 3022,
+          "dpr": 1,
+          "innerWidth": 768,
+          "innerHeight": 1024
+        },
+        "firefox": {
+          "scrollWidth": 768,
+          "clientWidth": 768,
+          "scrollHeight": 3022,
+          "dpr": 1,
+          "innerWidth": 768,
+          "innerHeight": 1024
+        }
+      },
+      "maxAbsDelta": 0.38,
+      "worstElement": "heroLede",
+      "screenshot": {
+        "chromium": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\chromium-home-768.png",
+        "firefox": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\firefox-home-768.png"
+      },
+      "image": {
+        "chromium_size": [
+          768,
+          3022
+        ],
+        "same_size": true,
+        "pixels_diff_gt2_pct": 7.159,
+        "diff_bbox": [
+          0,
+          0,
+          768,
+          2970
+        ]
+      },
+      "console": {
+        "chromium": [],
+        "firefox": []
+      }
+    },
+    "case-NA004-768": {
+      "route": "#/case/NA-004",
+      "viewport": [
+        768,
+        1024
+      ],
+      "elements": {
+        "header": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 768,
+            "h": 65,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 768,
+            "h": 65,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0
+        },
+        "headerInner": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 0,
+            "w": 720,
+            "h": 64,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 0,
+            "w": 720,
+            "h": 64,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0
+        },
+        "brand": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 9,
+            "w": 226.91,
+            "h": 46,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 9,
+            "w": 226.82,
+            "h": 46,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": -0.09,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0.09
+        },
+        "hero": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0
+        },
+        "heroH1": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "56.256px",
+            "lineHeight": "61.8816px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "56.25px",
+            "lineHeight": "61.8833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": 0.0,
+          "maxAbsDelta": 0
+        },
+        "heroLede": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "17.856px",
+            "lineHeight": "30.3552px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "17.85px",
+            "lineHeight": "30.35px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0
+        },
+        "heroCta": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.936px",
+            "lineHeight": "20.7168px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.9333px",
+            "lineHeight": "20.7167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.0,
+          "maxAbsDelta": 0
+        },
+        "caseGrid": {
+          "present": false
+        },
+        "caseCard1": {
+          "present": false
+        },
+        "caseThumb1": {
+          "present": false
+        },
+        "evidenceCol": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 276.44,
+            "w": 720,
+            "h": 605.56,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 276.42,
+            "w": 720,
+            "h": 604.75,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.02,
+            "w": 0,
+            "h": -0.81
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0.81
+        },
+        "evidenceCard1": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 438.88,
+            "w": 720,
+            "h": 134.47,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 437.82,
+            "w": 720,
+            "h": 134.47,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": -1.06,
+            "w": 0,
+            "h": 0.0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 1.06
+        },
+        "desk": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 276.44,
+            "w": 720,
+            "h": 1333.3,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 276.42,
+            "w": 720,
+            "h": 1331.7,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.02,
+            "w": 0,
+            "h": -1.6
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 1.6
+        },
+        "board": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 906,
+            "w": 720,
+            "h": 703.73,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 905.17,
+            "w": 720,
+            "h": 702.95,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.83,
+            "w": 0,
+            "h": -0.78
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0.83
+        },
+        "slots": {
+          "present": true,
+          "chromium": {
+            "x": 41,
+            "y": 1024.72,
+            "w": 686,
+            "h": 398.02,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 41,
+            "y": 1022.87,
+            "w": 686,
+            "h": 398.25,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": -1.85,
+            "w": 0,
+            "h": 0.23
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 1.85
+        },
+        "slot1": {
+          "present": true,
+          "chromium": {
+            "x": 41,
+            "y": 1024.72,
+            "w": 686,
+            "h": 65.2,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 41,
+            "y": 1022.87,
+            "w": 686,
+            "h": 65.25,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": -1.85,
+            "w": 0,
+            "h": 0.05
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 1.85
+        },
+        "actions": {
+          "present": true,
+          "chromium": {
+            "x": 41,
+            "y": 1438.73,
+            "w": 686,
+            "h": 96,
+            "fontSize": "15.936px",
+            "lineHeight": "27.0912px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 41,
+            "y": 1437.12,
+            "w": 686,
+            "h": 96,
+            "fontSize": "15.9333px",
+            "lineHeight": "27.0833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": -1.61,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 1.61
+        },
+        "btnSubmit": {
+          "present": true,
+          "chromium": {
+            "x": 41,
+            "y": 1438.73,
+            "w": 686,
+            "h": 44,
+            "fontSize": "15.936px",
+            "lineHeight": "20.7168px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 41,
+            "y": 1437.12,
+            "w": 686,
+            "h": 44,
+            "fontSize": "15.9333px",
+            "lineHeight": "20.7167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": -1.61,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.0,
+          "maxAbsDelta": 1.61
+        },
+        "btnUndo": {
+          "present": true,
+          "chromium": {
+            "x": 41,
+            "y": 1490.73,
+            "w": 223.33,
+            "h": 44,
+            "fontSize": "15.936px",
+            "lineHeight": "20.7168px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 41,
+            "y": 1489.12,
+            "w": 223.33,
+            "h": 44,
+            "fontSize": "15.9333px",
+            "lineHeight": "20.7167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": -1.61,
+            "w": 0.0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.0,
+          "maxAbsDelta": 1.61
+        },
+        "btnHint": {
+          "present": true,
+          "chromium": {
+            "x": 272.33,
+            "y": 1490.73,
+            "w": 223.34,
+            "h": 44,
+            "fontSize": "15.936px",
+            "lineHeight": "20.7168px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 272.33,
+            "y": 1489.12,
+            "w": 223.33,
+            "h": 44,
+            "fontSize": "15.9333px",
+            "lineHeight": "20.7167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0.0,
+            "y": -1.61,
+            "w": -0.01,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.0,
+          "maxAbsDelta": 1.61
+        },
+        "btnReset": {
+          "present": true,
+          "chromium": {
+            "x": 503.67,
+            "y": 1490.73,
+            "w": 223.33,
+            "h": 44,
+            "fontSize": "15.936px",
+            "lineHeight": "20.7168px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 503.67,
+            "y": 1489.12,
+            "w": 223.33,
+            "h": 44,
+            "fontSize": "15.9333px",
+            "lineHeight": "20.7167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0.0,
+            "y": -1.61,
+            "w": 0.0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.0,
+          "maxAbsDelta": 1.61
+        },
+        "statusBar": {
+          "present": true,
+          "chromium": {
+            "x": 41,
+            "y": 1550.73,
+            "w": 686,
+            "h": 26,
+            "fontSize": "13.152px",
+            "lineHeight": "22.3584px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 41,
+            "y": 1549.12,
+            "w": 686,
+            "h": 26,
+            "fontSize": "13.15px",
+            "lineHeight": "22.35px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": -1.61,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 1.61
+        }
+      },
+      "doc": {
+        "chromium": {
+          "scrollWidth": 768,
+          "clientWidth": 768,
+          "scrollHeight": 2014,
+          "dpr": 1,
+          "innerWidth": 768,
+          "innerHeight": 1024
+        },
+        "firefox": {
+          "scrollWidth": 768,
+          "clientWidth": 768,
+          "scrollHeight": 2012,
+          "dpr": 1,
+          "innerWidth": 768,
+          "innerHeight": 1024
+        }
+      },
+      "maxAbsDelta": 1.85,
+      "worstElement": "slots",
+      "screenshot": {
+        "chromium": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\chromium-case-NA004-768.png",
+        "firefox": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\firefox-case-NA004-768.png"
+      },
+      "image": {
+        "chromium_size": null,
+        "same_size": false,
+        "pixels_diff_gt2_pct": null,
+        "diff_bbox": null
+      },
+      "console": {
+        "chromium": [],
+        "firefox": []
+      }
+    },
+    "home-390": {
+      "route": "#/",
+      "viewport": [
+        390,
+        844
+      ],
+      "elements": {
+        "header": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 390,
+            "h": 65,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 390,
+            "h": 65,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "headerInner": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 0,
+            "w": 342,
+            "h": 64,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 0,
+            "w": 342,
+            "h": 64,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "brand": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 9,
+            "w": 226.91,
+            "h": 46,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 9,
+            "w": 226.82,
+            "h": 46,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": -0.09,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.09
+        },
+        "hero": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 65,
+            "w": 390,
+            "h": 742.72,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 65,
+            "w": 390,
+            "h": 742.72,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0.0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "heroH1": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 253.39,
+            "w": 342,
+            "h": 88.81,
+            "fontSize": "40.38px",
+            "lineHeight": "44.418px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 253.38,
+            "w": 342,
+            "h": 88.8,
+            "fontSize": "40.3667px",
+            "lineHeight": "44.4px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.01,
+            "w": 0,
+            "h": -0.01
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.01
+        },
+        "heroLede": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 366.2,
+            "w": 342,
+            "h": 82.36,
+            "fontSize": "16.155px",
+            "lineHeight": "27.4635px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 366.18,
+            "w": 342,
+            "h": 82.35,
+            "fontSize": "16.15px",
+            "lineHeight": "27.45px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.02,
+            "w": 0,
+            "h": -0.01
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0.02
+        },
+        "heroCta": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 480.56,
+            "w": 174.84,
+            "h": 44,
+            "fontSize": "15.18px",
+            "lineHeight": "19.734px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 480.53,
+            "w": 174.75,
+            "h": 44,
+            "fontSize": "15.1667px",
+            "lineHeight": "19.7167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.03,
+            "w": -0.09,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.09
+        },
+        "caseGrid": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 2111.7,
+            "w": 342,
+            "h": 1219.11,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 2111.93,
+            "w": 342,
+            "h": 1219.2,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.23,
+            "w": 0,
+            "h": 0.09
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.23
+        },
+        "caseCard1": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 2111.7,
+            "w": 342,
+            "h": 381.45,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 2111.93,
+            "w": 342,
+            "h": 381.47,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.23,
+            "w": 0,
+            "h": 0.02
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.23
+        },
+        "caseThumb1": {
+          "present": true,
+          "chromium": {
+            "x": 25,
+            "y": 2112.7,
+            "w": 340,
+            "h": 191.25,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 25,
+            "y": 2112.93,
+            "w": 340,
+            "h": 191.25,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.23,
+            "w": 0,
+            "h": 0.0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.23
+        },
+        "evidenceCol": {
+          "present": false
+        },
+        "evidenceCard1": {
+          "present": false
+        },
+        "desk": {
+          "present": false
+        },
+        "board": {
+          "present": false
+        },
+        "slots": {
+          "present": false
+        },
+        "slot1": {
+          "present": false
+        },
+        "actions": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "btnSubmit": {
+          "present": false
+        },
+        "btnUndo": {
+          "present": false
+        },
+        "btnHint": {
+          "present": false
+        },
+        "btnReset": {
+          "present": false
+        },
+        "statusBar": {
+          "present": false
+        }
+      },
+      "doc": {
+        "chromium": {
+          "scrollWidth": 390,
+          "clientWidth": 390,
+          "scrollHeight": 4051,
+          "dpr": 1,
+          "innerWidth": 390,
+          "innerHeight": 844
+        },
+        "firefox": {
+          "scrollWidth": 390,
+          "clientWidth": 390,
+          "scrollHeight": 4051,
+          "dpr": 1,
+          "innerWidth": 390,
+          "innerHeight": 844
+        }
+      },
+      "maxAbsDelta": 0.23,
+      "worstElement": "caseGrid",
+      "screenshot": {
+        "chromium": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\chromium-home-390.png",
+        "firefox": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\firefox-home-390.png"
+      },
+      "image": {
+        "chromium_size": [
+          390,
+          4051
+        ],
+        "same_size": true,
+        "pixels_diff_gt2_pct": 10.2205,
+        "diff_bbox": [
+          0,
+          0,
+          390,
+          3999
+        ]
+      },
+      "console": {
+        "chromium": [],
+        "firefox": []
+      }
+    },
+    "case-NA004-390": {
+      "route": "#/case/NA-004",
+      "viewport": [
+        390,
+        844
+      ],
+      "elements": {
+        "header": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 390,
+            "h": 65,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 390,
+            "h": 65,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "headerInner": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 0,
+            "w": 342,
+            "h": 64,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 0,
+            "w": 342,
+            "h": 64,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "brand": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 9,
+            "w": 226.91,
+            "h": 46,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 9,
+            "w": 226.82,
+            "h": 46,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": -0.09,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.09
+        },
+        "hero": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "heroH1": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "40.38px",
+            "lineHeight": "44.418px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "40.3667px",
+            "lineHeight": "44.4px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "heroLede": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.155px",
+            "lineHeight": "27.4635px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.15px",
+            "lineHeight": "27.45px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0
+        },
+        "heroCta": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.18px",
+            "lineHeight": "19.734px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.1667px",
+            "lineHeight": "19.7167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "caseGrid": {
+          "present": false
+        },
+        "caseCard1": {
+          "present": false
+        },
+        "caseThumb1": {
+          "present": false
+        },
+        "evidenceCol": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 308.55,
+            "w": 342,
+            "h": 711.47,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 308.6,
+            "w": 342,
+            "h": 711.32,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.05,
+            "w": 0,
+            "h": -0.15
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.15
+        },
+        "evidenceCard1": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 508.13,
+            "w": 342,
+            "h": 182.91,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 508.28,
+            "w": 342,
+            "h": 182.9,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.15,
+            "w": 0,
+            "h": -0.01
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.15
+        },
+        "desk": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 308.55,
+            "w": 342,
+            "h": 1530.31,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 308.6,
+            "w": 342,
+            "h": 1530.45,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.05,
+            "w": 0,
+            "h": 0.14
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.14
+        },
+        "board": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 1044.02,
+            "w": 342,
+            "h": 794.84,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 1043.92,
+            "w": 342,
+            "h": 795.13,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.1,
+            "w": 0,
+            "h": 0.29
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.29
+        },
+        "slots": {
+          "present": true,
+          "chromium": {
+            "x": 41,
+            "y": 1201.84,
+            "w": 308,
+            "h": 398.02,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 41,
+            "y": 1201.8,
+            "w": 308,
+            "h": 398.25,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.04,
+            "w": 0,
+            "h": 0.23
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.23
+        },
+        "slot1": {
+          "present": true,
+          "chromium": {
+            "x": 41,
+            "y": 1201.84,
+            "w": 308,
+            "h": 65.2,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 41,
+            "y": 1201.8,
+            "w": 308,
+            "h": 65.25,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": -0.04,
+            "w": 0,
+            "h": 0.05
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.05
+        },
+        "actions": {
+          "present": true,
+          "chromium": {
+            "x": 41,
+            "y": 1615.86,
+            "w": 308,
+            "h": 148,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 41,
+            "y": 1616.05,
+            "w": 308,
+            "h": 148,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.19,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.19
+        },
+        "btnSubmit": {
+          "present": true,
+          "chromium": {
+            "x": 41,
+            "y": 1615.86,
+            "w": 308,
+            "h": 44,
+            "fontSize": "15.18px",
+            "lineHeight": "19.734px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 41,
+            "y": 1616.05,
+            "w": 308,
+            "h": 44,
+            "fontSize": "15.1667px",
+            "lineHeight": "19.7167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.19,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.19
+        },
+        "btnUndo": {
+          "present": true,
+          "chromium": {
+            "x": 41,
+            "y": 1667.86,
+            "w": 150,
+            "h": 44,
+            "fontSize": "15.18px",
+            "lineHeight": "19.734px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 41,
+            "y": 1668.05,
+            "w": 150,
+            "h": 44,
+            "fontSize": "15.1667px",
+            "lineHeight": "19.7167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.19,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.19
+        },
+        "btnHint": {
+          "present": true,
+          "chromium": {
+            "x": 199,
+            "y": 1667.86,
+            "w": 150,
+            "h": 44,
+            "fontSize": "15.18px",
+            "lineHeight": "19.734px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 199,
+            "y": 1668.05,
+            "w": 150,
+            "h": 44,
+            "fontSize": "15.1667px",
+            "lineHeight": "19.7167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.19,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.19
+        },
+        "btnReset": {
+          "present": true,
+          "chromium": {
+            "x": 41,
+            "y": 1719.86,
+            "w": 308,
+            "h": 44,
+            "fontSize": "15.18px",
+            "lineHeight": "19.734px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 41,
+            "y": 1720.05,
+            "w": 308,
+            "h": 44,
+            "fontSize": "15.1667px",
+            "lineHeight": "19.7167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.19,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.19
+        },
+        "statusBar": {
+          "present": true,
+          "chromium": {
+            "x": 41,
+            "y": 1779.86,
+            "w": 308,
+            "h": 26,
+            "fontSize": "12.585px",
+            "lineHeight": "21.3945px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 41,
+            "y": 1780.05,
+            "w": 308,
+            "h": 26,
+            "fontSize": "12.5833px",
+            "lineHeight": "21.4px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.19,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.0,
+          "lineHeightDelta": 0.01,
+          "maxAbsDelta": 0.19
+        }
+      },
+      "doc": {
+        "chromium": {
+          "scrollWidth": 390,
+          "clientWidth": 390,
+          "scrollHeight": 2495,
+          "dpr": 1,
+          "innerWidth": 390,
+          "innerHeight": 844
+        },
+        "firefox": {
+          "scrollWidth": 390,
+          "clientWidth": 390,
+          "scrollHeight": 2495,
+          "dpr": 1,
+          "innerWidth": 390,
+          "innerHeight": 844
+        }
+      },
+      "maxAbsDelta": 0.29,
+      "worstElement": "board",
+      "screenshot": {
+        "chromium": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\chromium-case-NA004-390.png",
+        "firefox": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\firefox-case-NA004-390.png"
+      },
+      "image": {
+        "chromium_size": [
+          390,
+          2495
+        ],
+        "same_size": true,
+        "pixels_diff_gt2_pct": 6.5383,
+        "diff_bbox": [
+          0,
+          0,
+          390,
+          2443
+        ]
+      },
+      "console": {
+        "chromium": [],
+        "firefox": []
+      }
+    },
+    "cabinet-390": {
+      "route": "#/cabinet",
+      "viewport": [
+        390,
+        844
+      ],
+      "elements": {
+        "header": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 390,
+            "h": 65,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 390,
+            "h": 65,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "headerInner": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 0,
+            "w": 342,
+            "h": 64,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 0,
+            "w": 342,
+            "h": 64,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "brand": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 9,
+            "w": 226.91,
+            "h": 46,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 9,
+            "w": 226.82,
+            "h": 46,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": -0.09,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.09
+        },
+        "hero": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "heroH1": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "40.38px",
+            "lineHeight": "44.418px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "40.3667px",
+            "lineHeight": "44.4px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "heroLede": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.155px",
+            "lineHeight": "27.4635px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "16.15px",
+            "lineHeight": "27.45px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.01,
+          "maxAbsDelta": 0
+        },
+        "heroCta": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.18px",
+            "lineHeight": "19.734px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.1667px",
+            "lineHeight": "19.7167px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "caseGrid": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 507.86,
+            "w": 342,
+            "h": 1219.11,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "grid"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 507.87,
+            "w": 342,
+            "h": 1219.2,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "grid"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.01,
+            "w": 0,
+            "h": 0.09
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.09
+        },
+        "caseCard1": {
+          "present": true,
+          "chromium": {
+            "x": 24,
+            "y": 507.86,
+            "w": 342,
+            "h": 381.45,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 24,
+            "y": 507.87,
+            "w": 342,
+            "h": 381.47,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.01,
+            "w": 0,
+            "h": 0.02
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.02
+        },
+        "caseThumb1": {
+          "present": true,
+          "chromium": {
+            "x": 25,
+            "y": 508.86,
+            "w": 340,
+            "h": 191.25,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "block"
+          },
+          "firefox": {
+            "x": 25,
+            "y": 508.87,
+            "w": 340,
+            "h": 191.25,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "block"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0.01,
+            "w": 0,
+            "h": 0.0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0.01
+        },
+        "evidenceCol": {
+          "present": false
+        },
+        "evidenceCard1": {
+          "present": false
+        },
+        "desk": {
+          "present": false
+        },
+        "board": {
+          "present": false
+        },
+        "slots": {
+          "present": false
+        },
+        "slot1": {
+          "present": false
+        },
+        "actions": {
+          "present": true,
+          "chromium": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.18px",
+            "lineHeight": "25.806px",
+            "display": "flex"
+          },
+          "firefox": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "fontSize": "15.1667px",
+            "lineHeight": "25.7833px",
+            "display": "flex"
+          },
+          "delta": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+          },
+          "fontSizeDelta": -0.01,
+          "lineHeightDelta": -0.02,
+          "maxAbsDelta": 0
+        },
+        "btnSubmit": {
+          "present": false
+        },
+        "btnUndo": {
+          "present": false
+        },
+        "btnHint": {
+          "present": false
+        },
+        "btnReset": {
+          "present": false
+        },
+        "statusBar": {
+          "present": false
+        }
+      },
+      "doc": {
+        "chromium": {
+          "scrollWidth": 390,
+          "clientWidth": 390,
+          "scrollHeight": 3923,
+          "dpr": 1,
+          "innerWidth": 390,
+          "innerHeight": 844
+        },
+        "firefox": {
+          "scrollWidth": 390,
+          "clientWidth": 390,
+          "scrollHeight": 3924,
+          "dpr": 1,
+          "innerWidth": 390,
+          "innerHeight": 844
+        }
+      },
+      "maxAbsDelta": 0.09,
+      "worstElement": "brand",
+      "screenshot": {
+        "chromium": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\chromium-cabinet-390.png",
+        "firefox": "C:\\Users\\11930\\Desktop\\第零号证物局\\zero-dossier-office\\work\\qa\\firefox\\shots\\firefox-cabinet-390.png"
+      },
+      "image": {
+        "chromium_size": null,
+        "same_size": false,
+        "pixels_diff_gt2_pct": null,
+        "diff_bbox": null
+      },
+      "console": {
+        "chromium": [],
+        "firefox": []
+      }
+    }
+  }
+}

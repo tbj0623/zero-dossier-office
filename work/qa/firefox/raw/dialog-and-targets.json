@@ -1,0 +1,350 @@
+{
+  "when": "2026-10-30T03:38:32+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "dialog": {
+    "chromium": {
+      "forward": [
+        {
+          "step": "open",
+          "tag": "button",
+          "id": "",
+          "confirm": "ok",
+          "cls": "btn btn--danger",
+          "text": "确认重置",
+          "inDialog": true
+        },
+        {
+          "step": "tab1",
+          "tag": "body",
+          "id": "",
+          "confirm": "",
+          "cls": "",
+          "text": "跳到主要内容\n\n\n  \n    \n   ",
+          "inDialog": false
+        },
+        {
+          "step": "tab2",
+          "tag": "button",
+          "id": "",
+          "confirm": "cancel",
+          "cls": "btn btn--ghost",
+          "text": "取消",
+          "inDialog": true
+        },
+        {
+          "step": "tab3",
+          "tag": "button",
+          "id": "",
+          "confirm": "ok",
+          "cls": "btn btn--danger",
+          "text": "确认重置",
+          "inDialog": true
+        },
+        {
+          "step": "tab4",
+          "tag": "body",
+          "id": "",
+          "confirm": "",
+          "cls": "",
+          "text": "跳到主要内容\n\n\n  \n    \n   ",
+          "inDialog": false
+        },
+        {
+          "step": "tab5",
+          "tag": "button",
+          "id": "",
+          "confirm": "cancel",
+          "cls": "btn btn--ghost",
+          "text": "取消",
+          "inDialog": true
+        },
+        {
+          "step": "tab6",
+          "tag": "button",
+          "id": "",
+          "confirm": "ok",
+          "cls": "btn btn--danger",
+          "text": "确认重置",
+          "inDialog": true
+        }
+      ],
+      "backward": [
+        {
+          "step": "shift1",
+          "tag": "button",
+          "id": "",
+          "confirm": "cancel",
+          "cls": "btn btn--ghost",
+          "text": "取消",
+          "inDialog": true
+        },
+        {
+          "step": "shift2",
+          "tag": "body",
+          "id": "",
+          "confirm": "",
+          "cls": "",
+          "text": "跳到主要内容\n\n\n  \n    \n   ",
+          "inDialog": false
+        },
+        {
+          "step": "shift3",
+          "tag": "button",
+          "id": "",
+          "confirm": "ok",
+          "cls": "btn btn--danger",
+          "text": "确认重置",
+          "inDialog": true
+        },
+        {
+          "step": "shift4",
+          "tag": "button",
+          "id": "",
+          "confirm": "cancel",
+          "cls": "btn btn--ghost",
+          "text": "取消",
+          "inDialog": true
+        }
+      ],
+      "state_while_open": {
+        "open": true,
+        "returnValue": ""
+      },
+      "state_after_escape": {
+        "open": false,
+        "returnValue": ""
+      }
+    },
+    "firefox": {
+      "forward": [
+        {
+          "step": "open",
+          "tag": "button",
+          "id": "",
+          "confirm": "ok",
+          "cls": "btn btn--danger",
+          "text": "确认重置",
+          "inDialog": true
+        },
+        {
+          "step": "tab1",
+          "tag": "button",
+          "id": "",
+          "confirm": "ok",
+          "cls": "btn btn--danger",
+          "text": "确认重置",
+          "inDialog": true
+        },
+        {
+          "step": "tab2",
+          "tag": "button",
+          "id": "",
+          "confirm": "ok",
+          "cls": "btn btn--danger",
+          "text": "确认重置",
+          "inDialog": true
+        },
+        {
+          "step": "tab3",
+          "tag": "button",
+          "id": "",
+          "confirm": "ok",
+          "cls": "btn btn--danger",
+          "text": "确认重置",
+          "inDialog": true
+        },
+        {
+          "step": "tab4",
+          "tag": "button",
+          "id": "",
+          "confirm": "ok",
+          "cls": "btn btn--danger",
+          "text": "确认重置",
+          "inDialog": true
+        },
+        {
+          "step": "tab5",
+          "tag": "button",
+          "id": "",
+          "confirm": "ok",
+          "cls": "btn btn--danger",
+          "text": "确认重置",
+          "inDialog": true
+        },
+        {
+          "step": "tab6",
+          "tag": "button",
+          "id": "",
+          "confirm": "ok",
+          "cls": "btn btn--danger",
+          "text": "确认重置",
+          "inDialog": true
+        }
+      ],
+      "backward": [
+        {
+          "step": "shift1",
+          "tag": "button",
+          "id": "",
+          "confirm": "cancel",
+          "cls": "btn btn--ghost",
+          "text": "取消",
+          "inDialog": true
+        },
+        {
+          "step": "shift2",
+          "tag": "dialog",
+          "id": "confirm-dialog",
+          "confirm": "",
+          "cls": "confirm",
+          "text": "重置此案？\n  重置会清空这份档案的本地",
+          "inDialog": true
+        },
+        {
+          "step": "shift3",
+          "tag": "dialog",
+          "id": "confirm-dialog",
+          "confirm": "",
+          "cls": "confirm",
+          "text": "重置此案？\n  重置会清空这份档案的本地",
+          "inDialog": true
+        },
+        {
+          "step": "shift4",
+          "tag": "dialog",
+          "id": "confirm-dialog",
+          "confirm": "",
+          "cls": "confirm",
+          "text": "重置此案？\n  重置会清空这份档案的本地",
+          "inDialog": true
+        }
+      ],
+      "state_while_open": {
+        "open": true,
+        "returnValue": ""
+      },
+      "state_after_escape": {
+        "open": false,
+        "returnValue": ""
+      }
+    }
+  },
+  "touch_targets_390": {
+    "chromium": {
+      "home": {
+        "count": 15,
+        "undersized": [],
+        "min_w": 44,
+        "min_h": 44,
+        "nav_open": {
+          "count": 18,
+          "undersized": []
+        }
+      },
+      "cabinet": {
+        "count": 13,
+        "undersized": [],
+        "min_w": 44,
+        "min_h": 44,
+        "nav_open": {
+          "count": 16,
+          "undersized": []
+        }
+      },
+      "desk": {
+        "count": 26,
+        "undersized": [],
+        "min_w": 44,
+        "min_h": 44,
+        "nav_open": {
+          "count": 29,
+          "undersized": []
+        }
+      },
+      "manual": {
+        "count": 8,
+        "undersized": [],
+        "min_w": 44,
+        "min_h": 44,
+        "nav_open": {
+          "count": 11,
+          "undersized": []
+        }
+      },
+      "about": {
+        "count": 7,
+        "undersized": [],
+        "min_w": 44,
+        "min_h": 44,
+        "nav_open": {
+          "count": 10,
+          "undersized": []
+        }
+      },
+      "verdict": {
+        "count": 10,
+        "undersized": [],
+        "min_w": 44,
+        "min_h": 44
+      }
+    },
+    "firefox": {
+      "home": {
+        "count": 15,
+        "undersized": [],
+        "min_w": 44,
+        "min_h": 44,
+        "nav_open": {
+          "count": 18,
+          "undersized": []
+        }
+      },
+      "cabinet": {
+        "count": 13,
+        "undersized": [],
+        "min_w": 44,
+        "min_h": 44,
+        "nav_open": {
+          "count": 16,
+          "undersized": []
+        }
+      },
+      "desk": {
+        "count": 26,
+        "undersized": [],
+        "min_w": 44,
+        "min_h": 44,
+        "nav_open": {
+          "count": 29,
+          "undersized": []
+        }
+      },
+      "manual": {
+        "count": 8,
+        "undersized": [],
+        "min_w": 44,
+        "min_h": 44,
+        "nav_open": {
+          "count": 11,
+          "undersized": []
+        }
+      },
+      "about": {
+        "count": 7,
+        "undersized": [],
+        "min_w": 44,
+        "min_h": 44,
+        "nav_open": {
+          "count": 10,
+          "undersized": []
+        }
+      },
+      "verdict": {
+        "count": 10,
+        "undersized": [],
+        "min_w": 44,
+        "min_h": 44
+      }
+    }
+  }
+}

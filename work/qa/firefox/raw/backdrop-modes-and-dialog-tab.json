@@ -1,0 +1,100 @@
+{
+  "when": "2026-10-30T03:29:29+0800",
+  "backdrop_modes": {
+    "firefox-headless": {
+      "version": "153.0",
+      "energy_full": 21562.057,
+      "blurred": false
+    },
+    "chromium-headless": {
+      "version": "151.0.7922.34",
+      "energy_full": 21514.364,
+      "blurred": false
+    },
+    "firefox-headed": {
+      "version": "153.0",
+      "energy_full": 21562.057,
+      "blurred": false
+    },
+    "chromium-headed": {
+      "version": "151.0.7922.34",
+      "energy_full": 21514.382,
+      "blurred": false
+    }
+  },
+  "dialog_tab": {
+    "chromium": {
+      "version": "151.0.7922.34",
+      "seq": [
+        {
+          "label": "open(cancel focused)",
+          "id": "cancel",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "label": "Tab#1 -> ?",
+          "id": "ok",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "label": "Tab#2 -> ?",
+          "id": "ok",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "label": "Tab(after 2 presses)",
+          "id": "body",
+          "hasFocus": false,
+          "inDialog": false
+        }
+      ],
+      "events": [
+        "in:opener",
+        "out:opener",
+        "in:cancel",
+        "out:cancel",
+        "in:ok",
+        "out:ok"
+      ]
+    },
+    "firefox": {
+      "version": "153.0",
+      "seq": [
+        {
+          "label": "open(cancel focused)",
+          "id": "cancel",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "label": "Tab#1 -> ?",
+          "id": "ok",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "label": "Tab#2 -> ?",
+          "id": "ok",
+          "hasFocus": true,
+          "inDialog": true
+        },
+        {
+          "label": "Tab(after 2 presses)",
+          "id": "ok",
+          "hasFocus": true,
+          "inDialog": true
+        }
+      ],
+      "events": [
+        "in:opener",
+        "out:opener",
+        "in:cancel",
+        "out:cancel",
+        "in:ok"
+      ]
+    }
+  }
+}

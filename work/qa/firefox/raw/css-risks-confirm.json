@@ -1,0 +1,234 @@
+{
+  "when": "2026-10-30T03:41:34+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "engines": {
+    "chromium": {
+      "version": "151.0.7922.34",
+      "backdrop_synthetic": {
+        "energy_with_backdrop_filter": 0.094,
+        "energy_without": 633.145,
+        "ratio_with_over_without": 0.0001,
+        "blur_actually_painted": true,
+        "computed": {
+          "backdropFilter": "blur(12px) saturate(1.2)",
+          "webkit": null,
+          "supports": true
+        }
+      },
+      "backdrop_real_header": {
+        "energy_on": 1719.576,
+        "energy_off": 1771.507,
+        "pct_pixels_differ_gt2": 41.625,
+        "mean_abs_delta": 2.9949,
+        "max_abs_delta": 23,
+        "scrollY": 411
+      },
+      "scroll_into_view": {
+        "auto": {
+          "scrollY": 351,
+          "stableFrames": 5,
+          "slotsTop": 79.53,
+          "headerBottom": 65,
+          "mainTop": -286,
+          "gapBelowHeader": 14.53,
+          "clearOfHeader": true
+        },
+        "instant": {
+          "scrollY": 351,
+          "stableFrames": 5,
+          "slotsTop": 79.53,
+          "headerBottom": 65,
+          "mainTop": -286,
+          "gapBelowHeader": 14.53,
+          "clearOfHeader": true
+        }
+      },
+      "scroll_padding_css": {
+        "html": "80px",
+        "mainMargin": "80px",
+        "viewMargin": "80px",
+        "scrollBehavior": "smooth"
+      },
+      "skip_link_scroll": {
+        "mainTop": 65,
+        "headerBottom": 65,
+        "clear": true,
+        "gap": 0
+      },
+      "hero_text": {
+        "w390": {
+          "textWrap": "balance",
+          "textWrapMode": "wrap",
+          "fontSize": "40.38px",
+          "lineHeight": "44.418px",
+          "height": 88.81,
+          "linesByGeometry": 2,
+          "lineRectCount": 2,
+          "lineWidths": [
+            208,
+            342
+          ],
+          "widestLine": 342,
+          "narrowestLine": 208,
+          "balanceSpread": 134,
+          "overflowsHorizontally": false,
+          "scrollWidth": 342,
+          "clientWidth": 342
+        },
+        "w768": {
+          "textWrap": "balance",
+          "textWrapMode": "wrap",
+          "fontSize": "56.256px",
+          "lineHeight": "61.8816px",
+          "height": 123.75,
+          "linesByGeometry": 2,
+          "lineRectCount": 3,
+          "lineWidths": [
+            290,
+            720,
+            463
+          ],
+          "widestLine": 720,
+          "narrowestLine": 290,
+          "balanceSpread": 430,
+          "overflowsHorizontally": false,
+          "scrollWidth": 720,
+          "clientWidth": 720
+        },
+        "w1440": {
+          "textWrap": "balance",
+          "textWrapMode": "wrap",
+          "fontSize": "70.4px",
+          "lineHeight": "77.44px",
+          "height": 154.88,
+          "linesByGeometry": 2,
+          "lineRectCount": 3,
+          "lineWidths": [
+            362,
+            720,
+            580
+          ],
+          "widestLine": 720,
+          "narrowestLine": 362,
+          "balanceSpread": 358,
+          "overflowsHorizontally": false,
+          "scrollWidth": 720,
+          "clientWidth": 720
+        }
+      }
+    },
+    "firefox": {
+      "version": "153.0",
+      "backdrop_synthetic": {
+        "energy_with_backdrop_filter": 671.422,
+        "energy_without": 633.145,
+        "ratio_with_over_without": 1.0605,
+        "blur_actually_painted": false,
+        "computed": {
+          "backdropFilter": "blur(12px) saturate(1.2)",
+          "webkit": null,
+          "supports": true
+        }
+      },
+      "backdrop_real_header": {
+        "energy_on": 2603.42,
+        "energy_off": 2603.42,
+        "pct_pixels_differ_gt2": 0.0,
+        "mean_abs_delta": 0.0,
+        "max_abs_delta": 0,
+        "scrollY": 411
+      },
+      "scroll_into_view": {
+        "auto": {
+          "scrollY": 387,
+          "stableFrames": 5,
+          "slotsTop": 43.28,
+          "headerBottom": 65,
+          "mainTop": -322,
+          "gapBelowHeader": -21.72,
+          "clearOfHeader": false
+        },
+        "instant": {
+          "scrollY": 387,
+          "stableFrames": 5,
+          "slotsTop": 43.28,
+          "headerBottom": 65,
+          "mainTop": -322,
+          "gapBelowHeader": -21.72,
+          "clearOfHeader": false
+        }
+      },
+      "scroll_padding_css": {
+        "html": "80px",
+        "mainMargin": "80px",
+        "viewMargin": "80px",
+        "scrollBehavior": "smooth"
+      },
+      "skip_link_scroll": {
+        "mainTop": 65,
+        "headerBottom": 65,
+        "clear": true,
+        "gap": 0
+      },
+      "hero_text": {
+        "w390": {
+          "textWrap": "balance",
+          "textWrapMode": "wrap",
+          "fontSize": "40.3667px",
+          "lineHeight": "44.4px",
+          "height": 88.8,
+          "linesByGeometry": 2,
+          "lineRectCount": 2,
+          "lineWidths": [
+            208,
+            342
+          ],
+          "widestLine": 342,
+          "narrowestLine": 208,
+          "balanceSpread": 134,
+          "overflowsHorizontally": false,
+          "scrollWidth": 342,
+          "clientWidth": 342
+        },
+        "w768": {
+          "textWrap": "balance",
+          "textWrapMode": "wrap",
+          "fontSize": "56.25px",
+          "lineHeight": "61.8833px",
+          "height": 123.77,
+          "linesByGeometry": 2,
+          "lineRectCount": 2,
+          "lineWidths": [
+            290,
+            720
+          ],
+          "widestLine": 720,
+          "narrowestLine": 290,
+          "balanceSpread": 430,
+          "overflowsHorizontally": false,
+          "scrollWidth": 720,
+          "clientWidth": 720
+        },
+        "w1440": {
+          "textWrap": "balance",
+          "textWrapMode": "wrap",
+          "fontSize": "70.4px",
+          "lineHeight": "77.4333px",
+          "height": 154.87,
+          "linesByGeometry": 2,
+          "lineRectCount": 2,
+          "lineWidths": [
+            362,
+            720
+          ],
+          "widestLine": 720,
+          "narrowestLine": 362,
+          "balanceSpread": 358,
+          "overflowsHorizontally": false,
+          "scrollWidth": 720,
+          "clientWidth": 720
+        }
+      }
+    }
+  }
+}

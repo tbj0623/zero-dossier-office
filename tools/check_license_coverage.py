@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 # 与 ASSETS_LICENSE.md §1 表格一一对应
 MIT_PATTERNS = [
     "engine/*", "site/*.mjs", "site/index.html", "site/engine/*", "site/styles/*", "site/tools/*",
+    "site/i18n/*",
     "tools/*", "tests/*",
     ".github/*", ".github/workflows/*",
     "README.md", "LICENSE", "ASSETS_LICENSE.md", ".gitignore",
@@ -28,7 +29,7 @@ MIT_PATTERNS = [
 
 CC_PATTERNS = [
     "cases/*", "cases/author/*", "cases/public/*",
-    "work/lore/*", "work/blind-src/*",
+    "work/lore/*", "work/blind-src/*", "work/i18n/*", "work/i18n/en/*",
     "site/assets/*",
 ]
 

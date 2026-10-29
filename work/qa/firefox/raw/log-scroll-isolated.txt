@@ -1,0 +1,19 @@
+$ python probe_scroll_isolated.py
+exit=0 duration=12.0s
+
+--- stdout ---
+=== synthetic scrollIntoView(block:start) ===
+  chromium 151.0.7922.34:
+     scroll-padding 80px    -> targetTop=80 scrollY=1420 scrollPadding=80px
+     scroll-padding 0       -> targetTop=0 scrollY=1500 scrollPadding=0px
+  firefox 153.0:
+     scroll-padding 80px    -> targetTop=80 scrollY=1420 scrollPadding=80px
+     scroll-padding 0       -> targetTop=0 scrollY=1500 scrollPadding=0px
+
+=== real site #slots.scrollIntoView(block:start) ===
+  chromium 151.0.7922.34: {"scrollY": 351, "stableFrames": 5, "slotsTop": 79.53, "headerBottom": 65, "hiddenPx": -14.53, "hiddenShareOfBoardHeading": 112.64, "boardHeadingTop": -47.64, "firstButtonTop": 90.13, "firstButtonCoveredByHeader": false, "hitAtFirstButtonCentre": "icon-btn", "scrollPadding": "80px", "mainScrollMargin": "80px"}
+  firefox 153.0: {"scrollY": 387, "stableFrames": 5, "slotsTop": 43.28, "headerBottom": 65, "hiddenPx": 21.72, "hiddenShareOfBoardHeading": 148.52, "boardHeadingTop": -83.52, "firstButtonTop": 53.9, "firstButtonCoveredByHeader": true, "hitAtFirstButtonCentre": "icon-btn", "scrollPadding": "80px", "mainScrollMargin": "80px"}
+-> raw/scroll-into-view-isolated.json
+
+--- stderr ---
+

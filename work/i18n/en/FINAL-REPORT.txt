@@ -1,0 +1,166 @@
+THE ZERO DOSSIER OFFICE — English localization validation
+Generated 2026-10-30 03:31:40
+
+=== 1. Structural parity (validate-i18n.mjs) ===
+========================================================================
+========================================================================
+  ok    265 UI strings: every entry has zh+en and identical placeholder sets
+
+========================================================================
+RESULT: PASS — 0 failures, 0 warnings
+  cases                 : 6
+  UI strings            : 265
+  glossary entries      : 32
+  evidence-id checks    : 22
+  hint-count checks     : 6
+  slot-length checks    : 6
+  logic-marker checks   : 22
+========================================================================
+
+=== 2. Solver semantics (semantic-check.mjs) ===
+
+NA-001  PASS
+  unique solution        : yes (exactly 1)
+  solution (zh)          : 红票 → 蓝票 → 黄票 → 绿票
+  solution (en)          : Red Ticket → Blue Ticket → Yellow Ticket → Green Ticket
+  english satisfies rules: yes
+  recap refers to all    : yes
+  positional claims      : (none stated expressly)
+  english rule sentences :
+    C01  红票 紧接在 蓝票 之前，中间没有其它物件。
+    C02  黄票 在 绿票 之前（不要求相邻）。
+    C03  黄票 不在第1格（22:00）。
+
+NA-002  PASS
+  unique solution        : yes (exactly 1)
+  solution (zh)          : 航海图 → 银徽章 → 铜钥匙 → 玻璃球
+  solution (en)          : Sea Chart → Silver Badge → Brass Key → Glass Sphere
+  english satisfies rules: yes
+  recap refers to all    : yes
+  positional claims      :
+    ok   Glass Sphere → 4  “Glass Sphere is fixed in the fourth slot”
+    ok   Glass Sphere → 4  “Sphere is fixed in the fourth slot”
+  english rule sentences :
+    C01  银徽章 紧接在 铜钥匙 之前，中间没有其它物件。
+    C02  玻璃球 固定在第4格（Drawer 4）。
+    C03  航海图 在 银徽章 之前（不要求相邻）。
+
+NA-003  PASS
+  unique solution        : yes (exactly 1)
+  solution (zh)          : 红盒 → 纸鹤 → 铜铃 → 星图 → 蓝灯
+  solution (en)          : Red Box → Paper Crane → Brass Bell → Star Chart → Blue Lamp
+  english satisfies rules: yes
+  recap refers to all    : yes
+  positional claims      : (none stated expressly)
+  english rule sentences :
+    C01  铜铃 紧接在 星图 之前，中间没有其它物件。
+    C02  红盒 在 铜铃 之前（不要求相邻）。
+    C03  星图 不在第5格（Slot 5）。
+    C04  红盒 紧接在 纸鹤 之前，中间没有其它物件。
+
+NA-004  PASS
+  unique solution        : yes (exactly 1)
+  solution (zh)          : 铜铃 → 值班簿 → 玻璃罩 → 旧透镜 → 海图
+  solution (en)          : Brass Bell → Duty Log → Glass Shade → Old Lens → Marine Chart
+  english satisfies rules: yes
+  recap refers to all    : yes
+  positional claims      :
+    ok   Brass Bell → 1  “Brass Bell can only be first”
+    ok   Brass Bell → 1  “Brass Bell can only be first”
+    ok   Glass Shade → 3  “Glass Shade falls into the third slot”
+    ok   Glass Shade → 3  “Glass Shade falls into the third slot”
+    ok   Old Lens → 4  “Old Lens is fixed in the fourth slot”
+    ok   Old Lens → 4  “Lens is fixed in the fourth slot”
+  english rule sentences :
+    C01  铜铃 与 值班簿 相邻，但记录没有写明谁在前。
+    C02  铜铃 与 旧透镜 的格位编号相差 3（中间隔着 2 件）。
+    C03  旧透镜 固定在第4格（Slot 4）。
+    C04  旧透镜 夹在 铜铃 与 海图 之间，不要求正好居中。
+
+NA-005  PASS
+  unique solution        : yes (exactly 1)
+  solution (zh)          : 晨雾邮笺 → 港口便条 → 红蜡封信 → 夜航申请 → 空白回邮
+  solution (en)          : Morning Mist Note → Harbor Slip → Red Wax Letter → Night Flight Application → Blank Return Envelope
+  english satisfies rules: yes
+  recap refers to all    : yes
+  positional claims      : (none stated expressly)
+  english rule sentences :
+    C01  空白回邮 不在第1格（Mailbag slot 1）。
+    C02  夜航申请 夹在 晨雾邮笺 与 空白回邮 之间，不要求正好居中。
+    C03  晨雾邮笺 与 夜航申请 的格位编号相差 3（中间隔着 2 件）。
+    C04  红蜡封信 与 夜航申请 相邻，但记录没有写明谁在前。
+
+NA-006  PASS
+  unique solution        : yes (exactly 1)
+  solution (zh)          : 钟楼影 → 纸船影 → 玻璃影 → 雨幕影 → 灯塔影 → 空白底片
+  solution (en)          : Bell Tower Image → Paper Boat Image → Glass Image → Rain Curtain Image → Lighthouse Image → Blank Negative
+  english satisfies rules: yes
+  recap refers to all    : yes
+  positional claims      : (none stated expressly)
+  english rule sentences :
+    C01  玻璃影 与 空白底片 的格位编号相差 3（中间隔着 2 件）。
+    C02  雨幕影 紧接在 灯塔影 之前，中间没有其它物件。
+    C03  灯塔影 夹在 钟楼影 与 空白底片 之间，不要求正好居中。
+    C04  纸船影 固定在第2格（Exposure 2）。
+
+RESULT: PASS — 6/6 cases semantically intact
+
+=== 3. Constraint sentences (constraint-truth.mjs) ===
+
+NA-001
+  ok   C01 immediately_before Red Ticket comes immediately before Blue Ticket, with nothing in between.
+  ok   C02 before             Yellow Ticket is before Green Ticket (not required to be adjacent).
+  ok   C03 not_at             Yellow Ticket is not in slot 1 (22:00).
+
+NA-002
+  ok   C01 immediately_before Silver Badge comes immediately before Brass Key, with nothing in between.
+  ok   C02 at                 Glass Sphere is fixed in slot 4 (Drawer 4).
+  ok   C03 before             Sea Chart is before Silver Badge (not required to be adjacent).
+
+NA-003
+  ok   C01 immediately_before Brass Bell comes immediately before Star Chart, with nothing in between.
+  ok   C02 before             Red Box is before Brass Bell (not required to be adjacent).
+  ok   C03 not_at             Star Chart is not in slot 5 (Slot 5).
+  ok   C04 immediately_before Red Box comes immediately before Paper Crane, with nothing in between.
+
+NA-004
+  ok   C01 adjacent           Brass Bell is adjacent to Duty Log, but the record does not say which come
+  ok   C02 distance           Brass Bell and Old Lens differ by 3 in slot number (2 items between them).
+  ok   C03 at                 Old Lens is fixed in slot 4 (Slot 4).
+  ok   C04 between            Old Lens lies strictly between Brass Bell and Marine Chart; it need not si
+
+NA-005
+  ok   C01 not_at             Blank Return Envelope is not in slot 1 (Mailbag slot 1).
+  ok   C02 between            Night Flight Application lies strictly between Morning Mist Note and Blank
+  ok   C03 distance           Morning Mist Note and Night Flight Application differ by 3 in slot number 
+  ok   C04 adjacent           Red Wax Letter is adjacent to Night Flight Application, but the record doe
+
+NA-006
+  ok   C01 distance           Glass Image and Blank Negative differ by 3 in slot number (2 items between
+  ok   C02 immediately_before Rain Curtain Image comes immediately before Lighthouse Image, with nothing
+  ok   C03 between            Lighthouse Image lies strictly between Bell Tower Image and Blank Negative
+  ok   C04 at                 Paper Boat Image is fixed in slot 2 (Exposure 2).
+
+engine sanity (immediately_before direction): ok
+
+RESULT: PASS — every English constraint sentence matches its constraint
+
+=== 4. Coverage (coverage-check.mjs) ===
+
+[A] data-i18n keys in index.html
+  107 tagged elements · 0 missing keys · 0 zh mismatches
+  ok — every data-i18n key exists and matches its Chinese source
+
+[B] visible Chinese text not wrapped in data-i18n
+  4 inner fragments of sentences that ui.json already holds whole (expected when only the outer element is tagged):
+    · "已归档 0 / 6"
+    · "档案"
+    · "站点版本"
+    · "· 求解核心为确定性穷举，无网络推理。"
+  ok — no untagged Chinese string is missing from ui.json
+
+[C] Chinese string literals in app.mjs
+  69 Chinese literals needing translation · 0 uncovered
+
+RESULT: PASS — every visible Chinese string has an English entry
+

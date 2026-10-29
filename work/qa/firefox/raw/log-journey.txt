@@ -1,0 +1,52 @@
+$ python run_journey.py
+exit=0 duration=22.4s
+
+--- stdout ---
+[PASS] 1. Home loads, title starts 第零证物局 — 第零证物局｜雾港异常档案 · 原创互动推理
+[PASS] 1. #cta-first exists and is visible — 打开第 001 号档案
+[PASS] 2. Cabinet shows exactly 6 case cards — 6 cards
+[PASS] 3. NA-001 desk opens — 末班车的四张车票
+[PASS] 3. Exactly 3 evidence cards — 3 cards
+[PASS] 3b. One click moves exactly one slot (no double binding) — ['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']
+[PASS] 3c. Click-to-select can be toggled off — true -> false
+[PASS] 3d. All evidence cards expand (3/3) — 3/3 open, aria-expanded=['true', 'true', 'true']
+[PASS] 4. Default arrangement is NOT the answer — start=['绿票', '蓝票', '红票', '黄票'] vs answer=['红票', '蓝票', '黄票', '绿票']
+[PASS] 4b. Default arrangement does not satisfy all constraints — implied by 4
+[PASS] 5. Wrong submit gives non-spoiler feedback — 档案仍有不一致：2 条关系未满足。 |  | 你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。 |  | E01「粘连的票根」中描述的关系与你的排列不一致。 | E02「灯塔站的回执」中描述的关系与你的排列不一致。
+[PASS] 5b. Wrong submit preserves the arrangement — ['绿票', '黄票', '蓝票', '红票']
+[PASS] 6. Three hints appear one at a time — [1, 2, 3]
+[PASS] 6b. Hints never auto-arrange the board — order unchanged across all 3 hints
+[PASS] 6c. Hint button disables once exhausted — disabled=True, label=提示已全部解封
+[PASS] 7. Correct solve reaches the verdict page — 档案归位。
+[PASS] 7b. Logic recap block present — 逻辑复盘 · 可由证据严格证明
+[PASS] 7c. Story recap block present — 档案后记 · 结案后补充记录
+[PASS] 7d. Recaps are NOT duplicates — logic 336 ch / story 188 ch
+[PASS] 7e. Logic recap cites E01/E02/E03 — missing=[]
+[PASS] 7f. Two distinct .recap-block nodes exist — [{'cls': 'recap-block', 'len': 336, 'first': '逻辑复盘 · 可由证据严格证明'}, {'cls': 'recap-block recap-block--story', 'len': 188, 'first': '档案后记 · 结案后补充记录'}]
+[PASS] 7g. Archive progress persisted after solve (1 / 6) — 已归档 1 / 6
+[PASS] 7h. Arrangement restored after reload — before=['银徽章', '航海图', '玻璃球', '铜钥匙'] moved=['航海图', '银徽章', '玻璃球', '铜钥匙'] after=['航海图', '银徽章', '玻璃球', '铜钥匙']
+[PASS] 8. Tab reaches a focusable control from page top — {'tag': 'A', 'cls': 'skip-link', 'id': ''}
+[PASS] 8b. Tab order reaches slot controls — 10 stops inside #slots; first={'tag': 'button', 'id': '', 'cls': 'icon-btn', 'text': '', 'act': 'down', 'slot': '0', 'href': ''}
+[PASS] 8c. Tab order reaches action buttons (submit/hint/reset) — ids seen: ['ev-btn-E01', 'ev-btn-E02', 'ev-btn-E03', 'btn-submit', 'btn-hint', 'btn-reset']
+[PASS] 8d. Enter on a move button reorders — ['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']
+[PASS] 8e. Enter moved exactly one position — ['绿票', '蓝票', '红票', '黄票']
+[PASS] 8f. ArrowUp on a slot reorders — ['绿票', '蓝票', '红票', '黄票'] -> ['蓝票', '绿票', '红票', '黄票']
+[PASS] 8g. ArrowDown on a slot reorders — ['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']
+[PASS] 8h. ArrowDown reverses ArrowUp — ['绿票', '蓝票', '红票', '黄票'] == ['绿票', '蓝票', '红票', '黄票']
+[PASS] 8i. ArrowUp on the top row is a no-op — order unchanged at index 0
+[PASS] 8j. Focus ring visible on keyboard focus — outline=solid 3px fv=True
+[PASS] 8k. Focus retained after keyboard reorder — {'act': 'pick', 'slot': '0'}
+[PASS] 9. Mobile 390x844 has no horizontal overflow — scrollWidth=390 clientWidth=390
+[PASS] 9b. Mobile 390x844: every interactive target >= 44px — 0 undersized: []
+[PASS] 9c. 360x800 no overflow + 44px targets — scrollW=360/360 undersized=0
+[PASS] 9c. 768x1024 no overflow + 44px targets — scrollW=768/768 undersized=0
+[PASS] 9d. Mobile 390x844 touch tap reorders — tap on down button
+[PASS] 10. No third-party network requests — 0: []
+[PASS] 10b. No console errors / page errors (desktop)
+[PASS] 10c. No console errors / page errors (mobile 390)
+[PASS] 10d. No third-party network requests (mobile 390) — 0: []
+
+journey/firefox: 43 PASS / 0 FAIL -> C:\Users\11930\Desktop\第零号证物局\zero-dossier-office\work\qa\firefox\raw\journey-firefox.json
+
+--- stderr ---
+

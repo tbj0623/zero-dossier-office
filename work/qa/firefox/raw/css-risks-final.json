@@ -1,0 +1,148 @@
+{
+  "when": "2026-10-30T03:25:14+0800",
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "results": {
+    "firefox_default": {
+      "version": "153.0",
+      "backdrop": {
+        "energy": 671.422,
+        "supports": true,
+        "painted": false
+      }
+    },
+    "firefox_pref_enabled": {
+      "version": "153.0",
+      "backdrop": {
+        "energy": 671.422,
+        "supports": true,
+        "painted": false
+      }
+    },
+    "chromium": {
+      "version": "151.0.7922.34",
+      "backdrop": {
+        "energy": 0.094,
+        "supports": true,
+        "painted": true
+      }
+    },
+    "scroll_padding_midpage": {
+      "chromium": {
+        "top": 441.25,
+        "docH": 2472,
+        "maxScroll": 1572,
+        "scrollY": 361,
+        "stableFrames": 5,
+        "cardTop": 80.25,
+        "headerBottom": 65,
+        "gap": 15.25,
+        "clear": true,
+        "expectedGapIfPaddingApplied": 15,
+        "docScrollPaddingTop": "80px"
+      },
+      "firefox": {
+        "top": 441.33331298828125,
+        "docH": 2472,
+        "maxScroll": 1572,
+        "scrollY": 361,
+        "stableFrames": 5,
+        "cardTop": 80.33,
+        "headerBottom": 65,
+        "gap": 15.33,
+        "clear": true,
+        "expectedGapIfPaddingApplied": 15,
+        "docScrollPaddingTop": "80px"
+      }
+    },
+    "hero_h1": {
+      "chromium": {
+        "w390": {
+          "textWrap": "balance",
+          "fontSize": "40.38px",
+          "lineHeight": "44.418px",
+          "height": 88.81,
+          "linesByHeight": 2,
+          "textNodeRects": 2,
+          "linesByTextNodes": 2,
+          "accentDisplay": "block",
+          "overflows": false,
+          "scrollWidth": 342,
+          "clientWidth": 342,
+          "heroHeight": 742.72
+        },
+        "w768": {
+          "textWrap": "balance",
+          "fontSize": "56.256px",
+          "lineHeight": "61.8816px",
+          "height": 123.75,
+          "linesByHeight": 2,
+          "textNodeRects": 2,
+          "linesByTextNodes": 2,
+          "accentDisplay": "block",
+          "overflows": false,
+          "scrollWidth": 720,
+          "clientWidth": 720,
+          "heroHeight": 780
+        },
+        "w1440": {
+          "textWrap": "balance",
+          "fontSize": "70.4px",
+          "lineHeight": "77.44px",
+          "height": 154.88,
+          "linesByHeight": 2,
+          "textNodeRects": 2,
+          "linesByTextNodes": 2,
+          "accentDisplay": "block",
+          "overflows": false,
+          "scrollWidth": 720,
+          "clientWidth": 720,
+          "heroHeight": 780
+        }
+      },
+      "firefox": {
+        "w390": {
+          "textWrap": "balance",
+          "fontSize": "40.3667px",
+          "lineHeight": "44.4px",
+          "height": 88.8,
+          "linesByHeight": 2,
+          "textNodeRects": 2,
+          "linesByTextNodes": 2,
+          "accentDisplay": "block",
+          "overflows": false,
+          "scrollWidth": 342,
+          "clientWidth": 342,
+          "heroHeight": 742.72
+        },
+        "w768": {
+          "textWrap": "balance",
+          "fontSize": "56.25px",
+          "lineHeight": "61.8833px",
+          "height": 123.77,
+          "linesByHeight": 2,
+          "textNodeRects": 2,
+          "linesByTextNodes": 2,
+          "accentDisplay": "block",
+          "overflows": false,
+          "scrollWidth": 720,
+          "clientWidth": 720,
+          "heroHeight": 780
+        },
+        "w1440": {
+          "textWrap": "balance",
+          "fontSize": "70.4px",
+          "lineHeight": "77.4333px",
+          "height": 154.87,
+          "linesByHeight": 2,
+          "textNodeRects": 2,
+          "linesByTextNodes": 2,
+          "accentDisplay": "block",
+          "overflows": false,
+          "scrollWidth": 720,
+          "clientWidth": 720,
+          "heroHeight": 780
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
-  "base": "https://tbj0623.github.io/zero-dossier-office",
-  "when": "2026-10-30T02:49:08+0800",
+  "base": "http://127.0.0.1:8140",
+  "when": "2026-10-30T03:40:22+0800",
   "results": [
     {
       "check": "首页加载",
@@ -125,7 +125,7 @@
     {
       "check": "Tab 可进入焦点",
       "ok": true,
-      "detail": "skip-link"
+      "detail": "ev-card__summary"
     },
     {
       "check": "键盘可触发移动",

@@ -1,0 +1,491 @@
+{
+  "checks": [
+    {
+      "label": "journey 43/43",
+      "ok": true,
+      "detail": "43/43"
+    },
+    {
+      "label": "report says 43/43",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "firefox version 153.0",
+      "ok": true,
+      "detail": "153.0"
+    },
+    {
+      "label": "all 10 areas covered",
+      "ok": true,
+      "detail": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+    },
+    {
+      "label": "six solved == 6",
+      "ok": true,
+      "detail": "6"
+    },
+    {
+      "label": "report says 6 / 6",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "NA-001 row values in report",
+      "ok": true,
+      "detail": "336/188"
+    },
+    {
+      "label": "NA-002 row values in report",
+      "ok": true,
+      "detail": "345/166"
+    },
+    {
+      "label": "NA-003 row values in report",
+      "ok": true,
+      "detail": "412/176"
+    },
+    {
+      "label": "NA-004 row values in report",
+      "ok": true,
+      "detail": "428/211"
+    },
+    {
+      "label": "NA-005 row values in report",
+      "ok": true,
+      "detail": "454/183"
+    },
+    {
+      "label": "NA-006 row values in report",
+      "ok": true,
+      "detail": "445/192"
+    },
+    {
+      "label": "firefox-specific 30/30",
+      "ok": true,
+      "detail": "30/0"
+    },
+    {
+      "label": "dialog 440x188 @500,356",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "report dialog size",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "reduce dur 0.000001",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "normal dur 0.22",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "--dur 0ms",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "grip desktop 20x44",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "grip touch none",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "storage keys",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "layout max delta home-1440",
+      "ok": true,
+      "detail": "0.35 vs report 0.35"
+    },
+    {
+      "label": "layout max delta cabinet-1440",
+      "ok": true,
+      "detail": "0.09 vs report 0.09"
+    },
+    {
+      "label": "layout max delta case-NA001-1440",
+      "ok": true,
+      "detail": "0.35 vs report 0.35"
+    },
+    {
+      "label": "layout max delta home-768",
+      "ok": true,
+      "detail": "0.38 vs report 0.38"
+    },
+    {
+      "label": "layout max delta case-NA004-768",
+      "ok": true,
+      "detail": "1.85 vs report 1.85"
+    },
+    {
+      "label": "layout max delta home-390",
+      "ok": true,
+      "detail": "0.23 vs report 0.23"
+    },
+    {
+      "label": "layout max delta case-NA004-390",
+      "ok": true,
+      "detail": "0.29 vs report 0.29"
+    },
+    {
+      "label": "layout max delta cabinet-390",
+      "ok": true,
+      "detail": "0.09 vs report 0.09"
+    },
+    {
+      "label": "engines recorded",
+      "ok": true,
+      "detail": "{'chromium': '151.0.7922.34', 'firefox': '153.0'}"
+    },
+    {
+      "label": "blur reduction in 39-51% (home-1440)",
+      "ok": true,
+      "detail": "39.38%"
+    },
+    {
+      "label": "edge locality 70-97% (home-1440)",
+      "ok": true,
+      "detail": "70.88%"
+    },
+    {
+      "label": "best shift is (0,-1) (home-1440)",
+      "ok": true,
+      "detail": "0,-1"
+    },
+    {
+      "label": "no shift gain (home-1440)",
+      "ok": true,
+      "detail": "-38.31%"
+    },
+    {
+      "label": "blur reduction in 39-51% (cabinet-1440)",
+      "ok": true,
+      "detail": "49.6%"
+    },
+    {
+      "label": "edge locality 70-97% (cabinet-1440)",
+      "ok": true,
+      "detail": "83.05%"
+    },
+    {
+      "label": "best shift is (0,-1) (cabinet-1440)",
+      "ok": true,
+      "detail": "0,-1"
+    },
+    {
+      "label": "no shift gain (cabinet-1440)",
+      "ok": true,
+      "detail": "-9.88%"
+    },
+    {
+      "label": "blur reduction in 39-51% (case-NA001-1440)",
+      "ok": true,
+      "detail": "48.39%"
+    },
+    {
+      "label": "edge locality 70-97% (case-NA001-1440)",
+      "ok": true,
+      "detail": "96.4%"
+    },
+    {
+      "label": "best shift is (0,-1) (case-NA001-1440)",
+      "ok": true,
+      "detail": "0,-1"
+    },
+    {
+      "label": "no shift gain (case-NA001-1440)",
+      "ok": true,
+      "detail": "-49.79%"
+    },
+    {
+      "label": "blur reduction in 39-51% (home-768)",
+      "ok": true,
+      "detail": "44.41%"
+    },
+    {
+      "label": "edge locality 70-97% (home-768)",
+      "ok": true,
+      "detail": "78.36%"
+    },
+    {
+      "label": "best shift is (0,-1) (home-768)",
+      "ok": true,
+      "detail": "0,-1"
+    },
+    {
+      "label": "no shift gain (home-768)",
+      "ok": true,
+      "detail": "-64.09%"
+    },
+    {
+      "label": "blur reduction in 39-51% (home-390)",
+      "ok": true,
+      "detail": "46.81%"
+    },
+    {
+      "label": "edge locality 70-97% (home-390)",
+      "ok": true,
+      "detail": "81.59%"
+    },
+    {
+      "label": "best shift is (0,-1) (home-390)",
+      "ok": true,
+      "detail": "0,-1"
+    },
+    {
+      "label": "no shift gain (home-390)",
+      "ok": true,
+      "detail": "-16.29%"
+    },
+    {
+      "label": "blur reduction in 39-51% (case-NA004-390)",
+      "ok": true,
+      "detail": "50.91%"
+    },
+    {
+      "label": "edge locality 70-97% (case-NA004-390)",
+      "ok": true,
+      "detail": "97.07%"
+    },
+    {
+      "label": "best shift is (0,-1) (case-NA004-390)",
+      "ok": true,
+      "detail": "0,-1"
+    },
+    {
+      "label": "no shift gain (case-NA004-390)",
+      "ok": true,
+      "detail": "-58.85%"
+    },
+    {
+      "label": "firefox no blur (firefox-headless)",
+      "ok": true,
+      "detail": "ratio=1.0"
+    },
+    {
+      "label": "chromium blurs (chromium-headless)",
+      "ok": true,
+      "detail": "ratio=0.0"
+    },
+    {
+      "label": "firefox no blur (firefox-headed)",
+      "ok": true,
+      "detail": "ratio=1.0"
+    },
+    {
+      "label": "chromium blurs (chromium-headed)",
+      "ok": true,
+      "detail": "ratio=0.0"
+    },
+    {
+      "label": "firefox dialog tab sticks on ok",
+      "ok": true,
+      "detail": "['cancel', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok']"
+    },
+    {
+      "label": "chromium dialog wraps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "scroll chrome slotsTop 79.53",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "scroll firefox slotsTop 43.28",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "synthetic honours 80px both",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "firefox prescrolled #slots 3/3 at 43.28",
+      "ok": true,
+      "detail": "[43.28, 43.28, 43.28]"
+    },
+    {
+      "label": "verdict scrollY 77 both",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "hint fully in viewport both",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "firefox computes wrap",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "chromium computes pretty",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "report says 33 paragraphs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "touch targets chromium/home",
+      "ok": true,
+      "detail": "min 44x44, 0 undersized"
+    },
+    {
+      "label": "touch targets nav-open chromium/home",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "touch targets chromium/cabinet",
+      "ok": true,
+      "detail": "min 44x44, 0 undersized"
+    },
+    {
+      "label": "touch targets nav-open chromium/cabinet",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "touch targets chromium/desk",
+      "ok": true,
+      "detail": "min 44x44, 0 undersized"
+    },
+    {
+      "label": "touch targets nav-open chromium/desk",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "touch targets chromium/manual",
+      "ok": true,
+      "detail": "min 44x44, 0 undersized"
+    },
+    {
+      "label": "touch targets nav-open chromium/manual",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "touch targets chromium/about",
+      "ok": true,
+      "detail": "min 44x44, 0 undersized"
+    },
+    {
+      "label": "touch targets nav-open chromium/about",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "touch targets chromium/verdict",
+      "ok": true,
+      "detail": "min 44x44, 0 undersized"
+    },
+    {
+      "label": "touch targets firefox/home",
+      "ok": true,
+      "detail": "min 44x44, 0 undersized"
+    },
+    {
+      "label": "touch targets nav-open firefox/home",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "touch targets firefox/cabinet",
+      "ok": true,
+      "detail": "min 44x44, 0 undersized"
+    },
+    {
+      "label": "touch targets nav-open firefox/cabinet",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "touch targets firefox/desk",
+      "ok": true,
+      "detail": "min 44x44, 0 undersized"
+    },
+    {
+      "label": "touch targets nav-open firefox/desk",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "touch targets firefox/manual",
+      "ok": true,
+      "detail": "min 44x44, 0 undersized"
+    },
+    {
+      "label": "touch targets nav-open firefox/manual",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "touch targets firefox/about",
+      "ok": true,
+      "detail": "min 44x44, 0 undersized"
+    },
+    {
+      "label": "touch targets nav-open firefox/about",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "touch targets firefox/verdict",
+      "ok": true,
+      "detail": "min 44x44, 0 undersized"
+    },
+    {
+      "label": "build stable during batch",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "label": "app.mjs hash in report",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "h1 ink identical w390",
+      "ok": true,
+      "detail": "89 vs 89, lines 2/2"
+    },
+    {
+      "label": "h1 ink identical w768",
+      "ok": true,
+      "detail": "124 vs 124, lines 2/2"
+    },
+    {
+      "label": "h1 ink identical w1440",
+      "ok": true,
+      "detail": "155 vs 155, lines 2/2"
+    },
+    {
+      "label": "oracle == solver all six",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "passed": 97,
+  "failed": 0
+}

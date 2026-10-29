@@ -14,7 +14,13 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgb(6 20 28 / 0.84);
+  /* 头部不能"依赖毛玻璃才能成立"：
+     Gecko 上 backdrop-filter 有时能解析、却不上屏（Firefox QA 实测像素差 0.0%），
+     那时 0.84 透明度的纯色会显得发灰、像没渲染完。
+     这里改成接近不透明 + 极淡竖向渐变 —— 有模糊的引擎更细腻，没模糊的引擎也
+     是一根有设计感的实色栏，两种情况下观感都成立。 */
+  background:
+    linear-gradient(180deg, rgb(8 26 36 / 0.97), rgb(5 17 24 / 0.94));
   backdrop-filter: blur(12px) saturate(1.2);
   -webkit-backdrop-filter: blur(12px) saturate(1.2);
   border-bottom: 1px solid rgb(223 185 120 / 0.16);
