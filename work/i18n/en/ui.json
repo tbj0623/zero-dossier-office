@@ -1124,6 +1124,10 @@
     "error.loadFallback": {
       "zh": "请刷新，或回到档案柜。",
       "en": "Please refresh, or return to the Case Files."
+    },
+    "storage.unavailable": {
+      "zh": "这个浏览器（或当前的嵌入方式）不允许本作保存进度，因此刷新页面后排列会丢失。游戏本身完全可玩，只是无法记住进度。",
+      "en": "This browser (or the way the game is embedded) does not allow saving progress, so your arrangement will be lost when you reload. The game itself is fully playable — it just cannot remember your progress."
     }
   }
 }

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>itch.io iframe 嵌入模拟</title>
+<style>
+  html,body{margin:0;height:100%;background:#111;font-family:system-ui,sans-serif}
+  #frame{width:100%;height:100%;border:0;display:block}
+  #bar{position:fixed;bottom:0;left:0;right:0;background:#000c;color:#9f9;font:12px/1.5 monospace;padding:4px 8px;z-index:9}
+</style>
+</head>
+<body>
+<!-- 模拟 itch.io：游戏被放进一个跨源 iframe 里运行 -->
+<iframe id="frame" src="http://127.0.0.1:8140/" allow="autoplay; fullscreen; gamepad"></iframe>
+<div id="bar">itch.io 模拟宿主（同机不同端口 = 跨源）</div>
+</body>
+</html>

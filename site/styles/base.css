@@ -250,3 +250,15 @@ dialog.confirm {
 .case-card__title {
   -webkit-touch-callout: none;
 }
+
+
+/* 本地存储不可用时的提示条（itch.io 跨源 iframe 场景） */
+.storage-note {
+  background: rgb(120 86 24 / 0.16);
+  border-bottom: 1px solid rgb(223 185 120 / 0.35);
+  padding: var(--sp-3) 0;
+  font-size: var(--step--1);
+  color: var(--text-dim);
+}
+.storage-note[hidden] { display: none; }
+.storage-note p { margin: 0; max-width: 82ch; }

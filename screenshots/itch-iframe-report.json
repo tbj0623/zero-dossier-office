@@ -1,0 +1,58 @@
+{
+  "host": "http://127.0.0.1:8188/host.html",
+  "game": "http://127.0.0.1:8140/",
+  "checks": 10,
+  "passed": 10,
+  "results": [
+    {
+      "ok": true,
+      "name": "游戏在跨源 iframe 中渲染",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "首屏标题存在",
+      "detail": "这些记录，\n不应该同时成立。"
+    },
+    {
+      "ok": true,
+      "name": "导航三项可点",
+      "detail": "3 项"
+    },
+    {
+      "ok": true,
+      "name": "档案柜 6 张卡",
+      "detail": "6 张"
+    },
+    {
+      "ok": true,
+      "name": "NA-001 四个格位",
+      "detail": "4 个"
+    },
+    {
+      "ok": true,
+      "name": "iframe 内移动按钮生效",
+      "detail": "['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']"
+    },
+    {
+      "ok": true,
+      "name": "存储可用性与提示条一致",
+      "detail": "storage=usable 提示条=False"
+    },
+    {
+      "ok": true,
+      "name": "宿主页未被游戏劫持",
+      "detail": "host.html"
+    },
+    {
+      "ok": true,
+      "name": "iframe 内无未捕获异常",
+      "detail": "[]"
+    },
+    {
+      "ok": true,
+      "name": "iframe 内键盘重排生效",
+      "detail": "['绿票', '蓝票', '红票', '黄票'] -> ['蓝票', '绿票', '红票', '黄票']"
+    }
+  ]
+}

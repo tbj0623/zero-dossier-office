@@ -159,6 +159,25 @@ function svg(d, width = 2) {
 /* 本地存储（全部包在 try/catch，隐私模式也能玩）                      */
 /* ------------------------------------------------------------------ */
 const store = {
+  /**
+   * 能否真正写入本地存储。
+   *
+   * 不只是 try/catch 判断 —— 在**跨源 iframe**（itch.io 就是这样跑游戏的）里，
+   * 浏览器会对第三方存储做隔离，localStorage 直接抛 SecurityError。
+   * 这时游戏仍然完全可玩，但进度无法保存，必须如实告诉玩家，
+   * 不能默默不存、让玩家以为"存了却丢了"是 bug。
+   */
+  available: (() => {
+    try {
+      const probe = `${STORAGE_PREFIX}__probe__`;
+      localStorage.setItem(probe, '1');
+      localStorage.removeItem(probe);
+      return true;
+    } catch {
+      return false;
+    }
+  })(),
+
   get(key, fallback = null) {
     try {
       const raw = localStorage.getItem(STORAGE_PREFIX + key);
@@ -1325,6 +1344,12 @@ function bindGlobal() {
   });
 
   // ---- 语言切换 ----
+  // ---- 存储不可用时如实告知（itch.io 的跨源 iframe 会拒绝 localStorage）----
+  const storageNote = $('#storage-note');
+  if (storageNote && !store.available) {
+    storageNote.hidden = false;
+  }
+
   const langBtn = $('#lang-toggle');
   const syncLangBtn = () => {
     if (!langBtn) return;

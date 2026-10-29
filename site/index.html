@@ -97,6 +97,17 @@ a{color:var(--brass)}
 
 <main id="main" tabindex="-1">
 
+  <!-- 本地存储不可用时的诚实提示（例如 itch.io 的跨源 iframe 会拒绝 localStorage）。
+       默认隐藏，由 app.mjs 在探测到写入失败时显示，绝不在能保存的情况下打扰玩家。 -->
+  <div class="storage-note" id="storage-note" role="status" hidden>
+    <div class="wrap">
+      <p data-i18n="storage.unavailable">
+        这个浏览器（或当前的嵌入方式）不允许本作保存进度，因此刷新页面后排列会丢失。
+        游戏本身完全可玩，只是无法记住进度。
+      </p>
+    </div>
+  </div>
+
   <!-- ============================= 封面 ============================= -->
   <section class="view" id="view-home" data-active="true" aria-labelledby="home-title">
     <div class="hero">
