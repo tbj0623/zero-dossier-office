@@ -125,8 +125,17 @@ python -m http.server 8140 --directory dist
 
 ---
 
-## 推送注意事项
+## 推送
 
-本机到 `github.com:443` 的 `git push` **间歇性失败**（连接重置）。
-可靠方式：`python tools/push_via_api.py` —— 只推送 `git ls-files` 的结果，
-因此 `site/cases/`、`site/engine/`、`dist/`、`release/` 等构建产物不会误传。
+**网络恢复后 `git push` 直连已正常**，直接用标准 git 流程即可：
+
+```bash
+git push origin main
+```
+
+此前因连接重置，曾用 REST API 绕过（`tools/push_incremental.py`，
+只上传改动 blob，走增量）。该脚本仍可用作备用，但不再是必需。
+
+注意：全局 gitconfig 里曾有一条 `url.<ghproxy>.insteadOf https://github.com/`
+的改写规则（把所有 GitHub 请求转到代理）。已用 `github_mirror` 工具清除，
+remote 也已改回直连 `https://github.com/tbj0623/zero-dossier-office.git`

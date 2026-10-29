@@ -1,6 +1,6 @@
 # MASTER_STATE · 第零证物局 V2
 
-更新时间：2026-10-30 06:30（Asia/Shanghai）
+更新时间：2026-10-30 06:45（Asia/Shanghai）
 
 ## 一句话
 
@@ -24,7 +24,7 @@
 | 项 | 值 |
 |---|---|
 | GitHub 仓库 | https://github.com/tbj0623/zero-dossier-office |
-| 远端 HEAD | `7ed97bea`（385 个受版本控制文件） |
+| 远端 HEAD | 见仓库（git 直连已恢复，不再需要 API 绕过） |
 | 线上站点 | https://tbj0623.github.io/zero-dossier-office/ |
 | Pages 构建 | Actions（`build_type=workflow`） |
 | itch.io | **DRAFT_READY** — `release/itch-html5-release.zip`，27 文件 / 0.68 MB，未上传（需账户授权） |
@@ -49,6 +49,18 @@
 | Firefox | `backdrop-filter` 在 Gecko 上能解析但不绘制 → 头部变成 0.84 透明灰块 | Low（视觉） | 头部改为近不透明渐变，不再依赖模糊成立 |
 | WebKit | **Safari 默认把 `<a href>` 排除在 Tab 序列外** → 键盘用户 20 个链接一个都到不了 | **High（无障碍）** | 所有 `<a>` 补 `tabindex="0"`；修复后 WebKit Tab 序列与 Chromium **逐项相同** |
 | WebKit | `<dialog>` 自动 focus trap 在 WebKit 不完整，Tab 会逃到 `BODY` | Medium（无障碍） | 补显式 Tab 循环；三引擎实测 escapes=0 |
+
+## itch.io 嵌入实测（跨源 iframe）
+
+itch.io 的 HTML5 游戏运行在 itchi.io 域名下的 **iframe** 里，与直接访问不同。
+`work/qa/itch-iframe/host.html` 搭了一个同机跨源宿主来还原这个场景，
+`tests/browser/test_itch_iframe.py` 实测 **10/10 通过**：渲染、导航、六案卡片、
+移动按钮、键盘重排全部正常，宿主页未被劫持，零未捕获异常。
+
+由此修掉一个诚实性缺陷：浏览器若真的拒绝 `localStorage`（隐私模式等），
+应用原先会**静默不保存**，玩家刷新后进度全丢却以为是自己弄错。
+现在会探测写入能力，不可用时明确提示「不允许保存进度，但游戏完全可玩」；
+能正常保存时绝不显示。中英文都有。
 
 ## Lighthouse 实测（Google 官方工具，线上 URL）
 
