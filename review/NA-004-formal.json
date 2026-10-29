@@ -1,0 +1,42 @@
+{
+  "case": "NA-004",
+  "gate": "formal",
+  "status": "PASS",
+  "method": "engine/verify_cases.py（Python 独立实现）+ tests/logic/cross_check.py（Python⇄JS 真值表）",
+  "evidence": {
+    "solutions": 1,
+    "items": 5,
+    "clues": 4,
+    "necessity": [
+      {
+        "id": "C01",
+        "remaining": 2,
+        "essential": true
+      },
+      {
+        "id": "C02",
+        "remaining": 4,
+        "essential": true
+      },
+      {
+        "id": "C03",
+        "remaining": 2,
+        "essential": true
+      },
+      {
+        "id": "C04",
+        "remaining": 2,
+        "essential": true
+      }
+    ],
+    "solution": [
+      "铜铃",
+      "值班簿",
+      "玻璃罩",
+      "旧透镜",
+      "海图"
+    ]
+  },
+  "note": "唯一解 + 逐条约束必要性（去掉任一约束则多解）+ 每条约束都有证据承载。",
+  "case_revision": "2026-10-29-blind-3"
+}

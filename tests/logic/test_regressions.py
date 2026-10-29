@@ -40,10 +40,17 @@ class TestNA006UnitAmbiguity(unittest.TestCase):
                 self.assertNotIn(bad, body, f"{folder} 仍在使用「{bad}」这种以「次」为距离单位的措辞")
 
     def test_evidence_explicitly_states_serial_number_difference(self):
+        """终审确认：不需要 n+3 公式，但必须同时具备「序号相差三」与「隔着两次」两个等价子句。
+
+        盲审员比对了两个子句的解集，完全相同（差 d 的两点之间必夹 d−1 个），
+        因此这两句互为独立锚点，读成 gap=4 必须同时否定两句明写的话。
+        """
         for folder in (AUTHOR, PUBLIC, BLIND):
             body = load(folder, "NA-006")["evidence"][0]["body"]
             self.assertIn("序号", body, f"{folder} 未明确说明是「曝光序号」之差")
-            self.assertIn("n+3", body, f"{folder} 未给出 n / n+3 的等价表述")
+            self.assertIn("相差三", body, f"{folder} 未写明「相差三」")
+            self.assertIn("隔着两次", body, f"{folder} 缺少「两者之间隔着两次曝光」这一等价子句")
+            self.assertNotIn("相距", body, f"{folder} 不应再出现「相距」这种偏空间间隔的词")
 
     def test_intended_reading_is_unique(self):
         c = load(AUTHOR, "NA-006")
@@ -132,6 +139,45 @@ class TestAllEvidenceLoadBearing(unittest.TestCase):
                                 if all(check_rule(p, r) for r in rest))
                     self.assertGreater(count, 1,
                                        f"{cid} 去掉第 {idx} 条证据后仍有唯一解 → 该线索是装饰")
+
+
+class TestHintBodyConsistency(unittest.TestCase):
+    """盲审复审的提醒：正文改了、提示没改，会造成口径不一致。
+
+    这里做机械化检查：提示里出现的距离措辞，必须与正文同一口径。
+    """
+
+    def test_no_hint_uses_stale_distance_unit_次(self):
+        for cid in RELEASED:
+            c = load(PUBLIC, cid)
+            for i, hint in enumerate(c["hints"]):
+                with self.subTest(case=cid, hint=i + 1):
+                    self.assertNotIn("相隔三次", hint,
+                                     f"{cid} 提示{i+1} 仍用旧的「相隔三次」措辞")
+                    self.assertNotIn("相距三次", hint,
+                                     f"{cid} 提示{i+1} 仍用旧的「相距三次」措辞")
+
+    def test_distance_hints_use_格_or_序号_not_次_alone(self):
+        """凡是提到距离的提示，必须用「格」或「序号」作为单位。"""
+        for cid in RELEASED:
+            c = load(PUBLIC, cid)
+            for i, hint in enumerate(c["hints"]):
+                if "相差" not in hint and "相隔" not in hint:
+                    continue
+                with self.subTest(case=cid, hint=i + 1):
+                    self.assertTrue(
+                        ("格" in hint or "序号" in hint),
+                        f"{cid} 提示{i+1} 提到距离但没有用「格 / 序号」明确单位：{hint}",
+                    )
+
+    def test_na006_hint_matches_revised_body(self):
+        """NA-006 正文已改用「曝光序号相差三」，提示必须同口径。"""
+        c = load(PUBLIC, "NA-006")
+        body = c["evidence"][0]["body"]
+        self.assertIn("曝光序号相差三", body)
+        joined = " ".join(c["hints"])
+        self.assertIn("曝光序号相差三", joined,
+                      "NA-006 提示未与正文同步为「曝光序号相差三」")
 
 
 if __name__ == "__main__":

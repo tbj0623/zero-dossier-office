@@ -1,0 +1,16 @@
+{
+  "case": "NA-006",
+  "gate": "browser",
+  "status": "PASS",
+  "method": "Playwright / Chromium 真实浏览器，读取 #slots 实际文本比对求解结果",
+  "evidence": {
+    "report": "screenshots/browser-report.json",
+    "solved_in_browser": true,
+    "total_checks": 36,
+    "failed_checks": [],
+    "when": "2026-10-30T00:03:58+0800",
+    "revision": "2026-10-29-blind-3"
+  },
+  "note": "同时覆盖 1440/1024/768/390/360 断点、键盘全流程、图片失败降级、无第三方请求。",
+  "case_revision": "2026-10-29-blind-3"
+}

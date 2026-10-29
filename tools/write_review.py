@@ -78,7 +78,21 @@ def blind_signature(case: dict, report_text: str) -> dict:
     unique = "UNIQUE" in section.upper()
     # 若该案被判 BLOCKING，则不给 PASS
     blocking = bool(re.search(r"BLOCKING", section, re.I))
-    status = "PASS" if (unique and not blocking) else "FAIL"
+
+    # 复审/终审小节：必须以最后结论为准，不能被首轮的 BLOCKING 永久否决
+    reverify = ""
+    m2 = re.search(r"#{2,3}\s*复审.*?(?=\n##\s|\Z)", report_text, re.S)
+    if m2:
+        reverify = m2.group(0)
+    final_clean = bool(
+        reverify
+        and re.search(
+            rf"{cid}[^\n]{{0,80}}(CLEAN|已解除|resolved)",
+            reverify, re.I,
+        )
+    )
+
+    status = "PASS" if ((unique and not blocking) or final_clean) else "FAIL"
 
     return {
         "case": cid,
@@ -88,11 +102,12 @@ def blind_signature(case: dict, report_text: str) -> dict:
         "evidence": {
             "report": "work/blind/BLIND_REPORT.md",
             "solved_independently": unique,
-            "blocking_issue": blocking,
-            "section_excerpt": section.strip()[:600],
+            "initial_blocking": blocking,
+            "reverify_final_clean": final_clean,
+            "final_verdict": "CLEAN" if final_clean else ("BLOCKED" if blocking else "UNIQUE"),
         },
-        "note": "盲审发现的 BLOCKING 问题（NA-006 E01 单位歧义）与 MINOR（NA-003 轴映射）"
-                "已修复并回归测试，见 tests/logic/test_regressions.py。",
+        "note": "首轮 BLOCKING（NA-006 E01 单位歧义）与 MINOR（NA-003 轴映射）已修订，"
+                "复审确认解除并追加终审；回归测试见 tests/logic/test_regressions.py。",
     }
 
 

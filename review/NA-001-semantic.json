@@ -1,0 +1,14 @@
+{
+  "case": "NA-001",
+  "gate": "semantic",
+  "status": "PASS",
+  "method": "work/lore/SEMANTIC_REVIEW.md 逐条 E_ID → 读法 → op/参数 → 是否同义",
+  "evidence": {
+    "report": "work/lore/SEMANTIC_REVIEW.md",
+    "report_exists": true,
+    "every_evidence_maps_to_constraint": true,
+    "revision": "2026-10-29-blind-3"
+  },
+  "note": "含 2 处已修订：NA-005 E03 距离计数歧义、NA-006 E01 单位歧义（盲审后再次修订）。语义审稿由 Lead 自审，独立盲审见 blind 门禁。",
+  "case_revision": "2026-10-29-blind-3"
+}

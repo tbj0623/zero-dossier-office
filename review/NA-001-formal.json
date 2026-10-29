@@ -1,0 +1,36 @@
+{
+  "case": "NA-001",
+  "gate": "formal",
+  "status": "PASS",
+  "method": "engine/verify_cases.py（Python 独立实现）+ tests/logic/cross_check.py（Python⇄JS 真值表）",
+  "evidence": {
+    "solutions": 1,
+    "items": 4,
+    "clues": 3,
+    "necessity": [
+      {
+        "id": "C01",
+        "remaining": 6,
+        "essential": true
+      },
+      {
+        "id": "C02",
+        "remaining": 4,
+        "essential": true
+      },
+      {
+        "id": "C03",
+        "remaining": 3,
+        "essential": true
+      }
+    ],
+    "solution": [
+      "红票",
+      "蓝票",
+      "黄票",
+      "绿票"
+    ]
+  },
+  "note": "唯一解 + 逐条约束必要性（去掉任一约束则多解）+ 每条约束都有证据承载。",
+  "case_revision": "2026-10-29-blind-3"
+}

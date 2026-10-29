@@ -1,0 +1,15 @@
+{
+  "case": "NA-003",
+  "gate": "blind",
+  "status": "PASS",
+  "method": "独立盲审员，仅读 work/blind-src/（已剥离约束/答案/提示/尾声），自行编码规则并穷举",
+  "evidence": {
+    "report": "work/blind/BLIND_REPORT.md",
+    "solved_independently": true,
+    "initial_blocking": true,
+    "reverify_final_clean": true,
+    "final_verdict": "CLEAN"
+  },
+  "note": "首轮 BLOCKING（NA-006 E01 单位歧义）与 MINOR（NA-003 轴映射）已修订，复审确认解除并追加终审；回归测试见 tests/logic/test_regressions.py。",
+  "case_revision": "2026-10-29-blind-3"
+}
