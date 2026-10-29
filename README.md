@@ -6,13 +6,33 @@
 
 **在雾港的异常档案局里，你不是找凶手，而是把互相错位的真实记录重新归位。**
 
-[![CI](https://github.com/__OWNER__/__REPO__/actions/workflows/ci.yml/badge.svg)](https://github.com/__OWNER__/__REPO__/actions/workflows/ci.yml)
+[![CI](https://github.com/tbj0623/zero-dossier-office/actions/workflows/ci.yml/badge.svg)](https://github.com/tbj0623/zero-dossier-office/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/code-MIT-dfb978)](LICENSE)
 [![Assets: CC BY-NC-SA 4.0](https://img.shields.io/badge/story%20%26%20art-CC%20BY--NC--SA%204.0-dfb978)](ASSETS_LICENSE.md)
 
-**[▶ 立即游玩](https://__OWNER__.github.io/__REPO__/)** · [玩法说明](docs/GAMEPLAY.md) · [作者指南](docs/AUTHOR_GUIDE.md) · [隐私](docs/PRIVACY.md)
+**[▶ 立即游玩](https://tbj0623.github.io/zero-dossier-office/)** · [玩法说明](docs/GAMEPLAY.md) · [作者指南](docs/AUTHOR_GUIDE.md) · [隐私](docs/PRIVACY.md)
 
 </div>
+
+## 真实运行截图
+
+以下全部为**已部署站点**（GitHub Pages）在真实 Chromium 中的实拍，非概念稿、非 mockup。
+
+| 调查桌（桌面） | 结案复盘（桌面） |
+|---|---|
+| ![调查桌](docs/screenshots/03-desk.png) | ![结案](docs/screenshots/04-verdict.png) |
+
+| 档案柜 | 首页（手机 390px） |
+|---|---|
+| ![档案柜](docs/screenshots/02-cabinet.png) | ![手机首页](docs/screenshots/05-mobile-home.png) |
+
+<details>
+<summary>更多截图：首页（桌面）、调查桌（手机 390px）</summary>
+
+![首页](docs/screenshots/01-home.png)
+![手机调查桌](docs/screenshots/06-mobile-desk.png)
+
+</details>
 
 > ⚠️ 本仓库同时保存「可玩站点」与「制作档案」。`cases/author/` 含作者解答，**仅供内部校验**，不进入站点构建产物。
 

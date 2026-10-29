@@ -2,9 +2,10 @@
 dist/
 release/
 
-# 发布记录（本地）
+# 端到端测试的临时截图（docs/screenshots 是正式发布截图，需入库）
 screenshots/*.png
 !screenshots/.gitkeep
+!screenshots/browser-report.json
 
 # 编辑器 / 系统
 .vscode/
