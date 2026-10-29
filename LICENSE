@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 第零证物局 / The Zero Dossier Office contributors
+Copyright (c) 2026 The Zero Dossier Office contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,10 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-本 LICENSE 仅覆盖**程序代码**（engine/、site/*.mjs、site/styles/、tools/、
-tests/ 中以代码形式存在的部分）。
-
-叙事文本、案件数据与视觉资产的许可见 ASSETS_LICENSE.md —— 它们不使用本 MIT 条款。
