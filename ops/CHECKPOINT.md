@@ -139,3 +139,28 @@ git push origin main
 注意：全局 gitconfig 里曾有一条 `url.<ghproxy>.insteadOf https://github.com/`
 的改写规则（把所有 GitHub 请求转到代理）。已用 `github_mirror` 工具清除，
 remote 也已改回直连 `https://github.com/tbj0623/zero-dossier-office.git`
+
+
+---
+
+## 2026-10-30 历史重写（仓库瘦身）
+
+**做了什么**：用 `git-filter-repo` 从**全部历史**移除 `work/qa/**/*.png`（270 张审计过程截图），
+然后 force push。
+
+**为什么**：仓库 .git 达 128 MB，其中 61 MB 是这 270 张截图。它们对结论没有独立价值——
+由 `work/qa/` 下 70 个仍入库的脚本可重新生成；4 份报告 + 99 份原始 JSON 才是证据本体。
+
+**结果**：本地 .git 128 MB → **15 MB**；对象包 61.4 MiB → **13.9 MiB**；22 个提交全部保留。
+
+**保留**：`docs/screenshots/` 12 张面向用户的真实运行截图**未动**。
+
+**验证**：重写后逐项复跑——6 案唯一解、44 Python、52 JS、4508 真值探针全部通过；
+线上 38/38 + 6/6、英文 12/12 全绿；CI/Pages 在新历史上 success。
+
+**备份**：改写前完整 git bundle 在 `C:	mpackup\zdrepo-before-rewrite.bundle`（68 MB）。
+需要恢复旧历史时：`git clone zdrepo-before-rewrite.bundle <dir>`。
+
+**注意**：GitHub 侧「仓库大小」统计尚未下降（仍显示 68 MB）——
+强制推送后旧对象要等 GitHub 后台 GC 才会真正回收，这不是本地问题。
+若长期不降，可在仓库 Settings 里联系 GitHub Support 触发 gc。
