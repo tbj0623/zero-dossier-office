@@ -105,7 +105,7 @@ OK: 6 张封面的物件顺序均不等于答案顺序
 | 2 | 仓库 Social Preview | 用户在 Settings 手动 | 图片已就绪（`site/assets/github-social-preview.png`，1280×640），**API 上传 ≠ 已设置**，仍未设置 |
 | 3 | 屏幕阅读器实机测试 | 需要 NVDA/VoiceOver | 未做，因此不声明任何 WCAG 等级 |
 | 4 | 真实 Safari / 真实 iOS Safari | 需要 Apple 设备 | WebKit（Playwright `webkit-2336`）**已测**；**真实 Safari 与 iOS Safari 仍未验证** |
-| 5 | GitHub 侧仓库体积 GC | GitHub Support / 时间 | 强制推送后 GitHub 仍显示 68 MB；旧对象需后台 GC 才真正回收，见文末 |
+| 5 | ~~GitHub 侧仓库体积 GC~~ | — | ✅ **已关闭（2026-10-30）**：平台 GC 已完成，GitHub API 报 `size` 从 68385 KB → **14220 KB**（约 13.9 MB），与本地 `.git` 15 MB 一致 |
 
 > **已从本表移除**：
 > - ~~itch.io 上传~~ —— 2026-10-30 已公开发布，
@@ -130,7 +130,7 @@ python -m http.server 8140 --directory dist
 1. **G5**：按 `docs/PLAYTEST_PROTOCOL.md` 的邀请模板找 3–5 名真人试玩，把真实结果填回该文件
 2. **Social Preview**：用户在 GitHub Settings 手动设置
 3. **真实设备**：NVDA/VoiceOver 实机、真实 Safari / iOS Safari（WebKit 不等于 Safari）
-4. **仓库 GC**：GitHub 侧体积长期不降则联系 Support 触发回收
+4. ~~仓库 GC~~：已完成（GitHub 侧 68385 KB → 14220 KB），无需再联系 Support
 
 ---
 
@@ -164,12 +164,40 @@ remote 也已改回直连 `https://github.com/tbj0623/zero-dossier-office.git`
 
 **保留**：`docs/screenshots/` 12 张面向用户的真实运行截图**未动**。
 
-**验证**：重写后逐项复跑——6 案唯一解、44 Python、52 JS、4508 真值探针全部通过；
+**验证**：重写后逐项复跑——6 案唯一解、44 Python（验收整改新增门禁向量后为 **54** 条）、52 JS、4508 真值探针全部通过；
 线上 38/38 + 6/6、英文 12/12 全绿；CI/Pages 在新历史上 success。
 
-**备份**：改写前完整 git bundle 在 `C:	mpackup\zdrepo-before-rewrite.bundle`（68 MB）。
+**备份**：改写前完整 git bundle 在 `C:\tmp\backup\zdrepo-before-rewrite.bundle`（68 MB）。
 需要恢复旧历史时：`git clone zdrepo-before-rewrite.bundle <dir>`。
 
-**注意**：GitHub 侧「仓库大小」统计尚未下降（仍显示 68 MB）——
-强制推送后旧对象要等 GitHub 后台 GC 才会真正回收，这不是本地问题。
-若长期不降，可在仓库 Settings 里联系 GitHub Support 触发 gc。
+**后续**：GitHub 侧「仓库大小」统计当时仍显示 68 MB（强制推送后旧对象要等后台 GC）。
+**该问题已于 2026-10-30 自行消解**：GitHub API 现报 `size = 14220 KB`（约 13.9 MB），
+与本地 `.git` 15 MB 一致，无需联系 GitHub Support。
+
+---
+
+## 2026-10-30 验收整改（PR #1，合并提交 `b995f29`）
+
+**触因**：独立验收报告《第零证物局 · V2 上线后独立验收》判为
+「技术与公开发行：附条件通过 / 真人用户体验：未验收」，列出 2 项 P0 + 5 项 P1。
+
+| 项 | 处置 | 证据 |
+|---|---|---|
+| **P0-01** itch AI Graphics 未披露 | 后台核实 `ai_generated=yes`、Text/Code 已勾、**Graphics 未勾** → 补勾、保存、重载确认持久化 | `screenshots/itch-ai-disclosure-{before,after}.json` |
+| **P0-02** 门禁主机名可绕过 | `is_remote()` 改 `urlsplit().hostname` 精确匹配；ALLOW 拆取回/非取回两张表；`<link rel>` 标签级解析；补无引号属性扫描 | `tools/check_no_remote.py` + 68 拒绝 / 45 放行向量 |
+| P1-1 陈旧发行文档 | `marketing/ITCH_PAGE_DRAFT.md` → `RELEASED`；ops 三份文档 7 处过期声明已修 | 见 PR #1 |
+| P1-2 README 只有 Pages | 顶部加双平台入口表 | `README.md` |
+| P1-3 素材来源透明 | 新建 `docs/PROVENANCE.md`（27 图逐个列尺寸与来源）；`ASSETS_LICENSE.md` 去掉"原创"表述 | 6 项 `PENDING_OWNER` |
+| P1-4 真实试玩 | 邀请模板 + 10 题表单已备好，**状态仍 `NOT_DONE`、0 样本** | `docs/PLAYTEST_PROTOCOL.md` |
+| P1-5 仓库表面杂乱 | `screenshots/_debug_*.py` → `work/qa/debug/` | 本次提交 |
+| 追加：itch 六案 | `test_itch_live.py` 13 项 → **20 项，六案在 itch 托管实例全部通关** | `screenshots/itch-live-report.json` |
+| 追加：线上证据 | Pages 线上实跑 38/38 + a11y 12 状态 0 违规 | `work/qa/live-verify/` |
+
+**当前基线**：`main` @ `972bcb8`（PR #1 合并后再追加一次线上证据提交）。
+CI 与 Pages 在该提交上均 success；两站 HTTP 200。
+
+**仍未完成**：G5 真实人类试玩（0 样本）、GitHub Social Preview、屏幕阅读器实机、
+真实 Safari / iOS Safari。**这四项只能由用户完成，Agent 不得伪造。**
+
+**踩坑记录**：`ops_bash` 的 heredoc 会解释反斜杠转义，写 Windows 路径时曾把
+`\tmp\backup` 变成 `TAB + BS` 控制字符。已修，并对全部跟踪文件做了控制字符自查（0 处残留）。
