@@ -34,7 +34,7 @@
 | 线上站点 | <https://tbj0623.github.io/zero-dossier-office/> — HTTP 200 |
 | Pages 来源 | GitHub Actions（`build_type=workflow`） |
 | CI | ✅ success（含全部门禁） |
-| itch.io | **DRAFT_READY** — `release/itch-html5-release.zip`，27 文件 / 0.68 MB，`index.html` 在根目录，已独立解压跑通 38/38（中文）+ 12/12（英文） |
+| **itch.io** | **已公开上线** — https://tbj0623.itch.io/zero-dossier-office |
 | 社交预览 | 图片就绪，**未在仓库 Settings 设置** |
 | 真实人类试玩 | **NOT_DONE** |
 | 费用 | 零 |

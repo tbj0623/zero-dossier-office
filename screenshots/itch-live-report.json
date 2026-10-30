@@ -1,0 +1,72 @@
+{
+  "url": "https://tbj0623.itch.io/zero-dossier-office",
+  "checks": 13,
+  "passed": 13,
+  "results": [
+    {
+      "ok": true,
+      "name": "公开页面 HTTP 200",
+      "detail": "status=200"
+    },
+    {
+      "ok": true,
+      "name": "页面标题正确",
+      "detail": "第零证物局 · The Zero Dossier Office by tbj0623"
+    },
+    {
+      "ok": true,
+      "name": "Run game 可点击",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "游戏在 itch iframe 中加载",
+      "detail": "https://html-classic.itch.zone/html/20141202/index.html?v=17"
+    },
+    {
+      "ok": true,
+      "name": "首页视图存在",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "默认中文",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "档案柜 6 张卡",
+      "detail": "6 张"
+    },
+    {
+      "ok": true,
+      "name": "NA-001 四个格位",
+      "detail": "4 个"
+    },
+    {
+      "ok": true,
+      "name": "排列到答案顺序",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "提交后出现结案页",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "结案标题正确",
+      "detail": "档案归位。"
+    },
+    {
+      "ok": true,
+      "name": "逻辑复盘 + 档案后记两段",
+      "detail": "['逻辑复盘 · 可由证据严', '档案后记 · 结案后补充']"
+    },
+    {
+      "ok": true,
+      "name": "无未捕获异常",
+      "detail": "[]"
+    }
+  ]
+}

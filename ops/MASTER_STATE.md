@@ -27,10 +27,16 @@
 | 远端 HEAD | 见仓库（git 直连已恢复，不再需要 API 绕过） |
 | 线上站点 | https://tbj0623.github.io/zero-dossier-office/ |
 | Pages 构建 | Actions（`build_type=workflow`） |
-| itch.io | **DRAFT_READY** — `release/itch-html5-release.zip`，27 文件 / 0.68 MB，未上传（需账户授权） |
+| **itch.io（已上线）** | **https://tbj0623.itch.io/zero-dossier-office** — 公开，HTML 版，1280×800 嵌入，手机友好 + 全屏 + 滚动条 |
 | 社交预览 | 图片就绪，**未在 Settings 设置** |
 | 真实人类试玩 | **NOT_DONE** |
 | 费用 | 零 |
+
+### itch.io 发布实测（匿名访客视角）
+
+`tests/browser/test_itch_live.py` 在**公开的 itch 页面**上用全新浏览器上下文（未登录）实测 **13/13**：
+公开页 200 → Run game → 游戏在 `html-classic.itch.zone` 的 iframe 中加载 → 档案柜 6 张卡 →
+NA-001 用真实按钮排列 → 提交 → 结案页两段复盘。零未捕获异常。
 
 ## 三引擎实测
 
