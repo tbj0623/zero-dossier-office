@@ -30,25 +30,39 @@
 | **程序代码** | `engine/**`、`site/*.mjs`、`site/engine/**`、`site/styles/**`、`tools/**`、`tests/**`、`.github/**`、`site/index.html` | **MIT**（见 `LICENSE`） |
 | **文档与运营材料** | `README.md`、`docs/**`、`marketing/**`、`ops/**`、`review/**` | **MIT** |
 | **叙事与案件数据** | `cases/**/*.json`、`work/lore/**`、`work/blind-src/**` | **CC BY-NC-SA 4.0** |
-| **视觉资产** | `site/assets/**`（全部图片与 SVG） | **CC BY-NC-SA 4.0** |
+| **视觉资产** | `site/assets/**`（全部图片与 SVG） | **CC BY-NC-SA 4.0**（来源与生成方式见 [`docs/PROVENANCE.md`](docs/PROVENANCE.md)） |
 | **第三方组件** | `work/qa/a11y/axe.min.js` | **MPL-2.0**（Deque Systems），见 §6 |
 
 如果你不确定某个文件属于哪一类：**默认按 MIT 处理**，只有上表明确标为
 CC BY-NC-SA 的创作材料例外。
 
-### 1.1 图形资产的正式授权声明
+### 1.1 图形资产的授权声明
 
 `site/assets/` 目录下的全部文件（`harbor-archive-background.webp`、
 `archive-desk-background.webp`、`evidence-case-001..003.webp`、
 `NA-004..006-episode-card.webp`、`archive-emblem.svg`、`archive-emblem-512.png`、
-`github-social-preview.png`、`readme-hero.png`）由本项目创作者原创，**依
-CC BY-NC-SA 4.0 授权**：你可以复制、分发、改编，条件是——
+`github-social-preview.png`、`readme-hero.png`）由本项目产出——
+**其中大部分是生成式 AI 输出，再经人工裁切、调色、改序与重新排版**，
+少数（印章矢量稿、英文封面、案件卡）由本项目脚本重排或直接编写。
+逐文件来源、人工参与程度与未决事项见 [`docs/PROVENANCE.md`](docs/PROVENANCE.md)。
+
+在项目方可支配的范围内，这些文件**依 CC BY-NC-SA 4.0 授权**：
+你可以复制、分发、改编，条件是——
 
 1. **署名**（BY）：注明来源为本项目及下方署名格式；
 2. **非商业**（NC）：不得用于商业目的；
 3. **相同方式共享**（SA）：改编作品须以相同许可发布。
 
 许可全文：<https://creativecommons.org/licenses/by-nc-sa/4.0/>
+
+### 1.2 来源与「非独占」说明
+
+- **本项目不保证这些图片具有独占著作权。** 生成式 AI 输出的可版权性在各地法域
+  存在不确定性，商用需专业法律审查——详见 [`docs/PROVENANCE.md`](docs/PROVENANCE.md) §4。
+- 本文件里的 CC BY-NC-SA 4.0 是**项目方对自己可支配部分**的授权意图，
+  不是对第三方权利的处分，也不构成对任何生成工具服务条款的替代。
+- 哪一张图对应哪一次生成，仓库内没有记录，`docs/PROVENANCE.md` §6 以
+  `PENDING_OWNER` 列出，等待项目方补齐。
 
 ## 2. 叙事与案件数据 —— CC BY-NC-SA 4.0
 
@@ -57,12 +71,14 @@ CC BY-NC-SA 4.0 授权**：你可以复制、分发、改编，条件是——
 
 ## 3. 制作声明
 
-- 以上图片为**本项目的原创概念插画**，用于本项目世界观「雾港」，不描绘真实地点、
+- 以上图片是**为本项目世界观「雾港」制作的概念图**（非 UI 截图），
+  大部分由**生成式 AI 生成后经人工加工**。它们不描绘真实地点、
   真实机构或现存个人。
 - 图片是**氛围层**：任何解谜所需信息都以可选中、可复制的 HTML 文本呈现，
   不存在「必须看清图片里的颜色/暗纹才能解题」的设计。
-- 本项目不声称对这些图片拥有超出适用法律范围的独占权利，也不声称具备任何
-  真实机构的背书。
+- **本项目不声称对这些图片拥有超出适用法律范围的独占权利**，不保证其具有独占著作权，
+  也不声称具备任何真实机构的背书。生成式 AI 输出的可版权性在各地法域存在不确定性，
+  商用前请做专业法律审查（详见 [`docs/PROVENANCE.md`](docs/PROVENANCE.md) §4）。
 - 图片中出现的字母、数字、印章纹样均为装饰，**不构成解题线索**。
 
 ### 3.1 字体

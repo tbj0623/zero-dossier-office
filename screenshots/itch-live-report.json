@@ -1,7 +1,16 @@
 {
   "url": "https://tbj0623.itch.io/zero-dossier-office",
-  "checks": 13,
-  "passed": 13,
+  "checks": 20,
+  "passed": 20,
+  "cases_solved": [
+    "NA-001",
+    "NA-002",
+    "NA-003",
+    "NA-004",
+    "NA-005",
+    "NA-006"
+  ],
+  "cases_total": 6,
   "results": [
     {
       "ok": true,
@@ -46,7 +55,7 @@
     {
       "ok": true,
       "name": "排列到答案顺序",
-      "detail": ""
+      "detail": "红票 → 蓝票 → 黄票 → 绿票"
     },
     {
       "ok": true,
@@ -62,6 +71,41 @@
       "ok": true,
       "name": "逻辑复盘 + 档案后记两段",
       "detail": "['逻辑复盘 · 可由证据严', '档案后记 · 结案后补充']"
+    },
+    {
+      "ok": true,
+      "name": "NA-002 在 itch 实例上天通关",
+      "detail": "航海图 → 银徽章 → 铜钥匙 → 玻璃球"
+    },
+    {
+      "ok": true,
+      "name": "NA-003 在 itch 实例上天通关",
+      "detail": "红盒 → 纸鹤 → 铜铃 → 星图 → 蓝灯"
+    },
+    {
+      "ok": true,
+      "name": "NA-004 在 itch 实例上天通关",
+      "detail": "铜铃 → 值班簿 → 玻璃罩 → 旧透镜 → 海图"
+    },
+    {
+      "ok": true,
+      "name": "NA-005 在 itch 实例上天通关",
+      "detail": "晨雾邮笺 → 港口便条 → 红蜡封信 → 夜航申请 → 空白回邮"
+    },
+    {
+      "ok": true,
+      "name": "NA-006 在 itch 实例上天通关",
+      "detail": "钟楼影 → 纸船影 → 玻璃影 → 雨幕影 → 灯塔影 → 空白底片"
+    },
+    {
+      "ok": true,
+      "name": "六案全部在 itch 托管实例通关",
+      "detail": "6/6 → NA-001, NA-002, NA-003, NA-004, NA-005, NA-006"
+    },
+    {
+      "ok": true,
+      "name": "归档进度显示 6 / 6",
+      "detail": "已归档 6 / 6"
     },
     {
       "ok": true,

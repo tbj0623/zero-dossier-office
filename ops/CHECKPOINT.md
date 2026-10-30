@@ -3,7 +3,7 @@
 > **给一个看不到旧聊天的 Agent**：读完本文件 + `ops/MASTER_STATE.md` + `ops/MEMORY_GLOBAL.md`
 > 就能继续推进，不需要任何旧对话。
 
-- **更新时间**：2026-10-30 05:30（Asia/Shanghai）
+- **更新时间**：2026-10-30 12:25（Asia/Shanghai）— 验收整改同步（发行状态、素材来源、试玩协议）
 - **生产仓库路径**：`C:\Users\11930\Desktop\第零号证物局\zero-dossier-office\`
 - **输入材料（只读）**：`..\第零证物局_V2_究极版_完整策划素材案件与DSH执行包.zip`
   → 已解压至 `..\_input\Zero_Dossier_V2\`
@@ -101,11 +101,18 @@ OK: 6 张封面的物件顺序均不等于答案顺序
 
 | # | 项 | 需要谁 | 说明 |
 |---|---|---|---|
-| 1 | 真实人类试玩（G5） | 真人玩家 | 协议在 `docs/PLAYTEST_PROTOCOL.md`；**不可由 Agent 伪造** |
-| 2 | itch.io 上传 | 用户的 itch 账户 | 包已做好并验证；文案在 `marketing/ITCH_PAGE_DRAFT.md` |
-| 3 | 仓库 Social Preview | 用户在 Settings 手动 | 图片已就绪，API 上传 ≠ 已设置 |
-| 4 | 屏幕阅读器实机测试 | 需要 NVDA/VoiceOver | 未做，因此不声明任何 WCAG 等级 |
-| 5 | Firefox / Safari | 需要对应引擎 | 未测；已测 Chromium + Edge，0 差异 |
+| 1 | 真实人类试玩（G5） | 真人玩家 | 协议与邀请模板在 `docs/PLAYTEST_PROTOCOL.md`；**不可由 Agent 伪造**。当前 0 个样本。 |
+| 2 | 仓库 Social Preview | 用户在 Settings 手动 | 图片已就绪（`site/assets/github-social-preview.png`，1280×640），**API 上传 ≠ 已设置**，仍未设置 |
+| 3 | 屏幕阅读器实机测试 | 需要 NVDA/VoiceOver | 未做，因此不声明任何 WCAG 等级 |
+| 4 | 真实 Safari / 真实 iOS Safari | 需要 Apple 设备 | WebKit（Playwright `webkit-2336`）**已测**；**真实 Safari 与 iOS Safari 仍未验证** |
+| 5 | GitHub 侧仓库体积 GC | GitHub Support / 时间 | 强制推送后 GitHub 仍显示 68 MB；旧对象需后台 GC 才真正回收，见文末 |
+
+> **已从本表移除**：
+> - ~~itch.io 上传~~ —— 2026-10-30 已公开发布，
+>   见 `marketing/ITCH_PAGE_DRAFT.md`（状态 `RELEASED`）。
+> - ~~itch 后台 AI 披露取证~~ —— Graphics 已勾选并留证：
+>   `screenshots/itch-ai-disclosure-before.json`（`false`）→ `-after.json`（`true`），
+>   间隔 29 秒、唯一差异即 Graphics，`PENDING_OWNER-5` 关闭。
 
 ---
 
@@ -120,8 +127,10 @@ python -m http.server 8140 --directory dist
 ```
 
 若要继续推进剩余项：
-1. **itch.io**：按 `marketing/ITCH_PAGE_DRAFT.md` 上传 `release/itch-html5-release.zip`
-2. **G5**：按 `docs/PLAYTEST_PROTOCOL.md` 找 3–5 名真人试玩并记录到该文件
+1. **G5**：按 `docs/PLAYTEST_PROTOCOL.md` 的邀请模板找 3–5 名真人试玩，把真实结果填回该文件
+2. **Social Preview**：用户在 GitHub Settings 手动设置
+3. **真实设备**：NVDA/VoiceOver 实机、真实 Safari / iOS Safari（WebKit 不等于 Safari）
+4. **仓库 GC**：GitHub 侧体积长期不降则联系 Support 触发回收
 
 ---
 

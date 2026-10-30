@@ -10,9 +10,23 @@
 [![License: MIT](https://img.shields.io/badge/code-MIT-dfb978)](LICENSE)
 [![Assets: CC BY-NC-SA 4.0](https://img.shields.io/badge/story%20%26%20art-CC%20BY--NC--SA%204.0-dfb978)](ASSETS_LICENSE.md)
 
-**[▶ 立即游玩](https://tbj0623.github.io/zero-dossier-office/)** · [玩法说明](docs/GAMEPLAY.md) · [作者指南](docs/AUTHOR_GUIDE.md) · [隐私](docs/PRIVACY.md)
+**[▶ 在线游玩](https://tbj0623.github.io/zero-dossier-office/)** · **[itch.io 版](https://tbj0623.itch.io/zero-dossier-office)** · [玩法说明](docs/GAMEPLAY.md) · [作者指南](docs/AUTHOR_GUIDE.md) · [隐私](docs/PRIVACY.md)
 
 </div>
+
+## 双平台入口（均已上线）
+
+两个地址都能直接玩，内容同源但分发方式不同：
+
+| 平台 | 入口 | 区别 |
+|---|---|---|
+| **GitHub Pages** | <https://tbj0623.github.io/zero-dossier-office/> | **完整站**：由 Actions 从本仓库 `dist/` 同源部署，中英双语随时切换，`main` 一推送即刻生效；源码、issue、CI 结果都在同一仓库 |
+| **itch.io** | <https://tbj0623.itch.io/zero-dossier-office/> | **HTML5 发行包**：上传的是 `release/itch-html5-release.zip`（710 KB / 27 文件），在 itch 的 iframe 里嵌入游玩（1280 × 800，可全屏），版本不与仓库自动同步，需手动重传 |
+
+> **当前定位：技术合格公测版。**
+> 逻辑、三引擎、无障碍与隐私验证完整，但**还没有任何真实人类试玩数据**
+> （G5 = `NOT_DONE`，见 [docs/PLAYTEST_PROTOCOL.md](docs/PLAYTEST_PROTOCOL.md)）。
+> 因此本仓库不写"已获好评""玩家喜爱"这类没有样本支撑的话——没测过就不说。
 
 ## 真实运行截图
 

@@ -1,6 +1,6 @@
 # MASTER_STATE · 第零证物局 V2
 
-更新时间：2026-10-30 06:45（Asia/Shanghai）
+更新时间：2026-10-30 12:25（Asia/Shanghai）— 验收整改同步（P0-01 素材来源 / P1 发行状态）
 
 ## 一句话
 
@@ -145,9 +145,12 @@ itch.io 的 HTML5 游戏运行在 itchi.io 域名下的 **iframe** 里，与直�
 3. **屏幕阅读器（NVDA/JAWS/VoiceOver/TalkBack）未实机测试**，因此不声明任何 WCAG 等级。
 4. **真实人类试玩未进行**——见 `docs/PLAYTEST_PROTOCOL.md`，不会伪造玩家数据。
 5. **真实 iOS Safari 未测**（动态工具栏 vs `100dvh`、橡皮筋滚动、安全区）。
-6. itch.io 未上传（需账户授权）；社交预览未设置（需 Settings 手动）。
+6. **社交预览未设置**（需 Settings 手动；图片已就绪）。itch.io **已公开发布**（2026-10-30），
+   Generative AI 披露已含 **Graphics** 并留证（`screenshots/itch-ai-disclosure-{before,after}.json`）。
 7. 静态站点无法防作弊，README 已明说。
-8. git push 到 github.com 间歇失败，改用 REST API 推送；远端内容已逐 blob 校验与本地一致。
+8. ~~git push 到 github.com 间歇失败~~ → **已解决**：根因是全局 `url.<proxy>.insteadOf` 代理重写规则；
+   2026-10-30 清除该规则、远端改回直连 `https://github.com/tbj0623/zero-dossier-office.git` 后，
+   fetch / push 均直连成功（本次整改分支即直连推送）。
 
 ## 回滚
 
