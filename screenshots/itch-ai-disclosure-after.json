@@ -1,0 +1,24 @@
+{
+  "ai_generated": "yes",
+  "ai_graphics": {
+    "exists": true,
+    "checked": true
+  },
+  "ai_audio": {
+    "exists": true,
+    "checked": false
+  },
+  "ai_text": {
+    "exists": true,
+    "checked": true
+  },
+  "ai_code": {
+    "exists": true,
+    "checked": true
+  },
+  "published": "published",
+  "title": "第零证物局 · The Zero Dossier Office",
+  "slug": "zero-dossier-office",
+  "url": "https://itch.io/game/edit/5261339",
+  "captured_at": "2026-10-30T04:22:52.595Z"
+}

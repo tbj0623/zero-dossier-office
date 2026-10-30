@@ -25,10 +25,10 @@
 | 1 | 无 Google Chrome，仅 Chromium + Edge | 环境限制 | 记录在案，不声称"全浏览器已验证" |
 | 2 | 屏幕阅读器未实机测试 | 未做 | **不声明 WCAG 等级**；只声明已实测项 |
 | 3 | 真实人类试玩 | NOT_DONE | 见 `docs/PLAYTEST_PROTOCOL.md`，绝不伪造 |
-| 4 | itch.io 上传 | DRAFT_READY | 需用户账户授权 |
+| 4 | itch.io 上传（**已关闭**） | ✅ 已完成 | 2026-10-30 公开发布；`DRAFT_READY` 已作废，见 `marketing/ITCH_PAGE_DRAFT.md`（`RELEASED`）。Graphics 披露已勾选并留证（`screenshots/itch-ai-disclosure-{before,after}.json`） |
 | 5 | 仓库 Social Preview | 未设置 | 需 Settings 手动，图片上传 ≠ 已设置 |
 | 6 | 静态站点可被查看源码 | 设计使然 | README 明说，不声称防作弊 |
-| 7 | git push 到 github.com 间歇失败 | 环境 | 改用 REST API 提交，已验证内容一致 |
+| 7 | git push 到 github.com 间歇失败 | **已解决** | 根因是全局 `url.<proxy>.insteadOf` 代理重写；2026-10-30 清除后直连成功，未再复发 |
 
 ## 容易踩的坑（给后续 Agent）
 
