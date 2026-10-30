@@ -1,0 +1,204 @@
+{
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "when": "2026-10-30T12:46:56+0800",
+  "results": [
+    {
+      "check": "首页加载",
+      "ok": true,
+      "detail": "第零证物局｜雾港异常档案 · 原创互动推理"
+    },
+    {
+      "check": "首屏有第一案入口",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "档案柜显示 6 案",
+      "ok": true,
+      "detail": "6 张卡"
+    },
+    {
+      "check": "NA-001 打开调查桌",
+      "ok": true,
+      "detail": "末班车的四张车票"
+    },
+    {
+      "check": "NA-001 三条证据",
+      "ok": true,
+      "detail": "3 张"
+    },
+    {
+      "check": "单击上/下移恰好移动一格（防重复绑定）",
+      "ok": true,
+      "detail": "['蓝票', '绿票', '红票', '黄票'] -> ['绿票', '蓝票', '红票', '黄票']（期望 ['绿票', '蓝票', '红票', '黄票']）"
+    },
+    {
+      "check": "点击选中可再次点击取消",
+      "ok": true,
+      "detail": "true -> false"
+    },
+    {
+      "check": "证据可逐张展开",
+      "ok": true,
+      "detail": "3/3 展开"
+    },
+    {
+      "check": "默认排列不是答案",
+      "ok": true,
+      "detail": "初始 ['绿票', '蓝票', '红票', '黄票']"
+    },
+    {
+      "check": "错误提交给出非剧透反馈",
+      "ok": true,
+      "detail": "档案仍有不一致：2 条关系未满足。"
+    },
+    {
+      "check": "错误提交后排列保留",
+      "ok": true,
+      "detail": "['绿票', '黄票', '蓝票', '红票']"
+    },
+    {
+      "check": "三级提示逐条出现",
+      "ok": true,
+      "detail": "3 条"
+    },
+    {
+      "check": "提示不自动填答案",
+      "ok": true,
+      "detail": "排列未被提示改动"
+    },
+    {
+      "check": "正确复原后结案",
+      "ok": true,
+      "detail": "档案归位。"
+    },
+    {
+      "check": "逻辑复盘与档案后记分开",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "复盘含每条证据",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "归档进度写入本地",
+      "ok": true,
+      "detail": "已归档 1 / 6"
+    },
+    {
+      "check": "刷新后恢复排列进度",
+      "ok": true,
+      "detail": "before=['银徽章', '航海图', '玻璃球', '铜钥匙'] moved=['航海图', '银徽章', '玻璃球', '铜钥匙'] after=['航海图', '银徽章', '玻璃球', '铜钥匙']"
+    },
+    {
+      "check": "NA-001 浏览器实玩通关",
+      "ok": true,
+      "detail": "红票 → 蓝票 → 黄票 → 绿票"
+    },
+    {
+      "check": "NA-002 浏览器实玩通关",
+      "ok": true,
+      "detail": "航海图 → 银徽章 → 铜钥匙 → 玻璃球"
+    },
+    {
+      "check": "NA-003 浏览器实玩通关",
+      "ok": true,
+      "detail": "红盒 → 纸鹤 → 铜铃 → 星图 → 蓝灯"
+    },
+    {
+      "check": "NA-004 浏览器实玩通关",
+      "ok": true,
+      "detail": "铜铃 → 值班簿 → 玻璃罩 → 旧透镜 → 海图"
+    },
+    {
+      "check": "NA-005 浏览器实玩通关",
+      "ok": true,
+      "detail": "晨雾邮笺 → 港口便条 → 红蜡封信 → 夜航申请 → 空白回邮"
+    },
+    {
+      "check": "NA-006 浏览器实玩通关",
+      "ok": true,
+      "detail": "钟楼影 → 纸船影 → 玻璃影 → 雨幕影 → 灯塔影 → 空白底片"
+    },
+    {
+      "check": "Tab 可进入焦点",
+      "ok": true,
+      "detail": "ev-card__summary"
+    },
+    {
+      "check": "键盘可触发移动",
+      "ok": true,
+      "detail": "Enter 触发了下移按钮"
+    },
+    {
+      "check": "方向键可重排",
+      "ok": true,
+      "detail": "['绿票', '蓝票', '红票', '黄票'] -> ['蓝票', '绿票', '红票', '黄票']"
+    },
+    {
+      "check": "焦点轮廓可见",
+      "ok": true,
+      "detail": "outline-style=solid"
+    },
+    {
+      "check": "手机/平板 360px 无横向溢出",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "360px 交互目标 ≥44px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "手机/平板 390px 无横向溢出",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "390px 交互目标 ≥44px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "手机/平板 768px 无横向溢出",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "768px 交互目标 ≥44px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "减少动态生效",
+      "ok": true,
+      "detail": "1e-06s (1e-06s)"
+    },
+    {
+      "check": "图片失败仍可纯文本游玩",
+      "ok": true,
+      "detail": "287 字符"
+    },
+    {
+      "check": "无第三方网络请求",
+      "ok": true,
+      "detail": "0 个: []"
+    },
+    {
+      "check": "无控制台错误",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "solved_cases": [
+    "NA-001",
+    "NA-002",
+    "NA-003",
+    "NA-004",
+    "NA-005",
+    "NA-006"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "base": "https://tbj0623.github.io/zero-dossier-office/",
+  "when": "2026-10-30T12:48:28+0800",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "results": [
+    {
+      "page": "首页",
+      "path": "/",
+      "violations": [],
+      "ok": true
+    },
+    {
+      "page": "档案柜",
+      "path": "/#/cabinet",
+      "violations": [],
+      "ok": true
+    },
+    {
+      "page": "调查桌·折叠",
+      "path": "/#/case/NA-001",
+      "violations": [],
+      "ok": true
+    },
+    {
+      "page": "调查桌·展开证据",
+      "path": "/#/case/NA-001",
+      "violations": [],
+      "ok": true
+    },
+    {
+      "page": "调查桌·选中格位",
+      "path": "/#/case/NA-001",
+      "violations": [],
+      "ok": true
+    },
+    {
+      "page": "调查桌·提交报错",
+      "path": "/#/case/NA-001",
+      "violations": [],
+      "ok": true
+    },
+    {
+      "page": "调查桌·显示提示",
+      "path": "/#/case/NA-001",
+      "violations": [],
+      "ok": true
+    },
+    {
+      "page": "结案页",
+      "path": "/#/case/NA-001",
+      "violations": [],
+      "ok": true
+    },
+    {
+      "page": "重置确认对话框",
+      "path": "/#/case/NA-001",
+      "violations": [],
+      "ok": true
+    },
+    {
+      "page": "玩法说明",
+      "path": "/#/manual",
+      "violations": [],
+      "ok": true
+    },
+    {
+      "page": "关于与隐私",
+      "path": "/#/about",
+      "violations": [],
+      "ok": true
+    },
+    {
+      "page": "调查桌·手机390",
+      "path": "/#/case/NA-004",
+      "violations": [],
+      "ok": true
+    }
+  ],
+  "total_violations": 0
+}
