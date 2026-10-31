@@ -226,9 +226,9 @@ CI 与 Pages 在该提交上均 success；两站 HTTP 200。
    - 对 ZIP 案件集合做精确白名单校验，递归检查作者答案字段、顶层 JSON 类型、符号链接、重复路径、路径穿越、作者工具目录和 CRC。
    - 先写临时 ZIP 并回读验证，再原子替换旧包；发布清单增加 BUILD 版本、案件 ID、SHA-256 与 UTC 时间。
    - 明确排除 GitHub Pages 专用 `status.html`，避免状态仪表盘进入 itch 游戏包。
-4. `.github/workflows/ci.yml`
-   - CI 新增 itch HTML5 包构建与验证，并将 ZIP 作为独立 Actions artifact 保存。
-   - 顺序为：站点构建 → itch 包构建 → 状态仪表盘生成，确保仪表盘读取本次新发行清单。
+4. `.github/workflows/ci.yml` 与 `.github/workflows/pages.yml`
+   - CI 与 Pages 均在状态仪表盘生成前构建并验证 itch HTML5 包，保证仪表盘读取本次发行清单；CI 另将 ZIP 作为独立 Actions artifact 保存。
+   - 两条工作流均固定到 `ubuntu-24.04` 与 Node.js 24；GitHub Actions 升级至当前 Node 24 运行时版本（checkout/setup-node/setup-python v7、upload-artifact v7、Pages actions v6/v5），消除 Node 20 运行时弃用警告与 `ubuntu-latest` 环境漂移提醒。
 
 ### 本机复验结果
 

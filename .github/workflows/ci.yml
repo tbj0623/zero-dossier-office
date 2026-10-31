@@ -12,17 +12,17 @@ permissions:
 jobs:
   logic:
     name: 逻辑与内容门禁
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: 作者版案件校验（唯一解 + 逐条必要性）
         run: python engine/verify_cases.py
@@ -74,13 +74,13 @@ jobs:
       - name: 无第三方远程资源（tools/check_no_remote.py）
         run: python tools/check_no_remote.py dist
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: site-dist
           path: dist/
           retention-days: 7
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: itch-html5-release
           path: release/itch-html5-release.zip
@@ -88,16 +88,16 @@ jobs:
 
   browser:
     name: 真实浏览器端到端
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: logic
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: 安装 Playwright
         run: |
@@ -122,7 +122,7 @@ jobs:
       - name: 无障碍门禁（axe-core，零违规）
         run: python tests/browser/a11y.py --base http://127.0.0.1:8080
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: browser-report
