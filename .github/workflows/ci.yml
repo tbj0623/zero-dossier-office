@@ -36,8 +36,11 @@ jobs:
       - name: Python ⇄ JavaScript 规则一致性
         run: python tests/logic/cross_check.py
 
-      - name: 构建站点
+      - name: 构建站点（干净暂存目录 + 严格案件白名单）
         run: node tools/build.mjs
+
+      - name: 构建并验证 itch.io HTML5 发行包
+        run: python tools/build_itch.py
 
       - name: 生成发布状态仪表盘
         run: python tools/build_dashboard.py
@@ -76,6 +79,12 @@ jobs:
           name: site-dist
           path: dist/
           retention-days: 7
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: itch-html5-release
+          path: release/itch-html5-release.zip
+          retention-days: 14
 
   browser:
     name: 真实浏览器端到端

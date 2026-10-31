@@ -1,6 +1,6 @@
 # MASTER_STATE · 第零证物局 V2
 
-更新时间：2026-10-30 12:25（Asia/Shanghai）— 验收整改同步（P0-01 素材来源 / P1 发行状态）
+更新时间：2026-10-31（Asia/Shanghai）— 本机最后加固与多引擎复验；详见 ops/CHECKPOINT.md 文末
 
 ## 一句话
 

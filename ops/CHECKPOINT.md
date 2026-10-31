@@ -3,7 +3,7 @@
 > **给一个看不到旧聊天的 Agent**：读完本文件 + `ops/MASTER_STATE.md` + `ops/MEMORY_GLOBAL.md`
 > 就能继续推进，不需要任何旧对话。
 
-- **更新时间**：2026-10-30 12:25（Asia/Shanghai）— 验收整改同步（发行状态、素材来源、试玩协议）
+- **更新时间**：2026-10-31（Asia/Shanghai）— 本机最后加固与多引擎复验；见文末本轮记录
 - **生产仓库路径**：`C:\Users\11930\Desktop\第零号证物局\zero-dossier-office\`
 - **输入材料（只读）**：`..\第零证物局_V2_究极版_完整策划素材案件与DSH执行包.zip`
   → 已解压至 `..\_input\Zero_Dossier_V2\`
@@ -29,11 +29,11 @@
 | 项 | 值 |
 |---|---|
 | GitHub 仓库 | <https://github.com/tbj0623/zero-dossier-office> |
-| 远端 HEAD | `7ed97bea` |
-| 本地 HEAD | `cbe25f3`（内容与远端逐 blob 一致） |
+| 远端 HEAD | 本轮推送后以 GitHub `main` 最新提交为准 |
+| 本地 HEAD | 本轮提交后以 `git rev-parse --short HEAD` 为准 |
 | 线上站点 | <https://tbj0623.github.io/zero-dossier-office/> — HTTP 200 |
 | Pages 来源 | GitHub Actions（`build_type=workflow`） |
-| CI | ✅ success（含全部门禁） |
+| CI | 本轮本机全量门禁通过；GitHub Actions 待本轮推送后复核 |
 | **itch.io** | **已公开上线** — https://tbj0623.itch.io/zero-dossier-office |
 | 社交预览 | 图片就绪，**未在仓库 Settings 设置** |
 | 真实人类试玩 | **NOT_DONE** |
@@ -48,7 +48,7 @@ $ python engine/verify_cases.py
 PASS 6 author cases FORMALLY valid
 
 $ python -m unittest discover -s tests/logic -p 'test_*.py'
-Ran 44 tests — OK
+Ran 57 tests — OK
 
 $ node --test tests/logic/solver.test.mjs
 tests 52 / pass 52 / fail 0
@@ -201,3 +201,67 @@ CI 与 Pages 在该提交上均 success；两站 HTTP 200。
 
 **踩坑记录**：`ops_bash` 的 heredoc 会解释反斜杠转义，写 Windows 路径时曾把
 `\tmp\backup` 变成 `TAB + BS` 控制字符。已修，并对全部跟踪文件做了控制字符自查（0 处残留）。
+
+
+---
+
+## 2026-10-31 本机最后加固与复验（Remote Desktop Commander 直接执行）
+
+本轮由 ChatGPT 通过已授权的 Remote Desktop Commander 在 Windows 工作区直接完成；未调用 DSH 执行、未修改 DSH 配置、未触碰其他仓库。
+
+**工作区**：`C:\Users\11930\Desktop\第零号证物局\zero-dossier-office\`
+**开始基线**：`main` @ `0a483d8`，本地与 `origin/main` 同步且工作区干净。
+
+### 代码改动
+
+1. `tools/build.mjs`
+   - 不再把 `site/cases/` 与 `site/engine/` 当作可信发布输入；从 `cases/public/` 与 `engine/solver.mjs` 单独复制。
+   - 发布案件集合必须与 6 案白名单完全一致；多出或缺少 JSON 均失败。
+   - 先在输出目录同卷创建全新暂存目录，完成文件一致性、案件集合、内部答案字段和样式内联检查后，再通过目录重命名替换 `dist/`。
+   - 旧 `dist/` 无法安全移走时构建失败，不再逐文件覆盖或跳过占用文件。
+   - 增加 `--out` 参数及输出路径保护，禁止把仓库根目录、源码目录、测试目录、`.git` 等作为输出目标。
+2. `tests/logic/test_build_isolation.py`
+   - 新增 3 项回归：旧 `site/cases` 缓存与旧输出残留不能混入；白名单外案件必须阻断且保留旧产物；危险输出路径必须拒绝。
+3. `tools/build_itch.py`
+   - 对 ZIP 案件集合做精确白名单校验，递归检查作者答案字段、顶层 JSON 类型、符号链接、重复路径、路径穿越、作者工具目录和 CRC。
+   - 先写临时 ZIP 并回读验证，再原子替换旧包；发布清单增加 BUILD 版本、案件 ID、SHA-256 与 UTC 时间。
+   - 明确排除 GitHub Pages 专用 `status.html`，避免状态仪表盘进入 itch 游戏包。
+4. `.github/workflows/ci.yml`
+   - CI 新增 itch HTML5 包构建与验证，并将 ZIP 作为独立 Actions artifact 保存。
+   - 顺序为：站点构建 → itch 包构建 → 状态仪表盘生成，确保仪表盘读取本次新发行清单。
+
+### 本机复验结果
+
+| 检查 | 结果 |
+|---|---:|
+| 作者案件形式化校验 | 6/6 PASS |
+| Python 单元测试 | 57/57 PASS |
+| JavaScript 单元测试 | 52/52 PASS |
+| Python ⇄ JavaScript 真值探针 | 4508/4508 一致 |
+| 构建隔离反向测试 | 3/3 PASS |
+| Chromium 本地浏览器 E2E | 38/38 PASS，六案 6/6 |
+| axe 无障碍状态 | 12/12 零违规 |
+| Chromium / Firefox / Playwright WebKit | 42/42 PASS |
+| 英文模式 | 12/12 PASS，六案 6/6 |
+| 跨源 iframe | 10/10 PASS |
+| itch.io 公开匿名访客 | 20/20 PASS，六案 6/6 |
+| 站内链接 / 无第三方资源 / 许可 / 封面 / tabindex | 全部 PASS |
+
+**本轮 itch ZIP**：27 个文件；解压 932,608 B；ZIP 726,680 B；`index.html` 位于 ZIP 根目录；SHA-256：`8a5c086ac1e07e7d279758d77aa9b98869d3310a9ae01dabbbe9112c92e069f4`。BUILD 标记为预提交本机回归时 HEAD `0a483d8`；正式提交后的发布包由 CI 重新构建。
+
+本机浏览器实测使用本地 `dist/`；itch 线上回归仍命中公开托管实例 `html-classic.itch.zone/...index.html?v=17`。本轮仅修改构建与发行校验工具，没有修改游戏玩法代码，因此没有重新上传 itch 包。
+
+### 尚未完成（不能由自动化伪造）
+
+- **G5 真人试玩**：仍为 0 个真实样本；按 `docs/PLAYTEST_PROTOCOL.md` 邀请 3–5 名陌生玩家。
+- **GitHub Social Preview**：GraphQL 查询确认 `usesCustomOpenGraphImage=false`。候选图 `site/assets/github-social-preview.png` 已就绪，1280×640、265,081 B；GitHub 目前没有公开 REST/GraphQL 上传接口，需在仓库 Settings → Social preview 手动上传。
+- **屏幕阅读器**：本机未检测到 NVDA 命令，尚未做 NVDA / VoiceOver 实机测试。
+- **真实 Safari / iOS Safari**：Playwright WebKit 通过不等于真实 Safari 验证。
+- **素材来源待项目方确认**：`docs/PROVENANCE.md` 的 `PENDING_OWNER-1/2/3/4/6` 仍开放。
+
+### 继续步骤
+
+1. 本轮代码改动已本地提交；推送 `main` 并核对 GitHub Actions 与 Pages。
+2. 等待 GitHub Actions CI 与 Pages 部署完成，再核对最新 commit、部署 URL 和状态页 BUILD 标记。
+3. 不把本地新 ZIP 宣称为已上传；只有 itch 后台上传并再次跑匿名访客测试后，才更新线上发行状态。
+4. 让项目方完成 Social Preview 上传与真人试玩；取得真实结果后再关闭相应待办。

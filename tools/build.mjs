@@ -1,21 +1,30 @@
 #!/usr/bin/env node
 /**
- * 构建站点：
- *  1. 把 engine/solver.mjs 复制到 site/engine/solver.mjs（single source of truth）
- *  2. 把 cases/public/*.json 复制到 site/cases/*.json（只发布已过审的案卷）
- *  3. 注入 BUILD 版本串
+ * 干净、隔离、可验证的静态站点构建。
+ *
+ * - 从 site/ 复制静态文件，但绝不信任其中生成的 cases/ 与 engine/
+ * - 只从 cases/public/ 的固定白名单复制已审案件
+ * - 在同卷临时目录构建，验证完成后再替换 dist/
+ * - 旧输出无法安全移走时直接失败，不允许带残留继续发布
  *
  * 用法：node tools/build.mjs [--out dist]
  * 不依赖任何 npm 包。
  */
-import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, existsSync, readdirSync } from 'node:fs';
-import { execSync } from 'node:child_process';
-import { join, dirname, resolve } from 'node:path';
+import {
+  readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, existsSync,
+  readdirSync, renameSync, mkdtempSync, statSync,
+} from 'node:fs';
+import {
+  join, dirname, resolve, relative, basename, isAbsolute,
+} from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execSync } from 'node:child_process';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = join(ROOT, 'site');
-const DIST = join(ROOT, 'dist');
+const PUBLIC_DIR = join(ROOT, 'cases', 'public');
+const RELEASED_IDS = ['NA-001', 'NA-002', 'NA-003', 'NA-004', 'NA-005', 'NA-006'];
+const INCLUDE_TOOLS = process.env.INCLUDE_TOOLS === '1';
 
 function sh(cmd) {
   try {
@@ -26,95 +35,34 @@ function sh(cmd) {
   }
 }
 
-const buildVersion = process.env.BUILD_VERSION
-  || sh('git rev-parse --short HEAD')
-  || new Date().toISOString().slice(0, 10);
-
-/* 1) 校验源文件存在 */
-const required = [
-  join(ROOT, 'engine/solver.mjs'),
-  join(SITE, 'index.html'),
-  join(SITE, 'app.mjs'),
-];
-for (const p of required) {
-  if (!existsSync(p)) {
-    console.error(`缺少必需文件：${p}`);
-    process.exit(1);
+function getOutDir() {
+  const indexes = process.argv
+    .map((arg, index) => arg === '--out' ? index : -1)
+    .filter((index) => index >= 0);
+  if (indexes.length > 1) throw new Error('--out 只能指定一次');
+  const index = indexes[0];
+  if (index !== undefined && (!process.argv[index + 1] || process.argv[index + 1].startsWith('--'))) {
+    throw new Error('--out 后必须提供输出目录');
   }
-}
-
-/* 2) 同步求解核心 */
-mkdirSync(join(SITE, 'engine'), { recursive: true });
-cpSync(join(ROOT, 'engine/solver.mjs'), join(SITE, 'engine/solver.mjs'));
-
-/* 3) 同步案件（只发布 cases/public 中在 RELEASED 白名单内的） */
-const RELEASED = new Set(['NA-001', 'NA-002', 'NA-003', 'NA-004', 'NA-005', 'NA-006']);
-const PUBLIC_DIR = join(ROOT, 'cases/public');
-mkdirSync(join(SITE, 'cases'), { recursive: true });
-let copied = 0;
-for (const f of readdirSync(PUBLIC_DIR).filter((x) => x.endsWith('.json')).sort()) {
-  const id = f.replace(/\.json$/, '');
-  if (!RELEASED.has(id)) {
-    console.log(`  · 跳过未过审案件 ${id}`);
-    continue;
+  const raw = index === undefined
+    ? (process.env.npm_config_out || 'dist')
+    : process.argv[index + 1];
+  const outDir = resolve(ROOT, raw);
+  const rel = relative(ROOT, outDir);
+  if (!rel || rel === '..' || rel.startsWith('..\\') || isAbsolute(rel)) {
+    throw new Error('输出目录必须是仓库根目录内的独立子目录');
   }
-  cpSync(join(PUBLIC_DIR, f), join(SITE, 'cases', f));
-  copied += 1;
-}
-if (copied === 0) {
-  console.error('没有可发布的案件');
-  process.exit(1);
-}
-
-/* 4) 产出 dist/（源目录只读，绝不回写 site/） */
-const outDir = process.env.npm_config_out ? resolve(process.env.npm_config_out) : DIST;
-
-/**
- * 清空输出目录：先尝试删目录本身；Windows 上若目录被别的进程（如静态服务器）
- * 占住句柄，rmSync 会 EPERM。此时退化为「清空内容」——之后的 cpSync 会覆盖，
- * 少量残留也不会影响结果，且不再让整个构建失败。
- */
-try {
-  rmSync(outDir, { recursive: true, force: true });
-} catch (err) {
-  if (err && (err.code === 'EPERM' || err.code === 'EBUSY' || err.code === 'ENOTEMPTY')) {
-    console.warn(`· 无法整体删除 ${outDir}（可能被其它进程占用），改为清空内容`);
-    if (existsSync(outDir)) {
-      for (const entry of readdirSync(outDir)) {
-        try {
-          rmSync(join(outDir, entry), { recursive: true, force: true });
-        } catch {
-          console.warn(`· 跳过被占用的 ${entry}`);
-        }
-      }
-    }
-  } else {
-    throw err;
+  const first = rel.split(/[\\/]/)[0].toLowerCase();
+  const protectedRoots = new Set([
+    '.git', 'site', 'cases', 'engine', 'tools', 'tests',
+    'docs', 'work', 'review', 'release', 'ops', 'marketing',
+  ]);
+  if (protectedRoots.has(first)) {
+    throw new Error('拒绝将构建输出写入受保护的源码/项目目录：' + rel);
   }
-}
-mkdirSync(outDir, { recursive: true });
-cpSync(SITE, outDir, {
-  recursive: true,
-  filter: (src) => {
-    const rel = src.slice(SITE.length + 1).split(/[\\/]/);
-    // 作者工具（案件编辑器）只留在仓库里，不随发布产物公开。
-    // 需要临时带上看效果时：INCLUDE_TOOLS=1 node tools/build.mjs
-    if (process.env.INCLUDE_TOOLS !== '1' && rel[0] === 'tools') return false;
-    const base = rel[rel.length - 1];
-    return !['node_modules', '.DS_Store', 'Thumbs.db'].includes(base);
-  },
-});
-
-/* 4a) 自校验：dist 必须与 site 的每个源文件字节一致（防止占用导致静默跳过） */
-const REQUIRED_TOP = ['index.html', 'app.mjs', 'styles', 'engine', 'cases', 'assets'];
-for (const item of REQUIRED_TOP) {
-  if (!existsSync(join(outDir, item))) {
-    console.error(`构建产物缺少 ${item}`);
-    process.exit(1);
-  }
+  return outDir;
 }
 
-/** 递归列出目录下所有文件（相对路径）。 */
 function listFiles(root, base = root) {
   const out = [];
   for (const entry of readdirSync(root, { withFileTypes: true })) {
@@ -125,109 +73,225 @@ function listFiles(root, base = root) {
   return out;
 }
 
-const stale = [];
-for (const rel of listFiles(SITE)) {
-  if (process.env.INCLUDE_TOOLS !== '1' && rel.split(/[\\/]/)[0] === 'tools') continue;
-  const srcPath = join(SITE, rel);
-  const dstPath = join(outDir, rel);
-  if (!existsSync(dstPath)) {
-    stale.push(`${rel}: 构建产物缺失`);
-    continue;
-  }
-  const a = readFileSync(srcPath);
-  const b = readFileSync(dstPath);
-  // app.mjs 会被注入 BUILD 版本号，比较时忽略该行
-  if (rel === 'app.mjs') {
-    const norm = (buf) => buf.toString('utf8').replace(/const BUILD = '[^']*';/, 'const BUILD = X;');
-    if (norm(a) !== norm(b)) stale.push(`${rel}: 与源文件不一致`);
-  } else if (!a.equals(b)) {
-    stale.push(`${rel}: 与源文件不一致`);
-  }
-}
-if (stale.length) {
-  console.error('构建产物与源码不一致（可能因文件被占用而跳过覆盖）：');
-  for (const line of stale.slice(0, 20)) console.error('  ' + line);
-  process.exit(1);
-}
-if (process.env.INCLUDE_TOOLS !== '1' && existsSync(join(outDir, 'tools'))) {
-  console.error('发布包中出现了 site/tools/（作者工具不应公开）');
-  process.exit(1);
+function skipSiteRelative(rel) {
+  const parts = rel.replace(/\\/g, '/').split('/');
+  const first = parts[0];
+  const base = parts[parts.length - 1];
+  if (first === 'cases' || first === 'engine') return true;
+  if (!INCLUDE_TOOLS && first === 'tools') return true;
+  return ['node_modules', '.DS_Store', 'Thumbs.db'].includes(base);
 }
 
-/* 4a2) 发布包不得包含作者工具（防回归） */
-if (process.env.INCLUDE_TOOLS !== '1' && existsSync(join(outDir, 'tools'))) {
-  console.error('发布包中出现了 site/tools/（作者工具不应公开）');
-  process.exit(1);
-}
+function main() {
+  let stageDir = null;
+  try {
+    const outDir = getOutDir();
+    const buildVersion = process.env.BUILD_VERSION
+      || sh('git rev-parse --short HEAD')
+      || new Date().toISOString().slice(0, 10);
+    if (!/^[A-Za-z0-9._-]{1,80}$/.test(buildVersion)) {
+      throw new Error('BUILD_VERSION 只能包含字母、数字、点、下划线和连字符');
+    }
 
-/* 4b) 只在 dist 副本里注入构建版本 */
-const distApp = join(outDir, 'app.mjs');
-const app = readFileSync(distApp, 'utf8');
-if (!/const BUILD = '[^']*';/.test(app)) {
-  console.error('app.mjs 中找不到 BUILD 占位符');
-  process.exit(1);
-}
-writeFileSync(
-  distApp,
-  app.replace(/const BUILD = '[^']*';/, `const BUILD = '${buildVersion}';`),
-  'utf8',
-);
+    const required = [
+      join(ROOT, 'engine', 'solver.mjs'),
+      join(SITE, 'index.html'),
+      join(SITE, 'app.mjs'),
+      PUBLIC_DIR,
+    ];
+    for (const path of required) {
+      if (!existsSync(path)) throw new Error('缺少必需文件：' + path);
+    }
 
-/* 4c) 把三张样式表内联进 dist/index.html
- *
- * 原来用 <link rel="preload" ... onload="this.rel='stylesheet'"> 异步加载 CSS，
- * 换取不阻塞首屏。但 Lighthouse 实测 CLS = 0.442（远超 0.1 的良好线）：
- * 样式表晚到时整页重排，正是"异步 CSS"最典型的代价。
- *
- * 站点 CSS 一共 44.6 KB（gzip 后约 9 KB），内联的代价远小于重排的代价：
- *   - 少 3 个请求、少 1 轮往返
- *   - 首帧就是最终版式，CLS 归零
- *   - 仍然没有任何第三方资源
- *
- * 只改 dist 副本，site/ 源文件保持"外链样式表"以便开发时热改。
- */
-const distIndex = join(outDir, 'index.html');
-let indexHtml = readFileSync(distIndex, 'utf8');
-let inlinedCount = 0;
-indexHtml = indexHtml.replace(
-  /<link rel="preload" href="\.\/styles\/([\w-]+)\.css" as="style"[^>]*>/g,
-  (match, name) => {
-    const cssPath = join(outDir, 'styles', `${name}.css`);
-    if (!existsSync(cssPath)) return match; // 文件不在就保留原标签，不静默丢样式
-    let css = readFileSync(cssPath, 'utf8');
-    // 关键：CSS 一旦内联进 index.html，url() 的解析基准就从
-    // "/styles/app.css" 变成文档本身。原本正确的 "../assets/x" 会变成域名根的
-    // "/assets/x"，在 GitHub Pages 项目站点（挂在 /zero-dossier-office/ 下）直接 404。
-    // 这是 Lighthouse 实测抓到的真实 bug（errors-in-console 扣分 + 首屏背景丢失）。
-    css = css.replace(/url\((['"]?)\.\.\/assets\//g, 'url($1./assets/');
-    inlinedCount += 1;
-    return `<style data-inlined="${name}">\n${css}\n</style>`;
-  },
-);
-if (inlinedCount !== 3) {
-  console.error(`样式内联异常：只内联了 ${inlinedCount}/3 张`);
-  process.exit(1);
-}
-writeFileSync(distIndex, indexHtml, 'utf8');
-console.log(`· 已内联 ${inlinedCount} 张样式表，dist/index.html = ${(indexHtml.length / 1024).toFixed(1)} KB`);
+    const expectedNames = RELEASED_IDS.map((id) => id + '.json').sort();
+    const actualNames = readdirSync(PUBLIC_DIR)
+      .filter((name) => name.toLowerCase().endsWith('.json')).sort();
+    const expectedSet = new Set(expectedNames);
+    const extra = actualNames.filter((name) => !expectedSet.has(name));
+    const missing = expectedNames.filter((name) => !actualNames.includes(name));
+    if (extra.length || missing.length) {
+      throw new Error(
+        'cases/public 白名单不匹配；额外文件：' + (extra.join(', ') || '无')
+        + '；缺失文件：' + (missing.join(', ') || '无'),
+      );
+    }
+    for (const name of expectedNames) {
+      const data = JSON.parse(readFileSync(join(PUBLIC_DIR, name), 'utf8'));
+      if (!data || typeof data !== 'object' || Array.isArray(data)) {
+        throw new Error('案件 JSON 结构无效：' + name);
+      }
+    }
 
-/* 6) 自检：dist 内不得出现作者答案字段 */
-const bad = [];
-function scan(dir) {
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, entry.name);
-    if (entry.isDirectory()) { scan(p); continue; }
-    if (!entry.name.endsWith('.json')) continue;
-    const text = readFileSync(p, 'utf8');
-    for (const field of ['expected_solution', 'editorial_note', 'logic_recap_check']) {
-      if (text.includes(`"${field}"`)) bad.push(`${p} 含 ${field}`);
+    const parent = dirname(outDir);
+    mkdirSync(parent, { recursive: true });
+    stageDir = mkdtempSync(join(parent, '.' + basename(outDir) + '.stage-'));
+    cpSync(SITE, stageDir, {
+      recursive: true,
+      filter: (src) => {
+        if (src === SITE) return true;
+        const rel = relative(SITE, src);
+        return !skipSiteRelative(rel);
+      },
+    });
+
+    // cases/ 与 engine/ 从可信源单独复制，完全忽略 site/ 中的旧缓存。
+    mkdirSync(join(stageDir, 'engine'), { recursive: true });
+    cpSync(
+      join(ROOT, 'engine', 'solver.mjs'),
+      join(stageDir, 'engine', 'solver.mjs'),
+    );
+    mkdirSync(join(stageDir, 'cases'), { recursive: true });
+    for (const id of RELEASED_IDS) {
+      cpSync(
+        join(PUBLIC_DIR, id + '.json'),
+        join(stageDir, 'cases', id + '.json'),
+      );
+    }
+
+    const requiredTop = ['index.html', 'app.mjs', 'styles', 'engine', 'cases', 'assets'];
+    for (const item of requiredTop) {
+      if (!existsSync(join(stageDir, item))) {
+        throw new Error('构建产物缺少 ' + item);
+      }
+    }
+
+    const stagedCases = readdirSync(join(stageDir, 'cases')).sort();
+    const stagedEngine = readdirSync(join(stageDir, 'engine')).sort();
+    if (JSON.stringify(stagedCases) !== JSON.stringify(expectedNames)) {
+      throw new Error('暂存目录案件集合与发布白名单不一致：' + stagedCases.join(', '));
+    }
+    if (JSON.stringify(stagedEngine) !== JSON.stringify(['solver.mjs'])) {
+      throw new Error('暂存目录 engine/ 含有白名单外文件：' + stagedEngine.join(', '));
+    }
+
+    // 对静态站点源码逐文件核对；生成目录 cases/、engine/ 已单独验证。
+    const mismatches = [];
+    for (const rel of listFiles(SITE)) {
+      if (skipSiteRelative(rel)) continue;
+      const source = join(SITE, rel);
+      const staged = join(stageDir, rel);
+      if (!existsSync(staged)) {
+        mismatches.push(rel + ': 暂存产物缺失');
+        continue;
+      }
+      const a = readFileSync(source);
+      const b = readFileSync(staged);
+      if (rel === 'app.mjs') {
+        const normalize = (buf) => buf.toString('utf8')
+          .replace(/const BUILD = '[^']*';/, 'const BUILD = X;');
+        if (normalize(a) !== normalize(b)) mismatches.push(rel + ': 与源码不一致');
+      } else if (!a.equals(b)) {
+        mismatches.push(rel + ': 与源码不一致');
+      }
+    }
+    if (mismatches.length) {
+      throw new Error('暂存产物与源码不一致：\n' + mismatches.slice(0, 20).join('\n'));
+    }
+
+    // 只在暂存副本里注入构建版本。
+    const stagedApp = join(stageDir, 'app.mjs');
+    const app = readFileSync(stagedApp, 'utf8');
+    if (!/const BUILD = '[^']*';/.test(app)) {
+      throw new Error('app.mjs 中找不到 BUILD 占位符');
+    }
+    writeFileSync(
+      stagedApp,
+      app.replace(/const BUILD = '[^']*';/, "const BUILD = '" + buildVersion + "';"),
+      'utf8',
+    );
+
+    // 将三张样式表内联进暂存版 index.html，避免首屏布局偏移。
+    const stagedIndex = join(stageDir, 'index.html');
+    let indexHtml = readFileSync(stagedIndex, 'utf8');
+    let inlinedCount = 0;
+    indexHtml = indexHtml.replace(
+      /<link rel="preload" href="\.\/styles\/([\w-]+)\.css" as="style"[^>]*>/g,
+      (match, name) => {
+        const cssPath = join(stageDir, 'styles', name + '.css');
+        if (!existsSync(cssPath)) return match;
+        let css = readFileSync(cssPath, 'utf8');
+        css = css.replace(/url\((['"]?)\.\.\/assets\//g, 'url($1./assets/');
+        inlinedCount += 1;
+        return '<style data-inlined="' + name + '">\n' + css + '\n</style>';
+      },
+    );
+    if (inlinedCount !== 3) {
+      throw new Error('样式内联异常：只内联了 ' + inlinedCount + '/3 张');
+    }
+    writeFileSync(stagedIndex, indexHtml, 'utf8');
+
+    // 发布产物中不得出现作者答案字段。
+    const forbiddenFields = ['expected_solution', 'editorial_note', 'logic_recap_check'];
+    const leaks = [];
+    function scanJson(dir) {
+      for (const entry of readdirSync(dir, { withFileTypes: true })) {
+        const path = join(dir, entry.name);
+        if (entry.isDirectory()) {
+          scanJson(path);
+          continue;
+        }
+        if (!entry.name.toLowerCase().endsWith('.json')) continue;
+        const raw = readFileSync(path, 'utf8');
+        for (const field of forbiddenFields) {
+          if (raw.includes('"' + field + '"')) leaks.push(path + ' 含 ' + field);
+        }
+      }
+    }
+    scanJson(stageDir);
+    if (leaks.length) throw new Error('发布包泄漏内部字段：\n' + leaks.join('\n'));
+
+    if (!INCLUDE_TOOLS && existsSync(join(stageDir, 'tools'))) {
+      throw new Error('发布包中出现了 site/tools/（作者工具不应公开）');
+    }
+
+    // 同卷重命名替换旧产物。旧目录若被占用，失败并保留原目录；
+    // 绝不降级成逐文件覆盖，也不允许旧文件混入新发行包。
+    const backupDir = outDir + '.previous-' + process.pid;
+    if (existsSync(backupDir)) throw new Error('旧构建备份目录已存在，拒绝覆盖：' + backupDir);
+    let movedOld = false;
+    if (existsSync(outDir)) {
+      if (!statSync(outDir).isDirectory()) throw new Error('输出路径已存在但不是目录：' + outDir);
+      renameSync(outDir, backupDir);
+      movedOld = true;
+    }
+    try {
+      renameSync(stageDir, outDir);
+      stageDir = null;
+    } catch (error) {
+      if (movedOld && existsSync(backupDir) && !existsSync(outDir)) {
+        try {
+          renameSync(backupDir, outDir);
+          movedOld = false;
+        } catch (restoreError) {
+          console.error('严重：新产物安装失败，旧产物恢复也失败：' + restoreError.message);
+        }
+      }
+      throw error;
+    }
+    if (movedOld) {
+      try {
+        rmSync(backupDir, { recursive: true, force: true });
+      } catch (error) {
+        console.warn('新产物已就位，但旧备份无法清理：' + backupDir + ' (' + error.message + ')');
+      }
+    }
+
+    console.log('· 已内联 3 张样式表，index.html = '
+      + (readFileSync(join(outDir, 'index.html'), 'utf8').length / 1024).toFixed(1) + ' KB');
+    console.log('构建完成 · 版本 ' + buildVersion + ' · ' + RELEASED_IDS.length
+      + ' 个白名单案件 · 输出 ' + outDir);
+  } catch (error) {
+    console.error('构建失败：' + (error && error.message ? error.message : String(error)));
+    process.exitCode = 1;
+  } finally {
+    if (stageDir && existsSync(stageDir)) {
+      try {
+        rmSync(stageDir, { recursive: true, force: true });
+      } catch (error) {
+        console.error('暂存目录清理失败：' + stageDir + ' (' + error.message + ')');
+      }
     }
   }
 }
-scan(outDir);
-if (bad.length) {
-  console.error('发布包泄漏内部字段：\n' + bad.join('\n'));
-  process.exit(1);
-}
 
-console.log(`构建完成 · 版本 ${buildVersion} · ${copied} 个案件 · 输出 ${outDir}`);
+main();
