@@ -33,9 +33,9 @@
 | 本地 HEAD | 本轮提交后以 `git rev-parse --short HEAD` 为准 |
 | 线上站点 | <https://tbj0623.github.io/zero-dossier-office/> — HTTP 200 |
 | Pages 来源 | GitHub Actions（`build_type=workflow`） |
-| CI | 本轮本机全量门禁通过；GitHub Actions 待本轮推送后复核 |
+| CI | 本轮 main 最新 CI 与 Pages 均通过；以 Actions 最新记录为准 |
 | **itch.io** | **已公开上线** — https://tbj0623.itch.io/zero-dossier-office |
-| 社交预览 | 图片就绪，**未在仓库 Settings 设置** |
+| 社交预览 | `usesCustomOpenGraphImage=false`；候选图就绪，尚未在仓库 Settings 设置 |
 | 真实人类试玩 | **NOT_DONE** |
 | 费用 | 零 |
 
@@ -251,6 +251,8 @@ CI 与 Pages 在该提交上均 success；两站 HTTP 200。
 
 本机浏览器实测使用本地 `dist/`；itch 线上回归仍命中公开托管实例 `html-classic.itch.zone/...index.html?v=17`。本轮仅修改构建与发行校验工具，没有修改游戏玩法代码，因此没有重新上传 itch 包。
 
+**正式提交与线上验证**：构建加固提交 `c0f01bf`、CI/Pages 维护提交 `42fd6dd` 均已推送；CI run `41210547473` 与 Pages run `41210547570` 成功。线上 `app.mjs` BUILD 标记与 `42fd6dd73d814c582a0ffca6e242ebf33652fd76` 一致，状态页 HTTP 200，显示 itch 包 27 个文件。
+
 ### 尚未完成（不能由自动化伪造）
 
 - **G5 真人试玩**：仍为 0 个真实样本；按 `docs/PLAYTEST_PROTOCOL.md` 邀请 3–5 名陌生玩家。
@@ -261,7 +263,8 @@ CI 与 Pages 在该提交上均 success；两站 HTTP 200。
 
 ### 继续步骤
 
-1. 本轮代码改动已本地提交；推送 `main` 并核对 GitHub Actions 与 Pages。
-2. 等待 GitHub Actions CI 与 Pages 部署完成，再核对最新 commit、部署 URL 和状态页 BUILD 标记。
-3. 不把本地新 ZIP 宣称为已上传；只有 itch 后台上传并再次跑匿名访客测试后，才更新线上发行状态。
-4. 让项目方完成 Social Preview 上传与真人试玩；取得真实结果后再关闭相应待办。
+1. 技术整改与 CI/Pages 部署已完成；继续以 GitHub Actions 最新 `main` 记录为准。
+2. itch 玩法代码未改，公开版仍为 `v17`；本轮新 ZIP 已在 Actions artifact 中生成，但未上传 itch 后台，不把它标记为新线上版本。
+3. 项目方在 GitHub 仓库 Settings → Social preview 上传 `site/assets/github-social-preview.png`。
+4. 按 `docs/PLAYTEST_PROTOCOL.md` 完成 3–5 名陌生玩家试玩；补做真实 NVDA/VoiceOver 与 Safari/iOS Safari 测试。
+5. 由项目方确认 `docs/PROVENANCE.md` 中仍开放的 `PENDING_OWNER` 项。
