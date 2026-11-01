@@ -103,7 +103,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install playwright
-          python -m playwright install --with-deps chromium
+          python -m playwright install --with-deps chromium firefox webkit
 
       - name: 构建
         run: node tools/build.mjs
@@ -121,6 +121,9 @@ jobs:
 
       - name: 玩家体验升级回归（存档、撤销重做、续玩、双语和导航）
         run: python tests/browser/ux_v3.py --base http://127.0.0.1:8080
+
+      - name: V4 情境导航与证据定位回归
+        run: python tests/browser/ux_v4.py --base http://127.0.0.1:8080
 
       - name: 无障碍门禁（axe-core，零违规）
         run: python tests/browser/a11y.py --base http://127.0.0.1:8080

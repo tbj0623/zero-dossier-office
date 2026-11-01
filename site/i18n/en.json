@@ -1362,6 +1362,18 @@
     "manual.keys.row5.action": {
       "zh": "Ctrl/Cmd+Z 撤销；Ctrl/Cmd+Shift+Z 或 Ctrl/Cmd+Y 重做",
       "en": "Ctrl/Cmd+Z: undo. Ctrl/Cmd+Shift+Z or Ctrl/Cmd+Y: redo."
+    },
+    "desk.jump.board": {
+      "zh": "证据看完了 · 去复原格位 ↓",
+      "en": "Finished reading? Jump to arrangement ↓"
+    },
+    "desk.jump.evidence": {
+      "zh": "↑ 回看证物",
+      "en": "↑ Return to evidence"
+    },
+    "desk.submit.evidence.open": {
+      "zh": "查看证物 {id}「{title}」的冲突关系 ↑",
+      "en": "Review conflicting evidence {id}: {title} ↑"
     }
   },
   "cases": {

@@ -738,7 +738,7 @@ function renderDesk(c) {
   /* ---------- 左：证据 ---------- */
   const evCol = el('section', { class: 'evidence-col', aria: { labelledby: 'ev-heading' } });
   const evHead = el('div', { class: 'col-head' });
-  evHead.append(el('h2', { class: 'h3', id: 'ev-heading', text: t('desk.evidence.heading', '已采集证物'), style: 'font-size:var(--step-1);margin:0' }));
+  evHead.append(el('h2', { class: 'h3', id: 'ev-heading', tabindex: '-1', text: t('desk.evidence.heading', '已采集证物'), style: 'font-size:var(--step-1);margin:0' }));
   evHead.append(el('p', { class: 'hint', text: tf('desk.evidence.count', { n: c.evidence.length }, `${c.evidence.length} 份 · 可逐张展开`) }));
   evCol.append(evHead);
 
@@ -798,6 +798,14 @@ function renderDesk(c) {
   }
   if (afterword.childElementCount) evCol.append(afterword);
 
+  // 手机端的情境导航：无需在证据和排列板间反复长距离滚动。
+  evCol.append(el('div', { class: 'desk-jump desk-jump--after-evidence' }, [
+    el('button', {
+      type: 'button', class: 'desk-jump__button', dataset: { jump: 'board' },
+      text: t('desk.jump.board', '证据看完了 · 去复原格位 ↓'),
+    }),
+  ]));
+
   desk.append(evCol);
 
   /* ---------- 右：复原板 ---------- */
@@ -805,9 +813,15 @@ function renderDesk(c) {
   const board = el('div', { class: 'board' });
 
   const bHead = el('div', { class: 'col-head' });
-  bHead.append(el('h2', { id: 'board-heading', text: t('desk.board.heading', '复原格位'), style: 'font-size:var(--step-1);margin:0' }));
+  bHead.append(el('h2', { id: 'board-heading', tabindex: '-1', text: t('desk.board.heading', '复原格位'), style: 'font-size:var(--step-1);margin:0' }));
   bHead.append(el('p', { class: 'hint', text: tf('desk.board.count', { n: c.slots.length }, `共 ${c.slots.length} 格`) }));
   board.append(bHead);
+  board.append(el('div', { class: 'desk-jump desk-jump--in-board' }, [
+    el('button', {
+      type: 'button', class: 'desk-jump__button', dataset: { jump: 'evidence' },
+      text: t('desk.jump.evidence', '↑ 回看证物'),
+    }),
+  ]));
 
   const goal = el('div', { class: 'board__goal' });
   goal.append(ICON.info());
@@ -1016,7 +1030,7 @@ function swap(a, b) {
   clearMessage();
   setStatus('idle', t('desk.status.adjusted', '已调整排列，等待核对'));
   persist();
-  drawSlots();
+  drawSlots({ index: b, act: 'pick' });
   drawHints();
   syncButtons();
 }
@@ -1092,7 +1106,14 @@ function submit() {
     const conflicting = c.evidence.filter((e) => e.constraint_ids.some((cid) => bad.some((b) => b.id === cid)));
     const list = el('ul');
     for (const e of conflicting) {
-      list.append(el('li', { text: tf('desk.submit.evidence', { id: e.id, title: e.title }, `${e.id}「${e.title}」中描述的关系与你的排列不一致。`) }));
+      list.append(el('li', {}, [
+        el('button', {
+          type: 'button', class: 'evidence-locator',
+          dataset: { openEvidence: e.id },
+          text: tf('desk.submit.evidence.open', { id: e.id, title: e.title },
+            `查看证物 ${e.id}「${e.title}」的冲突关系 ↑`),
+        }),
+      ]));
     }
     setMessage('bad', [
       el('strong', { text: tf('desk.submit.conflicts', { n: bad.length }, `档案仍有不一致：${bad.length} 条关系未满足。`) }),
@@ -1120,6 +1141,25 @@ function submit() {
         || state.caseId !== c.id || !state.solved) return;
     renderVerdict(c, checks);
   }, 420);
+}
+
+function focusAndReveal(node) {
+  if (!node) return;
+  node.focus({ preventScroll: true });
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  node.scrollIntoView({ block: 'start', behavior: reduced ? 'auto' : 'smooth' });
+}
+
+/** 用已有证据原文来解释冲突；不透露谜底，手机上也无需手动找证物。 */
+function openEvidenceById(id) {
+  const card = $$('.ev-card').find((node) => node.dataset.evId === id);
+  if (!card) return;
+  card.dataset.open = 'true';
+  const summary = card.querySelector('.ev-card__summary');
+  summary?.setAttribute('aria-expanded', 'true');
+  const body = card.querySelector('.ev-card__body');
+  if (body) body.hidden = false;
+  focusAndReveal(summary);
 }
 
 function flashConflicts(bad, c) {
@@ -1272,6 +1312,18 @@ function bindDeskEvents(c) {
 
   const root = $('#case-root');
   root.addEventListener('click', (e) => {
+    const locator = e.target.closest('[data-open-evidence]');
+    if (locator) {
+      openEvidenceById(locator.dataset.openEvidence);
+      return;
+    }
+    const jump = e.target.closest('[data-jump]');
+    if (jump) {
+      const target = jump.dataset.jump === 'evidence' ? $('#ev-heading')
+        : jump.dataset.jump === 'board' ? $('#board-heading') : null;
+      focusAndReveal(target);
+      return;
+    }
     const summary = e.target.closest('.ev-card__summary');
     if (summary) {
       const card = summary.closest('.ev-card');

@@ -20,13 +20,19 @@
 
 | 平台 | 入口 | 区别 |
 |---|---|---|
-| **GitHub Pages** | <https://tbj0623.github.io/zero-dossier-office/> | **完整站**：由 Actions 从本仓库 `dist/` 同源部署，中英双语随时切换，`main` 一推送即刻生效；源码、issue、CI 结果都在同一仓库 |
-| **itch.io** | <https://tbj0623.itch.io/zero-dossier-office/> | **HTML5 发行包**：上传的是 `release/itch-html5-release.zip`（710 KB / 27 文件），在 itch 的 iframe 里嵌入游玩（1280 × 800，可全屏），版本不与仓库自动同步，需手动重传 |
+| **GitHub Pages** | <https://tbj0623.github.io/zero-dossier-office/> | **完整站**：由 Actions 从本仓库 `dist/` 同源部署，中英双语随时切换，`main` 推送且完整 CI 验收成功后才自动部署；源码、issue、CI 结果都在同一仓库 |
+| **itch.io** | <https://tbj0623.itch.io/zero-dossier-office/> | **HTML5 发行包**：上传的是 `release/itch-html5-release.zip`（具体大小和文件数见 Actions 构建清单），在 itch 的 iframe 里嵌入游玩（1280 × 800，可全屏），版本不与仓库自动同步，需手动重传 |
 
 > **当前定位：技术合格公测版。**
 > 逻辑、三引擎、无障碍与隐私验证完整，但**还没有任何真实人类试玩数据**
 > （G5 = `NOT_DONE`，见 [docs/PLAYTEST_PROTOCOL.md](docs/PLAYTEST_PROTOCOL.md)）。
 > 因此本仓库不写"已获好评""玩家喜爱"这类没有样本支撑的话——没测过就不说。
+
+### 最近的体验改进
+
+V3 加入跨刷新撤销/重做、续玩入口和安全存档恢复。V4 加入移动端证物 ↔ 复原板快捷往返、提交失败后的冲突证物直达，以及交换后键盘焦点恢复。
+
+完整的决策依据与验收方法见 [V3 体验迭代](docs/UX_ITERATION_V3.md) 和 [V4 情境导航迭代](docs/UX_ITERATION_V4.md)。这些都是工程与浏览器测试结果，不代替真实玩家访谈。
 
 ## 真实运行截图
 

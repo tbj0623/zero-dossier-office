@@ -1,80 +1,128 @@
 name: Deploy to GitHub Pages
 
+# 完整 CI（包含真实浏览器）成功后才能开始 Pages 发布。
+# workflow_run 必须检出触发 CI 的精确 SHA，而不是事件默认的最新 main。
 on:
-  push:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
     branches: [main]
-  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# 同一时间只允许一个部署；不取消进行中的正式发布
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
   build:
-    name: 构建与门禁
+    name: CI 通过后构建发行版本
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_repository.full_name == github.repository }}
     runs-on: ubuntu-24.04
+    outputs:
+      publish: ${{ steps.freshness.outputs.publish }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+
+      - name: 确认 CI 提交仍是远端 main 最新版本
+        id: freshness
+        env:
+          EXPECTED: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          HEAD_SHA="$(git ls-remote origin refs/heads/main | cut -f1)"
+          test -n "$HEAD_SHA"
+          if [ "$HEAD_SHA" = "$EXPECTED" ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+            echo "发布许可：main=$EXPECTED，CI 全部通过"
+          else
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "跳过旧版：CI=$EXPECTED，当前 main=$HEAD_SHA"
+          fi
 
       - uses: actions/setup-python@v7
+        if: steps.freshness.outputs.publish == 'true'
         with:
           python-version: '3.12'
+
       - uses: actions/setup-node@v7
+        if: steps.freshness.outputs.publish == 'true'
         with:
           node-version: '24'
 
-      - name: 内容门禁（不通过就不部署）
-        run: |
-          set -e
-          python engine/verify_cases.py
-          python -m unittest discover -s tests/logic -p 'test_*.py'
-          node --test tests/logic/solver.test.mjs tests/logic/player_state.test.mjs
-          python tests/logic/cross_check.py
-
-      - name: 构建静态站点
+      - name: 构建静态站点（同一精确提交）
+        if: steps.freshness.outputs.publish == 'true'
         env:
-          BUILD_VERSION: ${{ github.sha }}
+          BUILD_VERSION: ${{ github.event.workflow_run.head_sha }}
         run: node tools/build.mjs
 
-      - name: 构建并验证 itch.io HTML5 发行包
+      - name: 验证 itch.io HTML5 发行包
+        if: steps.freshness.outputs.publish == 'true'
         run: python tools/build_itch.py
 
       - name: 生成发布状态仪表盘
+        if: steps.freshness.outputs.publish == 'true'
         run: python tools/build_dashboard.py
 
-      - name: 站内链接完整性
-        run: python tools/check_links.py dist
-
-      - name: 校验发布产物
+      - name: 发布产物安全检查
+        if: steps.freshness.outputs.publish == 'true'
         run: |
-          set -e
-          test -f dist/index.html || { echo "::error::缺少 index.html"; exit 1; }
-          test -f dist/app.mjs || { echo "::error::缺少 app.mjs"; exit 1; }
-          test -f dist/engine/solver.mjs || { echo "::error::缺少求解核心"; exit 1; }
-          ls dist/cases/*.json | wc -l
+          set -euo pipefail
+          python tools/check_links.py dist
+          python tools/check_no_remote.py dist
+          test -f dist/index.html
+          test -f dist/app.mjs
+          test -f dist/player-state.mjs
+          test -f dist/engine/solver.mjs
           if grep -rl --include='*.json' '"expected_solution"' dist/; then
-            echo "::error::发布包泄漏作者答案"; exit 1
+            echo "::error::发布包泄漏作者答案"
+            exit 1
           fi
 
       - uses: actions/configure-pages@v6
+        if: steps.freshness.outputs.publish == 'true'
 
       - uses: actions/upload-pages-artifact@v5
+        if: steps.freshness.outputs.publish == 'true'
         with:
           path: dist/
 
   deploy:
-    name: 部署
+    name: 部署已验证版本
     needs: build
+    if: ${{ needs.build.outputs.publish == 'true' }}
     runs-on: ubuntu-24.04
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # 二次检查：构建完成后 main 可能已前进，不能让旧版覆盖新版。
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+
+      - name: 发布前再次确认主分支 SHA
+        id: final-check
+        env:
+          EXPECTED: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          HEAD_SHA="$(git ls-remote origin refs/heads/main | cut -f1)"
+          test -n "$HEAD_SHA"
+          if [ "$HEAD_SHA" = "$EXPECTED" ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "主分支已经前进：跳过旧发行版 $EXPECTED"
+          fi
+
       - id: deployment
+        if: steps.final-check.outputs.publish == 'true'
         uses: actions/deploy-pages@v5
