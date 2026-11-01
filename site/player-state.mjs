@@ -5,6 +5,19 @@
  */
 import { normalizeNotes } from './deduction-notes.mjs';
 
+export const BLANK_GUIDE = Object.freeze({
+  read: false, moved: false, submitted: false, dismissed: false,
+});
+export function normalizeGuide(raw) {
+  const guide = { ...BLANK_GUIDE };
+  if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+    for (const key of Object.keys(guide)) {
+      if (typeof raw[key] === 'boolean') guide[key] = raw[key];
+    }
+  }
+  return guide;
+}
+
 export const HISTORY_LIMIT = 50;
 
 export function isExactPermutation(value, items) {
@@ -37,6 +50,7 @@ export function normalizeSavedSession(raw, items, hintCount) {
     attempts,
     at,
     notes: normalizeNotes(raw.notes, items.length),
+    guide: normalizeGuide(raw.guide),
   };
 }
 

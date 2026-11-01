@@ -1442,6 +1442,118 @@
     "manual.notebook.body": {
       "zh": "调查桌里的「推理笔记」是可选的证物 × 格位表。点每个格子，依次标记「未标记 → 可能 → 排除」；所有标记只代表你的判断，不会自动求解、不会影响判题，并随本案进度保存在这台设备上。重置本案或清除进度时，笔记也会清空。",
       "en": "The optional Deduction Notes grid lets you mark every item and slot as unmarked, possible, or excluded. Marks are your own reasoning; they never solve the puzzle or affect grading. They persist locally with the current case and are cleared when you reset that case or clear progress."
+    },
+    "vault.heading": {
+      "zh": "离线存档保险箱",
+      "en": "Offline Save Vault"
+    },
+    "vault.description": {
+      "zh": "把已归档案件、当前排列、推理笔记与提示进度保存成一个 JSON 文件。文件只会留在你的设备上，不会上传服务器。导入新存档将替换本浏览器的六案游玩进度，但保留语言与界面偏好。",
+      "en": "Export completed cases, arrangements, deduction notes and hint progress to a JSON file. The file stays on your device; nothing is uploaded. Importing replaces this browser’s six-case progress while preserving language and interface preferences."
+    },
+    "vault.export": {
+      "zh": "导出本机存档",
+      "en": "Download a backup"
+    },
+    "vault.import": {
+      "zh": "选择 JSON 备份文件",
+      "en": "Choose a JSON backup file"
+    },
+    "vault.warning": {
+      "zh": "仅接受本游戏导出的备份，导入前会核对六案数据；新文件不会自动与旧进度合并。",
+      "en": "Only this game’s backup format is accepted. Each case is checked before import; files do not merge with current progress."
+    },
+    "vault.storageError": {
+      "zh": "本浏览器禁止本地存储，无法备份进度。",
+      "en": "Browser storage is unavailable; saves cannot be backed up."
+    },
+    "vault.exported": {
+      "zh": "存档文件已生成，请保存在安全的位置。",
+      "en": "Your backup file was prepared. Keep it somewhere safe."
+    },
+    "vault.exportError": {
+      "zh": "导出失败。请检查本地存档是否有效。",
+      "en": "Export failed. Check whether your local save is valid."
+    },
+    "vault.confirm.title": {
+      "zh": "导入并替换当前进度？",
+      "en": "Import and replace current progress?"
+    },
+    "vault.confirm.body": {
+      "zh": "备份包含 {count} 份案件记录。导入后，本浏览器现有的六案进度会被替换，语言偏好保留。建议先导出旧存档。",
+      "en": "This backup contains {count} case records. Importing replaces all six current case records in this browser. Language preferences remain. Export your current save first if you want to keep it."
+    },
+    "vault.confirm.ok": {
+      "zh": "确认替换",
+      "en": "Replace progress"
+    },
+    "vault.writeError": {
+      "zh": "导入写入失败，已尝试恢复原存档。",
+      "en": "Could not write the backup; recovery of the previous save was attempted."
+    },
+    "vault.imported": {
+      "zh": "已恢复备份中的调查记录。请前往档案柜继续游玩。",
+      "en": "Backup restored. Open the case cabinet to continue."
+    },
+    "vault.invalid": {
+      "zh": "备份格式或案件数据无效，原存档完全未修改。",
+      "en": "Invalid backup format or case data. Existing progress has not been changed."
+    },
+    "guide.title": {
+      "zh": "调查员行动卡",
+      "en": "Investigator Field Card"
+    },
+    "guide.eyebrow": {
+      "zh": "第一次接触雾港档案？",
+      "en": "New to the Fog Harbor files?"
+    },
+    "guide.desc": {
+      "zh": "跟着三项实际操作熟悉调查桌。不提供答案，也不会限制你自由探索。",
+      "en": "Learn the desk through three real actions. This card reveals no answers or blocks independent exploration."
+    },
+    "guide.dismiss": {
+      "zh": "不再显示",
+      "en": "Dismiss guide"
+    },
+    "guide.read": {
+      "zh": "展开一张证据",
+      "en": "Open a piece of evidence"
+    },
+    "guide.moved": {
+      "zh": "实际调整一个格位",
+      "en": "Move an item on the board"
+    },
+    "guide.submitted": {
+      "zh": "提交一次证据核对",
+      "en": "Submit an evidence check"
+    },
+    "guide.action.read": {
+      "zh": "去看证据",
+      "en": "Review evidence"
+    },
+    "guide.action.moved": {
+      "zh": "去排格位",
+      "en": "Open arrangement"
+    },
+    "guide.action.submitted": {
+      "zh": "去提交核对",
+      "en": "Go to submission"
+    },
+    "guide.complete": {
+      "zh": "基础操作已掌握。你可以继续调查或隐藏此卡片。",
+      "en": "You have tried the basics. Keep investigating or dismiss this card."
+    },
+    "guide.progress": {
+      "zh": "已完成 {done} / 3 项",
+      "en": "Completed {done} / 3 actions"
+    },
+    "guide.pending": {
+      "zh": "待进行",
+      "en": "Not yet completed"
+    },
+    "guide.done": {
+      "zh": "已完成",
+      "en": "Completed"
     }
   },
   "cases": {

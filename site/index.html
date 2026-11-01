@@ -258,6 +258,16 @@ a{color:var(--brass)}
           <p style="margin-bottom:0"><button class="btn btn--danger btn--sm" type="button" id="clear-progress" data-i18n="manual.storage.button">清除本机全部进度</button></p>
         </div>
 
+        <h2 data-i18n="vault.heading">离线存档保险箱</h2>
+        <p data-i18n="vault.description">把已归档案件、当前排列、推理笔记与提示进度保存成一个 JSON 文件。文件只会留在你的设备上，不会上传服务器。导入新存档将替换本浏览器的六案游玩进度，但保留语言与界面偏好。</p>
+        <div class="vault-actions">
+          <button class="btn btn--primary" type="button" id="vault-export" data-i18n="vault.export">导出本机存档</button>
+          <label class="vault-import-label" for="vault-file" data-i18n="vault.import">选择 JSON 备份文件</label>
+          <input id="vault-file" type="file" accept=".json,application/json" aria-describedby="vault-guidance">
+        </div>
+        <p class="hint" id="vault-guidance" data-i18n="vault.warning">仅接受本游戏导出的备份，导入前会核对六案数据；新文件不会自动与旧进度合并。</p>
+        <p id="vault-status" role="status" aria-live="polite"></p>
+
         <h2 data-i18n="manual.a11y.h2">可访问性</h2>
         <ul>
           <li data-i18n="manual.a11y.1">所有拖放操作都有等价的按钮操作，不依赖指针拖拽。</li>

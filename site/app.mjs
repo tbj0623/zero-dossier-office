@@ -27,8 +27,9 @@ import {
   onLocaleChange,
   applyToDocument,
 } from './i18n.mjs';
-import { normalizeSavedSession, pushUndo } from './player-state.mjs';
+import { normalizeSavedSession, pushUndo, normalizeGuide } from './player-state.mjs';
 import { blankNotes, nextNote, noteCounts } from './deduction-notes.mjs';
+import { buildBackup, parseBackup, VAULT_LIMIT_BYTES } from './save-vault.mjs';
 
 /* ------------------------------------------------------------------ */
 /* 常量与状态                                                          */
@@ -86,6 +87,7 @@ const state = {
   cases: new Map(),      // id -> case data
   order: [],             // 当前排列
   notes: [],             // 玩家自行标记的候选格，不介入求解器
+  guide: normalizeGuide(), // 第一案可跳过的情境式操作指引
   selected: null,        // 当前选中的格位索引
   hintIndex: 0,          // 已揭开的提示数
   history: [],           // 撤销栈
@@ -246,10 +248,10 @@ const progress = {
     store.set('progress', all);
   },
   savedOrder(id) { return store.get(`order:${id}`, null); },
-  saveOrder(id, order, hintIndex, history = [], redo = [], attempts = 0, notes = []) {
+  saveOrder(id, order, hintIndex, history = [], redo = [], attempts = 0, notes = [], guide = normalizeGuide()) {
     store.set(`order:${id}`, {
       order: [...order], hintIndex, history, redo, attempts,
-      notes: notes.map((row) => [...row]), at: Date.now(),
+      notes: notes.map((row) => [...row]), guide: { ...guide }, at: Date.now(),
     });
   },
   dropOrder(id) { store.remove(`order:${id}`); },
@@ -691,6 +693,9 @@ async function openCase(id, epoch = state.navEpoch) {
   state.redo = restored?.redo ?? [];
   state.attempts = restored?.attempts ?? 0;
   state.notes = restored?.notes ?? blankNotes(c.items.length);
+  state.guide = restored?.guide ?? normalizeGuide();
+  if (state.history.length) state.guide.moved = true;
+  if (state.attempts > 0) state.guide.submitted = true;
 
   // 绝不默认给出答案：若初始排列恰好满足全部约束，做一次确定性错位。
   // 只交换前两格太容易被「照着顺序点」猜到，这里改用按案件 ID 派生的确定性洗牌，
@@ -742,6 +747,8 @@ function renderDesk(c) {
   if (progress.of(c.id)?.solved) meta.append(el('span', { class: 'pill pill--ok', text: t('desk.filed.badge', '已在本地归档') }));
   head.append(meta);
   root.append(head);
+  const guide = buildFieldGuide(c);
+  if (guide) root.append(guide);
 
   const desk = el('div', { class: 'desk' });
 
@@ -869,8 +876,8 @@ function renderDesk(c) {
   drawHints();
   syncButtons();
   syncNoteStats();
+  syncFieldGuide();
 }
-
 
 function noteLabel(mark) {
   return mark === 1 ? t('notebook.possible', '可能')
@@ -954,6 +961,68 @@ async function clearNotebook(c) {
   persist();
 }
 
+
+/* V7 first-case field guide: three observable actions, no solution logic. */
+function buildFieldGuide(c) {
+  if (c.id !== 'NA-001' || progress.of(c.id)?.solved || state.guide.dismissed) return null;
+  const section = el('section', { class: 'field-guide', id: 'field-guide',
+    aria: { label: t('guide.title', '调查员行动卡') } });
+  const head = el('div', { class: 'field-guide__head' });
+  head.append(el('div', {}, [
+    el('span', { class: 'eyebrow', text: t('guide.eyebrow', '第一次接触雾港档案？') }),
+    el('h2', { class: 'field-guide__title', text: t('guide.title', '调查员行动卡') }),
+    el('p', { class: 'field-guide__desc',
+      text: t('guide.desc', '跟着三项实际操作熟悉调查桌。不提供答案，也不会限制你自由探索。') }),
+  ]));
+  head.append(el('button', { type: 'button', class: 'btn btn--ghost btn--sm',
+    dataset: { guideDismiss: 'true' }, text: t('guide.dismiss', '不再显示') }));
+  section.append(head);
+  const list = el('ol', { class: 'field-guide__steps' });
+  const steps = [
+    ['read', 'guide.read', '展开一张证据', 'guide.action.read', '去看证据'],
+    ['moved', 'guide.moved', '实际调整一个格位', 'guide.action.moved', '去排格位'],
+    ['submitted', 'guide.submitted', '提交一次证据核对', 'guide.action.submitted', '去提交核对'],
+  ];
+  for (const [key, labelKey, fallback, actionKey, actionFallback] of steps) {
+    const row = el('li', { class: 'field-guide__step', dataset: { guideStep: key } });
+    row.append(el('span', { class: 'field-guide__mark', aria: { hidden: 'true' }, text: '○' }));
+    row.append(el('span', { class: 'field-guide__step-label' }, [
+      el('span', { text: t(labelKey, fallback) }),
+      el('span', { class: 'field-guide__state', text: t('guide.pending', '待进行') }),
+    ]));
+    row.append(el('button', { type: 'button', class: 'field-guide__jump',
+      dataset: { guideJump: key }, text: t(actionKey, actionFallback) }));
+    list.append(row);
+  }
+  section.append(list);
+  section.append(el('p', { class: 'field-guide__footer', id: 'guide-progress',
+    role: 'status', aria: { live: 'polite' } }));
+  return section;
+}
+function syncFieldGuide() {
+  const section = $('#field-guide');
+  if (!section) return;
+  for (const step of $$('.field-guide__step', section)) {
+    const done = Boolean(state.guide[step.dataset.guideStep]);
+    step.dataset.done = String(done);
+    step.querySelector('.field-guide__mark').textContent = done ? '✓' : '○';
+    step.querySelector('.field-guide__state').textContent = done
+      ? t('guide.done', '已完成') : t('guide.pending', '待进行');
+    const button = step.querySelector('button');
+    if (button) button.disabled = done;
+  }
+  const total = ['read','moved','submitted'].filter((key) => state.guide[key]).length;
+  const label = $('#guide-progress');
+  if (label) label.textContent = total === 3
+    ? t('guide.complete', '基础操作已掌握。你可以继续调查或隐藏此卡片。')
+    : tf('guide.progress', { done: total }, '已完成 ' + total + ' / 3 项');
+}
+function markFieldGuide(key) {
+  if (state.caseId !== 'NA-001' || state.guide.dismissed || state.guide[key]) return;
+  state.guide[key] = true;
+  persist();
+  syncFieldGuide();
+}
 function withClass(node, cls) {
   node.classList.add(cls);
   return node;
@@ -1090,7 +1159,7 @@ function clearMessage() {
 function persist() {
   if (!state.caseId) return;
   progress.saveOrder(
-    state.caseId, state.order, state.hintIndex, state.history, state.redo, state.attempts, state.notes,
+    state.caseId, state.order, state.hintIndex, state.history, state.redo, state.attempts, state.notes, state.guide,
   );
 }
 
@@ -1124,6 +1193,7 @@ function swap(a, b) {
   [state.order[a], state.order[b]] = [state.order[b], state.order[a]];
   clearMessage();
   setStatus('idle', t('desk.status.adjusted', '已调整排列，等待核对'));
+  markFieldGuide('moved');
   persist();
   drawSlots({ index: b, act: 'pick' });
   drawHints();
@@ -1140,6 +1210,7 @@ function move(i, delta, act = delta < 0 ? 'up' : 'down') {
   state.selected = null;
   clearMessage();
   setStatus('idle', t('desk.status.adjusted', '已调整排列，等待核对'));
+  markFieldGuide('moved');
   persist();
   drawSlots({ index: j, act });
   syncButtons();
@@ -1191,6 +1262,7 @@ function submit() {
   const c = state.cases.get(state.caseId);
   if (!c || state.solved) return;
   state.attempts += 1;
+  markFieldGuide('submitted');
   persist();
 
   const checks = verifyOrder(state.order, c.constraints);
@@ -1407,6 +1479,20 @@ function bindDeskEvents(c) {
 
   const root = $('#case-root');
   root.addEventListener('click', (e) => {
+    const guideDismiss = e.target.closest('[data-guide-dismiss]');
+    if (guideDismiss) {
+      state.guide.dismissed = true;
+      $('#field-guide')?.remove();
+      persist();
+      return;
+    }
+    const guideJump = e.target.closest('[data-guide-jump]');
+    if (guideJump) {
+      const target = guideJump.dataset.guideJump === 'read' ? $('#ev-heading')
+        : guideJump.dataset.guideJump === 'moved' ? $('#board-heading') : $('#btn-submit');
+      focusAndReveal(target);
+      return;
+    }
     const note = e.target.closest('[data-note-row][data-note-col]');
     if (note) { markNotebookCell(note, c); return; }
     if (e.target.closest('[data-notes-clear]')) { void clearNotebook(c); return; }
@@ -1430,6 +1516,7 @@ function bindDeskEvents(c) {
       summary.setAttribute('aria-expanded', String(!open));
       const body = card.querySelector('.ev-card__body');
       if (body) body.hidden = open;
+      if (!open) markFieldGuide('read');
       return;
     }
 
@@ -1497,6 +1584,7 @@ function bindDeskEvents(c) {
     state.hintIndex = 0;
     state.attempts = 0;
     state.notes = blankNotes(c.items.length);
+    state.guide = normalizeGuide();
     progress.dropOrder(c.id);
     clearMessage();
     setStatus('idle', t('desk.status.idle', '准备核对'));
@@ -1505,6 +1593,7 @@ function bindDeskEvents(c) {
     syncButtons();
     $$('.deduction-notebook__cell').forEach((button) => syncNoteCell(button, c));
     syncNoteStats();
+    syncFieldGuide();
     toast(t('desk.status.reset', '已重置本案排列与提示进度'));
   }, { signal });
 
@@ -1545,6 +1634,119 @@ function bindDeskEvents(c) {
 /* ------------------------------------------------------------------ */
 /* 全局导航 & 启动                                                     */
 /* ------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------ */
+/* V7 可携带存档：一切都在浏览器本地，绝不发送文件或上传玩家数据          */
+/* ------------------------------------------------------------------ */
+async function vaultSpecs() {
+  const specs = Object.create(null);
+  for (const id of RELEASED) {
+    const c = await loadCase(id);
+    specs[id] = { items: c.items, hintCount: c.hints.length };
+  }
+  return specs;
+}
+function vaultEntries() {
+  const entries = {};
+  for (const id of RELEASED) {
+    const p = progress.of(id);
+    const session = progress.savedOrder(id);
+    if (p != null || session != null) entries[id] = { progress: p, session };
+  }
+  return entries;
+}
+function vaultStatus(key, fallback, kind = 'info') {
+  const node = $('#vault-status');
+  if (!node) return;
+  node.dataset.kind = kind;
+  node.textContent = t(key, fallback);
+}
+function replaceLocalProgress(entries) {
+  const keys = [STORAGE_PREFIX + 'progress',
+    ...[...RELEASED].map((id) => STORAGE_PREFIX + 'order:' + id)];
+  const before = new Map();
+  try {
+    for (const key of keys) before.set(key, localStorage.getItem(key));
+    const importedProgress = {};
+    for (const [id, entry] of Object.entries(entries)) {
+      if (entry.progress) importedProgress[id] = entry.progress;
+    }
+    for (const key of keys) localStorage.removeItem(key);
+    localStorage.setItem(STORAGE_PREFIX + 'progress', JSON.stringify(importedProgress));
+    for (const [id, entry] of Object.entries(entries)) {
+      if (entry.session)
+        localStorage.setItem(STORAGE_PREFIX + 'order:' + id, JSON.stringify(entry.session));
+    }
+    return true;
+  } catch {
+    // 写入失败时尽力回滚原始的多个键值，防止半次导入。
+    try {
+      for (const key of keys) localStorage.removeItem(key);
+      for (const [key, raw] of before) {
+        if (raw != null) localStorage.setItem(key, raw);
+      }
+    } catch { /* 浏览器存储不可写时只能告知用户，不伪造成功。 */ }
+    return false;
+  }
+}
+async function exportVault() {
+  if (!store.available) {
+    vaultStatus('vault.storageError', '本浏览器禁止本地存储，无法备份进度。', 'bad');
+    return;
+  }
+  try {
+    const specs = await vaultSpecs();
+    const saved = buildBackup(vaultEntries(), specs);
+    const blob = new Blob([JSON.stringify(saved, null, 2) + '\n'],
+      { type: 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'zero-dossier-backup-' + new Date().toISOString().slice(0, 10) + '.json';
+    document.body.append(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    vaultStatus('vault.exported', '存档文件已生成，请保存在安全的位置。', 'ok');
+  } catch {
+    vaultStatus('vault.exportError', '导出失败。请检查本地存档是否有效。', 'bad');
+  }
+}
+async function importVault(input) {
+  const file = input.files?.[0];
+  input.value = '';
+  if (!file) return;
+  if (!store.available) {
+    vaultStatus('vault.storageError', '本浏览器禁止本地存储，无法备份进度。', 'bad');
+    return;
+  }
+  const epoch = state.navEpoch;
+  try {
+    if (file.size > VAULT_LIMIT_BYTES) throw new Error('file too large');
+    const raw = await file.text();
+    const specs = await vaultSpecs();
+    const entries = parseBackup(raw, specs);
+    if (epoch !== state.navEpoch || state.route !== 'manual') return;
+    const count = Object.keys(entries).length;
+    const accepted = await confirmDialog({
+      title: t('vault.confirm.title', '导入并替换当前进度？'),
+      body: tf('vault.confirm.body', { count },
+        '备份包含 ' + count + ' 份案件记录。导入后，本浏览器现有的六案进度会被替换，语言偏好保留。建议先导出旧存档。'),
+      okText: t('vault.confirm.ok', '确认替换'),
+    });
+    if (!accepted || epoch !== state.navEpoch || state.route !== 'manual') return;
+    if (!replaceLocalProgress(entries)) {
+      vaultStatus('vault.writeError', '导入写入失败，已尝试恢复原存档。', 'bad');
+      return;
+    }
+    renderHomeCabinet();
+    renderCabinet();
+    vaultStatus('vault.imported', '已恢复备份中的调查记录。请前往档案柜继续游玩。', 'ok');
+  } catch {
+    vaultStatus('vault.invalid', '备份格式或案件数据无效，原存档完全未修改。', 'bad');
+  }
+}
+
 function bindGlobal() {
   window.addEventListener('hashchange', router);
 
@@ -1570,6 +1772,9 @@ function bindGlobal() {
     toggle.setAttribute('aria-label', !open
       ? t('nav.toggle.close', '关闭导航菜单') : t('nav.toggle.open', '打开导航菜单'));
   });
+
+  $('#vault-export')?.addEventListener('click', () => { void exportVault(); });
+  $('#vault-file')?.addEventListener('change', (e) => { void importVault(e.currentTarget); });
 
   $('#clear-progress')?.addEventListener('click', async () => {
     const ok = await confirmDialog({

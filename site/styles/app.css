@@ -1310,3 +1310,127 @@ a svg *,
   .deduction-notebook__body { padding-inline: var(--sp-2); }
   .deduction-notebook__table { min-width: 520px; }
 }
+
+
+/* V7 offline save vault: no cloud sync, no external request. */
+.vault-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-block: var(--sp-4);
+}
+.vault-import-label {
+  display: block;
+  flex-basis: 100%;
+  color: var(--paper);
+  font-weight: 650;
+}
+#vault-import {
+  display: block;
+  max-width: 100%;
+  font: inherit;
+  color: var(--text);
+}
+#vault-file::file-selector-button {
+  min-height: 44px;
+  border: 1px solid rgb(223 185 120 / .6);
+  border-radius: var(--radius);
+  padding: .6rem 1rem;
+  margin-inline-end: 1rem;
+  background: rgb(223 185 120 / .13);
+  color: var(--brass);
+  cursor: pointer;
+  font: inherit;
+}
+#vault-file:focus-visible, #vault-file::file-selector-button:focus-visible {
+  outline: 3px solid var(--brass);
+  outline-offset: 3px;
+}
+#vault-status {
+  min-height: 1.5em;
+  color: var(--mist);
+  font-weight: 600;
+}
+#vault-status[data-kind="bad"] { color: #efaaa3; }
+#vault-status[data-kind="ok"] { color: var(--success); }
+
+
+/* V7 investigator field card: quiet, contextual onboarding, never blocking gameplay. */
+.field-guide {
+  margin-bottom: var(--sp-5);
+  padding: var(--sp-4);
+  border: 1px solid rgb(223 185 120 / .37);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgb(223 185 120 / .10), rgb(9 23 32 / .75));
+}
+.field-guide__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+.field-guide__title {
+  font-family: var(--font-serif);
+  color: var(--paper);
+  font-size: var(--step-1);
+  margin: .25rem 0;
+}
+.field-guide__desc {
+  color: var(--mist);
+  font-size: var(--step--1);
+  margin: .3rem 0 0;
+}
+.field-guide__steps {
+  list-style: none;
+  padding: 0;
+  margin: var(--sp-3) 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-2);
+}
+.field-guide__step {
+  border: 1px solid rgb(158 183 180 / .20);
+  border-radius: var(--radius);
+  padding: var(--sp-3);
+  display: grid;
+  gap: var(--sp-2);
+  min-width: 0;
+  background: rgb(9 23 32 / .48);
+}
+.field-guide__mark {
+  font-size: 1.25rem;
+  font-weight: 750;
+  color: var(--brass);
+}
+.field-guide__step-label { color: var(--paper); font-weight: 650; font-size: var(--step--1); }
+.field-guide__step[data-done="true"] .field-guide__mark { color: var(--success); }
+.field-guide__step[data-done="true"] .field-guide__step-label { color: var(--mist); }
+.field-guide__jump {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgb(223 185 120 / .45);
+  border-radius: var(--radius);
+  color: var(--brass);
+  background: rgb(223 185 120 / .08);
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--step--1);
+}
+.field-guide__jump:hover:not(:disabled) { background: rgb(223 185 120 / .19); }
+.field-guide__jump:disabled { opacity: .55; cursor: default; }
+.field-guide__jump:focus-visible {
+  outline: 3px solid var(--brass);
+  outline-offset: 2px;
+}
+.field-guide__footer { color: var(--mist); margin: 0; font-weight: 650; font-size: var(--step--1); }
+@media (max-width: 700px) {
+  .field-guide__steps { grid-template-columns: 1fr; }
+  .field-guide__step {
+    grid-template-columns: 30px minmax(0, 1fr) minmax(105px, auto);
+    align-items: center;
+  }
+}
+.field-guide__state { display: block; color: var(--mist); font-size: .76rem; font-weight: 500; margin-top: .15rem; }
+.field-guide__step[data-done="true"] .field-guide__state { color: var(--success); }

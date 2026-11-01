@@ -12,7 +12,7 @@ test('排列必须完整、唯一、只包含案件物件', () => {
 });
 test('旧存档兼容，缺失历史时安全降级', () => {
   assert.deepEqual(normalizeSavedSession({order:ORD,hintIndex:2},ITEMS,3), {
-    order:ORD,hintIndex:2,history:[],redo:[],attempts:0,at:0, notes: Array.from({ length:4 }, () => [0,0,0,0])
+    order:ORD,hintIndex:2,history:[],redo:[],attempts:0,at:0, notes: Array.from({ length:4 }, () => [0,0,0,0]), guide: {read:false,moved:false,submitted:false,dismissed:false}
   });
 });
 test('损坏主排列一律拒绝，不能污染页面', () => {
