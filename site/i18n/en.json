@@ -1262,6 +1262,106 @@
     "storage.unavailable": {
       "zh": "这个浏览器（或当前的嵌入方式）不允许本作保存进度，因此刷新页面后排列会丢失。游戏本身完全可玩，只是无法记住进度。",
       "en": "This browser (or the way the game is embedded) does not allow saving progress, so your arrangement will be lost when you reload. The game itself is fully playable — it just cannot remember your progress."
+    },
+    "hero.cta.resume": {
+      "zh": "接着整理第 {num} 号档案",
+      "en": "Resume dossier #{num}"
+    },
+    "hero.cta.next": {
+      "zh": "打开下一份档案 #{num}",
+      "en": "Open next dossier #{num}"
+    },
+    "case.card.status.inprogress": {
+      "zh": "整理中 · 可续玩",
+      "en": "In progress · resume anytime"
+    },
+    "case.card.cta.resume": {
+      "zh": "接着整理",
+      "en": "Continue arranging"
+    },
+    "desk.btn.redo": {
+      "zh": "重做一步",
+      "en": "Redo One Step"
+    },
+    "desk.status.undo": {
+      "zh": "已撤销一步",
+      "en": "Undid one step"
+    },
+    "desk.status.redo": {
+      "zh": "已重做一步",
+      "en": "Redid one step"
+    },
+    "desk.status.adjusted": {
+      "zh": "已调整排列，等待核对",
+      "en": "Arrangement updated · ready to check"
+    },
+    "desk.status.selected": {
+      "zh": "已选中「{item}」，请点目标格位",
+      "en": "Selected {item} · choose a destination"
+    },
+    "desk.toast.selected": {
+      "zh": "已选中「{item}」，再点一个格位即可交换",
+      "en": "Selected {item}. Choose another slot to swap."
+    },
+    "desk.status.cancelled": {
+      "zh": "已取消选中",
+      "en": "Selection cleared"
+    },
+    "desk.toast.resolved": {
+      "zh": "这份档案已在本地归档，你可以重看或重新调查。",
+      "en": "This dossier is already filed locally. You can review or investigate it again."
+    },
+    "desk.status.reset": {
+      "zh": "已重置本案排列与提示进度",
+      "en": "Arrangement and hints have been reset"
+    },
+    "desk.hint.message": {
+      "zh": "提示只是帮你推进，不会自动完成排列。",
+      "en": "Hints guide you but never arrange the solution for you."
+    },
+    "desk.hint.exhausted.message": {
+      "zh": "提示已全部解封，你仍可继续自由尝试。",
+      "en": "All hints are revealed. You can keep trying."
+    },
+    "desk.submit.conflicts": {
+      "zh": "档案仍有不一致：{n} 条关系未满足。",
+      "en": "Some evidence conflicts remain: {n} relations are unsatisfied."
+    },
+    "desk.submit.detail": {
+      "zh": "你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。",
+      "en": "Your arrangement is preserved. Recheck before/after, distance, and between."
+    },
+    "desk.submit.evidence": {
+      "zh": "{id}「{title}」中描述的关系与你的排列不一致。",
+      "en": "Evidence {id} (“{title}”) conflicts with your arrangement."
+    },
+    "desk.submit.status": {
+      "zh": "存在 {n} 处与证据不符的关系",
+      "en": "{n} relations conflict with the evidence"
+    },
+    "desk.submit.okstatus": {
+      "zh": "全部关系均已满足 · 可以归档",
+      "en": "All relations match · ready to file"
+    },
+    "desk.submit.okmessage": {
+      "zh": "档案归位。你用了 {n} 条提示。正在生成结案页…",
+      "en": "Dossier restored. You used {n} hints. Preparing your report…"
+    },
+    "desk.hints.aria": {
+      "zh": "已揭开的提示",
+      "en": "Revealed hints"
+    },
+    "desk.pick.aria.select": {
+      "zh": "选中「{item}」以交换位置",
+      "en": "Select {item} to swap places"
+    },
+    "desk.pick.aria.deselect": {
+      "zh": "取消选中「{item}」",
+      "en": "Deselect {item}"
+    },
+    "manual.keys.row5.action": {
+      "zh": "Ctrl/Cmd+Z 撤销；Ctrl/Cmd+Shift+Z 或 Ctrl/Cmd+Y 重做",
+      "en": "Ctrl/Cmd+Z: undo. Ctrl/Cmd+Shift+Z or Ctrl/Cmd+Y: redo."
     }
   },
   "cases": {

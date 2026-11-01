@@ -268,3 +268,39 @@ CI 与 Pages 在该提交上均 success；两站 HTTP 200。
 3. 项目方在 GitHub 仓库 Settings → Social preview 上传 `site/assets/github-social-preview.png`。
 4. 按 `docs/PLAYTEST_PROTOCOL.md` 完成 3–5 名陌生玩家试玩；补做真实 NVDA/VoiceOver 与 Safari/iOS Safari 测试。
 5. 由项目方确认 `docs/PROVENANCE.md` 中仍开放的 `PENDING_OWNER` 项。
+
+
+---
+
+## 2026-11-02 · V3 玩家体验迭代（由 ChatGPT 直连 Windows 实施）
+
+**目标**：不再单纯追求自测分数，而是减少真实玩家的操作挫败感。详见 `docs/UX_ITERATION_V3.md`。
+
+### 实际修改
+- `site/player-state.mjs`：新增纯函数存档约束、历史栈上限 50、旧存档兼容；过滤损坏历史、异常提示与尝试数据。
+- `site/app.mjs`：新增重做栈、撤销/重做跨刷新保存、Ctrl/Cmd 快捷键；首页优先打开最近未完成的案卷，档案柜显示「整理中」；修复选中高亮残留、旧导航异步回写、延迟结案竞态、重新调查重复监听等风险。
+- `site/i18n/en.json`：补齐英文动态反馈、进度续玩、重做与错误描述。
+- `site/index.html` / `site/styles/app.css`：键盘操作手册和进行中状态样式。
+- `tests/logic/player_state.test.mjs` / `tests/browser/ux_v3.py`：新增 5 项 Node 单元测试及 18 项 Chromium 真实浏览器体验专项断言。
+- GitHub CI 和 Pages 均纳入新增纯函数单元测试；CI 浏览器任务另纳入 V3 UX 回归。
+
+### 本机验证（修正迭代中发现的问题后重新构建）
+| 验证 | 结果 |
+|---|---|
+| 作者案卷形式化 | 6/6 PASS |
+| JavaScript 单元测试 | 57/57 PASS（原 52 + 新增 5） |
+| Python 单元测试 | 57/57 PASS |
+| Python/JS 规则一致性 | 4508/4508 PASS |
+| 中文 Chromium E2E | 38/38 PASS（六案全通） |
+| V3 体验专项 | 18/18 PASS |
+| 英文 E2E | 12/12 PASS（六案全通） |
+| 无障碍 12 个状态 | 12/12，0 违规 |
+| Chromium/Firefox/WebKit | 42/42 PASS，无控制台异常 |
+| 站内链接与第三方资源 | PASS |
+| itch ZIP 构建 | 28 个文件（新增 `player-state.mjs`），CRC/案件白名单 PASS |
+
+**发现并修复的真实回归**：首次引入首页续玩逻辑时，原函数局部 `const t` 遮蔽 i18n 的 `t()`，导致主页在 Chromium/Firefox/WebKit 上产生 `ReferenceError`。完整旧版门禁发现该问题后更名为 `actLabel`，重新构建并复跑 38/38、12/12、42/42 均通过。
+
+**仍需真人确认**：G5 真人样本仍是 0；真实 Safari/iOS Safari、NVDA/VoiceOver 和 GitHub Social Preview 仍为独立未完成项。不能把自动化结果等同玩家喜欢或满意。
+
+**发布原则**：上述数字来自本地新 `dist`；只有新提交推送后 GitHub CI 和 Pages 都成功，才可声明 V3 已部署。itch 公开版在未上传新 ZIP 前仍为旧托管包，不冒充 V3。

@@ -34,7 +34,7 @@ jobs:
           set -e
           python engine/verify_cases.py
           python -m unittest discover -s tests/logic -p 'test_*.py'
-          node --test tests/logic/solver.test.mjs
+          node --test tests/logic/solver.test.mjs tests/logic/player_state.test.mjs
           python tests/logic/cross_check.py
 
       - name: 构建静态站点

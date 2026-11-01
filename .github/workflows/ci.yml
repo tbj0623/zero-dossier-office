@@ -31,7 +31,7 @@ jobs:
         run: python -m unittest discover -s tests/logic -p 'test_*.py' -v
 
       - name: JavaScript 单元测试
-        run: node --test tests/logic/solver.test.mjs
+        run: node --test tests/logic/solver.test.mjs tests/logic/player_state.test.mjs
 
       - name: Python ⇄ JavaScript 规则一致性
         run: python tests/logic/cross_check.py
@@ -118,6 +118,9 @@ jobs:
 
       - name: 端到端测试
         run: python tests/browser/e2e.py --base http://127.0.0.1:8080
+
+      - name: 玩家体验升级回归（存档、撤销重做、续玩、双语和导航）
+        run: python tests/browser/ux_v3.py --base http://127.0.0.1:8080
 
       - name: 无障碍门禁（axe-core，零违规）
         run: python tests/browser/a11y.py --base http://127.0.0.1:8080

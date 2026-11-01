@@ -27,6 +27,7 @@ import {
   onLocaleChange,
   applyToDocument,
 } from './i18n.mjs';
+import { normalizeSavedSession, pushUndo } from './player-state.mjs';
 
 /* ------------------------------------------------------------------ */
 /* 常量与状态                                                          */
@@ -86,7 +87,10 @@ const state = {
   selected: null,        // 当前选中的格位索引
   hintIndex: 0,          // 已揭开的提示数
   history: [],           // 撤销栈
+  redo: [],              // 重做栈
   attempts: 0,
+  navEpoch: 0,           // 每次导航增加，防止异步旧案件覆盖当前页面
+  verdictTimer: null,    // 延迟结案回调必须随导航取消
   solved: false,
   rulesMeta: new Map(),  // id -> 约束元信息
   necessity: new Map(),  // id -> necessity
@@ -213,7 +217,10 @@ const store = {
 };
 
 const progress = {
-  all() { return store.get('progress', {}) || {}; },
+  all() {
+    const data = store.get('progress', {});
+    return data && typeof data === 'object' && !Array.isArray(data) ? data : {};
+  },
   of(id) { return this.all()[id] || null; },
   markSolved(id, usedHints) {
     const all = this.all();
@@ -233,12 +240,13 @@ const progress = {
     store.set('progress', all);
   },
   savedOrder(id) { return store.get(`order:${id}`, null); },
-  saveOrder(id, order, hintIndex) {
-    store.set(`order:${id}`, { order, hintIndex, at: Date.now() });
+  saveOrder(id, order, hintIndex, history = [], redo = [], attempts = 0) {
+    store.set(`order:${id}`, { order: [...order], hintIndex, history, redo, attempts, at: Date.now() });
   },
   dropOrder(id) { store.remove(`order:${id}`); },
   solvedCount() {
-    return Object.values(this.all()).filter((x) => x && x.solved).length;
+    const all = this.all();
+    return [...RELEASED].filter((id) => all[id]?.solved === true).length;
   },
 };
 
@@ -387,6 +395,11 @@ function showView(name) {
 }
 
 async function router() {
+  const epoch = ++state.navEpoch;
+  if (state.verdictTimer != null) {
+    clearTimeout(state.verdictTimer);
+    state.verdictTimer = null;
+  }
   const route = parseHash();
   state.route = route.view;
 
@@ -395,7 +408,8 @@ async function router() {
 
   if (route.view === 'case') {
     showView('case');
-    await openCase(route.id);
+    await openCase(route.id, epoch);
+    if (epoch !== state.navEpoch) return;
     // 从档案柜 / 结案页跳进来时，确保从调查桌顶端开始读，而不是停在上一页的滚动位置
     window.scrollTo({ top: 0, behavior: 'auto' });
     return;
@@ -472,7 +486,10 @@ function clearCaseCache() {
 /* ------------------------------------------------------------------ */
 function statusOf(id) {
   if (!RELEASED.has(id)) return 'locked';
-  return progress.of(id)?.solved ? 'done' : 'ready';
+  if (progress.of(id)?.solved) return 'done';
+  const c = state.cases.get(id);
+  if (c && normalizeSavedSession(progress.savedOrder(id), c.items, c.hints.length)) return 'inprogress';
+  return 'ready';
 }
 
 function caseCard(id, { compact = false } = {}) {
@@ -512,10 +529,12 @@ function caseCard(id, { compact = false } = {}) {
   }
   const badgeText = st === 'done'
     ? t('case.card.status.done', '已归档 · 可重看')
-    : st === 'ready'
-      ? t('case.card.status.ready', '可调查')
-      : t('case.card.status.locked', '修复中 · 暂不可调查');
-  const badgeCls = st === 'done' ? 'case-card__status--done' : st === 'ready' ? 'case-card__status--ready' : 'case-card__status--locked';
+    : st === 'inprogress'
+      ? t('case.card.status.inprogress', '整理中 · 可续玩')
+      : st === 'ready'
+        ? t('case.card.status.ready', '可调查')
+        : t('case.card.status.locked', '修复中 · 暂不可调查');
+  const badgeCls = st === 'done' ? 'case-card__status--done' : st === 'inprogress' ? 'case-card__status--inprogress' : st === 'ready' ? 'case-card__status--ready' : 'case-card__status--locked';
   metaRow.append(el('span', { class: `case-card__status ${badgeCls}`, text: badgeText }));
   body.append(metaRow);
 
@@ -533,7 +552,7 @@ function caseCard(id, { compact = false } = {}) {
           : tf('case.card.aria.investigate', { num: id.slice(3), title }, `调查档案 ${id.slice(3)}：${title}`),
       },
     }, [
-      el('span', { text: st === 'done' ? t('case.card.cta.review', '重看此案') : t('case.card.cta.investigate', '立即调查') }),
+      el('span', { text: st === 'done' ? t('case.card.cta.review', '重看此案') : st === 'inprogress' ? t('case.card.cta.resume', '接着整理') : t('case.card.cta.investigate', '立即调查') }),
       ICON.arrow(),
     ]));
   }
@@ -569,19 +588,37 @@ function t_act(act, field) {
 function renderHomeCabinet() {
   const host = $('#home-cabinet');
   if (!host) return;
+  // 从有效未结案存档中选择最近一次整理；否则指向最早未完成的案件。
+  const active = [...RELEASED].map((id) => {
+    const c = state.cases.get(id);
+    const session = c ? normalizeSavedSession(progress.savedOrder(id), c.items, c.hints.length) : null;
+    return session && !progress.of(id)?.solved ? { id, at: session.at } : null;
+  }).filter(Boolean).sort((a, b) => b.at - a.at);
+  const resume = active[0]?.id;
+  const next = [...RELEASED].find((id) => statusOf(id) !== 'done') || 'NA-001';
+  const target = resume || next;
+  const start = $('#cta-first');
+  if (start) {
+    start.href = `#/case/${target}`;
+    start.textContent = resume
+      ? tf('hero.cta.resume', { num: target.slice(3) }, `接着整理第 ${target.slice(3)} 号档案`)
+      : target !== 'NA-001'
+        ? tf('hero.cta.next', { num: target.slice(3) }, `打开下一份档案 #${target.slice(3)}`)
+        : t('hero.cta.primary', '打开第 001 号档案');
+  }
   // 首页只展示第一幕，避免剧透第 006 案
   host.replaceChildren();
   const act = ACTS[0];
   const section = el('section', { class: 'act' });
   const head = el('div', { class: 'act__head' });
   head.append(el('span', { class: 'act__roman', text: act.roman }));
-  const t = el('div');
-  t.append(el('h2', {
+  const actLabel = el('div');
+  actLabel.append(el('h2', {
     class: 'act__title',
     text: tf('act.label', { roman: act.roman, title: t_act(act, 'title') }, `第 ${act.roman} 幕 · ${act.title}`),
   }));
-  t.append(el('p', { class: 'act__desc', text: t_act(act, 'desc') }));
-  head.append(t);
+  actLabel.append(el('p', { class: 'act__desc', text: t_act(act, 'desc') }));
+  head.append(actLabel);
   section.append(head);
   const grid = el('div', { class: 'case-grid' });
   for (const id of act.cases.filter((x) => RELEASED.has(x))) grid.append(caseCard(id));
@@ -601,18 +638,20 @@ function renderCabinet() {
 /* ------------------------------------------------------------------ */
 /* 调查桌                                                              */
 /* ------------------------------------------------------------------ */
-async function openCase(id) {
+async function openCase(id, epoch = state.navEpoch) {
   const root = $('#case-root');
   if (!root) return;
   root.replaceChildren(el('div', { class: 'loading' }, [
     el('div', { class: 'spinner' }),
-    el('p', { text: '正在取阅档案…' }),
+    el('p', { text: t('desk.loading', '正在取阅档案…') }),
   ]));
 
   let c;
   try {
     c = await loadCase(id);
+    if (epoch !== state.navEpoch || state.route !== 'case') return;
   } catch (err) {
+    if (epoch !== state.navEpoch || state.route !== 'case') return;
     root.replaceChildren(el('div', { class: 'empty-state' }, [
       el('h2', { text: '这份档案尚未完整送达' }),
       el('p', { text: err.message || '请刷新，或回到档案柜。' }),
@@ -625,6 +664,7 @@ async function openCase(id) {
   state.solved = false;
   state.attempts = 0;
   state.history = [];
+  state.redo = [];
   state.selected = null;
 
   // 恢复进度：保存的排列 / 提示 / 是否已解
@@ -634,29 +674,27 @@ async function openCase(id) {
 
   // 存档校验：必须是本案物件的完整排列。旧版本存档 / 手改 localStorage / 案件改版
   // 都可能带来不存在的物件名，此时必须丢弃存档并重置，而不是让页面卡在加载态。
-  let restored = null;
-  if (Array.isArray(saved?.order)) {
-    const legit = new Set(c.items);
-    const unique = new Set(saved.order).size === saved.order.length;
-    const sameLength = saved.order.length === c.items.length;
-    const allKnown = saved.order.every((x) => legit.has(x));
-    if (sameLength && unique && allKnown) restored = [...saved.order];
-    else progress.dropOrder(id);   // 丢弃不兼容存档，顺带清掉损坏数据
-  }
-  state.order = restored ?? [...c.items];
-  state.hintIndex = Number.isInteger(saved?.hintIndex) ? saved.hintIndex : 0;
+  const restored = normalizeSavedSession(saved, c.items, c.hints.length);
+  if (saved != null && !restored) progress.dropOrder(id);
+  state.order = restored?.order ?? [...c.items];
+  state.hintIndex = restored?.hintIndex ?? 0;
+  state.history = restored?.history ?? [];
+  state.redo = restored?.redo ?? [];
+  state.attempts = restored?.attempts ?? 0;
 
   // 绝不默认给出答案：若初始排列恰好满足全部约束，做一次确定性错位。
   // 只交换前两格太容易被「照着顺序点」猜到，这里改用按案件 ID 派生的确定性洗牌，
   // 并保证结果既不等于答案、也不满足全部约束（连续洗牌直到两者都成立）。
   if (verifyOrder(state.order, c.constraints).every((r) => r.valid)) {
     state.order = deterministicScramble(state.order, c.id, c.constraints);
+    state.history = [];
+    state.redo = [];
   }
 
   document.title = `${c.title}｜第零证物局`;
   const crumb = $('#crumb-case');
   if (crumb) crumb.textContent = tf('desk.crumb', { num: id.slice(3), title: c.title }, `档案 #${id.slice(3)} · ${c.title}`);
-  if (solvedBefore) toast('这份档案已在本地归档，你可以重看或重新调查。');
+  if (solvedBefore) toast(t('desk.toast.resolved', '这份档案已在本地归档，你可以重看或重新调查。'));
 
   try {
     renderDesk(c);
@@ -783,6 +821,7 @@ function renderDesk(c) {
   const actions = el('div', { class: 'actions' });
   actions.append(el('button', { class: 'btn btn--primary', type: 'button', id: 'btn-submit', text: t('desk.btn.submit', '提交复原') }));
   actions.append(el('button', { class: 'btn', type: 'button', id: 'btn-undo', text: t('desk.btn.undo', '撤销一步') }));
+  actions.append(el('button', { class: 'btn', type: 'button', id: 'btn-redo', text: t('desk.btn.redo', '重做一步') }));
   actions.append(el('button', { class: 'btn', type: 'button', id: 'btn-hint', text: t('desk.btn.hint', '查看提示') }));
   actions.append(el('button', { class: 'btn btn--danger', type: 'button', id: 'btn-reset', text: t('desk.btn.reset', '重置此案') }));
   board.append(actions);
@@ -795,7 +834,7 @@ function renderDesk(c) {
   const msg = el('div', { class: 'message', id: 'message', role: 'status', aria: { live: 'polite' } });
   board.append(msg);
 
-  const hints = el('div', { class: 'hints', id: 'hints', role: 'region', aria: { label: '已揭开的提示' } });
+  const hints = el('div', { class: 'hints', id: 'hints', role: 'region', aria: { label: t('desk.hints.aria', '已揭开的提示') } });
   board.append(hints);
 
   desk.append(orderCol);
@@ -852,7 +891,9 @@ function drawSlots(focus = null) {
     const pick = el('button', {
       class: 'icon-btn', type: 'button',
       dataset: { act: 'pick' },
-      aria: { label: selected ? `取消选中「${item}」` : `选中「${item}」以交换位置`, pressed: String(selected) },
+      aria: { label: selected
+        ? tf('desk.pick.aria.deselect', { item: itemLabel(item) }, `取消选中「${item}」`)
+        : tf('desk.pick.aria.select', { item: itemLabel(item) }, `选中「${item}」以交换位置`), pressed: String(selected) },
     }, [ICON.check()]);
 
     acts.append(up, down, pick);
@@ -907,6 +948,8 @@ function syncButtons() {
   }
   const undo = $('#btn-undo');
   if (undo) undo.disabled = state.history.length === 0;
+  const redo = $('#btn-redo');
+  if (redo) redo.disabled = state.redo.length === 0;
 }
 
 function setStatus(kind, text) {
@@ -937,7 +980,9 @@ function clearMessage() {
 
 function persist() {
   if (!state.caseId) return;
-  progress.saveOrder(state.caseId, state.order, state.hintIndex);
+  progress.saveOrder(
+    state.caseId, state.order, state.hintIndex, state.history, state.redo, state.attempts,
+  );
 }
 
 /* ---------- 交互动作 ---------- */
@@ -948,8 +993,8 @@ function onPick(i) {
     clearMessage();
     drawSlots({ index: i, act: 'pick' });   // 重建 DOM 后把焦点放回同一格
     const item = state.order[i];
-    setStatus('warn', `已选中「${item}」，请点目标格位`);
-    toast(`已选中「${item}」，再点一个格位即可交换`);
+    setStatus('warn', tf('desk.status.selected', { item: itemLabel(item) }, `已选中「${item}」，请点目标格位`));
+    toast(tf('desk.toast.selected', { item: itemLabel(item) }, `已选中「${item}」，再点一个格位即可交换`));
     return;
   }
   if (state.selected === i) {
@@ -958,16 +1003,18 @@ function onPick(i) {
     setStatus('idle', t('desk.status.idle', '准备核对'));
     return;
   }
-  swap(state.selected, i);
-  state.selected = null;
+  const from = state.selected;
+  state.selected = null; // 必须先清状态再重绘，否则交换成功后仍显示旧选中高亮。
+  swap(from, i);
 }
 
 function swap(a, b) {
   if (a === b) return;
-  state.history.push([...state.order]);
+  state.history = pushUndo(state.history, state.order);
+  state.redo = [];
   [state.order[a], state.order[b]] = [state.order[b], state.order[a]];
   clearMessage();
-  setStatus('idle', '已调整排列，等待核对');
+  setStatus('idle', t('desk.status.adjusted', '已调整排列，等待核对'));
   persist();
   drawSlots();
   drawHints();
@@ -978,22 +1025,36 @@ function move(i, delta, act = delta < 0 ? 'up' : 'down') {
   if (state.solved) return;
   const j = i + delta;
   if (j < 0 || j >= state.order.length) return;
-  state.history.push([...state.order]);
+  state.history = pushUndo(state.history, state.order);
+  state.redo = [];
   [state.order[i], state.order[j]] = [state.order[j], state.order[i]];
   state.selected = null;
   clearMessage();
-  setStatus('idle', '已调整排列，等待核对');
+  setStatus('idle', t('desk.status.adjusted', '已调整排列，等待核对'));
   persist();
   drawSlots({ index: j, act });
   syncButtons();
 }
 
 function undo() {
-  if (state.history.length === 0) return;
+  if (state.solved || state.history.length === 0) return;
+  state.redo = pushUndo(state.redo, state.order);
   state.order = state.history.pop();
   state.selected = null;
   clearMessage();
-  setStatus('idle', '已撤销一步');
+  setStatus('idle', t('desk.status.undo', '已撤销一步'));
+  persist();
+  drawSlots();
+  syncButtons();
+}
+
+function redo() {
+  if (state.solved || state.redo.length === 0) return;
+  state.history = pushUndo(state.history, state.order);
+  state.order = state.redo.pop();
+  state.selected = null;
+  clearMessage();
+  setStatus('idle', t('desk.status.redo', '已重做一步'));
   persist();
   drawSlots();
   syncButtons();
@@ -1003,7 +1064,7 @@ function revealHint() {
   const c = state.cases.get(state.caseId);
   if (!c) return;
   if (state.hintIndex >= c.hints.length) {
-    setMessage('info', '提示已全部解封，你仍可继续自由尝试。');
+    setMessage('info', t('desk.hint.exhausted.message', '提示已全部解封，你仍可继续自由尝试。'));
     return;
   }
   state.hintIndex += 1;
@@ -1013,7 +1074,7 @@ function revealHint() {
   syncButtons();
   const card = $('#hints')?.lastElementChild;
   card?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-  setMessage('info', '提示只是帮你推进，不会自动完成排列。');
+  setMessage('info', t('desk.hint.message', '提示只是帮你推进，不会自动完成排列。'));
 }
 
 /* ---------- 提交 ---------- */
@@ -1021,6 +1082,7 @@ function submit() {
   const c = state.cases.get(state.caseId);
   if (!c || state.solved) return;
   state.attempts += 1;
+  persist();
 
   const checks = verifyOrder(state.order, c.constraints);
   const bad = checks.filter((x) => !x.valid);
@@ -1030,14 +1092,14 @@ function submit() {
     const conflicting = c.evidence.filter((e) => e.constraint_ids.some((cid) => bad.some((b) => b.id === cid)));
     const list = el('ul');
     for (const e of conflicting) {
-      list.append(el('li', { text: `${e.id}「${e.title}」中描述的关系与你的排列不一致。` }));
+      list.append(el('li', { text: tf('desk.submit.evidence', { id: e.id, title: e.title }, `${e.id}「${e.title}」中描述的关系与你的排列不一致。`) }));
     }
     setMessage('bad', [
-      el('strong', { text: `档案仍有不一致：${bad.length} 条关系未满足。` }),
-      el('p', { style: 'margin:.5rem 0 .25rem', text: '你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。' }),
+      el('strong', { text: tf('desk.submit.conflicts', { n: bad.length }, `档案仍有不一致：${bad.length} 条关系未满足。`) }),
+      el('p', { style: 'margin:.5rem 0 .25rem', text: t('desk.submit.detail', '你的排列已保留，可以继续核对先后、距离或「夹在中间」的描述。') }),
       list,
     ]);
-    setStatus('bad', `存在 ${bad.length} 处与证据不符的关系`);
+    setStatus('bad', tf('desk.submit.status', { n: bad.length }, `存在 ${bad.length} 处与证据不符的关系`));
     // 轻声标记冲突格位（不提示正确答案，只标记被涉及物件所在位置）
     flashConflicts(bad, c);
     return;
@@ -1047,11 +1109,17 @@ function submit() {
   state.solved = true;
   progress.markSolved(c.id, state.hintIndex > 0);
   progress.dropOrder(c.id);
-  setStatus('ok', '全部关系均已满足 · 可以归档');
-  setMessage('ok', `档案归位。你用了 ${state.hintIndex} 条提示。正在生成结案页…`);
+  setStatus('ok', t('desk.submit.okstatus', '全部关系均已满足 · 可以归档'));
+  setMessage('ok', tf('desk.submit.okmessage', { n: state.hintIndex }, `档案归位。你用了 ${state.hintIndex} 条提示。正在生成结案页…`));
   const stateBox = $('.status-bar');
   stateBox?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-  setTimeout(() => renderVerdict(c, checks), 420);
+  const epoch = state.navEpoch;
+  state.verdictTimer = setTimeout(() => {
+    state.verdictTimer = null;
+    if (epoch !== state.navEpoch || state.route !== 'case'
+        || state.caseId !== c.id || !state.solved) return;
+    renderVerdict(c, checks);
+  }, 420);
 }
 
 function flashConflicts(bad, c) {
@@ -1172,17 +1240,20 @@ function renderVerdict(c, checks) {
   $('#verdict-title')?.focus?.();
 
   $('#btn-replay')?.addEventListener('click', async () => {
+    const epoch = state.navEpoch;
     const ok = await confirmDialog({
       title: '重新调查此案？',
       body: '会清空本案的本地排列进度（归档标记保留）。',
       okText: '重新开始',
     });
-    if (!ok) return;
+    if (!ok || epoch !== state.navEpoch || state.caseId !== c.id) return;
     progress.dropOrder(c.id);
     state.hintIndex = 0;
     state.history = [];
+    state.redo = [];
     state.selected = null;
-    openCase(c.id);
+    await router(); // 重新绑定事件，防止重复监听器累积
+
   });
 }
 
@@ -1223,12 +1294,23 @@ function bindDeskEvents(c) {
     }
   }, { signal });
 
+  // 快捷键由 document 监听：撤销后焦点可能落在调查桌外，仍应可用。
+  document.addEventListener('keydown', (e) => {
+    if (state.route !== 'case' || state.solved || (!e.ctrlKey && !e.metaKey)
+        || e.altKey || e.target.closest('input, textarea, select, [contenteditable]')) return;
+    const key = e.key.toLowerCase();
+    if (key !== 'z' && key !== 'y') return;
+    e.preventDefault();
+    if (key === 'y' || e.shiftKey) redo();
+    else undo();
+  }, { signal });
+
   root.addEventListener('keydown', (e) => {
     // Esc 取消选中：不要求焦点在格位内（玩家可能刚点过别处）
     if (e.key === 'Escape' && state.selected != null) {
       state.selected = null;
       drawSlots();
-      setStatus('idle', '已取消选中');
+      setStatus('idle', t('desk.status.cancelled', '已取消选中'));
       return;
     }
     const li = e.target.closest('.slot');
@@ -1245,28 +1327,32 @@ function bindDeskEvents(c) {
 
   $('#btn-submit')?.addEventListener('click', submit, { signal });
   $('#btn-undo')?.addEventListener('click', undo, { signal });
+  $('#btn-redo')?.addEventListener('click', redo, { signal });
   $('#btn-hint')?.addEventListener('click', revealHint, { signal });
   $('#btn-reset')?.addEventListener('click', async () => {
+    const epoch = state.navEpoch;
     const ok = await confirmDialog({
       title: '重置此案？',
       body: '重置会清空这份档案的本地排列进度。确定吗？',
       okText: '确认重置',
     });
-    if (!ok) return;
+    if (!ok || epoch !== state.navEpoch || state.caseId !== c.id) return;
     state.order = [...c.items];
     if (verifyOrder(state.order, c.constraints).every((r) => r.valid)) {
       state.order = deterministicScramble(state.order, c.id, c.constraints);
     }
     state.history = [];
+    state.redo = [];
     state.selected = null;
     state.hintIndex = 0;
+    state.attempts = 0;
     progress.dropOrder(c.id);
     clearMessage();
     setStatus('idle', t('desk.status.idle', '准备核对'));
     drawSlots();
     drawHints();
     syncButtons();
-    toast('已重置本案排列与提示进度');
+    toast(t('desk.status.reset', '已重置本案排列与提示进度'));
   }, { signal });
 
   // ---- 拖放（增强项；按钮始终可用）----

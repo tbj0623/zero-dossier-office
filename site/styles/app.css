@@ -342,6 +342,7 @@ main { display: block; min-height: 60dvh; }
   letter-spacing: 0.06em;
 }
 .case-card__status--ready { color: var(--success); }
+.case-card__status--inprogress { color: var(--brass); }
 .case-card__status--done { color: var(--brass); }
 .case-card__status--locked { color: var(--mist); }
 .case-card__cta {
