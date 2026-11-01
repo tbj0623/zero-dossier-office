@@ -1382,6 +1382,66 @@
     "desk.filed.badge": {
       "zh": "已在本地归档",
       "en": "Filed locally"
+    },
+    "notebook.heading": {
+      "zh": "推理笔记 · 自己做排除表",
+      "en": "Deduction Notes · Your Logic Grid"
+    },
+    "notebook.help": {
+      "zh": "点击：· 未标记 → ? 可能 → × 排除。你的标记不影响判题。",
+      "en": "Activate a cell: · unmarked → ? possible → × excluded. Your notes never affect grading."
+    },
+    "notebook.scroll.aria": {
+      "zh": "可横向滚动的推理矩阵",
+      "en": "Scrollable deduction notes grid"
+    },
+    "notebook.corner": {
+      "zh": "证物 / 格位",
+      "en": "Item / Slot"
+    },
+    "notebook.possible": {
+      "zh": "可能",
+      "en": "Possible"
+    },
+    "notebook.excluded": {
+      "zh": "排除",
+      "en": "Excluded"
+    },
+    "notebook.unknown": {
+      "zh": "未标记",
+      "en": "Unmarked"
+    },
+    "notebook.cell.aria": {
+      "zh": "{item} × {slot}：{state}。点击切换",
+      "en": "{item} at {slot}: {state}. Activate to cycle"
+    },
+    "notebook.stats": {
+      "zh": "可能 {possible} · 排除 {excluded}",
+      "en": "Possible {possible} · Excluded {excluded}"
+    },
+    "notebook.clear": {
+      "zh": "清空笔记标记",
+      "en": "Clear note marks"
+    },
+    "notebook.clear.title": {
+      "zh": "清空本案推理笔记？",
+      "en": "Clear this case’s deduction notes?"
+    },
+    "notebook.clear.body": {
+      "zh": "只清空矩阵标记，证物顺序与提示不变。",
+      "en": "Only your grid marks will be cleared. The arrangement and hints stay intact."
+    },
+    "notebook.clear.ok": {
+      "zh": "清空标记",
+      "en": "Clear marks"
+    },
+    "manual.notebook.h2": {
+      "zh": "推理笔记 · 把猜想留在纸上",
+      "en": "Deduction Notes · Keep Your Reasoning"
+    },
+    "manual.notebook.body": {
+      "zh": "调查桌里的「推理笔记」是可选的证物 × 格位表。点每个格子，依次标记「未标记 → 可能 → 排除」；所有标记只代表你的判断，不会自动求解、不会影响判题，并随本案进度保存在这台设备上。重置本案或清除进度时，笔记也会清空。",
+      "en": "The optional Deduction Notes grid lets you mark every item and slot as unmarked, possible, or excluded. Marks are your own reasoning; they never solve the puzzle or affect grading. They persist locally with the current case and are cleared when you reset that case or clear progress."
     }
   },
   "cases": {

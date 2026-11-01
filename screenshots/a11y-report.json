@@ -1,6 +1,6 @@
 {
   "base": "http://127.0.0.1:8140",
-  "when": "2026-11-02T04:33:18+0800",
+  "when": "2026-11-02T04:56:59+0800",
   "tags": [
     "wcag2a",
     "wcag2aa",
@@ -23,6 +23,12 @@
     },
     {
       "page": "调查桌·折叠",
+      "path": "/#/case/NA-001",
+      "violations": [],
+      "ok": true
+    },
+    {
+      "page": "调查桌·推理笔记（已展开）",
       "path": "/#/case/NA-001",
       "violations": [],
       "ok": true

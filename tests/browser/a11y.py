@@ -102,6 +102,12 @@ def main() -> int:
         check("档案柜", "/#/cabinet", expect="#cabinet .case-card")
         check("调查桌·折叠", "/#/case/NA-001", expect="#slots .slot")
 
+        def open_notebook(page):
+            page.locator("#deduction-notebook summary").click()
+            page.locator('[data-note-row="0"][data-note-col="0"]').click()
+        check("调查桌·推理笔记（已展开）", "/#/case/NA-001",
+              prep=open_notebook, expect=".deduction-notebook__cell")
+
         def expand(page):
             for b in page.query_selector_all(".ev-card__summary"):
                 if b.get_attribute("aria-expanded") == "false":

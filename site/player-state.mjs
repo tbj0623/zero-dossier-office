@@ -3,6 +3,8 @@
  * 运行时的本地存档不可信：损坏内容、跨版本内容、手动编辑都必须安全降级。
  * 保证任何可恢复状态都是本案所有物件的一次完整排列。
  */
+import { normalizeNotes } from './deduction-notes.mjs';
+
 export const HISTORY_LIMIT = 50;
 
 export function isExactPermutation(value, items) {
@@ -34,6 +36,7 @@ export function normalizeSavedSession(raw, items, hintCount) {
     redo: safeStack(raw.redo),
     attempts,
     at,
+    notes: normalizeNotes(raw.notes, items.length),
   };
 }
 

@@ -27,6 +27,8 @@ class ReleaseGuards(unittest.TestCase):
         self.assertIn("python tests/browser/ux_v3.py", CI)
         self.assertIn("python tests/browser/ux_v4.py", CI)
         self.assertIn("python tests/browser/ux_v5.py", CI)
+        self.assertIn("python tests/browser/ux_v6.py", CI)
+        self.assertIn("tests/logic/deduction_notes.test.mjs", CI)
         self.assertIn("python tests/browser/a11y.py", CI)
         self.assertIn("chromium firefox webkit", CI)
 

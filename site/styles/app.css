@@ -1208,3 +1208,105 @@ a svg *,
   outline: 3px solid var(--brass);
   outline-offset: 2px;
 }
+
+
+/* V6: player-owned deduction notes. Collapsed by default; no solver inference. */
+.deduction-notebook {
+  margin-block: var(--sp-4);
+  min-width: 0;
+  border: 1px solid rgb(223 185 120 / .3);
+  border-radius: var(--radius);
+  background: rgb(9 23 32 / .68);
+}
+.deduction-notebook__summary {
+  cursor: pointer;
+  padding: var(--sp-3) var(--sp-4);
+  min-height: 44px;
+  color: var(--paper);
+  font-weight: 700;
+  line-height: 1.5;
+}
+.deduction-notebook__summary:focus-visible {
+  outline: 3px solid var(--brass);
+  outline-offset: 2px;
+}
+.deduction-notebook__body {
+  padding: 0 var(--sp-3) var(--sp-3);
+}
+.deduction-notebook__help {
+  color: var(--mist);
+  font-size: var(--step--1);
+  line-height: 1.6;
+  margin-block: var(--sp-2);
+}
+.deduction-notebook__scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid rgb(158 183 180 / .22);
+  scrollbar-width: thin;
+}
+.deduction-notebook__scroll:focus-visible {
+  outline: 3px solid var(--brass);
+  outline-offset: 2px;
+}
+.deduction-notebook__table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  font: inherit;
+  font-size: var(--step--1);
+  text-align: center;
+}
+.deduction-notebook__table th,
+.deduction-notebook__table td {
+  padding: 5px 6px;
+  border: 1px solid rgb(158 183 180 / .15);
+  vertical-align: middle;
+}
+.deduction-notebook__table th {
+  color: var(--paper);
+  font-weight: 600;
+  white-space: nowrap;
+  background: rgb(27 46 54 / .7);
+}
+.deduction-notebook__table tbody th {
+  text-align: start;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: #162831;
+}
+.deduction-notebook__cell {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  min-height: 44px;
+  margin: auto;
+  border-radius: 6px;
+  border: 1px solid rgb(158 183 180 / .23);
+  background: rgb(158 183 180 / .08);
+  color: var(--text);
+  font: inherit;
+  font-size: 1.13rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.deduction-notebook__cell[data-mark="1"] {
+  background: rgb(223 185 120 / .18);
+  border-color: var(--brass);
+  color: var(--brass);
+}
+.deduction-notebook__cell[data-mark="2"] {
+  background: rgb(175 68 64 / .12);
+  border-color: rgb(217 103 101 / .65);
+  color: #efaaa3;
+}
+.deduction-notebook__cell:focus-visible {
+  outline: 3px solid var(--brass);
+  outline-offset: 2px;
+}
+@media (max-width: 480px) {
+  .deduction-notebook__body { padding-inline: var(--sp-2); }
+  .deduction-notebook__table { min-width: 520px; }
+}

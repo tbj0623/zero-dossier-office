@@ -28,6 +28,7 @@ import {
   applyToDocument,
 } from './i18n.mjs';
 import { normalizeSavedSession, pushUndo } from './player-state.mjs';
+import { blankNotes, nextNote, noteCounts } from './deduction-notes.mjs';
 
 /* ------------------------------------------------------------------ */
 /* 常量与状态                                                          */
@@ -84,6 +85,7 @@ const state = {
   caseId: null,
   cases: new Map(),      // id -> case data
   order: [],             // 当前排列
+  notes: [],             // 玩家自行标记的候选格，不介入求解器
   selected: null,        // 当前选中的格位索引
   hintIndex: 0,          // 已揭开的提示数
   history: [],           // 撤销栈
@@ -244,8 +246,11 @@ const progress = {
     store.set('progress', all);
   },
   savedOrder(id) { return store.get(`order:${id}`, null); },
-  saveOrder(id, order, hintIndex, history = [], redo = [], attempts = 0) {
-    store.set(`order:${id}`, { order: [...order], hintIndex, history, redo, attempts, at: Date.now() });
+  saveOrder(id, order, hintIndex, history = [], redo = [], attempts = 0, notes = []) {
+    store.set(`order:${id}`, {
+      order: [...order], hintIndex, history, redo, attempts,
+      notes: notes.map((row) => [...row]), at: Date.now(),
+    });
   },
   dropOrder(id) { store.remove(`order:${id}`); },
   solvedCount() {
@@ -685,6 +690,7 @@ async function openCase(id, epoch = state.navEpoch) {
   state.history = restored?.history ?? [];
   state.redo = restored?.redo ?? [];
   state.attempts = restored?.attempts ?? 0;
+  state.notes = restored?.notes ?? blankNotes(c.items.length);
 
   // 绝不默认给出答案：若初始排列恰好满足全部约束，做一次确定性错位。
   // 只交换前两格太容易被「照着顺序点」猜到，这里改用按案件 ID 派生的确定性洗牌，
@@ -834,6 +840,7 @@ function renderDesk(c) {
 
   const slots = el('ol', { class: 'slots', id: 'slots', aria: { label: t('desk.slots.aria', '复原格位列表') } });
   board.append(slots);
+  board.append(buildNotebook(c));
   orderCol.append(board);
 
   const actions = el('div', { class: 'actions' });
@@ -861,6 +868,90 @@ function renderDesk(c) {
   drawSlots();
   drawHints();
   syncButtons();
+  syncNoteStats();
+}
+
+
+function noteLabel(mark) {
+  return mark === 1 ? t('notebook.possible', '可能')
+    : mark === 2 ? t('notebook.excluded', '排除') : t('notebook.unknown', '未标记');
+}
+function syncNoteCell(button, c) {
+  const i = Number(button.dataset.noteRow), j = Number(button.dataset.noteCol);
+  const mark = state.notes[i][j];
+  button.dataset.mark = String(mark);
+  button.textContent = ['·', '?', '×'][mark];
+  const label = tf('notebook.cell.aria', {
+    item: itemLabel(c.items[i]), slot: c.slots[j], state: noteLabel(mark),
+  }, itemLabel(c.items[i]) + ' / ' + c.slots[j] + ': ' + noteLabel(mark));
+  button.setAttribute('aria-label', label);
+  button.title = label;
+}
+function syncNoteStats() {
+  const target = $('#notes-stats');
+  if (!target) return;
+  const counts = noteCounts(state.notes);
+  target.textContent = tf('notebook.stats', counts,
+    '可能 ' + counts.possible + ' · 排除 ' + counts.excluded);
+}
+function buildNotebook(c) {
+  const details = el('details', { class: 'deduction-notebook', id: 'deduction-notebook' });
+  details.append(el('summary', { class: 'deduction-notebook__summary',
+    text: t('notebook.heading', '推理笔记 · 自己做排除表') }));
+  const panel = el('div', { class: 'deduction-notebook__body' });
+  panel.append(el('p', { class: 'deduction-notebook__help',
+    text: t('notebook.help', '点击：· 未标记 → ? 可能 → × 排除。你的标记不影响判题。') }));
+  const scroll = el('div', { class: 'deduction-notebook__scroll', tabindex: '0', role: 'region',
+    aria: { label: t('notebook.scroll.aria', '可横向滚动的推理矩阵') } });
+  const table = el('table', { class: 'deduction-notebook__table' });
+  const tr = el('tr');
+  tr.append(el('th', { scope: 'col', text: t('notebook.corner', '证物 / 格位') }));
+  c.slots.forEach((slot) => tr.append(el('th', { scope: 'col', text: slot })));
+  table.append(el('thead', {}, [tr]));
+  const body = el('tbody');
+  c.items.forEach((item, i) => {
+    const row = el('tr');
+    row.append(el('th', { scope: 'row', text: itemLabel(item) }));
+    c.slots.forEach((slot, j) => {
+      const button = el('button', { type: 'button', class: 'deduction-notebook__cell',
+        dataset: { noteRow: String(i), noteCol: String(j) } });
+      syncNoteCell(button, c);
+      row.append(el('td', {}, [button]));
+    });
+    body.append(row);
+  });
+  table.append(body);
+  scroll.append(table);
+  panel.append(scroll);
+  panel.append(el('p', { class: 'deduction-notebook__help', id: 'notes-stats',
+    role: 'status', aria: { live: 'polite' } }));
+  panel.append(el('button', { type: 'button', class: 'btn btn--ghost btn--sm',
+    dataset: { notesClear: 'true' }, text: t('notebook.clear', '清空笔记标记') }));
+  details.append(panel);
+  return details;
+}
+function markNotebookCell(button, c) {
+  if (state.solved) return;
+  const i = Number(button.dataset.noteRow), j = Number(button.dataset.noteCol);
+  if (!Number.isInteger(i) || !Number.isInteger(j)
+    || i < 0 || j < 0 || i >= c.items.length || j >= c.items.length) return;
+  state.notes[i][j] = nextNote(state.notes[i][j]);
+  syncNoteCell(button, c);
+  syncNoteStats();
+  persist();
+}
+async function clearNotebook(c) {
+  const epoch = state.navEpoch;
+  const ok = await confirmDialog({
+    title: t('notebook.clear.title', '清空本案推理笔记？'),
+    body: t('notebook.clear.body', '只清空矩阵标记，证物顺序与提示不变。'),
+    okText: t('notebook.clear.ok', '清空标记'),
+  });
+  if (!ok || epoch !== state.navEpoch || state.caseId !== c.id || state.solved) return;
+  state.notes = blankNotes(c.items.length);
+  $$('.deduction-notebook__cell').forEach((button) => syncNoteCell(button, c));
+  syncNoteStats();
+  persist();
 }
 
 function withClass(node, cls) {
@@ -999,7 +1090,7 @@ function clearMessage() {
 function persist() {
   if (!state.caseId) return;
   progress.saveOrder(
-    state.caseId, state.order, state.hintIndex, state.history, state.redo, state.attempts,
+    state.caseId, state.order, state.hintIndex, state.history, state.redo, state.attempts, state.notes,
   );
 }
 
@@ -1316,6 +1407,9 @@ function bindDeskEvents(c) {
 
   const root = $('#case-root');
   root.addEventListener('click', (e) => {
+    const note = e.target.closest('[data-note-row][data-note-col]');
+    if (note) { markNotebookCell(note, c); return; }
+    if (e.target.closest('[data-notes-clear]')) { void clearNotebook(c); return; }
     const locator = e.target.closest('[data-open-evidence]');
     if (locator) {
       openEvidenceById(locator.dataset.openEvidence);
@@ -1402,12 +1496,15 @@ function bindDeskEvents(c) {
     state.selected = null;
     state.hintIndex = 0;
     state.attempts = 0;
+    state.notes = blankNotes(c.items.length);
     progress.dropOrder(c.id);
     clearMessage();
     setStatus('idle', t('desk.status.idle', '准备核对'));
     drawSlots();
     drawHints();
     syncButtons();
+    $$('.deduction-notebook__cell').forEach((button) => syncNoteCell(button, c));
+    syncNoteStats();
     toast(t('desk.status.reset', '已重置本案排列与提示进度'));
   }, { signal });
 

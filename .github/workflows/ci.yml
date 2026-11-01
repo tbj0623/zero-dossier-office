@@ -31,7 +31,7 @@ jobs:
         run: python -m unittest discover -s tests/logic -p 'test_*.py' -v
 
       - name: JavaScript 单元测试
-        run: node --test tests/logic/solver.test.mjs tests/logic/player_state.test.mjs
+        run: node --test tests/logic/solver.test.mjs tests/logic/player_state.test.mjs tests/logic/deduction_notes.test.mjs
 
       - name: Python ⇄ JavaScript 规则一致性
         run: python tests/logic/cross_check.py
@@ -127,6 +127,9 @@ jobs:
 
       - name: V5 英文操作、错误恢复与清空存档回归
         run: python tests/browser/ux_v5.py --base http://127.0.0.1:8080
+
+      - name: V6 推理笔记工作台专项回归
+        run: python tests/browser/ux_v6.py --base http://127.0.0.1:8080
 
       - name: 无障碍门禁（axe-core，零违规）
         run: python tests/browser/a11y.py --base http://127.0.0.1:8080
