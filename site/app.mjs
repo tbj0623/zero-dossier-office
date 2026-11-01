@@ -201,12 +201,16 @@ const store = {
   remove(key) {
     try { localStorage.removeItem(STORAGE_PREFIX + key); } catch { /* 忽略 */ }
   },
-  clearAll() {
+  clearProgress() {
+    // 「清除游玩进度」不应该同时忘记界面语言、首次说明的关闭偏好。
+    // 只清本游戏的存档键，不删除同源的其他 localStorage 数据。
     try {
       const keys = [];
       for (let i = 0; i < localStorage.length; i += 1) {
         const k = localStorage.key(i);
-        if (k && k.startsWith(STORAGE_PREFIX)) keys.push(k);
+        if (k === STORAGE_PREFIX + 'progress' || k?.startsWith(STORAGE_PREFIX + 'order:')) {
+          keys.push(k);
+        }
       }
       keys.forEach((k) => localStorage.removeItem(k));
       return true;
@@ -266,7 +270,7 @@ function toast(text) {
 /* ------------------------------------------------------------------ */
 /* 确认对话框（原生 <dialog>，失败时回退到 window.confirm 语义）        */
 /* ------------------------------------------------------------------ */
-function confirmDialog({ title, body, okText = '确认' }) {
+function confirmDialog({ title, body, okText = t('dialog.confirm.default', '确认') }) {
   const dlg = $('#confirm-dialog');
   if (!dlg || typeof dlg.showModal !== 'function') {
     return Promise.resolve(window.confirm(`${title}\n\n${body}`));
@@ -417,7 +421,7 @@ async function router() {
 
   showView(route.view);
   if (route.invalid) {
-    toast('这个地址没有对应的档案，已回到封面。');
+    toast(t('toast.invalidRoute', '这个地址没有对应的档案，已回到封面。'));
     if (history.replaceState) history.replaceState(null, '', '#/');
   }
   document.title = {
@@ -438,16 +442,16 @@ async function router() {
 /* ------------------------------------------------------------------ */
 async function loadCase(id) {
   if (state.cases.has(id)) return state.cases.get(id);
-  if (!RELEASED.has(id)) throw new Error('该案尚未通过全部门禁');
+  if (!RELEASED.has(id)) throw new Error(t('error.notReleased', '该案尚未通过全部门禁'));
   const res = await fetch(`./cases/${id}.json`, { cache: 'no-cache' });
-  if (!res.ok) throw new Error(`案件文件不可用（HTTP ${res.status}）`);
+  if (!res.ok) throw new Error(tf('error.caseFileHttp', { status: res.status }, `案件文件不可用（HTTP ${res.status}）`));
   const data = await res.json();
-  if (data.id !== id) throw new Error('案件编号与文件名不一致');
+  if (data.id !== id) throw new Error(t('error.idMismatch', '案件编号与文件名不一致'));
 
   assertCaseShape(data);
 
   const solved = countSolutions(data.items, data.constraints);
-  if (solved.count !== 1) throw new Error('该案未通过唯一解校验，已暂停展示');
+  if (solved.count !== 1) throw new Error(t('error.notUnique', '该案未通过唯一解校验，已暂停展示'));
 
   const necessity = necessityReport(data.items, data.constraints);
   state.necessity.set(id, new Map(necessity.map((n) => [n.id, n])));
@@ -540,7 +544,7 @@ function caseCard(id, { compact = false } = {}) {
 
   if (st === 'locked') {
     body.append(el('button', { class: 'btn btn--ghost case-card__cta', type: 'button', disabled: true }, [
-      el('span', { text: '待开放' }),
+      el('span', { text: t('case.card.locked', '待开放') }),
     ]));
   } else {
     body.append(el('a', { tabindex: '0',
@@ -653,8 +657,8 @@ async function openCase(id, epoch = state.navEpoch) {
   } catch (err) {
     if (epoch !== state.navEpoch || state.route !== 'case') return;
     root.replaceChildren(el('div', { class: 'empty-state' }, [
-      el('h2', { text: '这份档案尚未完整送达' }),
-      el('p', { text: err.message || '请刷新，或回到档案柜。' }),
+      el('h2', { text: t('desk.error.title', '这份档案尚未完整送达') }),
+      el('p', { text: t('desk.error.body.fallback', '请刷新，或回到档案柜。') }),
       el('p', {}, [el('a', { tabindex: '0', class: 'btn btn--ghost', href: '#/cabinet', text: t('verdict.cta.cabinet', '返回档案柜') })]),
     ]));
     return;
@@ -702,8 +706,8 @@ async function openCase(id, epoch = state.navEpoch) {
   } catch (err) {
     // 渲染期异常同样兜底，绝不把玩家留在「正在取阅档案…」加载态
     root.replaceChildren(el('div', { class: 'empty-state' }, [
-      el('h2', { text: '这份档案暂时无法展开' }),
-      el('p', { text: err.message || '请刷新，或回到档案柜。' }),
+      el('h2', { text: t('desk.error.title.render', '这份档案暂时无法展开') }),
+      el('p', { text: t('desk.error.body.fallback', '请刷新，或回到档案柜。') }),
       el('p', {}, [el('a', { tabindex: '0', class: 'btn btn--ghost', href: '#/cabinet', text: t('verdict.cta.cabinet', '返回档案柜') })]),
     ]));
   }
@@ -729,7 +733,7 @@ function renderDesk(c) {
   const meta = el('div', { style: 'display:flex;flex-wrap:wrap;gap:.5rem;align-items:center' });
   meta.append(el('span', { class: 'pill', text: c.difficulty || '—' }));
   meta.append(el('span', { class: 'pill pill--mist', text: tf('case.card.no', { num: c.id.slice(3) }, `档案 #${c.id.slice(3)}`) }));
-  if (progress.of(c.id)?.solved) meta.append(el('span', { class: 'pill pill--ok', text: '已在本地归档' }));
+  if (progress.of(c.id)?.solved) meta.append(el('span', { class: 'pill pill--ok', text: t('desk.filed.badge', '已在本地归档') }));
   head.append(meta);
   root.append(head);
 
@@ -1282,9 +1286,9 @@ function renderVerdict(c, checks) {
   $('#btn-replay')?.addEventListener('click', async () => {
     const epoch = state.navEpoch;
     const ok = await confirmDialog({
-      title: '重新调查此案？',
-      body: '会清空本案的本地排列进度（归档标记保留）。',
-      okText: '重新开始',
+      title: t('dialog.replay.title', '重新调查此案？'),
+      body: t('dialog.replay.body', '会清空本案的本地排列进度（归档标记保留）。'),
+      okText: t('dialog.replay.ok', '重新开始'),
     });
     if (!ok || epoch !== state.navEpoch || state.caseId !== c.id) return;
     progress.dropOrder(c.id);
@@ -1384,9 +1388,9 @@ function bindDeskEvents(c) {
   $('#btn-reset')?.addEventListener('click', async () => {
     const epoch = state.navEpoch;
     const ok = await confirmDialog({
-      title: '重置此案？',
-      body: '重置会清空这份档案的本地排列进度。确定吗？',
-      okText: '确认重置',
+      title: t('dialog.resetCase.title', '重置此案？'),
+      body: t('dialog.resetCase.body', '重置会清空这份档案的本地排列进度。确定吗？'),
+      okText: t('dialog.resetCase.ok', '确认重置'),
     });
     if (!ok || epoch !== state.navEpoch || state.caseId !== c.id) return;
     state.order = [...c.items];
@@ -1466,18 +1470,23 @@ function bindGlobal() {
     const open = nav?.dataset.open === 'true';
     if (nav) nav.dataset.open = String(!open);
     toggle.setAttribute('aria-expanded', String(!open));
-    toggle.setAttribute('aria-label', !open ? '关闭导航菜单' : '打开导航菜单');
+    toggle.setAttribute('aria-label', !open
+      ? t('nav.toggle.close', '关闭导航菜单') : t('nav.toggle.open', '打开导航菜单'));
   });
 
   $('#clear-progress')?.addEventListener('click', async () => {
     const ok = await confirmDialog({
-      title: '清除本机全部进度？',
-      body: '这会删除本站在你浏览器中保存的全部归档状态与排列进度，且不可撤销。',
-      okText: '全部清除',
+      title: t('dialog.clear.title', '清除本机全部进度？'),
+      body: t('dialog.clear.body', '这会删除本站在你浏览器中保存的全部归档状态与排列进度，且不可撤销。'),
+      okText: t('dialog.clear.ok', '全部清除'),
     });
     if (!ok) return;
-    store.clearAll();
-    toast('已清除本机全部进度');
+    if (!store.clearProgress()) {
+      toast(t('toast.clearFailed', '清除失败，请检查浏览器存储权限。'));
+      return;
+    }
+    toast(t('toast.cleared', '已清除本机全部进度'));
+    renderHomeCabinet();
     renderCabinet();
   });
 
@@ -1490,6 +1499,11 @@ function bindGlobal() {
 
   const langBtn = $('#lang-toggle');
   const syncLangBtn = () => {
+    // 更新手机菜单的当前语言和无障碍标签，包括初次以英文打开。
+    const navOpen = nav?.dataset.open === 'true';
+    toggle?.setAttribute('aria-label', navOpen
+      ? t('nav.toggle.close', '关闭导航菜单') : t('nav.toggle.open', '打开导航菜单'));
+    nav?.setAttribute('aria-label', t('nav.aria', '主导航'));
     if (!langBtn) return;
     const en = currentLocale() === 'en';
     langBtn.textContent = en ? '中文' : 'EN';
@@ -1500,7 +1514,9 @@ function bindGlobal() {
     const next = currentLocale() === 'en' ? 'zh' : 'en';
     const ok = await setLocale(next);
     if (!ok) {
-      toast(next === 'en' ? '英文语言包未能载入，继续使用中文。' : '无法切换语言。');
+      toast(next === 'en'
+        ? t('lang.error.load', '英文语言包未能载入，继续使用中文。')
+        : t('lang.error.switch', '无法切换语言。'));
       return;
     }
     syncLangBtn();
@@ -1515,7 +1531,7 @@ function bindGlobal() {
     if (!briefing) return;
     briefing.hidden = true;
     store.set('briefing_dismissed', true);
-    toast('随时可以在「玩法说明」里重看局规。');
+    toast(t('toast.briefingDismissed', '随时可以在「玩法说明」里重看局规。'));
   });
 
   const ver = $('#build-version');

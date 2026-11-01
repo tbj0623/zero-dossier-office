@@ -1374,6 +1374,14 @@
     "desk.submit.evidence.open": {
       "zh": "查看证物 {id}「{title}」的冲突关系 ↑",
       "en": "Review conflicting evidence {id}: {title} ↑"
+    },
+    "toast.clearFailed": {
+      "zh": "清除失败，请检查浏览器存储权限。",
+      "en": "Could not clear progress. Check your browser storage permissions."
+    },
+    "desk.filed.badge": {
+      "zh": "已在本地归档",
+      "en": "Filed locally"
     }
   },
   "cases": {

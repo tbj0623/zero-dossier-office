@@ -125,6 +125,9 @@ jobs:
       - name: V4 情境导航与证据定位回归
         run: python tests/browser/ux_v4.py --base http://127.0.0.1:8080
 
+      - name: V5 英文操作、错误恢复与清空存档回归
+        run: python tests/browser/ux_v5.py --base http://127.0.0.1:8080
+
       - name: 无障碍门禁（axe-core，零违规）
         run: python tests/browser/a11y.py --base http://127.0.0.1:8080
 
